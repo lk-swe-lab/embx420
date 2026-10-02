@@ -20,6 +20,9 @@
 - docs/AI_LOGGING.md — registry, logging, and publication rules.
 - .gitignore — excludes local environment, caches, and generated database.
 - Makefile — builds CLI/tests; test, lint, format-check, format, and clean.
+- demo.sh — recorded demo: clean, tests, clean, build, CLI options, lint.
+- demo/2026-10-01-demo.mp4 — silent MP4 demonstration.
+- demo/Screencast from 2026-10-01 22-27-29.webm — original recording.
 - .clang-format — C formatting with an 80-column limit.
 - src/main.c — assignment CLI source.
 - tests/test_help.c — failing CUnit CLI test for -h usage and exit status.

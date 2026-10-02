@@ -1,20 +1,33 @@
 #define _POSIX_C_SOURCE 200809L
 #include "traverse.h" /* Traversal/output APIs, options, HOURS_PER_DAY. */
 #include <getopt.h>   /* getopt_long, struct option, optarg, argument modes. */
-#include <stdio.h>    /* fputs, perror, stdout. */
+#include <stdio.h>    /* FILE, fputs, perror, stdout, stderr. */
 #include <stdlib.h>   /* free. */
 #include <string.h>   /* strdup, strlen, strrchr. */
 #include <sys/stat.h> /* lstat, struct stat. */
 
 #define SHORT_OPTIONS "hr:"
 
-/* Purpose: Print the help usage line.
- * Args: none.
+/* Purpose: Print usage and every supported option.
+ * Args: out selects stdout for help or stderr for option errors.
  * Rets: void.
  */
-static void print_help(void)
+static void print_help(FILE *out)
 {
-    fputs("Usage: main [-h|--help]\n", stdout);
+    fputs("Usage: main -r DIR [--mtime] [--local|--utc] [--histogram]\n"
+          "       main -h|--help\n"
+          "\n"
+          "Options:\n"
+          "  -h, --help           Show this help and exit.\n"
+          "  -r, --recursive DIR  Print directory/file names recursively.\n"
+          "  --mtime              Add file/directory modification dates.\n"
+          "  --local              Use local time (default).\n"
+          "  --utc                Use UTC time.\n"
+          "  --histogram          Show regular-file counts by "
+          "modification hour.\n"
+          "\n"
+          "The last time selector wins; selectors affect dates "
+          "and histograms.\n", out);
 }
 
 /* Purpose: Parse options and start recursive traversal.
@@ -47,7 +60,7 @@ int main(int argc, char **argv)
                                  long_options, NULL)) != -1) {
         switch (option) {
         case 'h':
-            print_help();
+            print_help(stdout);
             return 0;
         case 'r':
             directory = optarg;

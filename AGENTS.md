@@ -3,6 +3,12 @@
 - Keep AGENTS.md small; put additional procedures in separate files and reference them here.
 - For assignment questions, follow [local data lookup](docs/DATA_LOOKUP.md); query data.sqlite for relevant excerpts before rereading whole sources.
 
+## Project identity
+- Use GitHub account lk-swe-lab for this project.
+- Git author: lk-swe-lab <314523841+lk-swe-lab@users.noreply.github.com>.
+- AI commit attribution: [Hermes, <model>, <reasoning>]; no AI author field.
+- Use the actual model and reasoning level; write unknown if unavailable.
+
 ## Collaboration
 - By default, the human writes code and tests; the AI discusses, reviews, and suggests. Upon a user request to edit any file, the AI must first confirm the scope and obtain approval before editing.
 - Provide code examples only when requested.
