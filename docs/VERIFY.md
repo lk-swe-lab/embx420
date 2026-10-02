@@ -1,0 +1,11 @@
+# Test and verify
+- Grow the test suite alongside the implementation.
+- Cover normal cases, boundaries, invalid inputs, and failure paths.
+- Add property-based tests, fuzzing, and end-to-end tests as applicable.
+- Explain any omitted test type and agree on the reason.
+- Run the accumulated suite before each delivery build.
+- Compile first when required to execute tests.
+- Report actual commands and results; never infer success.
+- Finish only when agreed requirements are verified.
+- Suggest tests to test what SHOULD NOT or CANNOT happen.
+- Suggest tests outside of happy path testing.
