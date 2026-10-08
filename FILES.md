@@ -34,6 +34,13 @@
 - .tmp/HANDOFF.md — temporary restart context; Git-ignored.
 
 
+## ls command
+- docs/commands/ls.md — ls inventory, implemented contract, TDD evidence, and verification limits.
+- src/cmd_ls.c, src/cmd_ls.h — sorted directory listing, long metadata, and JSON module.
+- src/ls_main.c — thin standalone ls entry point.
+- tests/test_ls.py — independent ls CLI expectations, GNU adapter, and boundaries/failures.
+- tests/test_ls_module.c — repeated ls calls, borrowed resources, unchanged argv, and injected failures.
+
 ## Planned
 - docs/export_md.py — export selected Hermes history to Markdown.
 - docs/AI_LOG.md — generated prompt history for publication.
