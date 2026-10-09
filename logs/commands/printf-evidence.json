@@ -1,0 +1,1148 @@
+{
+  "base_head": "bee5d7b9da4da3e4aa626f76d1a5d467895176fc",
+  "records": [
+    {
+      "label": "reference-man",
+      "argv": [
+        "man",
+        "1",
+        "printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.018,
+      "stdout_sha256": "070c3a40adc0e44d1611d8bd7028de87186a935a5b63f2e78c48cde0487acc83",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference-version",
+      "argv": [
+        "/usr/bin/printf",
+        "--version"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.002,
+      "stdout_sha256": "646c7236364edde3610dd4a0a5c462757ccf2e57a3260de3a7e00d4bc04beef0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "course-paragraphs",
+      "argv": [
+        "python3",
+        "-c",
+        "import sqlite3; c=sqlite3.connect('file:docs/data.sqlite?mode=ro',uri=True); print(c.execute(\"select s.path,c.position,c.text from lecture_content c join lecture_sources s on s.id=c.source_id where s.path like '%CLI_Tools.docx' and c.position between 225 and 227\").fetchall())"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.014,
+      "stdout_sha256": "69cb61a64c21c504c8160e443157b400fe616c8722b72c891fea6a855a8c3aea",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference-info",
+      "argv": [
+        "info",
+        "--output=-",
+        "coreutils",
+        "printf invocation"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.009,
+      "stdout_sha256": "f420f04b731b08f820041343a3af3b51d5eab85756888970899fdbeefa632199",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "primary-argtable",
+      "argv": [
+        "curl",
+        "-fLsS",
+        "--max-time",
+        "30",
+        "https://www.argtable.org/tutorial/"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.718,
+      "stdout_sha256": "a5d3498cf6663febf0f41f80c6647c1d2fa54b6167f3e0d968027d07165da2c8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "primary-write",
+      "argv": [
+        "curl",
+        "-fLsS",
+        "--max-time",
+        "30",
+        "https://pubs.opengroup.org/onlinepubs/9799919799/functions/write.html"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.021,
+      "stdout_sha256": "1b45e6a71f8bc9bff702da5633d42c88fd927c1d0efc5bafe7a939d23eb66e6a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference-slice1",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/usr/bin/printf",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 0,
+      "seconds": 0.059,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4335d71dd78928bd9d9de046b31c22af7f3d6fabdd588d45d0145c2357ec5690"
+    },
+    {
+      "label": "baseline-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.02,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1-red",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.045,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "064921ed57de8c493e10bd8447321acf493645b5df5aa11a6d488d889295c11a"
+    },
+    {
+      "label": "reference-slice1-corrected",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/usr/bin/printf",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.054,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c819dd79308c226cf5ff3e6a04156daaa17afd59472b0ff42701a5b8fcc85125"
+    },
+    {
+      "label": "slice1-build",
+      "argv": [
+        "make",
+        "build/printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.072,
+      "stdout_sha256": "facf88e024e2e9c9ce7c50361abaa9f0409e0a91d85e38531ed00cd51730c388",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1-green",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.041,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "be5cfde0dabc841e88728ae69ca5044e578116492843bf7118de59f84aa5870a"
+    },
+    {
+      "label": "reference-slice2",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/usr/bin/printf",
+        "--reference",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.422,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "20280a6a4a4983c6b1ce9dec735bcff8a25b97ae69f0039113d14caa3e36385f"
+    },
+    {
+      "label": "slice2-red",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.042,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "36b4a950c31728a14a9f2fa8e98cd7d3fbb73b857d6256fad8b1d04297be2d20"
+    },
+    {
+      "label": "slice2-build",
+      "argv": [
+        "make",
+        "build/printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.075,
+      "stdout_sha256": "facf88e024e2e9c9ce7c50361abaa9f0409e0a91d85e38531ed00cd51730c388",
+      "stderr_sha256": "f4012c36a8ef7efe043ce234d669cd89e540cf5c83dba81c80b294f820603341"
+    },
+    {
+      "label": "slice2-green",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.125,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "41604427452b08a4aa80b6dd6575f967c0464674a25418d68d82f86e6ae9d23b"
+    },
+    {
+      "label": "reference-slice3",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/usr/bin/printf",
+        "--reference",
+        "--slice",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.154,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c8f7b2b6e5f74ad87931d30a2c8b211526f546a46c7c66b0c4fa9dd8ece27162"
+    },
+    {
+      "label": "slice3-red",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.128,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a084ceb01524baf8b38958ace1342d0be7a60f91f2d0cb9285a2b9af3005c669"
+    },
+    {
+      "label": "slice3-build",
+      "argv": [
+        "make",
+        "build/printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.083,
+      "stdout_sha256": "facf88e024e2e9c9ce7c50361abaa9f0409e0a91d85e38531ed00cd51730c388",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice3-green",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.29,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d16bd94aa354936bfe85dbab84734719165f21080a6a015622cf2271c09190ee"
+    },
+    {
+      "label": "slice4-red",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 2.018,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f1e1d1cf79cb07de9a4e0af40730cdb479000b44c8f874f16be53cb16c92533b"
+    },
+    {
+      "label": "slice4-build",
+      "argv": [
+        "make",
+        "build/printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.085,
+      "stdout_sha256": "facf88e024e2e9c9ce7c50361abaa9f0409e0a91d85e38531ed00cd51730c388",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice4-green",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "./build/printf",
+        "--slice",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.381,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d33761a8497add03de4c77c76200bbf3194f0dd3227ca0069868426cacced63c"
+    },
+    {
+      "label": "integration-baseline-build",
+      "argv": [
+        "make",
+        "all"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 2.279,
+      "stdout_sha256": "b9a04b6ddfcb623ea51b81813bdfd18e4eecce4b42a5afaa757b98aec0149d22",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "integration-red",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "./build/main",
+        "--standalone-dir",
+        "./build",
+        "--slice",
+        "dispatch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.09,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "46c2f34eade690bfd501a5ead01db838289859f5580be3f1078e8ea0d78aa991"
+    },
+    {
+      "label": "integration-build",
+      "argv": [
+        "make",
+        "all",
+        "build/test_printf_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 2.501,
+      "stdout_sha256": "ca9082ebb7bff06a89046022ee63c7db408876f5999cffe73a5a0133efc41c69",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "integration-green",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "./build/main",
+        "--standalone-dir",
+        "./build",
+        "--slice",
+        "dispatch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.107,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9966a729f2a020505bb00c65226b47812141a6dded215eecdcdf0fbcbe61c115"
+    },
+    {
+      "label": "focused-module-first",
+      "argv": [
+        "./build/test_printf_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.065,
+      "stdout_sha256": "6981f84bd1fa23f40c307ff6d9eca701db08ff009ad30496ada20137b60541d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused-main",
+      "argv": [
+        "make",
+        "test-printf-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.829,
+      "stdout_sha256": "b4ee756c0b11064a21b8bf77c6459fe4aa5e552d09406d897f3e0d5baf665457",
+      "stderr_sha256": "9cbcf30d1d14d2f3463b0c5ee452fd3a3a3a80b703626d82ba8f069f9cf2ba9c"
+    },
+    {
+      "label": "focused-pty",
+      "argv": [
+        "make",
+        "test-printf-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.825,
+      "stdout_sha256": "b4ee756c0b11064a21b8bf77c6459fe4aa5e552d09406d897f3e0d5baf665457",
+      "stderr_sha256": "9a57c16efe127531e4f6496725c17777737f8bfde2072a4febc29a024d171f5e"
+    },
+    {
+      "label": "reference-complete",
+      "argv": [
+        "make",
+        "test-printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.16,
+      "stdout_sha256": "098e2fb144a614bd553b3008e3614bf586be038e4e1d5785a2036a9ce71082ef",
+      "stderr_sha256": "04f4038b4151537e8d15853362cfd1a398c40e676bb53f5b5dab911c9ec9eea4"
+    },
+    {
+      "label": "full-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 10.379,
+      "stdout_sha256": "1fc377654d983300ebd2136bf3817d343d38d6fa5ffc22309ced9ba8b51a778d",
+      "stderr_sha256": "0edf36f963bf4bf07a9f22089cb4546fef2d9534ce1c57d9e136d889eab224ec"
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 30.906,
+      "stdout_sha256": "ae943f63df216a2ebfdba3f482ba05a95df5d0d11bdf3c28a07ea574305e4346",
+      "stderr_sha256": "5b939d9a63182abc46beca7a151882ddee48825c53b6301428946c35f13ff78b"
+    },
+    {
+      "label": "global-format-check",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.352,
+      "stdout_sha256": "3ec62098301d9f025aa59d9549412c5d4fccf2d8a516fa9a441bffb800e31909",
+      "stderr_sha256": "fca70fc1da537548ec77b9e14da75cb1f56bbf829ba9fc0567ba2a4a4cf428a2"
+    },
+    {
+      "label": "scoped-format-refactor",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/cmd_printf.c",
+        "src/cmd_printf.h",
+        "src/printf_main.c",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.03,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "scoped-format-check",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_printf.c",
+        "src/cmd_printf.h",
+        "src/printf_main.c",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.03,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "integration-scoped-format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/registry.c",
+        "tests/test_shell_module.c",
+        "src/cmd_printf.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.022,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "scoped-format-final",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/registry.c",
+        "tests/test_shell_module.c",
+        "src/cmd_printf.c",
+        "src/cmd_printf.h",
+        "src/printf_main.c",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.028,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "format-final-global",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.25,
+      "stdout_sha256": "3ec62098301d9f025aa59d9549412c5d4fccf2d8a516fa9a441bffb800e31909",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "candidate-final-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 9.233,
+      "stdout_sha256": "0009dbedee25f53a6a3151d9d3ecfb58940f720565837a3fc68be298922c9df1",
+      "stderr_sha256": "cf6d4de0adc2171b04cd5562fab7cb891b272e5ae7701341cdc66c51a3dd3334"
+    },
+    {
+      "label": "module-extra-format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.018,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "module-extra",
+      "argv": [
+        "make",
+        "test-printf-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.906,
+      "stdout_sha256": "daf97192551d1693e705a271869d414c028cd2a7cdd6895baf4723cc4327cdcc",
+      "stderr_sha256": "165ac4b19e61ddd32f26a628542e6236e4f05de9b1c85a2a3aec553a602b64af"
+    },
+    {
+      "label": "internal-oom-build",
+      "argv": [
+        "cc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/internal-oom",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/internal-oom.c",
+        "-Wl,--wrap=malloc",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.026,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "internal-oom-characterization",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": -6,
+      "seconds": 0.001,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+    },
+    {
+      "label": "no-output-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-output",
+        "src/printf_main.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-output.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.068,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-output-negative",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-output",
+        "--slice",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.074,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23f72bf14e4709c6f60e9a23e2e77c418ba564d3901e7342a0380877ed51c76b"
+    },
+    {
+      "label": "no-preflight-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-preflight",
+        "src/printf_main.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-preflight.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.067,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-preflight-negative",
+      "argv": [
+        "python3",
+        "tests/test_printf.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-preflight",
+        "--slice",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 2.048,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fe341d6a954a65091db74fb6891354d3357d2ef509d0cf4d6615f8347e30826a"
+    },
+    {
+      "label": "no-getopt-restore-object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=printf_test_malloc",
+        "-Dfree=printf_test_free",
+        "-c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-getopt-restore.o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-getopt-restore.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.031,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-getopt-restore-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-getopt-restore",
+        "tests/test_printf_module.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-getopt-restore.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.06,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-getopt-restore-negative",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/no-getopt-restore"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "seconds": 0.083,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b68f0979ef8f7235fc0aac72bb813ff53d8ec26acdb0a7c24312d0b4f7a17b91"
+    },
+    {
+      "label": "borrowed-argv-object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=printf_test_malloc",
+        "-Dfree=printf_test_free",
+        "-c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv.o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.03,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv",
+        "tests/test_printf_module.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.062,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv-negative",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "seconds": 0.083,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "eaa0f421b8edf705598e380606886629c76cc56487be161dca579267ae94c308"
+    },
+    {
+      "label": "internal-oom-confirmed",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.001,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+    },
+    {
+      "label": "borrowed-argv-corrected-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv",
+        "tests/test_printf_module.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.059,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv-marker-negative",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/borrowed-argv",
+        "--argv-only"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "seconds": 0.086,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1641c12a15849088ba685bd4166ec0954be11eb3de8ed4817640612db30a1a35"
+    },
+    {
+      "label": "extra-module-format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.017,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "all-controls-green",
+      "argv": [
+        "make",
+        "test-printf-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.876,
+      "stdout_sha256": "daf97192551d1693e705a271869d414c028cd2a7cdd6895baf4723cc4327cdcc",
+      "stderr_sha256": "e868fbb953c5660e63150993226b721e1a7c1de1db9181c681bb903a231476fb"
+    },
+    {
+      "label": "sanitizer-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 51.76,
+      "stdout_sha256": "66f218caaf61816c7ca6228579c4891bff2e467ccb5a509e57b85b9f4ffc8c37",
+      "stderr_sha256": "4c97fc75d4db6db11071f6ac3654e94ba836dee5591b6c474bfb04c6c62237a0"
+    },
+    {
+      "label": "baseline-sanitizer-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline-sanitizer",
+      "status": 2,
+      "expected": 0,
+      "seconds": 39.67,
+      "stdout_sha256": "05ce736e7a4e1fb804dfd9b59ccd70a4423900286999fc1623b1b648c873a03c",
+      "stderr_sha256": "11580b4daf8f1c994c814db1d292bc748e93ab43b8cd78b9305e424b51e55290"
+    },
+    {
+      "label": "baseline-o1-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline-o1",
+      "status": 2,
+      "expected": 2,
+      "seconds": 19.294,
+      "stdout_sha256": "afb3f0a846d59ce4f9d2f3aadb5f44bf474535bac8b764fcb3a75e9b1c04b8c6",
+      "stderr_sha256": "e04d5ba4ff64bc2d91541039ddd217b73c084737f2ae39265b149e56b5389e2d"
+    },
+    {
+      "label": "baseline-global-format",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline-sanitizer",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.342,
+      "stdout_sha256": "4be1b705d5ad654fe9ec88827f9b3801671ab92631ea2e457205c4a51cc19bd8",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "final-lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 33.508,
+      "stdout_sha256": "ae943f63df216a2ebfdba3f482ba05a95df5d0d11bdf3c28a07ea574305e4346",
+      "stderr_sha256": "5b939d9a63182abc46beca7a151882ddee48825c53b6301428946c35f13ff78b"
+    },
+    {
+      "label": "baseline-sanitizer-short-tmp-retry",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/baseline-sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 34.682,
+      "stdout_sha256": "13bc391d0908e91109ee6427ce022f5cdd6897a561ff31601b1a52d2ff742bc5",
+      "stderr_sha256": "8ddb231ee1b8b64dcd084c6ed552c4c20aaee02075fc78108916a30f9a6d9c74"
+    },
+    {
+      "label": "final-expanded-reference",
+      "argv": [
+        "make",
+        "test-printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 2.217,
+      "stdout_sha256": "098e2fb144a614bd553b3008e3614bf586be038e4e1d5785a2036a9ce71082ef",
+      "stderr_sha256": "0558edaff64717667e75b187e33165107272b9f52fe0ce4693f27561decbbae7"
+    },
+    {
+      "label": "final-expanded-project",
+      "argv": [
+        "make",
+        "test-printf-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.32,
+      "stdout_sha256": "b4ee756c0b11064a21b8bf77c6459fe4aa5e552d09406d897f3e0d5baf665457",
+      "stderr_sha256": "ae3538dcea8c55f6f6f854223a019c6de58d0b83a962d267e9166344b6ad5fc9"
+    },
+    {
+      "label": "final-normal-regression",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 7.952,
+      "stdout_sha256": "a8ec0228d3a5fed67b73cda5b2ec15d4f61f567395d652b81e1b81af860601f9",
+      "stderr_sha256": "bd7f8d9c8af0ae9438867a0f2eac2bb69acf668939aa7141381a462621a8ca54"
+    },
+    {
+      "label": "final-source-format",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/registry.c",
+        "tests/test_shell_module.c",
+        "src/cmd_printf.c",
+        "src/cmd_printf.h",
+        "src/printf_main.c",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.028,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final-source-lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 36.828,
+      "stdout_sha256": "ae943f63df216a2ebfdba3f482ba05a95df5d0d11bdf3c28a07ea574305e4346",
+      "stderr_sha256": "5b939d9a63182abc46beca7a151882ddee48825c53b6301428946c35f13ff78b"
+    },
+    {
+      "label": "printf-module-symbols",
+      "argv": [
+        "nm",
+        "-u",
+        "build/cmd_printf_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.002,
+      "stdout_sha256": "4d02c4be48872ddd1e79882da4fb98bac031c74774d9b15b33890863fb85912a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "printf-intmax-width",
+      "argv": [
+        "python3",
+        "-c",
+        "import ctypes; print('intmax-backed long long bytes:',ctypes.sizeof(ctypes.c_longlong))"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.017,
+      "stdout_sha256": "9b71875570409d28726ab3157367b443ffc5ba1af79f0538a5d60e007473e1a7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_sha256": {
+    "Makefile": "949d423e5a6d16c2dd88bc84891191eb71e4b3ad50272dc2dbcb87154c2e11ce",
+    "README.md": "db38fc183c032aea17fee011d1cb76266282b863361165cf7a1b4b70649d2922",
+    "FILES.md": "bc46ecb7b0d2800f02696432b9688bbbac24fb132fb1f3f70953bc5e8a02aa92",
+    "docs/commands/shell.md": "6ac6e0f1359a548df7620cd337c268ec99dba23d56dc22b5163766c1dc7a31b2",
+    "src/registry.c": "bb4f1c7737639a6b16135479feb26509340a64b12a05141a028233c1f1a54aee",
+    "tests/test_shell.py": "2b3ba48635f015dc55727171c2a882a7efc7d25d31a10c3739691ed53fd88b0a",
+    "tests/test_shell_module.c": "126cfff21db19caf556849f71e66745ed26af29e6c5cb39417d2674fa0d7d029",
+    "src/cmd_printf.c": "d423630e6781b0962e9a1ad9310cfcf0cd873f1311d1e168094833bf01cf854e",
+    "src/cmd_printf.h": "3e3c72fc79efb26e0a14bd6ed725b3903cd2598bc5f776130fb38afd61958889",
+    "src/printf_main.c": "73dc032a4f94dbf74304e7985330622a884dfc0a47287b0478bbcd13d8a79230",
+    "tests/test_printf.py": "3347681de1e7559b00e956fc690a411cadb43e461722ab1d94695bfd2b473539",
+    "tests/test_printf_module.c": "9a703e4e0a0124362dde58f78de426c19541e3d29e840f8648b789a524c68e48",
+    "docs/commands/printf.md": "6d47f35deeb59ac1bac2e00b527765ea3c18abd6d23bd0d8be17b990ea2d66f9",
+    "docs/reports/printf-implementation.md": "3bce75bf22fb2544c92da72f2ce07c2ea25c7bb5ab4e1d95302edbce67dd4e5b"
+  },
+  "synthetic_environment_only": true,
+  "reproduction_files": {
+    "run.py": "import os, sys, json, hashlib, subprocess, time\nfrom pathlib import Path\nBASE = Path(__file__).resolve().parent\nREPO = Path('/home/name/Documents/420-EMBDX/A')\nROOT = BASE / 'candidate'\nLEDGER = BASE / 'execution.json'\nLOG = BASE / 'execution.log'\nENV = {'PATH': '/home/name/.local/bin:/usr/bin:/bin', 'LC_ALL': 'C',\n       'HOME': str(BASE), 'TERM': 'ansi', 'TMPDIR': str(BASE / 'tmp-candidate')}\nPath(ENV['TMPDIR']).mkdir(exist_ok=True)\ndef run(label, argv, cwd=ROOT, expected=0, env=None, timeout=300):\n    start = time.monotonic()\n    p = subprocess.run(argv, cwd=cwd, env=ENV if env is None else env,\n                       stdout=subprocess.PIPE, stderr=subprocess.PIPE,\n                       timeout=timeout)\n    entry = {'label': label, 'argv': argv, 'cwd': str(cwd),\n             'status': p.returncode, 'expected': expected,\n             'seconds': round(time.monotonic()-start, 3),\n             'stdout_sha256': hashlib.sha256(p.stdout).hexdigest(),\n             'stderr_sha256': hashlib.sha256(p.stderr).hexdigest()}\n    entries = json.loads(LEDGER.read_text()) if LEDGER.exists() else []\n    entries.append(entry); LEDGER.write_text(json.dumps(entries, indent=2)+'\\n')\n    with LOG.open('ab') as f:\n        f.write(('\\n### '+json.dumps(entry)+'\\nSTDOUT\\n').encode())\n        f.write(p.stdout); f.write(b'\\nSTDERR\\n'); f.write(p.stderr)\n        f.write(b'\\nEND\\n')\n    print(label, p.returncode, 'expected', expected, flush=True)\n    if p.returncode != expected:\n        print(p.stdout[-5000:].decode(errors='backslashreplace'))\n        print(p.stderr[-5000:].decode(errors='backslashreplace'))\n    return p\nif __name__ == '__main__':\n    run(sys.argv[1], sys.argv[2:])\n",
+    "baseline.c": "/* Runnable baseline for the first output assertion. */\nint main(void) { return 0; }\n",
+    "internal-oom.c": "#include <argtable3.h> /* arg_lit0. */\n#include <stddef.h> /* size_t, NULL. */\n#include <errno.h> /* errno, ENOMEM. */\n#include <stdio.h> /* fputs, stderr. */\nvoid *__real_malloc(size_t);\nstatic int armed;\n/* Purpose: Characterize actual installed Argtable internal malloc failure.\n * Args: size requested bytes.\n * Rets: NULL when armed, otherwise real malloc result.\n */\nvoid *__wrap_malloc(size_t size)\n{\n    if (armed) {\n        armed = 0;\n        errno = ENOMEM;\n        return NULL;\n    }\n    return __real_malloc(size);\n}\n/* Purpose: Trigger the dependency's internal allocator path in a subprocess.\n * Args: none.\n * Rets: 0 if the constructor recovers, dependency may abort/exit instead.\n */\nint main(void)\n{\n    armed = 1;\n    (void)arg_lit0(\"h\", \"help\", \"probe\");\n    fputs(\"constructor returned\\n\", stderr);\n    return 0;\n}\n",
+    "no-output.c": "#include \"cmd_printf.h\" /* cmd_spec_t. */\n#include \"cmd_lines.h\"  /* lines_write. */\n#include <argtable3.h>  /* Argument definitions, parser, help, cleanup. */\n#include <errno.h>      /* errno, ENOMEM, EIO. */\n#include <getopt.h>     /* optarg, optind, opterr, optopt. */\n#include <stdint.h>     /* SIZE_MAX, uintmax_t, INTMAX_MAX, UINTMAX_MAX. */\n#include <limits.h>     /* CHAR_BIT. */\n#include <stdio.h>      /* FILE, fputs, fprintf, fflush, ferror, clearerr. */\n#include <stdlib.h>     /* malloc, free. */\n#include <string.h>     /* strlen, strcmp, strchr, strerror, memset. */\n\nenum { HELP, FORMAT, ARGUMENTS, END, ARG_COUNT };\n\n/* Purpose: Build invocation-local syntax used by parser and usage.\n * Args: table initially NULL; capacity bounds operand storage.\n * Rets: Zero success, -1/ENOMEM on constructor failure.\n */\nstatic int arguments_build(void **table, int capacity)\n{\n    table[HELP] = arg_lit0(\"h\", \"help\", \"Show help and exit.\");\n    table[FORMAT] = arg_str0(NULL, NULL, \"FORMAT\", \"Byte output format.\");\n    table[ARGUMENTS] = arg_strn(NULL, NULL, \"ARGUMENT\", 0, capacity,\n                                \"Literal conversion operands.\");\n    table[END] = arg_end(20);\n    for (size_t i = 0; i < ARG_COUNT; ++i) {\n        if (table[i] == NULL) {\n            errno = ENOMEM;\n            return -1;\n        }\n    }\n    return 0;\n}\n/* Purpose: Render stable logical grammar independent of capacity.\n * Args: out and table borrowed.\n * Rets: void; stream error state reports output failure.\n */\nstatic void help_print(FILE *out, void **table)\n{\n    struct arg_str *format = table[FORMAT], *operands = table[ARGUMENTS];\n    int capacity = operands->hdr.maxcount;\n    format->hdr.mincount = 1;\n    operands->hdr.maxcount = 3;\n    fputs(\"Usage: printf\", out);\n    arg_print_syntax(out, table, \"\\n\\n\");\n    arg_print_glossary(out, table, \"  %-20s %s\\n\");\n    format->hdr.mincount = 0;\n    operands->hdr.maxcount = capacity;\n    fputs(\"\\nPrint formatted bytes without an automatic newline.\\n\"\n          \"Options precede FORMAT; later arguments are literal data.\\n\"\n          \"Use -- before an option-like FORMAT.\\n\"\n          \"Conversions: %s %c %d %i %u %o %x %X %%.\\n\"\n          \"Literal width up to 4096; - alignment, integer 0 padding;\\n\"\n          \"string precision up to 4096. No floats, *, %b, %q or %n.\\n\"\n          \"Byte escapes only; total output limit 16 MiB.\\n\"\n          \"Exit status: 0 success, 1 operational failure, 2 argument error.\\n\",\n          out);\n}\n/* Purpose: Map an ASCII hex digit without locale-sensitive classification.\n * Args: byte input character.\n * Rets: 0..15 digit value or -1 if not a hex digit.\n */\nstatic int digit_value(unsigned char byte)\n{\n    if (byte >= '0' && byte <= '9')\n        return byte - '0';\n    if (byte >= 'a' && byte <= 'f')\n        return byte - 'a' + 10;\n    if (byte >= 'A' && byte <= 'F')\n        return byte - 'A' + 10;\n    return -1;\n}\n/* Purpose: Decode one bounded FORMAT escape, including embedded NUL.\n * Args: cursor points to backslash; byte receives decoded low byte.\n * Rets: Zero success, -1 malformed/unsupported escape.\n */\nstatic int escape_byte(const char **cursor, unsigned char *byte)\n{\n    const char *p = *cursor + 1;\n    const char *names = \"\\\"\\\\abefnrtv\";\n    const unsigned char values[] = {'\"', '\\\\', 7, 8, 27, 12, 10, 13, 9, 11};\n    if (*p == '\\0')\n        return -1;\n    const char *named = strchr(names, *p);\n    if (named != NULL) {\n        *byte = values[(size_t)(named - names)];\n        *cursor = p;\n        return 0;\n    }\n    unsigned int value = 0;\n    int count = 0, base = 8, maximum = 3;\n    if (*p == 'x') {\n        ++p;\n        base = 16;\n        maximum = 2;\n    }\n    while (count < maximum) {\n        int digit = digit_value((unsigned char)*p);\n        if (digit < 0 || digit >= base)\n            break;\n        value = value * (unsigned int)base + (unsigned int)digit;\n        ++p;\n        ++count;\n    }\n    if (count == 0)\n        return -1;\n    *byte = (unsigned char)(value & 255U);\n    *cursor = p - 1;\n    return 0;\n}\n/* Purpose: Parse a bounded decimal field size.\n * Args: cursor starts at digits; value receives 0..4096.\n * Rets: Zero success, -1 if the field bound is exceeded.\n */\nstatic int field_size(const char **cursor, size_t *value)\n{\n    *value = 0;\n    while (**cursor >= '0' && **cursor <= '9') {\n        *value = *value * 10 + (size_t)(**cursor - '0');\n        if (*value > 4096)\n            return -1;\n        ++*cursor;\n    }\n    return 0;\n}\ntypedef struct {\n    char type;\n    int left, zero, precise;\n    size_t width, precision;\n} conversion_t;\n/* Purpose: Validate a conversion before selecting its typed renderer.\n * Args: cursor points after percent; spec receives selected fields.\n * Rets: Zero success, -1 unsupported or malformed conversion.\n */\nstatic int conversion_parse(const char **cursor, conversion_t *spec)\n{\n    const char *p = *cursor;\n    *spec = (conversion_t){0};\n    while (*p == '-' || *p == '0') {\n        int *flag = *p == '-' ? &spec->left : &spec->zero;\n        if (*flag)\n            return -1;\n        *flag = 1;\n        ++p;\n    }\n    if (field_size(&p, &spec->width))\n        return -1;\n    if (*p == '.') {\n        spec->precise = 1;\n        ++p;\n        if (field_size(&p, &spec->precision))\n            return -1;\n    }\n    if (*p == '\\0' || strchr(\"scdiuoxX\", *p) == NULL)\n        return -1;\n    spec->type = *p;\n    if ((spec->type == 's' || spec->type == 'c') && spec->zero)\n        return -1;\n    if (spec->precise && spec->type != 's')\n        return -1;\n    *cursor = p;\n    return 0;\n}\n/* Purpose: Convert strict ASCII integer text without locale or overflow.\n * Args: text borrowed; signed_type selects bounds; outputs sign/magnitude.\n * Rets: Zero success, -1 invalid or out-of-range operand.\n */\nstatic int integer_parse(const char *text, int signed_type, int *negative,\n                         uintmax_t *magnitude)\n{\n    *negative = 0;\n    *magnitude = 0;\n    if (*text == '\\0')\n        return 0;\n    if (*text == '+' || *text == '-') {\n        *negative = *text == '-';\n        ++text;\n        if (*text == '\\0' || (*negative && !signed_type))\n            return -1;\n    }\n    unsigned int base = 10;\n    if (text[0] == '0') {\n        base = 8;\n        if (text[1] == 'x' || text[1] == 'X') {\n            base = 16;\n            text += 2;\n            if (*text == '\\0')\n                return -1;\n        }\n    }\n    uintmax_t limit = signed_type ? (uintmax_t)INTMAX_MAX : UINTMAX_MAX;\n    if (signed_type && *negative)\n        ++limit;\n    for (; *text; ++text) {\n        int digit = digit_value((unsigned char)*text);\n        if (digit < 0 || (unsigned int)digit >= base ||\n            *magnitude > (limit - (unsigned int)digit) / base)\n            return -1;\n        *magnitude = *magnitude * base + (unsigned int)digit;\n    }\n    if (*magnitude == 0)\n        *negative = 0;\n    return 0;\n}\n/* Purpose: Encode a magnitude with an optional sign safely.\n * Args: buffer capacity CHAR_BIT*sizeof(uintmax_t)+2; base 8, 10 or 16.\n * Rets: Generated length; no terminator needed.\n */\nstatic size_t integer_bytes(unsigned char *buffer, uintmax_t magnitude,\n                            unsigned int base, int negative, int uppercase)\n{\n    const char *digits = uppercase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";\n    size_t length = 0;\n    do {\n        buffer[length++] = (unsigned char)digits[magnitude % base];\n        magnitude /= base;\n    } while (magnitude);\n    if (negative)\n        buffer[length++] = '-';\n    for (size_t i = 0; i < length / 2; ++i) {\n        unsigned char byte = buffer[i];\n        buffer[i] = buffer[length - i - 1];\n        buffer[length - i - 1] = byte;\n    }\n    return length;\n}\nenum { OUTPUT_LIMIT = 16 * 1024 * 1024 };\ntypedef struct {\n    size_t total;\n    int writing;\n} output_t;\n/* Purpose: Count bytes during preflight or write them after validation.\n * Args: output invocation state; bytes borrowed; length exact byte count.\n * Rets: 0 success, 1 I/O failure, 2 output size bound exceeded.\n */\nstatic int output_write(output_t *output, const unsigned char *bytes,\n                        size_t length)\n{\n    if (length > OUTPUT_LIMIT - output->total)\n        return 2;\n    output->total += length;\n    if (output->writing && lines_write(bytes, length))\n        return 1;\n    return 0;\n}\n/* Purpose: Write a bounded run of one padding byte.\n * Args: output invocation state; byte padding character; count length.\n * Rets: 0 success, 1 output failure, 2 output bound exceeded.\n */\nstatic int padding_write(output_t *output, unsigned char byte, size_t count)\n{\n    unsigned char padding[64];\n    memset(padding, byte, sizeof(padding));\n    while (count) {\n        size_t amount = count < sizeof(padding) ? count : sizeof(padding);\n        int status = output_write(output, padding, amount);\n        if (status != 0)\n            return status;\n        count -= amount;\n    }\n    return 0;\n}\n/* Purpose: Emit a typed field, never an untrusted variadic format.\n * Args: output invocation state; spec validated; argument borrowed.\n * Rets: 0 success, 1 output failure, 2 invalid numeric operand.\n */\nstatic int conversion_write(output_t *output, const conversion_t *spec,\n                            const char *argument)\n{\n    unsigned char buffer[CHAR_BIT * sizeof(uintmax_t) + 2];\n    const unsigned char *text = (const unsigned char *)argument;\n    size_t length;\n    int negative = 0;\n    if (spec->type == 's') {\n        length = strlen(argument);\n        if (spec->precise && length > spec->precision)\n            length = spec->precision;\n    } else if (spec->type == 'c') {\n        length = 1;\n    } else {\n        uintmax_t magnitude;\n        int signed_type = spec->type == 'd' || spec->type == 'i';\n        if (integer_parse(argument, signed_type, &negative, &magnitude))\n            return 2;\n        unsigned int base = spec->type == 'o'                        ? 8U\n                            : spec->type == 'x' || spec->type == 'X' ? 16U\n                                                                     : 10U;\n        length =\n            integer_bytes(buffer, magnitude, base, negative, spec->type == 'X');\n        text = buffer;\n    }\n    size_t padding = spec->width > length ? spec->width - length : 0;\n    int zero = spec->zero && !spec->left;\n    int status = 0;\n    if (negative && zero) {\n        status = output_write(output, text++, 1);\n        if (status != 0)\n            return status;\n        --length;\n    }\n    if (!spec->left)\n        status = padding_write(output, zero ? '0' : ' ', padding);\n    if (status == 0)\n        status = output_write(output, text, length);\n    if (status == 0 && spec->left)\n        status = padding_write(output, ' ', padding);\n    return status;\n}\n/* Purpose: Emit the selected byte format using literal operands.\n * Args: format/operands borrowed; writing selects output or preflight.\n * Rets: 0 success, 1 output failure, 2 format/operand/size error.\n */\nstatic int render_pass(const char *format, const struct arg_str *operands,\n                       int writing)\n{\n    output_t output = {0, writing};\n    int next = 0, previous;\n    do {\n        previous = next;\n        for (const char *p = format; *p; ++p) {\n            unsigned char byte = (unsigned char)*p;\n            if (*p == '\\\\') {\n                if (escape_byte(&p, &byte))\n                    return 2;\n            } else if (*p == '%') {\n                ++p;\n                if (*p == '%') {\n                    byte = '%';\n                } else {\n                    conversion_t spec;\n                    if (conversion_parse(&p, &spec))\n                        return 2;\n                    const char *argument =\n                        next < operands->count ? operands->sval[next++] : \"\";\n                    int status = conversion_write(&output, &spec, argument);\n                    if (status != 0)\n                        return status;\n                    continue;\n                }\n            }\n            int status = output_write(&output, &byte, 1);\n            if (status != 0)\n                return status;\n        }\n    } while (next < operands->count && next != previous);\n    return 0;\n}\n/* Purpose: Validate all output before beginning descriptor writes.\n * Args: format and operands borrowed and stable throughout invocation.\n * Rets: 0 success, 1 output failure, 2 invalid format/operand/output size.\n */\nstatic int render(const char *format, const struct arg_str *operands)\n{\n    int status = render_pass(format, operands, 0);\n    return status != 0 ? status : render_pass(format, operands, 0);\n}\n/* Purpose: Parse private argv and print bytes or help without host mutation.\n * Args: argc/argv borrowed; every argc element must be a valid C string.\n * Rets: 0 success, 1 operational failure, 2 argument error.\n * Notes: No stdin reads, descriptor ownership, locale or signal changes.\n */\nstatic int printf_run(int argc, char **argv)\n{\n    if (argc < 1 || argv == NULL) {\n        fputs(\"printf: invalid module arguments\\n\", stderr);\n        return 2;\n    }\n    for (int i = 0; i < argc; ++i) {\n        if (argv[i] == NULL) {\n            fputs(\"printf: invalid module arguments\\n\", stderr);\n            return 2;\n        }\n    }\n    void *table[ARG_COUNT] = {0};\n    char **copy = NULL;\n    int status = 1;\n    if (arguments_build(table, argc) != 0)\n        goto failure;\n    if ((size_t)argc + 2 > SIZE_MAX / sizeof(*copy)) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    copy = malloc(((size_t)argc + 2) * sizeof(*copy));\n    if (copy == NULL) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    /* Preserve leading options; insert -- before the first format operand.\n     * Never classify later operands as options, independent of host getopt.\n     */\n    int next = 0, i = 0;\n    copy[next++] = argv[i++];\n    while (i < argc && argv[i][0] == '-' && argv[i][1] != '\\0' &&\n           strcmp(argv[i], \"--\") != 0)\n        copy[next++] = argv[i++];\n    copy[next++] = \"--\";\n    if (i < argc && strcmp(argv[i], \"--\") == 0)\n        ++i;\n    while (i < argc)\n        copy[next++] = argv[i++];\n    copy[next] = NULL;\n    char *saved_optarg = optarg;\n    int saved_optind = optind, saved_opterr = opterr, saved_optopt = optopt;\n    int errors = arg_parse(next, copy, table);\n    optarg = saved_optarg;\n    optind = saved_optind;\n    opterr = saved_opterr;\n    optopt = saved_optopt;\n    if (errors != 0) {\n        arg_print_errors(stderr, table[END], \"printf\");\n        status = 2;\n        goto done;\n    }\n    if (((struct arg_lit *)table[HELP])->count != 0) {\n        help_print(stdout, table);\n        if (fflush(stdout) != 0 || ferror(stdout)) {\n            int error = errno == 0 ? EIO : errno;\n            clearerr(stdout);\n            errno = error;\n            goto failure;\n        }\n        status = 0;\n    } else if (((struct arg_str *)table[FORMAT])->count == 0) {\n        fputs(\"printf: missing FORMAT\\n\", stderr);\n        status = 2;\n    } else {\n        status = render(((struct arg_str *)table[FORMAT])->sval[0],\n                        table[ARGUMENTS]);\n        if (status == 1)\n            goto failure;\n        if (status == 2)\n            fputs(\"printf: invalid format or argument\\n\", stderr);\n    }\n    goto done;\nfailure:\n    fprintf(stderr, \"printf: %s\\n\", strerror(errno));\ndone:\n    free(copy);\n    arg_freetable(table, ARG_COUNT);\n    return status;\n}\n/* Purpose: Expose parser-derived usage without persistent parser state.\n * Args: out borrowed valid stream.\n * Rets: void; stream state reports output failure.\n */\nstatic void printf_usage(FILE *out)\n{\n    void *table[ARG_COUNT] = {0};\n    if (arguments_build(table, 3) == 0)\n        help_print(out, table);\n    else\n        fputs(\"printf: cannot allocate help\\n\", out);\n    arg_freetable(table, ARG_COUNT);\n}\ncmd_spec_t cmd_printf_spec = {\"printf\", \"Print formatted bytes.\",\n                              \"Print bounded typed byte formats safely.\",\n                              printf_run, printf_usage};\n",
+    "no-preflight.c": "#include \"cmd_printf.h\" /* cmd_spec_t. */\n#include \"cmd_lines.h\"  /* lines_write. */\n#include <argtable3.h>  /* Argument definitions, parser, help, cleanup. */\n#include <errno.h>      /* errno, ENOMEM, EIO. */\n#include <getopt.h>     /* optarg, optind, opterr, optopt. */\n#include <stdint.h>     /* SIZE_MAX, uintmax_t, INTMAX_MAX, UINTMAX_MAX. */\n#include <limits.h>     /* CHAR_BIT. */\n#include <stdio.h>      /* FILE, fputs, fprintf, fflush, ferror, clearerr. */\n#include <stdlib.h>     /* malloc, free. */\n#include <string.h>     /* strlen, strcmp, strchr, strerror, memset. */\n\nenum { HELP, FORMAT, ARGUMENTS, END, ARG_COUNT };\n\n/* Purpose: Build invocation-local syntax used by parser and usage.\n * Args: table initially NULL; capacity bounds operand storage.\n * Rets: Zero success, -1/ENOMEM on constructor failure.\n */\nstatic int arguments_build(void **table, int capacity)\n{\n    table[HELP] = arg_lit0(\"h\", \"help\", \"Show help and exit.\");\n    table[FORMAT] = arg_str0(NULL, NULL, \"FORMAT\", \"Byte output format.\");\n    table[ARGUMENTS] = arg_strn(NULL, NULL, \"ARGUMENT\", 0, capacity,\n                                \"Literal conversion operands.\");\n    table[END] = arg_end(20);\n    for (size_t i = 0; i < ARG_COUNT; ++i) {\n        if (table[i] == NULL) {\n            errno = ENOMEM;\n            return -1;\n        }\n    }\n    return 0;\n}\n/* Purpose: Render stable logical grammar independent of capacity.\n * Args: out and table borrowed.\n * Rets: void; stream error state reports output failure.\n */\nstatic void help_print(FILE *out, void **table)\n{\n    struct arg_str *format = table[FORMAT], *operands = table[ARGUMENTS];\n    int capacity = operands->hdr.maxcount;\n    format->hdr.mincount = 1;\n    operands->hdr.maxcount = 3;\n    fputs(\"Usage: printf\", out);\n    arg_print_syntax(out, table, \"\\n\\n\");\n    arg_print_glossary(out, table, \"  %-20s %s\\n\");\n    format->hdr.mincount = 0;\n    operands->hdr.maxcount = capacity;\n    fputs(\"\\nPrint formatted bytes without an automatic newline.\\n\"\n          \"Options precede FORMAT; later arguments are literal data.\\n\"\n          \"Use -- before an option-like FORMAT.\\n\"\n          \"Conversions: %s %c %d %i %u %o %x %X %%.\\n\"\n          \"Literal width up to 4096; - alignment, integer 0 padding;\\n\"\n          \"string precision up to 4096. No floats, *, %b, %q or %n.\\n\"\n          \"Byte escapes only; total output limit 16 MiB.\\n\"\n          \"Exit status: 0 success, 1 operational failure, 2 argument error.\\n\",\n          out);\n}\n/* Purpose: Map an ASCII hex digit without locale-sensitive classification.\n * Args: byte input character.\n * Rets: 0..15 digit value or -1 if not a hex digit.\n */\nstatic int digit_value(unsigned char byte)\n{\n    if (byte >= '0' && byte <= '9')\n        return byte - '0';\n    if (byte >= 'a' && byte <= 'f')\n        return byte - 'a' + 10;\n    if (byte >= 'A' && byte <= 'F')\n        return byte - 'A' + 10;\n    return -1;\n}\n/* Purpose: Decode one bounded FORMAT escape, including embedded NUL.\n * Args: cursor points to backslash; byte receives decoded low byte.\n * Rets: Zero success, -1 malformed/unsupported escape.\n */\nstatic int escape_byte(const char **cursor, unsigned char *byte)\n{\n    const char *p = *cursor + 1;\n    const char *names = \"\\\"\\\\abefnrtv\";\n    const unsigned char values[] = {'\"', '\\\\', 7, 8, 27, 12, 10, 13, 9, 11};\n    if (*p == '\\0')\n        return -1;\n    const char *named = strchr(names, *p);\n    if (named != NULL) {\n        *byte = values[(size_t)(named - names)];\n        *cursor = p;\n        return 0;\n    }\n    unsigned int value = 0;\n    int count = 0, base = 8, maximum = 3;\n    if (*p == 'x') {\n        ++p;\n        base = 16;\n        maximum = 2;\n    }\n    while (count < maximum) {\n        int digit = digit_value((unsigned char)*p);\n        if (digit < 0 || digit >= base)\n            break;\n        value = value * (unsigned int)base + (unsigned int)digit;\n        ++p;\n        ++count;\n    }\n    if (count == 0)\n        return -1;\n    *byte = (unsigned char)(value & 255U);\n    *cursor = p - 1;\n    return 0;\n}\n/* Purpose: Parse a bounded decimal field size.\n * Args: cursor starts at digits; value receives 0..4096.\n * Rets: Zero success, -1 if the field bound is exceeded.\n */\nstatic int field_size(const char **cursor, size_t *value)\n{\n    *value = 0;\n    while (**cursor >= '0' && **cursor <= '9') {\n        *value = *value * 10 + (size_t)(**cursor - '0');\n        if (*value > 4096)\n            return -1;\n        ++*cursor;\n    }\n    return 0;\n}\ntypedef struct {\n    char type;\n    int left, zero, precise;\n    size_t width, precision;\n} conversion_t;\n/* Purpose: Validate a conversion before selecting its typed renderer.\n * Args: cursor points after percent; spec receives selected fields.\n * Rets: Zero success, -1 unsupported or malformed conversion.\n */\nstatic int conversion_parse(const char **cursor, conversion_t *spec)\n{\n    const char *p = *cursor;\n    *spec = (conversion_t){0};\n    while (*p == '-' || *p == '0') {\n        int *flag = *p == '-' ? &spec->left : &spec->zero;\n        if (*flag)\n            return -1;\n        *flag = 1;\n        ++p;\n    }\n    if (field_size(&p, &spec->width))\n        return -1;\n    if (*p == '.') {\n        spec->precise = 1;\n        ++p;\n        if (field_size(&p, &spec->precision))\n            return -1;\n    }\n    if (*p == '\\0' || strchr(\"scdiuoxX\", *p) == NULL)\n        return -1;\n    spec->type = *p;\n    if ((spec->type == 's' || spec->type == 'c') && spec->zero)\n        return -1;\n    if (spec->precise && spec->type != 's')\n        return -1;\n    *cursor = p;\n    return 0;\n}\n/* Purpose: Convert strict ASCII integer text without locale or overflow.\n * Args: text borrowed; signed_type selects bounds; outputs sign/magnitude.\n * Rets: Zero success, -1 invalid or out-of-range operand.\n */\nstatic int integer_parse(const char *text, int signed_type, int *negative,\n                         uintmax_t *magnitude)\n{\n    *negative = 0;\n    *magnitude = 0;\n    if (*text == '\\0')\n        return 0;\n    if (*text == '+' || *text == '-') {\n        *negative = *text == '-';\n        ++text;\n        if (*text == '\\0' || (*negative && !signed_type))\n            return -1;\n    }\n    unsigned int base = 10;\n    if (text[0] == '0') {\n        base = 8;\n        if (text[1] == 'x' || text[1] == 'X') {\n            base = 16;\n            text += 2;\n            if (*text == '\\0')\n                return -1;\n        }\n    }\n    uintmax_t limit = signed_type ? (uintmax_t)INTMAX_MAX : UINTMAX_MAX;\n    if (signed_type && *negative)\n        ++limit;\n    for (; *text; ++text) {\n        int digit = digit_value((unsigned char)*text);\n        if (digit < 0 || (unsigned int)digit >= base ||\n            *magnitude > (limit - (unsigned int)digit) / base)\n            return -1;\n        *magnitude = *magnitude * base + (unsigned int)digit;\n    }\n    if (*magnitude == 0)\n        *negative = 0;\n    return 0;\n}\n/* Purpose: Encode a magnitude with an optional sign safely.\n * Args: buffer capacity CHAR_BIT*sizeof(uintmax_t)+2; base 8, 10 or 16.\n * Rets: Generated length; no terminator needed.\n */\nstatic size_t integer_bytes(unsigned char *buffer, uintmax_t magnitude,\n                            unsigned int base, int negative, int uppercase)\n{\n    const char *digits = uppercase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";\n    size_t length = 0;\n    do {\n        buffer[length++] = (unsigned char)digits[magnitude % base];\n        magnitude /= base;\n    } while (magnitude);\n    if (negative)\n        buffer[length++] = '-';\n    for (size_t i = 0; i < length / 2; ++i) {\n        unsigned char byte = buffer[i];\n        buffer[i] = buffer[length - i - 1];\n        buffer[length - i - 1] = byte;\n    }\n    return length;\n}\nenum { OUTPUT_LIMIT = 16 * 1024 * 1024 };\ntypedef struct {\n    size_t total;\n    int writing;\n} output_t;\n/* Purpose: Count bytes during preflight or write them after validation.\n * Args: output invocation state; bytes borrowed; length exact byte count.\n * Rets: 0 success, 1 I/O failure, 2 output size bound exceeded.\n */\nstatic int output_write(output_t *output, const unsigned char *bytes,\n                        size_t length)\n{\n    if (length > OUTPUT_LIMIT - output->total)\n        return 2;\n    output->total += length;\n    if (output->writing && lines_write(bytes, length))\n        return 1;\n    return 0;\n}\n/* Purpose: Write a bounded run of one padding byte.\n * Args: output invocation state; byte padding character; count length.\n * Rets: 0 success, 1 output failure, 2 output bound exceeded.\n */\nstatic int padding_write(output_t *output, unsigned char byte, size_t count)\n{\n    unsigned char padding[64];\n    memset(padding, byte, sizeof(padding));\n    while (count) {\n        size_t amount = count < sizeof(padding) ? count : sizeof(padding);\n        int status = output_write(output, padding, amount);\n        if (status != 0)\n            return status;\n        count -= amount;\n    }\n    return 0;\n}\n/* Purpose: Emit a typed field, never an untrusted variadic format.\n * Args: output invocation state; spec validated; argument borrowed.\n * Rets: 0 success, 1 output failure, 2 invalid numeric operand.\n */\nstatic int conversion_write(output_t *output, const conversion_t *spec,\n                            const char *argument)\n{\n    unsigned char buffer[CHAR_BIT * sizeof(uintmax_t) + 2];\n    const unsigned char *text = (const unsigned char *)argument;\n    size_t length;\n    int negative = 0;\n    if (spec->type == 's') {\n        length = strlen(argument);\n        if (spec->precise && length > spec->precision)\n            length = spec->precision;\n    } else if (spec->type == 'c') {\n        length = 1;\n    } else {\n        uintmax_t magnitude;\n        int signed_type = spec->type == 'd' || spec->type == 'i';\n        if (integer_parse(argument, signed_type, &negative, &magnitude))\n            return 2;\n        unsigned int base = spec->type == 'o'                        ? 8U\n                            : spec->type == 'x' || spec->type == 'X' ? 16U\n                                                                     : 10U;\n        length =\n            integer_bytes(buffer, magnitude, base, negative, spec->type == 'X');\n        text = buffer;\n    }\n    size_t padding = spec->width > length ? spec->width - length : 0;\n    int zero = spec->zero && !spec->left;\n    int status = 0;\n    if (negative && zero) {\n        status = output_write(output, text++, 1);\n        if (status != 0)\n            return status;\n        --length;\n    }\n    if (!spec->left)\n        status = padding_write(output, zero ? '0' : ' ', padding);\n    if (status == 0)\n        status = output_write(output, text, length);\n    if (status == 0 && spec->left)\n        status = padding_write(output, ' ', padding);\n    return status;\n}\n/* Purpose: Emit the selected byte format using literal operands.\n * Args: format/operands borrowed; writing selects output or preflight.\n * Rets: 0 success, 1 output failure, 2 format/operand/size error.\n */\nstatic int render_pass(const char *format, const struct arg_str *operands,\n                       int writing)\n{\n    output_t output = {0, writing};\n    int next = 0, previous;\n    do {\n        previous = next;\n        for (const char *p = format; *p; ++p) {\n            unsigned char byte = (unsigned char)*p;\n            if (*p == '\\\\') {\n                if (escape_byte(&p, &byte))\n                    return 2;\n            } else if (*p == '%') {\n                ++p;\n                if (*p == '%') {\n                    byte = '%';\n                } else {\n                    conversion_t spec;\n                    if (conversion_parse(&p, &spec))\n                        return 2;\n                    const char *argument =\n                        next < operands->count ? operands->sval[next++] : \"\";\n                    int status = conversion_write(&output, &spec, argument);\n                    if (status != 0)\n                        return status;\n                    continue;\n                }\n            }\n            int status = output_write(&output, &byte, 1);\n            if (status != 0)\n                return status;\n        }\n    } while (next < operands->count && next != previous);\n    return 0;\n}\n/* Purpose: Validate all output before beginning descriptor writes.\n * Args: format and operands borrowed and stable throughout invocation.\n * Rets: 0 success, 1 output failure, 2 invalid format/operand/output size.\n */\nstatic int render(const char *format, const struct arg_str *operands)\n{\n    return render_pass(format, operands, 1);\n}\n/* Purpose: Parse private argv and print bytes or help without host mutation.\n * Args: argc/argv borrowed; every argc element must be a valid C string.\n * Rets: 0 success, 1 operational failure, 2 argument error.\n * Notes: No stdin reads, descriptor ownership, locale or signal changes.\n */\nstatic int printf_run(int argc, char **argv)\n{\n    if (argc < 1 || argv == NULL) {\n        fputs(\"printf: invalid module arguments\\n\", stderr);\n        return 2;\n    }\n    for (int i = 0; i < argc; ++i) {\n        if (argv[i] == NULL) {\n            fputs(\"printf: invalid module arguments\\n\", stderr);\n            return 2;\n        }\n    }\n    void *table[ARG_COUNT] = {0};\n    char **copy = NULL;\n    int status = 1;\n    if (arguments_build(table, argc) != 0)\n        goto failure;\n    if ((size_t)argc + 2 > SIZE_MAX / sizeof(*copy)) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    copy = malloc(((size_t)argc + 2) * sizeof(*copy));\n    if (copy == NULL) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    /* Preserve leading options; insert -- before the first format operand.\n     * Never classify later operands as options, independent of host getopt.\n     */\n    int next = 0, i = 0;\n    copy[next++] = argv[i++];\n    while (i < argc && argv[i][0] == '-' && argv[i][1] != '\\0' &&\n           strcmp(argv[i], \"--\") != 0)\n        copy[next++] = argv[i++];\n    copy[next++] = \"--\";\n    if (i < argc && strcmp(argv[i], \"--\") == 0)\n        ++i;\n    while (i < argc)\n        copy[next++] = argv[i++];\n    copy[next] = NULL;\n    char *saved_optarg = optarg;\n    int saved_optind = optind, saved_opterr = opterr, saved_optopt = optopt;\n    int errors = arg_parse(next, copy, table);\n    optarg = saved_optarg;\n    optind = saved_optind;\n    opterr = saved_opterr;\n    optopt = saved_optopt;\n    if (errors != 0) {\n        arg_print_errors(stderr, table[END], \"printf\");\n        status = 2;\n        goto done;\n    }\n    if (((struct arg_lit *)table[HELP])->count != 0) {\n        help_print(stdout, table);\n        if (fflush(stdout) != 0 || ferror(stdout)) {\n            int error = errno == 0 ? EIO : errno;\n            clearerr(stdout);\n            errno = error;\n            goto failure;\n        }\n        status = 0;\n    } else if (((struct arg_str *)table[FORMAT])->count == 0) {\n        fputs(\"printf: missing FORMAT\\n\", stderr);\n        status = 2;\n    } else {\n        status = render(((struct arg_str *)table[FORMAT])->sval[0],\n                        table[ARGUMENTS]);\n        if (status == 1)\n            goto failure;\n        if (status == 2)\n            fputs(\"printf: invalid format or argument\\n\", stderr);\n    }\n    goto done;\nfailure:\n    fprintf(stderr, \"printf: %s\\n\", strerror(errno));\ndone:\n    free(copy);\n    arg_freetable(table, ARG_COUNT);\n    return status;\n}\n/* Purpose: Expose parser-derived usage without persistent parser state.\n * Args: out borrowed valid stream.\n * Rets: void; stream state reports output failure.\n */\nstatic void printf_usage(FILE *out)\n{\n    void *table[ARG_COUNT] = {0};\n    if (arguments_build(table, 3) == 0)\n        help_print(out, table);\n    else\n        fputs(\"printf: cannot allocate help\\n\", out);\n    arg_freetable(table, ARG_COUNT);\n}\ncmd_spec_t cmd_printf_spec = {\"printf\", \"Print formatted bytes.\",\n                              \"Print bounded typed byte formats safely.\",\n                              printf_run, printf_usage};\n",
+    "no-getopt-restore.c": "#include \"cmd_printf.h\" /* cmd_spec_t. */\n#include \"cmd_lines.h\"  /* lines_write. */\n#include <argtable3.h>  /* Argument definitions, parser, help, cleanup. */\n#include <errno.h>      /* errno, ENOMEM, EIO. */\n#include <getopt.h>     /* optarg, optind, opterr, optopt. */\n#include <stdint.h>     /* SIZE_MAX, uintmax_t, INTMAX_MAX, UINTMAX_MAX. */\n#include <limits.h>     /* CHAR_BIT. */\n#include <stdio.h>      /* FILE, fputs, fprintf, fflush, ferror, clearerr. */\n#include <stdlib.h>     /* malloc, free. */\n#include <string.h>     /* strlen, strcmp, strchr, strerror, memset. */\n\nenum { HELP, FORMAT, ARGUMENTS, END, ARG_COUNT };\n\n/* Purpose: Build invocation-local syntax used by parser and usage.\n * Args: table initially NULL; capacity bounds operand storage.\n * Rets: Zero success, -1/ENOMEM on constructor failure.\n */\nstatic int arguments_build(void **table, int capacity)\n{\n    table[HELP] = arg_lit0(\"h\", \"help\", \"Show help and exit.\");\n    table[FORMAT] = arg_str0(NULL, NULL, \"FORMAT\", \"Byte output format.\");\n    table[ARGUMENTS] = arg_strn(NULL, NULL, \"ARGUMENT\", 0, capacity,\n                                \"Literal conversion operands.\");\n    table[END] = arg_end(20);\n    for (size_t i = 0; i < ARG_COUNT; ++i) {\n        if (table[i] == NULL) {\n            errno = ENOMEM;\n            return -1;\n        }\n    }\n    return 0;\n}\n/* Purpose: Render stable logical grammar independent of capacity.\n * Args: out and table borrowed.\n * Rets: void; stream error state reports output failure.\n */\nstatic void help_print(FILE *out, void **table)\n{\n    struct arg_str *format = table[FORMAT], *operands = table[ARGUMENTS];\n    int capacity = operands->hdr.maxcount;\n    format->hdr.mincount = 1;\n    operands->hdr.maxcount = 3;\n    fputs(\"Usage: printf\", out);\n    arg_print_syntax(out, table, \"\\n\\n\");\n    arg_print_glossary(out, table, \"  %-20s %s\\n\");\n    format->hdr.mincount = 0;\n    operands->hdr.maxcount = capacity;\n    fputs(\"\\nPrint formatted bytes without an automatic newline.\\n\"\n          \"Options precede FORMAT; later arguments are literal data.\\n\"\n          \"Use -- before an option-like FORMAT.\\n\"\n          \"Conversions: %s %c %d %i %u %o %x %X %%.\\n\"\n          \"Literal width up to 4096; - alignment, integer 0 padding;\\n\"\n          \"string precision up to 4096. No floats, *, %b, %q or %n.\\n\"\n          \"Byte escapes only; total output limit 16 MiB.\\n\"\n          \"Exit status: 0 success, 1 operational failure, 2 argument error.\\n\",\n          out);\n}\n/* Purpose: Map an ASCII hex digit without locale-sensitive classification.\n * Args: byte input character.\n * Rets: 0..15 digit value or -1 if not a hex digit.\n */\nstatic int digit_value(unsigned char byte)\n{\n    if (byte >= '0' && byte <= '9')\n        return byte - '0';\n    if (byte >= 'a' && byte <= 'f')\n        return byte - 'a' + 10;\n    if (byte >= 'A' && byte <= 'F')\n        return byte - 'A' + 10;\n    return -1;\n}\n/* Purpose: Decode one bounded FORMAT escape, including embedded NUL.\n * Args: cursor points to backslash; byte receives decoded low byte.\n * Rets: Zero success, -1 malformed/unsupported escape.\n */\nstatic int escape_byte(const char **cursor, unsigned char *byte)\n{\n    const char *p = *cursor + 1;\n    const char *names = \"\\\"\\\\abefnrtv\";\n    const unsigned char values[] = {'\"', '\\\\', 7, 8, 27, 12, 10, 13, 9, 11};\n    if (*p == '\\0')\n        return -1;\n    const char *named = strchr(names, *p);\n    if (named != NULL) {\n        *byte = values[(size_t)(named - names)];\n        *cursor = p;\n        return 0;\n    }\n    unsigned int value = 0;\n    int count = 0, base = 8, maximum = 3;\n    if (*p == 'x') {\n        ++p;\n        base = 16;\n        maximum = 2;\n    }\n    while (count < maximum) {\n        int digit = digit_value((unsigned char)*p);\n        if (digit < 0 || digit >= base)\n            break;\n        value = value * (unsigned int)base + (unsigned int)digit;\n        ++p;\n        ++count;\n    }\n    if (count == 0)\n        return -1;\n    *byte = (unsigned char)(value & 255U);\n    *cursor = p - 1;\n    return 0;\n}\n/* Purpose: Parse a bounded decimal field size.\n * Args: cursor starts at digits; value receives 0..4096.\n * Rets: Zero success, -1 if the field bound is exceeded.\n */\nstatic int field_size(const char **cursor, size_t *value)\n{\n    *value = 0;\n    while (**cursor >= '0' && **cursor <= '9') {\n        *value = *value * 10 + (size_t)(**cursor - '0');\n        if (*value > 4096)\n            return -1;\n        ++*cursor;\n    }\n    return 0;\n}\ntypedef struct {\n    char type;\n    int left, zero, precise;\n    size_t width, precision;\n} conversion_t;\n/* Purpose: Validate a conversion before selecting its typed renderer.\n * Args: cursor points after percent; spec receives selected fields.\n * Rets: Zero success, -1 unsupported or malformed conversion.\n */\nstatic int conversion_parse(const char **cursor, conversion_t *spec)\n{\n    const char *p = *cursor;\n    *spec = (conversion_t){0};\n    while (*p == '-' || *p == '0') {\n        int *flag = *p == '-' ? &spec->left : &spec->zero;\n        if (*flag)\n            return -1;\n        *flag = 1;\n        ++p;\n    }\n    if (field_size(&p, &spec->width))\n        return -1;\n    if (*p == '.') {\n        spec->precise = 1;\n        ++p;\n        if (field_size(&p, &spec->precision))\n            return -1;\n    }\n    if (*p == '\\0' || strchr(\"scdiuoxX\", *p) == NULL)\n        return -1;\n    spec->type = *p;\n    if ((spec->type == 's' || spec->type == 'c') && spec->zero)\n        return -1;\n    if (spec->precise && spec->type != 's')\n        return -1;\n    *cursor = p;\n    return 0;\n}\n/* Purpose: Convert strict ASCII integer text without locale or overflow.\n * Args: text borrowed; signed_type selects bounds; outputs sign/magnitude.\n * Rets: Zero success, -1 invalid or out-of-range operand.\n */\nstatic int integer_parse(const char *text, int signed_type, int *negative,\n                         uintmax_t *magnitude)\n{\n    *negative = 0;\n    *magnitude = 0;\n    if (*text == '\\0')\n        return 0;\n    if (*text == '+' || *text == '-') {\n        *negative = *text == '-';\n        ++text;\n        if (*text == '\\0' || (*negative && !signed_type))\n            return -1;\n    }\n    unsigned int base = 10;\n    if (text[0] == '0') {\n        base = 8;\n        if (text[1] == 'x' || text[1] == 'X') {\n            base = 16;\n            text += 2;\n            if (*text == '\\0')\n                return -1;\n        }\n    }\n    uintmax_t limit = signed_type ? (uintmax_t)INTMAX_MAX : UINTMAX_MAX;\n    if (signed_type && *negative)\n        ++limit;\n    for (; *text; ++text) {\n        int digit = digit_value((unsigned char)*text);\n        if (digit < 0 || (unsigned int)digit >= base ||\n            *magnitude > (limit - (unsigned int)digit) / base)\n            return -1;\n        *magnitude = *magnitude * base + (unsigned int)digit;\n    }\n    if (*magnitude == 0)\n        *negative = 0;\n    return 0;\n}\n/* Purpose: Encode a magnitude with an optional sign safely.\n * Args: buffer capacity CHAR_BIT*sizeof(uintmax_t)+2; base 8, 10 or 16.\n * Rets: Generated length; no terminator needed.\n */\nstatic size_t integer_bytes(unsigned char *buffer, uintmax_t magnitude,\n                            unsigned int base, int negative, int uppercase)\n{\n    const char *digits = uppercase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";\n    size_t length = 0;\n    do {\n        buffer[length++] = (unsigned char)digits[magnitude % base];\n        magnitude /= base;\n    } while (magnitude);\n    if (negative)\n        buffer[length++] = '-';\n    for (size_t i = 0; i < length / 2; ++i) {\n        unsigned char byte = buffer[i];\n        buffer[i] = buffer[length - i - 1];\n        buffer[length - i - 1] = byte;\n    }\n    return length;\n}\nenum { OUTPUT_LIMIT = 16 * 1024 * 1024 };\ntypedef struct {\n    size_t total;\n    int writing;\n} output_t;\n/* Purpose: Count bytes during preflight or write them after validation.\n * Args: output invocation state; bytes borrowed; length exact byte count.\n * Rets: 0 success, 1 I/O failure, 2 output size bound exceeded.\n */\nstatic int output_write(output_t *output, const unsigned char *bytes,\n                        size_t length)\n{\n    if (length > OUTPUT_LIMIT - output->total)\n        return 2;\n    output->total += length;\n    if (output->writing && lines_write(bytes, length))\n        return 1;\n    return 0;\n}\n/* Purpose: Write a bounded run of one padding byte.\n * Args: output invocation state; byte padding character; count length.\n * Rets: 0 success, 1 output failure, 2 output bound exceeded.\n */\nstatic int padding_write(output_t *output, unsigned char byte, size_t count)\n{\n    unsigned char padding[64];\n    memset(padding, byte, sizeof(padding));\n    while (count) {\n        size_t amount = count < sizeof(padding) ? count : sizeof(padding);\n        int status = output_write(output, padding, amount);\n        if (status != 0)\n            return status;\n        count -= amount;\n    }\n    return 0;\n}\n/* Purpose: Emit a typed field, never an untrusted variadic format.\n * Args: output invocation state; spec validated; argument borrowed.\n * Rets: 0 success, 1 output failure, 2 invalid numeric operand.\n */\nstatic int conversion_write(output_t *output, const conversion_t *spec,\n                            const char *argument)\n{\n    unsigned char buffer[CHAR_BIT * sizeof(uintmax_t) + 2];\n    const unsigned char *text = (const unsigned char *)argument;\n    size_t length;\n    int negative = 0;\n    if (spec->type == 's') {\n        length = strlen(argument);\n        if (spec->precise && length > spec->precision)\n            length = spec->precision;\n    } else if (spec->type == 'c') {\n        length = 1;\n    } else {\n        uintmax_t magnitude;\n        int signed_type = spec->type == 'd' || spec->type == 'i';\n        if (integer_parse(argument, signed_type, &negative, &magnitude))\n            return 2;\n        unsigned int base = spec->type == 'o'                        ? 8U\n                            : spec->type == 'x' || spec->type == 'X' ? 16U\n                                                                     : 10U;\n        length =\n            integer_bytes(buffer, magnitude, base, negative, spec->type == 'X');\n        text = buffer;\n    }\n    size_t padding = spec->width > length ? spec->width - length : 0;\n    int zero = spec->zero && !spec->left;\n    int status = 0;\n    if (negative && zero) {\n        status = output_write(output, text++, 1);\n        if (status != 0)\n            return status;\n        --length;\n    }\n    if (!spec->left)\n        status = padding_write(output, zero ? '0' : ' ', padding);\n    if (status == 0)\n        status = output_write(output, text, length);\n    if (status == 0 && spec->left)\n        status = padding_write(output, ' ', padding);\n    return status;\n}\n/* Purpose: Emit the selected byte format using literal operands.\n * Args: format/operands borrowed; writing selects output or preflight.\n * Rets: 0 success, 1 output failure, 2 format/operand/size error.\n */\nstatic int render_pass(const char *format, const struct arg_str *operands,\n                       int writing)\n{\n    output_t output = {0, writing};\n    int next = 0, previous;\n    do {\n        previous = next;\n        for (const char *p = format; *p; ++p) {\n            unsigned char byte = (unsigned char)*p;\n            if (*p == '\\\\') {\n                if (escape_byte(&p, &byte))\n                    return 2;\n            } else if (*p == '%') {\n                ++p;\n                if (*p == '%') {\n                    byte = '%';\n                } else {\n                    conversion_t spec;\n                    if (conversion_parse(&p, &spec))\n                        return 2;\n                    const char *argument =\n                        next < operands->count ? operands->sval[next++] : \"\";\n                    int status = conversion_write(&output, &spec, argument);\n                    if (status != 0)\n                        return status;\n                    continue;\n                }\n            }\n            int status = output_write(&output, &byte, 1);\n            if (status != 0)\n                return status;\n        }\n    } while (next < operands->count && next != previous);\n    return 0;\n}\n/* Purpose: Validate all output before beginning descriptor writes.\n * Args: format and operands borrowed and stable throughout invocation.\n * Rets: 0 success, 1 output failure, 2 invalid format/operand/output size.\n */\nstatic int render(const char *format, const struct arg_str *operands)\n{\n    int status = render_pass(format, operands, 0);\n    return status != 0 ? status : render_pass(format, operands, 1);\n}\n/* Purpose: Parse private argv and print bytes or help without host mutation.\n * Args: argc/argv borrowed; every argc element must be a valid C string.\n * Rets: 0 success, 1 operational failure, 2 argument error.\n * Notes: No stdin reads, descriptor ownership, locale or signal changes.\n */\nstatic int printf_run(int argc, char **argv)\n{\n    if (argc < 1 || argv == NULL) {\n        fputs(\"printf: invalid module arguments\\n\", stderr);\n        return 2;\n    }\n    for (int i = 0; i < argc; ++i) {\n        if (argv[i] == NULL) {\n            fputs(\"printf: invalid module arguments\\n\", stderr);\n            return 2;\n        }\n    }\n    void *table[ARG_COUNT] = {0};\n    char **copy = NULL;\n    int status = 1;\n    if (arguments_build(table, argc) != 0)\n        goto failure;\n    if ((size_t)argc + 2 > SIZE_MAX / sizeof(*copy)) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    copy = malloc(((size_t)argc + 2) * sizeof(*copy));\n    if (copy == NULL) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    /* Preserve leading options; insert -- before the first format operand.\n     * Never classify later operands as options, independent of host getopt.\n     */\n    int next = 0, i = 0;\n    copy[next++] = argv[i++];\n    while (i < argc && argv[i][0] == '-' && argv[i][1] != '\\0' &&\n           strcmp(argv[i], \"--\") != 0)\n        copy[next++] = argv[i++];\n    copy[next++] = \"--\";\n    if (i < argc && strcmp(argv[i], \"--\") == 0)\n        ++i;\n    while (i < argc)\n        copy[next++] = argv[i++];\n    copy[next] = NULL;\n    char *saved_optarg = optarg;\n    int saved_optind = optind, saved_opterr = opterr, saved_optopt = optopt;\n    int errors = arg_parse(next, copy, table);\n    (void)saved_optarg;\n    (void)saved_optind;\n    (void)saved_opterr;\n    (void)saved_optopt;\n    if (errors != 0) {\n        arg_print_errors(stderr, table[END], \"printf\");\n        status = 2;\n        goto done;\n    }\n    if (((struct arg_lit *)table[HELP])->count != 0) {\n        help_print(stdout, table);\n        if (fflush(stdout) != 0 || ferror(stdout)) {\n            int error = errno == 0 ? EIO : errno;\n            clearerr(stdout);\n            errno = error;\n            goto failure;\n        }\n        status = 0;\n    } else if (((struct arg_str *)table[FORMAT])->count == 0) {\n        fputs(\"printf: missing FORMAT\\n\", stderr);\n        status = 2;\n    } else {\n        status = render(((struct arg_str *)table[FORMAT])->sval[0],\n                        table[ARGUMENTS]);\n        if (status == 1)\n            goto failure;\n        if (status == 2)\n            fputs(\"printf: invalid format or argument\\n\", stderr);\n    }\n    goto done;\nfailure:\n    fprintf(stderr, \"printf: %s\\n\", strerror(errno));\ndone:\n    free(copy);\n    arg_freetable(table, ARG_COUNT);\n    return status;\n}\n/* Purpose: Expose parser-derived usage without persistent parser state.\n * Args: out borrowed valid stream.\n * Rets: void; stream state reports output failure.\n */\nstatic void printf_usage(FILE *out)\n{\n    void *table[ARG_COUNT] = {0};\n    if (arguments_build(table, 3) == 0)\n        help_print(out, table);\n    else\n        fputs(\"printf: cannot allocate help\\n\", out);\n    arg_freetable(table, ARG_COUNT);\n}\ncmd_spec_t cmd_printf_spec = {\"printf\", \"Print formatted bytes.\",\n                              \"Print bounded typed byte formats safely.\",\n                              printf_run, printf_usage};\n",
+    "borrowed-argv.c": "#include \"cmd_printf.h\" /* cmd_spec_t. */\n#include \"cmd_lines.h\"  /* lines_write. */\n#include <argtable3.h>  /* Argument definitions, parser, help, cleanup. */\n#include <errno.h>      /* errno, ENOMEM, EIO. */\n#include <getopt.h>     /* optarg, optind, opterr, optopt. */\n#include <stdint.h>     /* SIZE_MAX, uintmax_t, INTMAX_MAX, UINTMAX_MAX. */\n#include <limits.h>     /* CHAR_BIT. */\n#include <stdio.h>      /* FILE, fputs, fprintf, fflush, ferror, clearerr. */\n#include <stdlib.h>     /* malloc, free. */\n#include <string.h>     /* strlen, strcmp, strchr, strerror, memset. */\n\nenum { HELP, FORMAT, ARGUMENTS, END, ARG_COUNT };\n\n/* Purpose: Build invocation-local syntax used by parser and usage.\n * Args: table initially NULL; capacity bounds operand storage.\n * Rets: Zero success, -1/ENOMEM on constructor failure.\n */\nstatic int arguments_build(void **table, int capacity)\n{\n    table[HELP] = arg_lit0(\"h\", \"help\", \"Show help and exit.\");\n    table[FORMAT] = arg_str0(NULL, NULL, \"FORMAT\", \"Byte output format.\");\n    table[ARGUMENTS] = arg_strn(NULL, NULL, \"ARGUMENT\", 0, capacity,\n                                \"Literal conversion operands.\");\n    table[END] = arg_end(20);\n    for (size_t i = 0; i < ARG_COUNT; ++i) {\n        if (table[i] == NULL) {\n            errno = ENOMEM;\n            return -1;\n        }\n    }\n    return 0;\n}\n/* Purpose: Render stable logical grammar independent of capacity.\n * Args: out and table borrowed.\n * Rets: void; stream error state reports output failure.\n */\nstatic void help_print(FILE *out, void **table)\n{\n    struct arg_str *format = table[FORMAT], *operands = table[ARGUMENTS];\n    int capacity = operands->hdr.maxcount;\n    format->hdr.mincount = 1;\n    operands->hdr.maxcount = 3;\n    fputs(\"Usage: printf\", out);\n    arg_print_syntax(out, table, \"\\n\\n\");\n    arg_print_glossary(out, table, \"  %-20s %s\\n\");\n    format->hdr.mincount = 0;\n    operands->hdr.maxcount = capacity;\n    fputs(\"\\nPrint formatted bytes without an automatic newline.\\n\"\n          \"Options precede FORMAT; later arguments are literal data.\\n\"\n          \"Use -- before an option-like FORMAT.\\n\"\n          \"Conversions: %s %c %d %i %u %o %x %X %%.\\n\"\n          \"Literal width up to 4096; - alignment, integer 0 padding;\\n\"\n          \"string precision up to 4096. No floats, *, %b, %q or %n.\\n\"\n          \"Byte escapes only; total output limit 16 MiB.\\n\"\n          \"Exit status: 0 success, 1 operational failure, 2 argument error.\\n\",\n          out);\n}\n/* Purpose: Map an ASCII hex digit without locale-sensitive classification.\n * Args: byte input character.\n * Rets: 0..15 digit value or -1 if not a hex digit.\n */\nstatic int digit_value(unsigned char byte)\n{\n    if (byte >= '0' && byte <= '9')\n        return byte - '0';\n    if (byte >= 'a' && byte <= 'f')\n        return byte - 'a' + 10;\n    if (byte >= 'A' && byte <= 'F')\n        return byte - 'A' + 10;\n    return -1;\n}\n/* Purpose: Decode one bounded FORMAT escape, including embedded NUL.\n * Args: cursor points to backslash; byte receives decoded low byte.\n * Rets: Zero success, -1 malformed/unsupported escape.\n */\nstatic int escape_byte(const char **cursor, unsigned char *byte)\n{\n    const char *p = *cursor + 1;\n    const char *names = \"\\\"\\\\abefnrtv\";\n    const unsigned char values[] = {'\"', '\\\\', 7, 8, 27, 12, 10, 13, 9, 11};\n    if (*p == '\\0')\n        return -1;\n    const char *named = strchr(names, *p);\n    if (named != NULL) {\n        *byte = values[(size_t)(named - names)];\n        *cursor = p;\n        return 0;\n    }\n    unsigned int value = 0;\n    int count = 0, base = 8, maximum = 3;\n    if (*p == 'x') {\n        ++p;\n        base = 16;\n        maximum = 2;\n    }\n    while (count < maximum) {\n        int digit = digit_value((unsigned char)*p);\n        if (digit < 0 || digit >= base)\n            break;\n        value = value * (unsigned int)base + (unsigned int)digit;\n        ++p;\n        ++count;\n    }\n    if (count == 0)\n        return -1;\n    *byte = (unsigned char)(value & 255U);\n    *cursor = p - 1;\n    return 0;\n}\n/* Purpose: Parse a bounded decimal field size.\n * Args: cursor starts at digits; value receives 0..4096.\n * Rets: Zero success, -1 if the field bound is exceeded.\n */\nstatic int field_size(const char **cursor, size_t *value)\n{\n    *value = 0;\n    while (**cursor >= '0' && **cursor <= '9') {\n        *value = *value * 10 + (size_t)(**cursor - '0');\n        if (*value > 4096)\n            return -1;\n        ++*cursor;\n    }\n    return 0;\n}\ntypedef struct {\n    char type;\n    int left, zero, precise;\n    size_t width, precision;\n} conversion_t;\n/* Purpose: Validate a conversion before selecting its typed renderer.\n * Args: cursor points after percent; spec receives selected fields.\n * Rets: Zero success, -1 unsupported or malformed conversion.\n */\nstatic int conversion_parse(const char **cursor, conversion_t *spec)\n{\n    const char *p = *cursor;\n    *spec = (conversion_t){0};\n    while (*p == '-' || *p == '0') {\n        int *flag = *p == '-' ? &spec->left : &spec->zero;\n        if (*flag)\n            return -1;\n        *flag = 1;\n        ++p;\n    }\n    if (field_size(&p, &spec->width))\n        return -1;\n    if (*p == '.') {\n        spec->precise = 1;\n        ++p;\n        if (field_size(&p, &spec->precision))\n            return -1;\n    }\n    if (*p == '\\0' || strchr(\"scdiuoxX\", *p) == NULL)\n        return -1;\n    spec->type = *p;\n    if ((spec->type == 's' || spec->type == 'c') && spec->zero)\n        return -1;\n    if (spec->precise && spec->type != 's')\n        return -1;\n    *cursor = p;\n    return 0;\n}\n/* Purpose: Convert strict ASCII integer text without locale or overflow.\n * Args: text borrowed; signed_type selects bounds; outputs sign/magnitude.\n * Rets: Zero success, -1 invalid or out-of-range operand.\n */\nstatic int integer_parse(const char *text, int signed_type, int *negative,\n                         uintmax_t *magnitude)\n{\n    *negative = 0;\n    *magnitude = 0;\n    if (*text == '\\0')\n        return 0;\n    if (*text == '+' || *text == '-') {\n        *negative = *text == '-';\n        ++text;\n        if (*text == '\\0' || (*negative && !signed_type))\n            return -1;\n    }\n    unsigned int base = 10;\n    if (text[0] == '0') {\n        base = 8;\n        if (text[1] == 'x' || text[1] == 'X') {\n            base = 16;\n            text += 2;\n            if (*text == '\\0')\n                return -1;\n        }\n    }\n    uintmax_t limit = signed_type ? (uintmax_t)INTMAX_MAX : UINTMAX_MAX;\n    if (signed_type && *negative)\n        ++limit;\n    for (; *text; ++text) {\n        int digit = digit_value((unsigned char)*text);\n        if (digit < 0 || (unsigned int)digit >= base ||\n            *magnitude > (limit - (unsigned int)digit) / base)\n            return -1;\n        *magnitude = *magnitude * base + (unsigned int)digit;\n    }\n    if (*magnitude == 0)\n        *negative = 0;\n    return 0;\n}\n/* Purpose: Encode a magnitude with an optional sign safely.\n * Args: buffer capacity CHAR_BIT*sizeof(uintmax_t)+2; base 8, 10 or 16.\n * Rets: Generated length; no terminator needed.\n */\nstatic size_t integer_bytes(unsigned char *buffer, uintmax_t magnitude,\n                            unsigned int base, int negative, int uppercase)\n{\n    const char *digits = uppercase ? \"0123456789ABCDEF\" : \"0123456789abcdef\";\n    size_t length = 0;\n    do {\n        buffer[length++] = (unsigned char)digits[magnitude % base];\n        magnitude /= base;\n    } while (magnitude);\n    if (negative)\n        buffer[length++] = '-';\n    for (size_t i = 0; i < length / 2; ++i) {\n        unsigned char byte = buffer[i];\n        buffer[i] = buffer[length - i - 1];\n        buffer[length - i - 1] = byte;\n    }\n    return length;\n}\nenum { OUTPUT_LIMIT = 16 * 1024 * 1024 };\ntypedef struct {\n    size_t total;\n    int writing;\n} output_t;\n/* Purpose: Count bytes during preflight or write them after validation.\n * Args: output invocation state; bytes borrowed; length exact byte count.\n * Rets: 0 success, 1 I/O failure, 2 output size bound exceeded.\n */\nstatic int output_write(output_t *output, const unsigned char *bytes,\n                        size_t length)\n{\n    if (length > OUTPUT_LIMIT - output->total)\n        return 2;\n    output->total += length;\n    if (output->writing && lines_write(bytes, length))\n        return 1;\n    return 0;\n}\n/* Purpose: Write a bounded run of one padding byte.\n * Args: output invocation state; byte padding character; count length.\n * Rets: 0 success, 1 output failure, 2 output bound exceeded.\n */\nstatic int padding_write(output_t *output, unsigned char byte, size_t count)\n{\n    unsigned char padding[64];\n    memset(padding, byte, sizeof(padding));\n    while (count) {\n        size_t amount = count < sizeof(padding) ? count : sizeof(padding);\n        int status = output_write(output, padding, amount);\n        if (status != 0)\n            return status;\n        count -= amount;\n    }\n    return 0;\n}\n/* Purpose: Emit a typed field, never an untrusted variadic format.\n * Args: output invocation state; spec validated; argument borrowed.\n * Rets: 0 success, 1 output failure, 2 invalid numeric operand.\n */\nstatic int conversion_write(output_t *output, const conversion_t *spec,\n                            const char *argument)\n{\n    unsigned char buffer[CHAR_BIT * sizeof(uintmax_t) + 2];\n    const unsigned char *text = (const unsigned char *)argument;\n    size_t length;\n    int negative = 0;\n    if (spec->type == 's') {\n        length = strlen(argument);\n        if (spec->precise && length > spec->precision)\n            length = spec->precision;\n    } else if (spec->type == 'c') {\n        length = 1;\n    } else {\n        uintmax_t magnitude;\n        int signed_type = spec->type == 'd' || spec->type == 'i';\n        if (integer_parse(argument, signed_type, &negative, &magnitude))\n            return 2;\n        unsigned int base = spec->type == 'o'                        ? 8U\n                            : spec->type == 'x' || spec->type == 'X' ? 16U\n                                                                     : 10U;\n        length =\n            integer_bytes(buffer, magnitude, base, negative, spec->type == 'X');\n        text = buffer;\n    }\n    size_t padding = spec->width > length ? spec->width - length : 0;\n    int zero = spec->zero && !spec->left;\n    int status = 0;\n    if (negative && zero) {\n        status = output_write(output, text++, 1);\n        if (status != 0)\n            return status;\n        --length;\n    }\n    if (!spec->left)\n        status = padding_write(output, zero ? '0' : ' ', padding);\n    if (status == 0)\n        status = output_write(output, text, length);\n    if (status == 0 && spec->left)\n        status = padding_write(output, ' ', padding);\n    return status;\n}\n/* Purpose: Emit the selected byte format using literal operands.\n * Args: format/operands borrowed; writing selects output or preflight.\n * Rets: 0 success, 1 output failure, 2 format/operand/size error.\n */\nstatic int render_pass(const char *format, const struct arg_str *operands,\n                       int writing)\n{\n    output_t output = {0, writing};\n    int next = 0, previous;\n    do {\n        previous = next;\n        for (const char *p = format; *p; ++p) {\n            unsigned char byte = (unsigned char)*p;\n            if (*p == '\\\\') {\n                if (escape_byte(&p, &byte))\n                    return 2;\n            } else if (*p == '%') {\n                ++p;\n                if (*p == '%') {\n                    byte = '%';\n                } else {\n                    conversion_t spec;\n                    if (conversion_parse(&p, &spec))\n                        return 2;\n                    const char *argument =\n                        next < operands->count ? operands->sval[next++] : \"\";\n                    int status = conversion_write(&output, &spec, argument);\n                    if (status != 0)\n                        return status;\n                    continue;\n                }\n            }\n            int status = output_write(&output, &byte, 1);\n            if (status != 0)\n                return status;\n        }\n    } while (next < operands->count && next != previous);\n    return 0;\n}\n/* Purpose: Validate all output before beginning descriptor writes.\n * Args: format and operands borrowed and stable throughout invocation.\n * Rets: 0 success, 1 output failure, 2 invalid format/operand/output size.\n */\nstatic int render(const char *format, const struct arg_str *operands)\n{\n    int status = render_pass(format, operands, 0);\n    return status != 0 ? status : render_pass(format, operands, 1);\n}\n/* Purpose: Parse private argv and print bytes or help without host mutation.\n * Args: argc/argv borrowed; every argc element must be a valid C string.\n * Rets: 0 success, 1 operational failure, 2 argument error.\n * Notes: No stdin reads, descriptor ownership, locale or signal changes.\n */\nstatic int printf_run(int argc, char **argv)\n{\n    if (argc < 1 || argv == NULL) {\n        fputs(\"printf: invalid module arguments\\n\", stderr);\n        return 2;\n    }\n    for (int i = 0; i < argc; ++i) {\n        if (argv[i] == NULL) {\n            fputs(\"printf: invalid module arguments\\n\", stderr);\n            return 2;\n        }\n    }\n    void *table[ARG_COUNT] = {0};\n    char **copy = NULL;\n    int status = 1;\n    if (arguments_build(table, argc) != 0)\n        goto failure;\n    if ((size_t)argc + 2 > SIZE_MAX / sizeof(*copy)) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    copy = malloc(((size_t)argc + 2) * sizeof(*copy));\n    if (copy == NULL) {\n        errno = ENOMEM;\n        goto failure;\n    }\n    /* Preserve leading options; insert -- before the first format operand.\n     * Never classify later operands as options, independent of host getopt.\n     */\n    int next = 0, i = 0;\n    copy[next++] = argv[i++];\n    while (i < argc && argv[i][0] == '-' && argv[i][1] != '\\0' &&\n           strcmp(argv[i], \"--\") != 0)\n        copy[next++] = argv[i++];\n    copy[next++] = \"--\";\n    if (i < argc && strcmp(argv[i], \"--\") == 0)\n        ++i;\n    while (i < argc)\n        copy[next++] = argv[i++];\n    copy[next] = NULL;\n    char *saved_optarg = optarg;\n    int saved_optind = optind, saved_opterr = opterr, saved_optopt = optopt;\n    int errors = arg_parse(argc, argv, table);\n    optarg = saved_optarg;\n    optind = saved_optind;\n    opterr = saved_opterr;\n    optopt = saved_optopt;\n    if (errors != 0) {\n        arg_print_errors(stderr, table[END], \"printf\");\n        status = 2;\n        goto done;\n    }\n    if (((struct arg_lit *)table[HELP])->count != 0) {\n        help_print(stdout, table);\n        if (fflush(stdout) != 0 || ferror(stdout)) {\n            int error = errno == 0 ? EIO : errno;\n            clearerr(stdout);\n            errno = error;\n            goto failure;\n        }\n        status = 0;\n    } else if (((struct arg_str *)table[FORMAT])->count == 0) {\n        fputs(\"printf: missing FORMAT\\n\", stderr);\n        status = 2;\n    } else {\n        status = render(((struct arg_str *)table[FORMAT])->sval[0],\n                        table[ARGUMENTS]);\n        if (status == 1)\n            goto failure;\n        if (status == 2)\n            fputs(\"printf: invalid format or argument\\n\", stderr);\n    }\n    goto done;\nfailure:\n    fprintf(stderr, \"printf: %s\\n\", strerror(errno));\ndone:\n    free(copy);\n    arg_freetable(table, ARG_COUNT);\n    return status;\n}\n/* Purpose: Expose parser-derived usage without persistent parser state.\n * Args: out borrowed valid stream.\n * Rets: void; stream state reports output failure.\n */\nstatic void printf_usage(FILE *out)\n{\n    void *table[ARG_COUNT] = {0};\n    if (arguments_build(table, 3) == 0)\n        help_print(out, table);\n    else\n        fputs(\"printf: cannot allocate help\\n\", out);\n    arg_freetable(table, ARG_COUNT);\n}\ncmd_spec_t cmd_printf_spec = {\"printf\", \"Print formatted bytes.\",\n                              \"Print bounded typed byte formats safely.\",\n                              printf_run, printf_usage};\n"
+  },
+  "final_verification": "External exact-patch ledger; candidate evidence frozen."
+}

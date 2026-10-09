@@ -16,7 +16,7 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env', 'echo', 'date']
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env', 'echo', 'date', 'printf']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -39,6 +39,7 @@ SUMMARIES = [
     'List environment variables.',
     'Print literal text.',
     'Show system time.',
+    'Print formatted bytes.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -546,7 +547,7 @@ class ShellTests(unittest.TestCase):
                  'edit-replace': ['--json', 'data', 'first|third', 'replacement'],
                  'mv': ['--json', 'move-source', 'move-target'], 'env': ['--json'],
                  'echo': ['', 'two words', '--', '-n', '--help'],
-                 'date': ['--help']}
+                 'date': ['--help'], 'printf': ['%s:%04d', 'value', '7']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):

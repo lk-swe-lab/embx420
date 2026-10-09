@@ -1,0 +1,638 @@
+{
+  "head": "bee5d7b9da4da3e4aa626f76d1a5d467895176fc",
+  "records": [
+    {
+      "label": "apply-check-normal",
+      "argv": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "apply-normal",
+      "argv": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0aab74e3b65d44d3460fd0fe1ab117e76314d01604901549fc62edddecce00bb",
+      "stdout_size": 0,
+      "stderr_size": 693
+    },
+    {
+      "label": "apply-check-normal",
+      "argv": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "apply-normal",
+      "argv": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0aab74e3b65d44d3460fd0fe1ab117e76314d01604901549fc62edddecce00bb",
+      "stdout_size": 0,
+      "stderr_size": 693
+    },
+    {
+      "label": "apply-check-sanitizer",
+      "argv": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "apply-sanitizer",
+      "argv": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/printf-final.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.005,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0aab74e3b65d44d3460fd0fe1ab117e76314d01604901549fc62edddecce00bb",
+      "stdout_size": 0,
+      "stderr_size": 693
+    },
+    {
+      "label": "normal-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 13.617,
+      "stdout_sha256": "635f23931ebdc96ae9fe11c7021534814165c4d195a9c507a8e6ce986f35b108",
+      "stderr_sha256": "5ffe97abc1e2a00be7facc5a7faee579d3e20a7fa1ea33507d5cd89207455da8",
+      "stdout_size": 42541,
+      "stderr_size": 31657
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 36.545,
+      "stdout_sha256": "ae943f63df216a2ebfdba3f482ba05a95df5d0d11bdf3c28a07ea574305e4346",
+      "stderr_sha256": "6f33d5d4c4a56cf7949e926768d0f4744b1dd56e9a05a68c449271bdeba921e6",
+      "stdout_size": 1710,
+      "stderr_size": 8227
+    },
+    {
+      "label": "scoped-format",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/registry.c",
+        "tests/test_shell_module.c",
+        "src/cmd_printf.c",
+        "src/cmd_printf.h",
+        "src/printf_main.c",
+        "tests/test_printf_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.035,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "GNU-reference",
+      "argv": [
+        "make",
+        "test-printf"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 2.298,
+      "stdout_sha256": "098e2fb144a614bd553b3008e3614bf586be038e4e1d5785a2036a9ce71082ef",
+      "stderr_sha256": "fa8fb6ea45c4922964b03c08f376809426eb00c9ebeec8d309be42bf91da228b",
+      "stdout_size": 67,
+      "stderr_size": 904
+    },
+    {
+      "label": "sanitizer-all-test",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 74.24,
+      "stdout_sha256": "9863d66103a7d7179af7c67bb1d4afdd2fbb56435267b928db04688a7a360422",
+      "stderr_sha256": "50f26d9def3a580db1da806bed6f7f2a18216e9bdeed7747bfc21f899da9bf54",
+      "stdout_size": 47359,
+      "stderr_size": 31658
+    },
+    {
+      "label": "independent-reference",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.669,
+      "stdout_sha256": "fd7f37c7cdb5cae4aaf5d02f9bd6ffd670fcf54cc8bb9752425ad5657c11f532",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 94,
+      "stderr_size": 0
+    },
+    {
+      "label": "independent-normal",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.36,
+      "stdout_sha256": "140e96705cb1321ebb10512dc0632d06ef97ea3a39f7fc40a6d0f3eda64566b9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 97,
+      "stderr_size": 0
+    },
+    {
+      "label": "independent-sanitizer",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/sanitizer"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+      "status": 0,
+      "expected": 0,
+      "seconds": 6.279,
+      "stdout_sha256": "140e96705cb1321ebb10512dc0632d06ef97ea3a39f7fc40a6d0f3eda64566b9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 97,
+      "stderr_size": 0
+    },
+    {
+      "label": "compile-no-output",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "src/printf_main.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-output.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-output"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.086,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "negative-no-output",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+        "--binary",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-output",
+        "--smoke"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.081,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9d0ffc61ca587a628ebb0707325c556ea953ddb09a149fb373a83c5c511f51f9",
+      "stdout_size": 0,
+      "stderr_size": 689
+    },
+    {
+      "label": "compile-no-preflight",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "src/printf_main.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-preflight.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-preflight"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.082,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "negative-no-preflight",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+        "--binary",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-preflight",
+        "--preflight-only"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.08,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e5348e3d96673f57734c2ce27ce23642f2f479e5f238f3e151973f67ca0feca0",
+      "stdout_size": 0,
+      "stderr_size": 663
+    },
+    {
+      "label": "compile-no-getopt-restore",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=printf_test_malloc",
+        "-Dfree=printf_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-getopt-restore.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-getopt-restore.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.036,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "link-no-getopt-restore",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "tests/test_printf_module.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-getopt-restore.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-getopt-restore"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.075,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "negative-no-getopt-restore",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/no-getopt-restore"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": -6,
+      "expected": -6,
+      "seconds": 0.083,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b68f0979ef8f7235fc0aac72bb813ff53d8ec26acdb0a7c24312d0b4f7a17b91",
+      "stdout_size": 0,
+      "stderr_size": 14
+    },
+    {
+      "label": "compile-borrowed-argv",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=printf_test_malloc",
+        "-Dfree=printf_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/borrowed-argv.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/borrowed-argv.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.037,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "link-borrowed-argv",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "tests/test_printf_module.c",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/borrowed-argv.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/borrowed-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.075,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 0,
+      "stderr_size": 0
+    },
+    {
+      "label": "negative-borrowed-argv",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/borrowed-argv",
+        "--argv-only"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": -6,
+      "expected": -6,
+      "seconds": 0.085,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1641c12a15849088ba685bd4166ec0954be11eb3de8ed4817640612db30a1a35",
+      "stdout_size": 0,
+      "stderr_size": 105
+    },
+    {
+      "label": "unchanged-module-green",
+      "argv": [
+        "./build/test_printf_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.066,
+      "stdout_sha256": "6981f84bd1fa23f40c307ff6d9eca701db08ff009ad30496ada20137b60541d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 112,
+      "stderr_size": 0
+    },
+    {
+      "label": "unchanged-own-oracle-green",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/printf_review.py",
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.37,
+      "stdout_sha256": "140e96705cb1321ebb10512dc0632d06ef97ea3a39f7fc40a6d0f3eda64566b9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 97,
+      "stderr_size": 0
+    },
+    {
+      "label": "global-format-candidate",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/normal",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.26,
+      "stdout_sha256": "3ec62098301d9f025aa59d9549412c5d4fccf2d8a516fa9a441bffb800e31909",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d",
+      "stdout_size": 1903,
+      "stderr_size": 15095
+    },
+    {
+      "label": "global-format-baseline",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/baseline",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.257,
+      "stdout_sha256": "4be1b705d5ad654fe9ec88827f9b3801671ab92631ea2e457205c4a51cc19bd8",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d",
+      "stdout_size": 1824,
+      "stderr_size": 15095
+    },
+    {
+      "label": "Argtable-internal-OOM-characterization",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation/internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.001,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec",
+      "stdout_size": 0,
+      "stderr_size": 15
+    },
+    {
+      "label": "GNU-version",
+      "argv": [
+        "/usr/bin/printf",
+        "--version"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.002,
+      "stdout_sha256": "646c7236364edde3610dd4a0a5c462757ccf2e57a3260de3a7e00d4bc04beef0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 307,
+      "stderr_size": 0
+    },
+    {
+      "label": "baseline-O1-sanitizer",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/baseline",
+      "status": 2,
+      "expected": 2,
+      "seconds": 15.738,
+      "stdout_sha256": "4d4b16645170dcc79888fc47c430a956c3b5f87c3e9a926b24c9234dac2500e0",
+      "stderr_sha256": "3487ea90c61b57e7d39c7b2149119728fb649a8e6367ffb317b01e5e6d5ea179",
+      "stdout_size": 11947,
+      "stderr_size": 4267
+    },
+    {
+      "label": "baseline-clean",
+      "argv": [
+        "make",
+        "clean"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/baseline",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.011,
+      "stdout_sha256": "c9efd81d260c77937398a1aabb33dee1e266a755824d56fa84c5c11304f66363",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_size": 1063,
+      "stderr_size": 0
+    },
+    {
+      "label": "baseline-O0-sanitizer",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O0",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review/baseline",
+      "status": 0,
+      "expected": 0,
+      "seconds": 50.601,
+      "stdout_sha256": "62fa07d425814eccdfec8dc349f533038d6ddc802d90d3d2d5a39c2b3e433ec4",
+      "stderr_sha256": "f7985f7239e7e2ee30ac8393c4a734c34b3605fff8f0daac6662a29f8d2a8fd0",
+      "stdout_size": 46041,
+      "stderr_size": 30891
+    }
+  ],
+  "synthetic_environment": {
+    "PATH": "/home/name/.local/bin:/usr/bin:/bin",
+    "LC_ALL": "C",
+    "HOME": "/home/name/.hermes/cache/scratch/printf-bee5d7b-review",
+    "TERM": "ansi"
+  },
+  "review_test_sha256": "48c39f740e3b45ee8b8179dc295938e24e739ea9bef70bafc76c7039e699663a",
+  "worker_evidence_authentication": {
+    "worker_records_authenticated": 72,
+    "worker_final_records_authenticated": 12,
+    "fixed_inventory": 1277,
+    "preservation_differences": [],
+    "head": "bee5d7b9da4da3e4aa626f76d1a5d467895176fc",
+    "index_empty": true
+  },
+  "reproduction_helpers": {
+    "review_runner.py": "import hashlib,json,os,subprocess,tarfile,io,time\nfrom pathlib import Path\nBASE=Path(__file__).resolve().parent\nREPO=Path('/home/name/Documents/420-EMBDX/A')\nIMPL=Path('/home/name/.hermes/cache/scratch/printf-bee5d7b-implementation')\nHEAD='bee5d7b9da4da3e4aa626f76d1a5d467895176fc'\nENV={'PATH':'/home/name/.local/bin:/usr/bin:/bin','LC_ALL':'C','HOME':str(BASE),'TERM':'ansi'}\ndef digest(b):return hashlib.sha256(b).hexdigest()\ndef run(label,argv,cwd,env=None,expected=0,timeout=600):\n t=time.monotonic(); p=subprocess.run(argv,cwd=cwd,env=env or ENV,capture_output=True,timeout=timeout)\n e={'label':label,'argv':argv,'cwd':str(cwd),'status':p.returncode,'expected':expected,'seconds':round(time.monotonic()-t,3),'stdout_sha256':digest(p.stdout),'stderr_sha256':digest(p.stderr),'stdout_size':len(p.stdout),'stderr_size':len(p.stderr)}\n ledger=BASE/'review-evidence.json'; entries=json.loads(ledger.read_text()) if ledger.exists() else [];entries.append(e);ledger.write_text(json.dumps(entries,indent=2)+'\\n')\n with (BASE/'review-execution.log').open('ab') as f:\n  f.write(('\\n### '+json.dumps(e)+'\\nSTDOUT\\n').encode()+p.stdout+b'\\nSTDERR\\n'+p.stderr+b'\\nEND\\n')\n print(label,p.returncode,'expected',expected,flush=True)\n if p.returncode!=expected:print((p.stdout+p.stderr)[-6000:].decode(errors='backslashreplace'),flush=True)\n return p\n\ndef authenticate(root,manifest):\n observed={}\n for section in ['delivered','anchors']:\n  for n,v in manifest[section].items():\n   p=root/n;b=p.read_bytes();assert digest(b)==v['sha256'],n\n   assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\\0'+b).hexdigest()==v['git_blob'],n\n   assert bool(p.stat().st_mode&0o111)==(v['git_mode']=='100755'),n\n   observed[n]=p.stat().st_mode\n for n,v in manifest['dependencies'].items():assert digest((REPO/'build'/n).read_bytes())==v['sha256'],n\n return {'delivered':len(manifest['delivered']),'anchors':len(manifest['anchors']),'dependencies':len(manifest['dependencies']),'observed_modes':observed}\n\ndef prepare():\n m=json.loads((IMPL/'manifest.json').read_text());assert digest((IMPL/'printf-final.patch').read_bytes())==m['patch_sha256'];assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO).decode().strip()==HEAD\n inventory=json.loads((IMPL/'preservation-before.json').read_text());print('inventory schema',type(inventory),list(inventory)[:4])\n (BASE/'preservation-inherited.json').write_text(json.dumps(inventory,indent=2)+'\\n')\n for kind in ['normal','sanitizer']:\n  root=BASE/kind;root.mkdir(exist_ok=True); archive=subprocess.check_output(['git','archive',HEAD],cwd=REPO)\n  with tarfile.open(fileobj=io.BytesIO(archive)) as f:f.extractall(root,filter='data')\n  (root/'build').mkdir(exist_ok=True)\n  for dep in ['argtable3','cunit']:\n   link=root/'build'/dep\n   if not link.exists():link.symlink_to(REPO/'build'/dep,target_is_directory=True)\n  assert run('apply-check-'+kind,['git','apply','--check',str(IMPL/'printf-final.patch')],root).returncode==0\n  assert run('apply-'+kind,['git','apply',str(IMPL/'printf-final.patch')],root).returncode==0\n  data=authenticate(root,m);(BASE/('authenticated-'+kind+'.json')).write_text(json.dumps(data,indent=2)+'\\n')\n print('Authenticated fresh trees:',len(m['delivered']),'delivered',len(m['anchors']),'anchors')\n\ndef gates(kind):\n root=BASE/kind;tmp=Path('/home/name/.hermes/cache/scratch')/('pfr-n' if kind=='normal' else 'pfr-a');tmp.mkdir(exist_ok=True)\n env=dict(ENV,TMPDIR=str(tmp));argv=['make','all','test']\n if kind=='sanitizer':\n  env.update(ASAN_OPTIONS='detect_leaks=1:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')\n  argv += ['CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie','LDFLAGS=-fsanitize=address,undefined -no-pie']\n assert run(kind+'-all-test',argv,root,env).returncode==0\n if kind=='normal':\n  assert run('lint',['make','lint'],root,env).returncode==0\n  m=json.loads((IMPL/'manifest.json').read_text());c=[n for n in m['allowlist'] if n.endswith(('.c','.h'))]\n  assert run('scoped-format',['clang-format','--dry-run','--Werror',*c],root,env).returncode==0\n  assert run('GNU-reference',['make','test-printf'],root,env).returncode==0\n authenticate(root,json.loads((IMPL/'manifest.json').read_text()))\nif __name__=='__main__':\n import sys\n if sys.argv[1]=='prepare':prepare()\n else:gates(sys.argv[1])\n",
+    "audit.py": "import sys,re,hashlib,json,subprocess\nfrom pathlib import Path\nfrom review_runner import *\n\ndef streams(log,records):\n data=log.read_bytes();cursor=0\n for entry in records:\n  prefix=b'\\n### ';assert data.startswith(prefix,cursor),(log,cursor)\n  end=data.index(b'\\nSTDOUT\\n',cursor);header=json.loads(data[cursor+len(prefix):end]);assert header==entry,(log,entry['label'])\n  start=end+len(b'\\nSTDOUT\\n');next_header=data.find(b'\\n### ',start);stop=len(data) if next_header<0 else next_header\n  chunk=data[start:stop];assert chunk.endswith(b'\\nEND\\n')\n  chunk=chunk[:-len(b'\\nEND\\n')];matches=[]\n  for sep in re.finditer(b'\\nSTDERR\\n',chunk):\n   out=chunk[:sep.start()];err=chunk[sep.end():]\n   if digest(out)==entry['stdout_sha256'] and digest(err)==entry['stderr_sha256']:matches.append((out,err))\n  assert len(matches)==1,(log,entry['label'],len(matches));cursor=stop\n assert cursor==len(data)\n return len(records)\n\ndef audit():\n m=json.loads((IMPL/'manifest.json').read_text());result={}\n x=json.loads((IMPL/'candidate/logs/commands/printf-evidence.json').read_text())\n result['worker_records_authenticated']=streams(IMPL/'candidate/logs/commands/printf-execution.log',x['records'])\n result['worker_final_records_authenticated']=streams(IMPL/'exact-patch-execution.log',json.loads((IMPL/'exact-patch-evidence.json').read_text()))\n for n,v in m['external_evidence'].items():assert digest((IMPL/n).read_bytes())==v['sha256'],n\n for n,v in x['source_sha256'].items():assert digest((IMPL/'candidate'/n).read_bytes())==v,n\n inventory=json.loads((BASE/'preservation-inherited.json').read_text());differences=[];observed={}\n for n,v in inventory.items():\n  p=REPO/n\n  if v.get('absent'):got={'absent':True} if not p.exists() and not p.is_symlink() else {'unexpected_present':True}\n  elif p.is_symlink():got={'mode':p.lstat().st_mode,'target':str(p.readlink())}\n  elif p.exists():got={'mode':p.stat().st_mode,'sha256':digest(p.read_bytes())}\n  else:got={'absent':True}\n  observed[n]=got\n  if got!=v:differences.append(n)\n result.update(fixed_inventory=len(inventory),preservation_differences=differences,head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO).decode().strip(),index_empty=not subprocess.check_output(['git','diff','--cached','--name-only'],cwd=REPO))\n (BASE/'preservation-after.json').write_text(json.dumps(observed,indent=2)+'\\n');(BASE/'audit.json').write_text(json.dumps(result,indent=2)+'\\n')\n print(json.dumps(result,indent=2));assert not differences;assert result['head']==HEAD and result['index_empty']\n\ndef mutants():\n root=BASE/'normal';flags=['-std=c17','-Wall','-Wextra','-g3','-O0','-Isrc','-Ibuild/argtable3/include'];lib=['-Lbuild/argtable3/lib','-largtable3','-lm'];wrap=['-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write']\n for name in ['no-output','no-preflight','no-getopt-restore','borrowed-argv']:\n  source=BASE/(name+'.c');source.write_bytes((IMPL/(name+'.c')).read_bytes());output=BASE/name\n  if name in ['no-output','no-preflight']:\n   assert run('compile-'+name,['cc',*flags,'src/printf_main.c',str(source),'src/cmd_lines.c',*lib,'-o',str(output)],root).returncode==0\n   selector='--smoke' if name=='no-output' else '--preflight-only'\n   p=run('negative-'+name,['python3',str(BASE/'printf_review.py'),str(root),'--binary',str(output),selector],root,expected=1)\n   marker=b'PRINTF_REVIEW_BYTES' if name=='no-output' else b'PRINTF_REVIEW_PREFLIGHT';assert p.returncode==1 and marker in p.stderr\n  else:\n   obj=BASE/(name+'.o');assert run('compile-'+name,['cc',*flags,'-Dmalloc=printf_test_malloc','-Dfree=printf_test_free','-c',str(source),'-o',str(obj)],root).returncode==0\n   assert run('link-'+name,['cc',*flags,'tests/test_printf_module.c',str(obj),'src/cmd_lines.c',*wrap,*lib,'-o',str(output)],root).returncode==0\n   p=run('negative-'+name,[str(output),'--argv-only'] if name=='borrowed-argv' else [str(output)],root,expected=-6)\n   assert p.returncode==-6 and (b'PRINTF_ARGV_POINTER' if name=='borrowed-argv' else b'PRINTF_GETOPT') in p.stderr\n assert run('unchanged-module-green',['./build/test_printf_module'],root).returncode==0\n assert run('unchanged-own-oracle-green',['python3',str(BASE/'printf_review.py'),str(root)],root).returncode==0\nif __name__=='__main__':\n if sys.argv[1]=='audit':audit()\n else:mutants()\n"
+  },
+  "setup_exception": "Initial dependency path authentication FileNotFoundError; wrong REPO/argtable3 base corrected to REPO/build/argtable3 before tests."
+}

@@ -4,9 +4,13 @@
 ./build/main                 # Interactive when stdin is a terminal
 ./build/main pwd             # One-shot; arguments from the calling shell
 ./build/main head -n 2 FILE
-./build/main --help          # Twenty builtins; see the README command index
+./build/main --help          # Twenty-one builtins; see the README command index
 ./build/main help touch      # Usage; also: main touch --help
 ```
+
+`printf` prints bounded integer/string/byte formats without adding a newline;
+quote FORMAT with single quotes to preserve its backslash escapes.
+See [printf](printf.md).
 
 No arguments: one command per line; terminal-only `main> ` prompt on stderr.
 `help [COMMAND]` shows usage. `exit`/EOF return the last nonblank command status

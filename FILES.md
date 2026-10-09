@@ -215,3 +215,14 @@
 - tests/test_date_review.py — independent real/synthetic clock oracle, GNU adapters and mechanism checks.
 - docs/reports/date-review.md — independent verdict, execution gates and diagnosed limits.
 - logs/commands/date-review-execution.log, logs/commands/date-review-evidence.json — complete review streams and command/status/hash ledger.
+
+## printf command
+- src/cmd_printf.c, src/cmd_printf.h — bounded typed byte formatter and invocation-local parser/help.
+- src/printf_main.c — thin standalone printf wrapper.
+- tests/test_printf.py, tests/test_printf_module.c — independent GNU subset, strict boundaries, main/PTY, borrowed state and fault/reuse checks.
+- docs/commands/printf.md — usage, selected formats and deliberate differences.
+- docs/reports/printf-implementation.md — manual inventory, contract, TDD and executed verification.
+- logs/commands/printf-execution.log, logs/commands/printf-evidence.json — complete raw streams and command/status ledger.
+- tests/test_printf_review.py — independent constructed numeric/byte oracle and adversarial validation.
+- docs/reports/printf-review.md — independent review verdict, execution gates and explicit exceptions.
+- logs/commands/printf-review-execution.log, logs/commands/printf-review-evidence.json — complete review streams and command/status/hash ledger.
