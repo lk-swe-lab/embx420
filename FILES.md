@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, fourteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, fifteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -94,6 +94,12 @@
 - logs/commands/cp-implementation/ — raw research, RED/GREEN, negative controls and gates.
 - docs/reports/cp-review.md — independent cp review and exact-scope verification.
 - logs/commands/cp-review/ — fresh independent regression, sanitizer, mechanism and scope evidence.
+- docs/commands/edit-delete-line.md — staged single-line deletion usage and limits.
+- src/cmd_edit_delete_line.c, src/cmd_edit_delete_line.h — invocation-local deletion, parser, staged editing and JSON.
+- src/edit_delete_line_main.c — optional standalone deletion wrapper.
+- tests/test_edit_delete_line.py, tests/test_edit_delete_line_module.c — independent byte/property, safety, fault, reuse and mechanism checks.
+- docs/reports/edit-delete-line-implementation.md — selected course contract, TDD and executed verification.
+- logs/commands/edit-delete-line-execution.log, logs/commands/edit-delete-line-evidence.json — complete raw streams, commands/statuses and tested-source hashes.
 - .tmp/NEXT_BATCH.md — byte-preserved batch coordination record; Git-ignored.
 - .tmp/FOLLOW_ON_TEN.md — byte-preserved ten-command selection; Git-ignored.
 - .tmp/FOLLOW_ON_FIVE.md — byte-preserved five-command extension; Git-ignored.
@@ -157,3 +163,5 @@
 - logs/commands/edit-replace-line-review-execution.log, logs/commands/edit-replace-line-review-evidence.json — independent raw streams, command/status ledger, reproduction scripts and source hashes.
 - docs/reports/edit-insert-line-review.md — independent source review, byte oracle, negative controls and delivery limits.
 - logs/commands/edit-insert-line-review-execution.log, logs/commands/edit-insert-line-review-evidence.json — independent complete streams, command/status/hash ledger and reproduction scripts.
+- docs/reports/edit-delete-line-review.md — independent source review, exhaustive byte oracle and delivery limits.
+- logs/commands/edit-delete-line-review-execution.log, logs/commands/edit-delete-line-review-evidence.json — complete independent streams, command/status/hash ledger and reproduction scripts.

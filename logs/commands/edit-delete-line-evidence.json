@@ -1,0 +1,853 @@
+{
+  "head": "2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d",
+  "commands": [
+    {
+      "label": "slice1-red",
+      "command": "python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "70e3bd5c6a938aefc73e52cdda451f6d39eea301e4e17071187abf4fc3ecbcb7"
+    },
+    {
+      "label": "slice1-green",
+      "command": "make build/main build/edit-delete-line && python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "77ee71ae70594ba101d48739457e843fdebf2144af2c35e1e97f3a124541f5a7",
+      "stderr_sha256": "418830f573419649f873a505eb34ab68eb32acf72c9ae6a39f29618f214c0097"
+    },
+    {
+      "label": "slice2-red",
+      "command": "python3 tests/test_edit_delete_line.py --program ./build/edit-delete-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f387320639d5e087060b99f454ba468beaf26efef9f083cee0a4500abbec6e6"
+    },
+    {
+      "label": "slice2-green",
+      "command": "make build/main build/edit-delete-line && python3 tests/test_edit_delete_line.py --program ./build/edit-delete-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "77ee71ae70594ba101d48739457e843fdebf2144af2c35e1e97f3a124541f5a7",
+      "stderr_sha256": "dbd1c3079f08a507a896deb260fbb2e27d1013c23e471f0fca9390d44a3b9c11"
+    },
+    {
+      "label": "expanded-characterization",
+      "command": "make test-edit-delete-line-impl test-shell",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "71fa2c5708110cdf1322df655366b1546b2597f8dc69a4bd5530bcfb4a01b5d2",
+      "stderr_sha256": "06af01bc8fdbcf2eaac7adb20f51dce17f6527109e3a908afbf6496d37b1d33d"
+    },
+    {
+      "label": "research",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_verify.py research",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "26a7cbed5018cc521162cfbe3d09a1c7747acbdcc0bc0f318d0ff6bfa33547ca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f53154b68b7742730c37e5955f74070856dc081bda95fb59c16cf4fb05db3d24"
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3f5c6952ad989b738260fd51a4a4c98fd97b2dcefe0724c4ba2ad14f83df34d"
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2a490f1420015247f14be074bed5e5396d99506f224d4ddb61767af0920147f3"
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c4e5899d927115f40167e4556d4a0322f95ea37a9e8fd7498b54b673d0db9ae2"
+    },
+    {
+      "label": "negative-noop",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/usr/bin/true",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "82248b99ce6fedd153f518502c4fbeeec144aa1de50fc1e5763e49b860b12a82"
+    },
+    {
+      "label": "negative-retained-lf-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf",
+        "/home/name/Documents/420-EMBDX/A/src/edit_delete_line_main.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-retained-lf",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c062bc34362c457f143f6bb2f55018ac0e73b7d71351420e9be27631df05355a"
+    },
+    {
+      "label": "negative-controls",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_verify.py negative",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "6e133ee2980aeb8aa592814279c28375d13cd95fe6d7414eeee8ee8eaf0c6d6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "syscall-trace",
+      "command": [
+        "strace",
+        "-yy",
+        "-e",
+        "trace=openat,read,write,fsync,close,rename,unlink",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/trace.log",
+        "/home/name/Documents/420-EMBDX/A/build/edit-delete-line",
+        "file",
+        "1"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/trace-fixture",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "trace",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_verify.py trace",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "7acbcb9d9d6f1fe22e7572516f3527eb8552e57b997929fdb16173a308e1f8fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "scoped-format",
+      "command": "clang-format -i src/cmd_edit_delete_line.c src/cmd_edit_delete_line.h src/edit_delete_line_main.c tests/test_edit_delete_line_module.c src/registry.c tests/test_shell_module.c && clang-format --dry-run --Werror src/cmd_edit_delete_line.c src/cmd_edit_delete_line.h src/edit_delete_line_main.c tests/test_edit_delete_line_module.c src/registry.c tests/test_shell_module.c",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-regression",
+      "command": "make all test",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "78a38e001731869a636c8dbb5c9d99b72d4dfdf8a5e82df711b1238913542f76",
+      "stderr_sha256": "81ad4a104a81b786ab29904e95098df63a71abf79fc21f5fa538c9101396d4b5"
+    },
+    {
+      "label": "lint",
+      "command": "make lint",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "d458168f4c1243ce2c01e2830f660232e92689a948540ef6f7e10d57673f649d",
+      "stderr_sha256": "007a0443a8664acdb806805a00c4691f7f5face6d41fe195e241a4b0ebe18a72"
+    },
+    {
+      "label": "main-byte-suite",
+      "command": "python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2f69a81d0652fb887671b73b3945dfb9196b5995c05ee99300292aeb85f2a75a"
+    },
+    {
+      "label": "global-format",
+      "command": "make format-check",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "228c3681042687f185b51d03cb39368ffb9e3b911c2e9fa6ec989085520f25bb",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "candidate-preservation",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_candidate.py preserve",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "355bbb81b724f8f65364879aa6c8b20e4390030cac3551d6e47713404d04ea78",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "preliminary-patch",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_candidate.py patch",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4e222d4e49e88239b7f747041cb600c17ccf5c06c732c03cccac32dbcfcb3289"
+    },
+    {
+      "label": "preliminary-patch-corrected",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_candidate.py patch",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "896d4c5798d9d3da6fbd86e18f54cb6833e0640c3e2893d97111f08a8ff76094",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "normal-pre-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/normal-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "normal-pre-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/normal-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3d122d014a0c13984c372084d022e6fe75d9a39289f0bdfb9142046f2e71b9c4"
+    },
+    {
+      "label": "fresh-normal-setup",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_candidate.py fresh normal-pre",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "b73047c90a27e2f38832fa7a484b2bcc024bda07e4187af3f952dbec54a7c73d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "sanitizer-pre-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/sanitizer-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "sanitizer-pre-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/sanitizer-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3d122d014a0c13984c372084d022e6fe75d9a39289f0bdfb9142046f2e71b9c4"
+    },
+    {
+      "label": "fresh-sanitizer-setup",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_candidate.py fresh sanitizer-pre",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "a94ec104f994bd2ab654f1db60b66a38f77486e5350a005861c286ad117a6ccc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pre-fresh-normal-all-test-lint",
+      "command": "make all test lint",
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/normal-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "cdbbbac542303a2c12245f189d854915bf08995b8e60b412d904c1c08b6e3e3c",
+      "stderr_sha256": "7c161a448721d7aa7417d3c8f98770384df14b5e7166566009c982d5831d51bc"
+    },
+    {
+      "label": "pre-fresh-main-byte-suite",
+      "command": "python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line",
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/normal-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e9b036674c1ef69481cc3409ae30e69ab493075e86d484fa62f563bad26c589b"
+    },
+    {
+      "label": "pre-fresh-scoped-format",
+      "command": "clang-format --dry-run --Werror src/cmd_edit_delete_line.c src/cmd_edit_delete_line.h src/edit_delete_line_main.c tests/test_edit_delete_line_module.c src/registry.c tests/test_shell_module.c",
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/normal-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pre-fresh-O0-asan-ubsan-all-test",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/sanitizer-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "468570ef50acec956967da7fa2ab7d6be46fc01443c6d7776c5dc6a08223c79e",
+      "stderr_sha256": "146b0ffb44535bd418a04dce74204d967d8f408d851d8df2c1a69de3a103d2f7"
+    },
+    {
+      "label": "pre-fresh-sanitizer-main-byte-suite",
+      "command": "python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line",
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/sanitizer-pre",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23bacabf8a111fa72ba6efb4b4e016dafacb1ab61241db77a11c2fecfd1410ad"
+    },
+    {
+      "label": "final-owned-targeted",
+      "command": "make test-edit-delete-line-impl test-shell && python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line && clang-format --dry-run --Werror src/cmd_edit_delete_line.c src/cmd_edit_delete_line.h src/edit_delete_line_main.c tests/test_edit_delete_line_module.c src/registry.c tests/test_shell_module.c",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "2c9affc2538d503eea10c5eb35a36ed43d5ada69a219c226dee24a8bd3304b13",
+      "stderr_sha256": "8687aaded274088786a598f5534cbad7d79baa14b511c06f8bf2b54ed7f5a210"
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f53154b68b7742730c37e5955f74070856dc081bda95fb59c16cf4fb05db3d24"
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3f5c6952ad989b738260fd51a4a4c98fd97b2dcefe0724c4ba2ad14f83df34d"
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2a490f1420015247f14be074bed5e5396d99506f224d4ddb61767af0920147f3"
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck",
+        "/home/name/Documents/420-EMBDX/A/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c4e5899d927115f40167e4556d4a0322f95ea37a9e8fd7498b54b673d0db9ae2"
+    },
+    {
+      "label": "negative-noop",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/usr/bin/true",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2c18b252de3a53797a3df495462117e73158459337dc9c9c3b72b2974cad2850"
+    },
+    {
+      "label": "negative-retained-lf-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf",
+        "/home/name/Documents/420-EMBDX/A/src/edit_delete_line_main.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_lines.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-retained-lf",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/retained-lf",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "74028025ccfdfbe8b393c4d07f557b0255bf18290f8944961ac7246c82928e5f"
+    },
+    {
+      "label": "final-negative-controls",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_verify.py negative",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "1bcc7de21c8e99c0517c6dbc34d5a0a0cf57329325d3a2a42799b07f48b07245",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final-global-format",
+      "command": "make format-check",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "228c3681042687f185b51d03cb39368ffb9e3b911c2e9fa6ec989085520f25bb",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "syscall-trace",
+      "command": [
+        "strace",
+        "-yy",
+        "-e",
+        "trace=openat,read,write,fsync,close,rename,unlink",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/trace.log",
+        "/home/name/Documents/420-EMBDX/A/build/edit-delete-line",
+        "file",
+        "1"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/trace-fixture",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final-trace",
+      "command": "python3 /home/name/.hermes/cache/scratch/edit_delete_verify.py trace",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "5b1e33edd6197b14441571c489de86d4e113c84d1a242f7f1a99615f73c11b8c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "allowlist": [
+    "Makefile",
+    "src/registry.c",
+    "tests/test_shell.py",
+    "tests/test_shell_module.c",
+    "README.md",
+    "FILES.md",
+    "src/cmd_edit_delete_line.c",
+    "src/cmd_edit_delete_line.h",
+    "src/edit_delete_line_main.c",
+    "tests/test_edit_delete_line.py",
+    "tests/test_edit_delete_line_module.c",
+    "docs/commands/edit-delete-line.md",
+    "docs/reports/edit-delete-line-implementation.md",
+    "logs/commands/edit-delete-line-execution.log",
+    "logs/commands/edit-delete-line-evidence.json"
+  ],
+  "source_sha256": {
+    "Makefile": "5c2f59ad984529d57d852c299387a3e2102c4bd14d11c1f604fdebdcb7da599f",
+    "src/registry.c": "6149cd4cda7498f5cccdd50a9068a6eac6dc48d60bc64a0143799d88eb315f6e",
+    "tests/test_shell.py": "e8849d18c92db21fb072061ac5746e13f49cf23eab40fea28673f925ce1a95ca",
+    "tests/test_shell_module.c": "8dc67c997167a8e5572956eb81ccdf8ee06da111f0dd9d1ea708e2cfc8201f5d",
+    "src/cmd_edit_delete_line.c": "a42a1b43d3caf514906723be3398277e294b2b3dfe0d3c5e94e9d4ea7f009c5c",
+    "src/cmd_edit_delete_line.h": "28de9193d93f4f5264c53d95189cc60563bc4e1c200c92687ba86f3b120fb67a",
+    "src/edit_delete_line_main.c": "ab9607eb548dcf5eb679ef15b3040910e775e713e0651df9111c70ba3059eeb4",
+    "tests/test_edit_delete_line.py": "ee0426e2557d3dda207479d8e03c128fab1ba62d593b02b5c56d8bc07daf16ac",
+    "tests/test_edit_delete_line_module.c": "0667e20c7c3a82476fae66d7b68499f4a604f1071c0c2266483926d2a652e22a"
+  },
+  "reproduction_scripts": {
+    "edit_delete_runner.py": "import subprocess, json, pathlib, sys, hashlib, os\nroot = pathlib.Path('/home/name/Documents/420-EMBDX/A')\nlog = pathlib.Path(os.environ.get('EDIT_DELETE_RAW_LOG', root / 'logs/commands/edit-delete-line-execution.log'))\nledger = pathlib.Path(os.environ.get('EDIT_DELETE_LEDGER', root / 'logs/commands/edit-delete-line-evidence.json'))\ndef run(label, command, cwd=root, expected=0, timeout=240):\n    p = subprocess.run(command, cwd=cwd, shell=isinstance(command,str), stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)\n    with log.open('ab') as f:\n        f.write(('\\n=== '+label+' ===\\nCWD: '+str(cwd)+'\\nCOMMAND: '+str(command)+'\\nSTATUS: '+str(p.returncode)+'\\nSTDOUT:\\n').encode())\n        f.write(p.stdout); f.write(b'\\nSTDERR:\\n'); f.write(p.stderr)\n    data = json.loads(ledger.read_text()) if ledger.exists() else {'head':'2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d','commands':[]}\n    data['commands'].append({'label':label,'command':command,'cwd':str(cwd),'status':p.returncode,'expected':expected,'stdout_sha256':hashlib.sha256(p.stdout).hexdigest(),'stderr_sha256':hashlib.sha256(p.stderr).hexdigest()})\n    ledger.write_text(json.dumps(data,indent=2)+'\\n')\n    print(label, 'status',p.returncode,'expected',expected)\n    print((p.stdout+p.stderr).decode(errors='replace')[-4500:])\n    if expected is not None and p.returncode != expected: raise RuntimeError(label)\n    return p\nif __name__ == '__main__':\n    run(sys.argv[1],sys.argv[2],expected=int(sys.argv[3]) if len(sys.argv)>3 else 0)\n",
+    "edit_delete_verify.py": "import sys, os, json, hashlib, subprocess, shlex\nfrom pathlib import Path\nsys.path.insert(0, '/home/name/.hermes/cache/scratch')\nfrom edit_delete_runner import run, root\nscratch = Path('/home/name/.hermes/cache/scratch/edit-delete-line-integration')\nscratch.mkdir(exist_ok=True)\nmode = sys.argv[1]\nif mode == 'research':\n    import urllib.request\n    import sqlite3\n    c = sqlite3.connect('file:docs/data.sqlite?mode=ro', uri=True)\n    course = c.execute('select s.path,c.position,c.text from lecture_content c join lecture_sources s on s.id=c.source_id where s.path like ? and c.position between 103 and 107', ('%CLI_Tools.docx',)).fetchall()\n    print('COURSE',course)\n    for url, terms in [('https://www.argtable.org/tutorial/', ['arg_parse','arg_print_syntax','arg_freetable']), ('https://man7.org/linux/man-pages/man2/rename.2.html',['atomically','symbolic link']), ('https://man7.org/linux/man-pages/man3/mkstemp.3.html',['O_EXCL','0600']), ('https://man7.org/linux/man-pages/man2/fsync.2.html',['directory','EINTR'])]:\n        data=urllib.request.urlopen(url,timeout=30).read()\n        assert all(t.lower().encode() in data.lower() for t in terms)\n        print(url,'sha256',hashlib.sha256(data).hexdigest(),'verified terms',terms)\n    print('uid',os.geteuid())\nelif mode == 'negative':\n    source = (root/'src/cmd_edit_delete_line.c').read_text()\n    make = (root/'Makefile').read_text()\n    line = next(l for l in make.split('\\n') if 'tests/test_edit_delete_line_module.c src/cmd_edit_delete_line.c src/cmd_lines.c -Wl' in l)\n    wrappers = next(x for x in line.split() if x.startswith('-Wl,'))\n    compile_base = ['cc','-std=c17','-g3','-O0','-I'+str(root/'src'),'-I'+str(root/'build/argtable3/include')]\n    for name, changed, marker in [\n      ('argv', source.replace('arg_parse(argc, copy, table)','arg_parse(argc, argv, table)'), b'argv pointer preservation failed'),\n      ('getopt', source.replace('optind = saved_optind;', '(void)saved_optind;'), b'getopt preservation failed'),\n      ('no-rename', source.replace('rename(name, path)', '0'), b'source content mismatch'),\n      ('no-recheck', source.replace('if (!source_same(&before, &after) || !source_same(&before, &current))', 'if (0)'), b'concurrency guard failed')]:\n        assert changed != source\n        mutant = scratch/(name+'.c'); mutant.write_text(changed)\n        binary = scratch/name\n        command=compile_base+['-o',str(binary),str(root/'tests/test_edit_delete_line_module.c'),str(mutant),str(root/'src/cmd_lines.c'),wrappers,'-L'+str(root/'build/argtable3/lib'),'-largtable3','-lm']\n        run('negative-'+name+'-build',command)\n        p=run('negative-'+name,[str(binary)], expected=-6)\n        assert marker in p.stderr, (name,p.stderr)\n    p=run('negative-noop', ['python3','tests/test_edit_delete_line.py','--program','/usr/bin/true','DeleteLineTests.test_middle_line_staged'], expected=1)\n    assert b\"b'first\\\\nsecond\\\\nthird\\\\n' != b'first\\\\nthird\\\\n'\" in p.stderr\n    changed=source.replace('if (line == number)\\n                found = 1;', 'if (line == number) {\\n                found = 1;\\n                if (byte == \\'\\\\n\\' && stage_append(output, &byte, 1) != 0)\\n                    return -1;\\n            }')\n    assert changed != source\n    mutant=scratch/'retained-lf.c'; mutant.write_text(changed)\n    binary=scratch/'retained-lf'\n    run('negative-retained-lf-build', compile_base+['-o',str(binary),str(root/'src/edit_delete_line_main.c'),str(mutant),str(root/'src/cmd_lines.c'),'-L'+str(root/'build/argtable3/lib'),'-largtable3','-lm'])\n    p=run('negative-retained-lf',['python3','tests/test_edit_delete_line.py','--program',str(binary),'DeleteLineTests.test_middle_line_staged'],expected=1)\n    assert b\"b'first\\\\n\\\\nthird\\\\n' != b'first\\\\nthird\\\\n'\" in p.stderr\n    print('six independent negative controls caught intended defects')\nelif mode == 'trace':\n    import shutil\n    assert shutil.which('strace')\n    fixture=scratch/'trace-fixture'; fixture.mkdir(exist_ok=True)\n    (fixture/'file').write_bytes(b'old\\r\\nkeep\\n')\n    p=run('syscall-trace', ['strace','-yy','-e','trace=openat,read,write,fsync,close,rename,unlink','-o',str(scratch/'trace.log'),str(root/'build/edit-delete-line'),'file','1'],cwd=fixture)\n    trace=(scratch/'trace.log').read_text()\n    print(trace)\n    assert (fixture/'file').read_bytes() == b'keep\\n'\n    lines=trace.split('\\n')\n    stage_open=next(i for i,l in enumerate(lines) if 'O_EXCL' in l and '.edit-delete-line-' in l)\n    stage_write=next(i for i,l in enumerate(lines) if l.startswith('write(') and '.edit-delete-line-' in l)\n    sync=next(i for i,l in enumerate(lines) if l.startswith('fsync('))\n    stage_close=next(i for i,l in enumerate(lines) if l.startswith('close(') and '.edit-delete-line-' in l)\n    rename=next(i for i,l in enumerate(lines) if l.startswith('rename('))\n    assert stage_open < stage_write < sync < stage_close < rename\n    assert not any(l.startswith('write(') and '/trace-fixture/file>' in l for l in lines)\n    assert not any('O_TRUNC' in l or 'unlink(\"file\")' in l for l in lines)\n    assert not list(fixture.glob('.edit-delete-line-*'))\n    print('exclusive complete stage write/sync/close before rename; no original write/truncation')\n",
+    "edit_delete_candidate.py": "import sys, os, json, hashlib, subprocess, tarfile, io, difflib, re\nfrom pathlib import Path\nsys.path.insert(0, '/home/name/.hermes/cache/scratch')\nfrom edit_delete_runner import run, root\nscratch=Path('/home/name/.hermes/cache/scratch/edit-delete-line-integration')\nallow=json.loads((scratch/'allowlist.json').read_text())\nhead='2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d'\nmode=sys.argv[1]\n\ndef sha(data):\n    return hashlib.sha256(data).hexdigest()\n\ndef gitbytes(path):\n    p=subprocess.run(['git','show',head+':'+path],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE)\n    return p.stdout if p.returncode == 0 else None\n\ndef lf_lines(data):\n    parts=data.split(b'\\n')\n    return [p+b'\\n' for p in parts[:-1]]+([parts[-1]] if parts[-1] else [])\n\nif mode == 'preserve':\n    dirty=subprocess.check_output(['git','diff','--name-only','-z'],cwd=root).split(b'\\0')\n    fixed={os.fsdecode(p): (sha((root/os.fsdecode(p)).read_bytes()) if (root/os.fsdecode(p)).exists() else None) for p in dirty if p and os.fsdecode(p) not in allow and os.fsdecode(p) != 'docs/sessions.txt'}\n    (scratch/'unrelated-before.json').write_text(json.dumps(fixed,indent=2)+'\\n')\n    print('fixed unrelated tracked dirty paths',len(fixed))\nelif mode == 'patch':\n    candidates={}\n    edits=json.loads((scratch/'docs-edits.json').read_text())\n    for p in allow:\n        b=gitbytes(p)\n        if p in edits:\n            text=b.decode()\n            for old,new in edits[p]:\n                assert text.count(old) == 1,(p,old)\n                text=text.replace(old,new)\n            a=text.encode()\n            (scratch/(p+'.candidate')).write_bytes(a)\n        else:\n            a=(root/p).read_bytes()\n        candidates[p]=a\n    patch=b''\n    for p,a in candidates.items():\n        b=gitbytes(p)\n        patch+=b''.join(difflib.diff_bytes(difflib.unified_diff,lf_lines(b or b''),lf_lines(a),fromfile=('a/'+p).encode() if b is not None else b'/dev/null',tofile=('b/'+p).encode()))\n    (scratch/'integration.patch').write_bytes(patch)\n    manifest={'head':head,'allowlist':allow,'patch_sha256':sha(patch),'candidates':{p:sha(a) for p,a in candidates.items()}}\n    anchors=['src/main.c','src/shell.c','src/shell.h','src/registry.h','src/cmd_lines.c','src/cmd_lines.h','src/cmd_spec.h','src/cmd_edit_replace_line.c','src/cmd_edit_replace_line.h','src/cmd_edit_insert_line.c','src/cmd_edit_insert_line.h','src/traverse.c','src/traverse.h','tests/test_help.c','tests/test_output.h','tests/test_recursive.c']\n    manifest['anchors']={p:sha((root/p).read_bytes()) for p in anchors}\n    for p in anchors:\n        assert (root/p).read_bytes() == gitbytes(p),p\n    deps=[root/'build/argtable3/lib/libargtable3.a',root/'build/argtable3/include/argtable3.h',root/'build/cunit/lib/libcunit.a',root/'build/cunit/include/CUnit/CUnit.h']\n    manifest['dependencies']={str(p):sha(p.read_bytes()) for p in deps}\n    (scratch/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\\n')\n    print('explicit candidate paths',len(allow),'patch sha256',manifest['patch_sha256'])\nelif mode == 'fresh':\n    name=sys.argv[2]\n    checkout=scratch/name\n    assert not checkout.exists(),checkout\n    checkout.mkdir()\n    archive=subprocess.check_output(['git','archive',head],cwd=root)\n    with tarfile.open(fileobj=io.BytesIO(archive)) as t:\n        t.extractall(checkout,filter='fully_trusted')\n    run(name+'-patch-check',['git','apply','--check',str(scratch/'integration.patch')],cwd=checkout)\n    run(name+'-source-doc-whitespace',['git','apply','--check',\n        '--whitespace=error-all',\n        '--exclude=logs/commands/edit-delete-line-execution.log',\n        str(scratch/'integration.patch')],cwd=checkout)\n    run(name+'-patch-apply',['git','apply',str(scratch/'integration.patch')],cwd=checkout)\n    manifest=json.loads((scratch/'manifest.json').read_text())\n    for group in ['candidates','anchors']:\n        for p,h in manifest[group].items():\n            assert sha((checkout/p).read_bytes()) == h,(group,p)\n    # Only installed third-party dependency trees are shared.\n    (checkout/'build').mkdir(exist_ok=True)\n    for d in ['argtable3','cunit']:\n        (checkout/'build'/d).symlink_to(root/'build'/d,target_is_directory=True)\n    print(name,'exact candidate and unchanged anchor blobs verified',checkout)\nelif mode == 'audit':\n    fixed=json.loads((scratch/'unrelated-before.json').read_text())\n    for p,h in fixed.items():\n        current=sha((root/p).read_bytes()) if (root/p).exists() else None\n        assert current == h, p\n    assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=root).decode().strip() == head\n    assert subprocess.check_output(['git','diff','--cached','--name-only'],cwd=root) == b''\n    manifest=json.loads((scratch/'manifest.json').read_text())\n    for p,h in manifest['candidates'].items():\n        candidate=(scratch/(p+'.candidate')) if p in ['README.md','FILES.md'] else root/p\n        assert sha(candidate.read_bytes()) == h,p\n    for name in sys.argv[2:]:\n        checkout=scratch/name\n        for group in ['candidates','anchors']:\n            for p,h in manifest[group].items():\n                assert sha((checkout/p).read_bytes()) == h,(name,group,p)\n    print('HEAD/index unchanged; all fixed unrelated tracked paths preserved; final hashes match')\n",
+    "edit_delete_gates.py": "import sys, os\nfrom pathlib import Path\nsys.path.insert(0, '/home/name/.hermes/cache/scratch')\nfrom edit_delete_runner import run\nscratch=Path('/home/name/.hermes/cache/scratch/edit-delete-line-integration')\nphase=sys.argv[1]\nnormal=scratch/('normal-'+phase)\nsanitizer=scratch/('sanitizer-'+phase)\nrun(phase+'-fresh-normal-all-test-lint','make all test lint',cwd=normal)\nrun(phase+'-fresh-main-byte-suite','python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line',cwd=normal)\nrun(phase+'-fresh-scoped-format','clang-format --dry-run --Werror src/cmd_edit_delete_line.c src/cmd_edit_delete_line.h src/edit_delete_line_main.c tests/test_edit_delete_line_module.c src/registry.c tests/test_shell_module.c',cwd=normal)\nos.environ['ASAN_OPTIONS']='detect_leaks=1:halt_on_error=1'\nos.environ['UBSAN_OPTIONS']='halt_on_error=1:print_stacktrace=1'\nflags='-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie'\nrun(phase+'-fresh-O0-asan-ubsan-all-test',['make','all','test','CFLAGS='+flags,'LDFLAGS=-fsanitize=address,undefined -no-pie'],cwd=sanitizer)\nrun(phase+'-fresh-sanitizer-main-byte-suite','python3 tests/test_edit_delete_line.py --program ./build/main --prefix edit-delete-line',cwd=sanitizer)\n"
+  },
+  "course_excerpts": [
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      89,
+      "These are simple, deterministic editing tools designed for agents; they operate on complete files, not streams."
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      90,
+      ""
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      91,
+      "edit-replace-line – replace a single line in a fileUsage:"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      92,
+      ""
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      93,
+      "edit-replace-line FILE N TEXTOptions:"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      94,
+      "-h, --help"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      95,
+      "--json – { \"path\": \"...\", \"line\": N, \"status\": \"ok\" | \"error\", \"message\": \"...\" }."
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      103,
+      "edit-delete-line – delete a single lineUsage:"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      104,
+      ""
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      105,
+      "edit-delete-line FILE NOptions:"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      106,
+      "-h, --help"
+    ],
+    [
+      "/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx",
+      107,
+      "--json."
+    ]
+  ],
+  "final_frozen_patch_proof": "/home/name/.hermes/cache/scratch/edit-delete-line-integration/final-proof.json",
+  "limits": [
+    "trusted stable paths: final check-to-rename race remains",
+    "no directory fsync or power-loss durability guarantee",
+    "internal argtable parser OOM exits host status 1",
+    "postcommit output error has no rollback",
+    "six inherited global format failures unchanged",
+    "known inherited O1 shell fault-harness limitation not rerun; default O0 only"
+  ],
+  "harness_setup_events": [
+    "Nonunique Makefile patch rejected without edits",
+    "Missing json import corrected before fixture execution",
+    "Scratch fingerprint NameError corrected",
+    "Preliminary HEAD-based README lowercase anchor failed; uppercase HEAD anchor corrected"
+  ]
+}

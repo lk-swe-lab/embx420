@@ -1,0 +1,497 @@
+{
+  "head": "2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d",
+  "review_verdict": "pass-selected-contract",
+  "commands": [
+    {
+      "label": "fresh-all-test-lint",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/baseline",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "3e232e046ca49bf647f5762a07220b82f2d4ddcf6007583827238bd3755d5e67",
+      "stderr_sha256": "2cc37f93f7d415399fbebbc55eedd5f5b5337d80218cfd6eb44c03937eaf029c"
+    },
+    {
+      "label": "global-format",
+      "command": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/baseline",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "217e92ac65b33ee7a62e858b525d1f9bd6566d83b5c9039975a9a49000e89d40",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "source-doc-whitespace",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "--whitespace=error-all",
+        "--exclude=logs/commands/edit-delete-line-execution.log",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5be8456aefe8eb6399a236b66d6f5b65aad52fbb442f9296705c42065aaa3686"
+    },
+    {
+      "label": "fresh-all-test-lint",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "85ac20f2df83750a9d3229bece94c29551c4916f7498c0a3af483e79a81267dd",
+      "stderr_sha256": "32378628b131919d6fb16e44af7d18b19fd003ce93e3061ed7daeb227c98e263"
+    },
+    {
+      "label": "main-command-cli",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "./build/main",
+        "--prefix",
+        "edit-delete-line"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "60b75ebbf734568b96bea7165db5ca44c191dbb82343e376af4574922ca412d2"
+    },
+    {
+      "label": "scoped-format",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_edit_delete_line.c",
+        "src/cmd_edit_delete_line.h",
+        "src/edit_delete_line_main.c",
+        "tests/test_edit_delete_line_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "global-format",
+      "command": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "228c3681042687f185b51d03cb39368ffb9e3b911c2e9fa6ec989085520f25bb",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "source-doc-whitespace",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "--whitespace=error-all",
+        "--exclude=logs/commands/edit-delete-line-execution.log",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5be8456aefe8eb6399a236b66d6f5b65aad52fbb442f9296705c42065aaa3686"
+    },
+    {
+      "label": "fresh-O0-asan-ubsan-all-test",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "ac712f9540d03a2e665b723cc6c15d317180748c6012e965d2aa29653aedfaca",
+      "stderr_sha256": "c7b9b42fa77ea6b41d8321640f3c3bee74eb60124833a14938b5a43cff764506"
+    },
+    {
+      "label": "main-command-cli",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "./build/main",
+        "--prefix",
+        "edit-delete-line"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7cd748152be9cd63e5c593efda2e12eb6932ea380b3886f23ea65d9376e90a47"
+    },
+    {
+      "label": "scoped-format",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_edit_delete_line.c",
+        "src/cmd_edit_delete_line.h",
+        "src/edit_delete_line_main.c",
+        "tests/test_edit_delete_line_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/sanitizer",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/argv",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/argv.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f53154b68b7742730c37e5955f74070856dc081bda95fb59c16cf4fb05db3d24"
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/getopt",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/getopt.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/getopt"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a3f5c6952ad989b738260fd51a4a4c98fd97b2dcefe0724c4ba2ad14f83df34d"
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-rename",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-rename.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-rename"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2a490f1420015247f14be074bed5e5396d99506f224d4ddb61767af0920147f3"
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-recheck",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/tests/test_edit_delete_line_module.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-recheck.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink",
+        "-L/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/no-recheck"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c4e5899d927115f40167e4556d4a0322f95ea37a9e8fd7498b54b673d0db9ae2"
+    },
+    {
+      "label": "negative-noop",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/usr/bin/true",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3383d2f4f70d86e16215ae029ba0adefaba58f0730b9183c7fd95d311b9f45c3"
+    },
+    {
+      "label": "negative-retained-lf-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src",
+        "-I/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/retained-lf",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/edit_delete_line_main.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/retained-lf.c",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/src/cmd_lines.c",
+        "-L/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-retained-lf",
+      "command": [
+        "python3",
+        "tests/test_edit_delete_line.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/mutants/retained-lf",
+        "DeleteLineTests.test_middle_line_staged"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1bbb7bcaa727508cd1fcd6c1038f4a77d2fc44cd06abd4f30d98f65da4c207e1"
+    },
+    {
+      "label": "real-syscall-trace",
+      "command": [
+        "strace",
+        "-yy",
+        "-e",
+        "trace=openat,read,write,fsync,close,rename,unlink",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/trace.log",
+        "/home/name/.hermes/cache/scratch/edit-delete-line-review/normal/build/edit-delete-line",
+        "file",
+        "1"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-delete-line-review/trace-fixture",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "oracle": {
+    "executions": 8010,
+    "success": 5268,
+    "absent": 2742,
+    "corpus_sha256": "15e6b13cdd5a0391859f703656ef9686d991cc612b4acd2710c2ca829e486ba8"
+  },
+  "source_sha256": {
+    "Makefile": "5c2f59ad984529d57d852c299387a3e2102c4bd14d11c1f604fdebdcb7da599f",
+    "src/registry.c": "6149cd4cda7498f5cccdd50a9068a6eac6dc48d60bc64a0143799d88eb315f6e",
+    "tests/test_shell.py": "e8849d18c92db21fb072061ac5746e13f49cf23eab40fea28673f925ce1a95ca",
+    "tests/test_shell_module.c": "8dc67c997167a8e5572956eb81ccdf8ee06da111f0dd9d1ea708e2cfc8201f5d",
+    "README.md": "2ec6172509bd8eefbe73c9ca6ecc0a10f3b944d31d0695f72b423f9e76b4f2eb",
+    "FILES.md": "e6798e2915dd86bd47e78e92a2432aeb58648b76cab258a6da0d7ea968aa765f",
+    "src/cmd_edit_delete_line.c": "a42a1b43d3caf514906723be3398277e294b2b3dfe0d3c5e94e9d4ea7f009c5c",
+    "src/cmd_edit_delete_line.h": "28de9193d93f4f5264c53d95189cc60563bc4e1c200c92687ba86f3b120fb67a",
+    "src/edit_delete_line_main.c": "ab9607eb548dcf5eb679ef15b3040910e775e713e0651df9111c70ba3059eeb4",
+    "tests/test_edit_delete_line.py": "ee0426e2557d3dda207479d8e03c128fab1ba62d593b02b5c56d8bc07daf16ac",
+    "tests/test_edit_delete_line_module.c": "0667e20c7c3a82476fae66d7b68499f4a604f1071c0c2266483926d2a652e22a",
+    "docs/commands/edit-delete-line.md": "75fbecd62b3ee21aa3576ee87ca71e82bd9fdedd7443c542943359859ca3e0f3",
+    "docs/reports/edit-delete-line-implementation.md": "9e3984a6f575c67896423ba51f079a63b3098d3e3a228842aeaaef0605937c79",
+    "logs/commands/edit-delete-line-execution.log": "9d50402978b16a0b2a06017d8dee95b25c5618dc455a7288af3a16a0b59420e0",
+    "logs/commands/edit-delete-line-evidence.json": "58b59f98d3a93314db1be2d4530859109cd2da7fadd4ada3c6c47bca525733ea",
+    "docs/reports/edit-delete-line-review.md": "c66080d61d730e03d27ed3edb4dae0ca44dad81acf739c42cbc10ed67519d7ef"
+  },
+  "raw_sha256": "86c6ab3c62011a3f286a7741519cbd56fdf1a795d231a6f60a97cd9267b3760e",
+  "reproduction_scripts": {
+    "edit_delete_independent.py": "import os,sys,json,hashlib,subprocess,tarfile,io,re\nfrom pathlib import Path\nROOT=Path('/home/name/Documents/420-EMBDX/A')\nOUT=Path('/home/name/.hermes/cache/scratch/edit-delete-line-review')\nORIG=Path('/home/name/.hermes/cache/scratch/edit-delete-line-integration')\nHEAD='2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d'\nOUT.mkdir(exist_ok=True)\ndef sha(b): return hashlib.sha256(b).hexdigest()\ndef run(label,args,cwd,expected=0,env=None):\n    p=subprocess.run(args,cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=600)\n    mode=sys.argv[1]\n    with (OUT/(mode+'.log')).open('ab') as f:\n        f.write(('\\n=== '+label+' ===\\nCWD '+str(cwd)+'\\nCOMMAND '+repr(args)+'\\nSTATUS '+str(p.returncode)+'\\nSTDOUT\\n').encode());f.write(p.stdout);f.write(b'\\nSTDERR\\n');f.write(p.stderr)\n    ledger=OUT/(mode+'.json')\n    d=json.loads(ledger.read_text()) if ledger.exists() else {'head':HEAD,'commands':[]}\n    d['commands'].append({'label':label,'command':args,'cwd':str(cwd),'status':p.returncode,'expected':expected,'stdout_sha256':sha(p.stdout),'stderr_sha256':sha(p.stderr)})\n    ledger.write_text(json.dumps(d,indent=2)+'\\n')\n    print(label,p.returncode,flush=True)\n    if expected is not None: assert p.returncode==expected,(label,p.stderr[-2000:])\n    return p\n\ndef fresh(mode):\n    dst=OUT/mode\n    dst.mkdir()\n    archive=subprocess.check_output(['git','archive',HEAD],cwd=ROOT)\n    with tarfile.open(fileobj=io.BytesIO(archive)) as t: t.extractall(dst,filter='data')\n    if mode!='baseline':\n        patch=ORIG/'integration.patch'\n        assert sha(patch.read_bytes())=='6bcf9053a541b652ac09bb6e84e46ad1bc98039bdcbd736749975d0164d983f2'\n        run('patch-check',['git','apply','--check',str(patch)],dst)\n        run('source-doc-whitespace',['git','apply','--check','--whitespace=error-all','--exclude=logs/commands/edit-delete-line-execution.log',str(patch)],dst)\n        run('patch-apply',['git','apply',str(patch)],dst)\n        m=json.loads((ORIG/'manifest.json').read_text())\n        for p,h in {**m['candidates'],**m['anchors']}.items(): assert sha((dst/p).read_bytes())==h,p\n        for p,h in m['dependencies'].items(): assert sha(Path(p).read_bytes())==h,p\n    (dst/'build').mkdir()\n    for name in ['argtable3','cunit']: (dst/'build'/name).symlink_to(ROOT/'build'/name,target_is_directory=True)\n    print('Fresh archive and dependency hashes verified',mode,flush=True)\n    return dst\n\nif __name__=='__main__':\n    mode=sys.argv[1]\n    dst=fresh(mode)\n    env={**os.environ,'LC_ALL':'C'}\n    if mode=='sanitizer':\n        env.update(ASAN_OPTIONS='detect_leaks=1:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')\n        flags='-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie'\n        run('fresh-O0-asan-ubsan-all-test',['make','all','test','CFLAGS='+flags,'LDFLAGS=-fsanitize=address,undefined -no-pie'],dst,env=env)\n    else: run('fresh-all-test-lint',['make','all','test','lint'],dst,env=env)\n    if mode!='baseline':\n        run('main-command-cli',['python3','tests/test_edit_delete_line.py','--program','./build/main','--prefix','edit-delete-line'],dst,env=env)\n        run('scoped-format',['clang-format','--dry-run','--Werror','src/cmd_edit_delete_line.c','src/cmd_edit_delete_line.h','src/edit_delete_line_main.c','tests/test_edit_delete_line_module.c','src/registry.c','tests/test_shell_module.c'],dst)\n    if mode!='sanitizer':\n        p=run('global-format',['make','format-check'],dst,expected=2)\n        paths=sorted(set(re.findall(rb'((?:src|tests)/[^:\\n]+\\.[ch]):\\d+:\\d+: error: code',p.stderr)))\n        expected=sorted(x.encode() for x in ['src/cmd_spec.h','src/traverse.c','src/traverse.h','tests/test_help.c','tests/test_output.h','tests/test_recursive.c'])\n        assert paths==expected,paths\n        for b in paths:\n            path=b.decode();assert (dst/path).read_bytes()==subprocess.check_output(['git','show',HEAD+':'+path],cwd=ROOT)\n        print('Six unchanged baseline format paths verified',flush=True)\n",
+    "edit_delete_independent_extra.py": "import sys,os,json,itertools,random,re,subprocess,hashlib,resource\nfrom pathlib import Path\nsys.path.insert(0,'/home/name/.hermes/cache/scratch')\nfrom edit_delete_independent import OUT,ROOT,HEAD,run,sha\nsys.argv[1:] = ['extra']\nnormal=OUT/'normal'\nsource=(normal/'src/cmd_edit_delete_line.c').read_text()\n# Independently constructed offset oracle, not splitlines or editor code.\ndef bounds(data):\n    starts=[0]+[i+1 for i,b in enumerate(data) if b==10]\n    return [(s,next((i+1 for i in range(s,len(data)) if data[i]==10),len(data))) for s in starts if s<len(data)]\ndef oracle():\n    fixture=OUT/'oracle-fixture';fixture.mkdir()\n    file=fixture/'file'\n    corpus=hashlib.sha256(); count=0; valid=0; invalid=0\n    inputs=(bytes(t) for size in range(6) for t in itertools.product((0,10,13,255),repeat=size))\n    rng=random.Random(20261009)\n    randoms=[bytes(rng.randrange(256) for _ in range(size)) for size in (65535,65536,65537,131071,131072,131073)]\n    for data in itertools.chain(inputs,randoms):\n        ranges=bounds(data)\n        choices=range(1,len(ranges)+2) if len(data)<10 else [1,len(ranges)//2+1,len(ranges),len(ranges)+1]\n        for n in choices:\n            expected=data if n>len(ranges) else data[:ranges[n-1][0]]+data[ranges[n-1][1]:]\n            for prefix in [[str(normal/'build/edit-delete-line')],[str(normal/'build/main'),'edit-delete-line']]:\n                file.write_bytes(data);file.chmod(0o640);before=file.stat()\n                command=prefix+['--json','--','file',str(n)]\n                p=subprocess.run(command,cwd=fixture,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env={**os.environ,'LC_ALL':'C'},timeout=10)\n                assert p.returncode==(1 if n>len(ranges) else 0),(len(data),n,p)\n                obj=json.loads(p.stdout)\n                assert set(obj)=={'path','line','status','message'} and obj['path']=='file' and obj['line']==n\n                assert p.stdout.endswith(b'\\n') and p.stdout.count(b'\\n')==1\n                assert obj['status']==('error' if n>len(ranges) else 'ok')\n                assert (obj['message'] is not None)==(n>len(ranges))\n                assert bool(p.stderr)==(n>len(ranges))\n                assert file.read_bytes()==expected,(len(data),n)\n                after=file.stat()\n                assert after.st_mode==before.st_mode and after.st_uid==before.st_uid and after.st_gid==before.st_gid\n                if n>len(ranges): assert (after.st_ino,after.st_mtime_ns)==(before.st_ino,before.st_mtime_ns)\n                else: assert after.st_ino!=before.st_ino\n                assert sorted(x.name for x in fixture.iterdir())==['file']\n                corpus.update(data);corpus.update(str(n).encode());corpus.update(expected)\n                count+=1;valid+=n<=len(ranges);invalid+=n>len(ranges)\n    print('Independent exhaustive/buffer byte oracle:',count,'CLI executions;',valid,'success;',invalid,'absent-line failures; corpus SHA256',corpus.hexdigest(),flush=True)\n    (OUT/'oracle-counts.json').write_text(json.dumps({'executions':count,'success':valid,'absent':invalid,'corpus_sha256':corpus.hexdigest()},indent=2)+'\\n')\n\ndef negative():\n    resource.setrlimit(resource.RLIMIT_CORE,(0,0))\n    mutants=OUT/'mutants';mutants.mkdir()\n    line=next(x for x in (normal/'Makefile').read_text().split('\\n') if 'tests/test_edit_delete_line_module.c src/cmd_edit_delete_line.c src/cmd_lines.c -Wl' in x)\n    wrappers=next(x for x in line.split() if x.startswith('-Wl,'))\n    base=['cc','-std=c17','-g3','-O0','-I'+str(normal/'src'),'-I'+str(normal/'build/argtable3/include')]\n    for name,old,new,marker in [\n        ('argv','arg_parse(argc, copy, table)','arg_parse(argc, argv, table)',b'argv pointer preservation failed'),\n        ('getopt','optind = saved_optind;','(void)saved_optind;',b'getopt preservation failed'),\n        ('no-rename','rename(name, path)','0',b'source content mismatch'),\n        ('no-recheck','if (!source_same(&before, &after) || !source_same(&before, &current))','if (0)',b'concurrency guard failed')]:\n        assert source.count(old)==1\n        path=mutants/(name+'.c');path.write_text(source.replace(old,new));binary=mutants/name\n        run('negative-'+name+'-build',base+['-o',str(binary),str(normal/'tests/test_edit_delete_line_module.c'),str(path),str(normal/'src/cmd_lines.c'),wrappers,'-L'+str(normal/'build/argtable3/lib'),'-largtable3','-lm'],normal)\n        p=run('negative-'+name,[str(binary)],normal,expected=-6);assert marker in p.stderr,(name,p.stderr)\n    p=run('negative-noop',['python3','tests/test_edit_delete_line.py','--program','/usr/bin/true','DeleteLineTests.test_middle_line_staged'],normal,expected=1)\n    assert b\"b'first\\\\nsecond\\\\nthird\\\\n' != b'first\\\\nthird\\\\n'\" in p.stderr\n    old='if (line == number)\\n                found = 1;'\n    new=\"if (line == number) {\\n                found = 1;\\n                if (byte == '\\\\n' && stage_append(output, &byte, 1) != 0)\\n                    return -1;\\n            }\"\n    assert source.count(old)==1\n    path=mutants/'retained-lf.c';path.write_text(source.replace(old,new));binary=mutants/'retained-lf'\n    run('negative-retained-lf-build',base+['-o',str(binary),str(normal/'src/edit_delete_line_main.c'),str(path),str(normal/'src/cmd_lines.c'),'-L'+str(normal/'build/argtable3/lib'),'-largtable3','-lm'],normal)\n    p=run('negative-retained-lf',['python3','tests/test_edit_delete_line.py','--program',str(binary),'DeleteLineTests.test_middle_line_staged'],normal,expected=1)\n    assert b\"b'first\\\\n\\\\nthird\\\\n' != b'first\\\\nthird\\\\n'\" in p.stderr\n    print('Six sensitivity controls failed with intended markers/bytes',flush=True)\n\ndef trace():\n    fixture=OUT/'trace-fixture';fixture.mkdir();(fixture/'file').write_bytes(b'old\\r\\nkeep\\n')\n    path=OUT/'trace.log'\n    run('real-syscall-trace',['strace','-yy','-e','trace=openat,read,write,fsync,close,rename,unlink','-o',str(path),str(normal/'build/edit-delete-line'),'file','1'],fixture)\n    text=path.read_text();print(text)\n    lines=text.split('\\n')\n    def find(pred):return next(i for i,l in enumerate(lines) if pred(l))\n    op=find(lambda l:'O_EXCL' in l and '.edit-delete-line-' in l)\n    wr=find(lambda l:l.startswith('write(') and '.edit-delete-line-' in l)\n    sy=find(lambda l:l.startswith('fsync('));cl=find(lambda l:l.startswith('close(') and '.edit-delete-line-' in l);rn=find(lambda l:l.startswith('rename('))\n    assert op<wr<sy<cl<rn\n    assert not any('O_TRUNC' in l or (l.startswith('write(') and '/trace-fixture/file>' in l) or 'unlink(\"file\")' in l for l in lines)\n    assert (fixture/'file').read_bytes()==b'keep\\n' and list(fixture.iterdir())==[fixture/'file']\n    print('Real exclusive same-directory write/fsync/close/rename order verified',flush=True)\n\ndef static():\n    paths=['src/cmd_edit_delete_line.c','src/cmd_edit_delete_line.h','src/edit_delete_line_main.c','tests/test_edit_delete_line_module.c','tests/test_edit_delete_line.py']\n    for path in paths:\n        text=(normal/path).read_text()\n        assert not re.search(r'(api_key|secret|password|passwd)\\s*=\\s*[\\'\\\"][^\\'\\\"]{6,}',text,re.I),path\n        assert not re.search(r'os\\.system\\(|subprocess[^\\n]*shell=True|\\beval\\(|\\bexec\\(|pickle\\.loads?\\(',text),path\n        if path.endswith(('.c','.h')): assert max(map(len,text.split('\\n')))<=80,path\n    print('Static secret/injection scan and new C line limits passed; uid',os.geteuid(),flush=True)\n\nif __name__=='__main__':\n    static();oracle();negative();trace()\n",
+    "edit_delete_review_freeze.py": "import os,json,hashlib,subprocess,difflib,re\nfrom pathlib import Path\nROOT=Path('/home/name/Documents/420-EMBDX/A')\nOUT=Path('/home/name/.hermes/cache/scratch/edit-delete-line-review')\nORIG=Path('/home/name/.hermes/cache/scratch/edit-delete-line-integration')\nHEAD='2c6f01ce87fe6d8f9f8b1bd6f38a717d7ed5233d'\ndef sha(b):return hashlib.sha256(b).hexdigest()\ndef lines(b):\n    p=b.split(b'\\n');return [x+b'\\n' for x in p[:-1]]+([p[-1]] if p[-1] else [])\nold=json.loads((ORIG/'manifest.json').read_text())\nassert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip()==HEAD\nassert subprocess.check_output(['git','diff','--cached','--name-only'],cwd=ROOT)==b''\n# Freeze complete independent execution before computing the delivery patch.\nparts=[];commands=[]\nfor mode in ['baseline','normal','sanitizer','extra']:\n    parts.append(('\\n### INDEPENDENT '+mode.upper()+' ###\\n').encode()+(OUT/(mode+'.log')).read_bytes())\n    d=json.loads((OUT/(mode+'.json')).read_text());commands+=d['commands']\nparts.append(b'\\n### ORACLE/TRACE DRIVER COMPLETE OUTPUT ###\\n'+(OUT/'extra-driver.log').read_bytes())\nassert all(c['status']==c['expected'] for c in commands)\nraw=b''.join(parts)\nlogpath='logs/commands/edit-delete-line-review-execution.log'\nledgerpath='logs/commands/edit-delete-line-review-evidence.json'\n(ROOT/logpath).write_bytes(raw)\nreadme=(ORIG/'README.md.candidate').read_text()\nanchor='Historical evidence is preserved in [command reports](docs/reports/README.md).'\nassert readme.count(anchor)==1\nreadme=readme.replace(anchor,'`edit-delete-line` [independent review](docs/reports/edit-delete-line-review.md)\\npasses the selected contract; exact-index delivery remains a separate gate.\\n'+anchor)\nfiles=(ORIG/'FILES.md.candidate').read_text()\nfiles+='- docs/reports/edit-delete-line-review.md \u2014 independent source review, exhaustive byte oracle and delivery limits.\\n- logs/commands/edit-delete-line-review-execution.log, logs/commands/edit-delete-line-review-evidence.json \u2014 complete independent streams, command/status/hash ledger and reproduction scripts.\\n'\nallow=old['allowlist']+['docs/reports/edit-delete-line-review.md',logpath,ledgerpath]\nassert len(allow)==18 and len(set(allow))==18\ncandidates={p:(readme.encode() if p=='README.md' else files.encode() if p=='FILES.md' else (ROOT/p).read_bytes()) for p in allow if p!=ledgerpath}\n# Original production source/tests/build integration and implementation evidence unchanged.\nfor p in old['allowlist']:\n    if p not in ['README.md','FILES.md','docs/commands/edit-delete-line.md','docs/reports/edit-delete-line-implementation.md']:\n        assert sha(candidates[p])==old['candidates'][p],p\nscripts={n:(Path('/home/name/.hermes/cache/scratch')/n).read_text() for n in ['edit_delete_independent.py','edit_delete_independent_extra.py','edit_delete_review_freeze.py']}\nledger={'head':HEAD,'review_verdict':'pass-selected-contract','commands':commands,'oracle':json.loads((OUT/'oracle-counts.json').read_text()),'source_sha256':{p:sha(b) for p,b in candidates.items() if p!=logpath},'raw_sha256':sha(raw),'reproduction_scripts':scripts,'inherited_format_failures':['src/cmd_spec.h','src/traverse.c','src/traverse.h','tests/test_help.c','tests/test_output.h','tests/test_recursive.c'],'limits':['trusted stable paths; final check-to-rename race','no directory fsync or power-loss durability','internal argtable OOM can exit host','postcommit output has no rollback','metadata exclusions and diagnosed cleanup leftover','uninstrumented dependencies; default O0 only; O1 inherited limitation not rerun'],'final_frozen_artifact_proof':str(OUT/'final-proof.json'),'raw_whitespace_exceptions':['logs/commands/edit-delete-line-execution.log',logpath]}\n(ROOT/ledgerpath).write_text(json.dumps(ledger,indent=2)+'\\n')\ncandidates[ledgerpath]=(ROOT/ledgerpath).read_bytes()\ncheckout=OUT/'candidates';checkout.mkdir()\npatch=b''\nfor p in allow:\n    a=candidates[p];dst=checkout/p;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(a)\n    result=subprocess.run(['git','show',HEAD+':'+p],cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.PIPE)\n    b=result.stdout if result.returncode==0 else b''\n    patch+=b''.join(difflib.diff_bytes(difflib.unified_diff,lines(b),lines(a),fromfile=('a/'+p).encode() if result.returncode==0 else b'/dev/null',tofile=('b/'+p).encode()))\n(OUT/'reviewed.patch').write_bytes(patch)\nmanifest={'head':HEAD,'allowlist':allow,'patch_path':str(OUT/'reviewed.patch'),'patch_sha256':sha(patch),'candidate_root':str(checkout),'candidates':{p:sha(candidates[p]) for p in allow},'anchors':old['anchors'],'dependencies':old['dependencies'],'reviewed_original_patch_sha256':old['patch_sha256'],'module_sha256':sha(candidates['src/cmd_edit_delete_line.c']),'proof_path':str(OUT/'final-proof.json')}\n(OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\\n')\n(OUT/'SHA256SUMS').write_text(''.join(h+'  '+p+'\\n' for p,h in manifest['candidates'].items()))\npaths=subprocess.check_output(['git','apply','--numstat',str(OUT/'reviewed.patch')],cwd=ROOT).decode().split('\\n')\nassert sorted(x.split('\\t',2)[2] for x in paths if x)==sorted(allow)\nprint('Frozen exact delivery:',len(allow),'paths; reviewed.patch SHA256',manifest['patch_sha256'])\nprint('Manifest SHA256',sha((OUT/'manifest.json').read_bytes()))\n"
+  },
+  "inherited_format_failures": [
+    "src/cmd_spec.h",
+    "src/traverse.c",
+    "src/traverse.h",
+    "tests/test_help.c",
+    "tests/test_output.h",
+    "tests/test_recursive.c"
+  ],
+  "limits": [
+    "trusted stable paths; final check-to-rename race",
+    "no directory fsync or power-loss durability",
+    "internal argtable OOM can exit host",
+    "postcommit output has no rollback",
+    "metadata exclusions and diagnosed cleanup leftover",
+    "uninstrumented dependencies; default O0 only; O1 inherited limitation not rerun"
+  ],
+  "final_frozen_artifact_proof": "/home/name/.hermes/cache/scratch/edit-delete-line-review/final-proof.json",
+  "raw_whitespace_exceptions": [
+    "logs/commands/edit-delete-line-execution.log",
+    "logs/commands/edit-delete-line-review-execution.log"
+  ]
+}
