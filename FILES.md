@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — program status, build/run commands, and test commands.
+- README.md — builtin-shell/traversal usage, eight-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -24,7 +24,7 @@
 - demo/2026-10-01-demo.mp4 — silent MP4 demonstration.
 - demo/Screencast from 2026-10-01 22-27-29.webm — original recording.
 - .clang-format — C formatting with an 80-column limit.
-- src/main.c — assignment CLI source.
+- src/main.c — builtin-shell entry point and legacy traversal routing.
 - tests/test_help.c — failing CUnit CLI test for -h usage and exit status.
 - docs/TESTING.md — CUnit setup and test commands.
 - wiki/SCHEMA.md — wiki format and approval-first chat workflow.
@@ -35,7 +35,7 @@
 
 
 ## ls command
-- docs/commands/ls.md — ls inventory, implemented contract, TDD evidence, and verification limits.
+- docs/commands/ls.md — implemented ls usage, options and limits.
 - src/cmd_ls.c, src/cmd_ls.h — sorted directory listing, long metadata, and JSON module.
 - src/ls_main.c — thin standalone ls entry point.
 - tests/test_ls.py — independent ls CLI expectations, GNU adapter, and boundaries/failures.
@@ -47,11 +47,67 @@
 - docs/CHANGES.md — brief decisions, changes, and test results.
 
 ## mkdir command
-- docs/commands/mkdir.md — mkdir inventory, implemented contract, interruption/TDD evidence, and verification limits.
-- docs/commands/mkdir-review.md — independent mkdir review, executed checks, readiness, and isolated-commit integration scope.
+- docs/commands/mkdir.md — implemented mkdir usage, options and limits.
+- docs/reports/mkdir-review.md — byte-preserved independent mkdir review snapshot.
 - logs/commands/mkdir-20261008-execution.txt — exact mkdir resume commands, observed outputs/statuses, and tested-source hashes.
 - logs/commands/mkdir-20261008-interrupted.txt — preserved prior worker transcript, reference/negative/RED logs, and manual research.
 - src/cmd_mkdir.c, src/cmd_mkdir.h — invocation-local directory creation, parents, and JSON specification.
 - src/mkdir_main.c — thin standalone mkdir entry point.
 - tests/test_mkdir.py — independent reference/project CLI, filesystem/mode, and forbidden-effect fixtures.
 - tests/test_mkdir_module.c — mkdir reuse, borrowed-state, allocation cleanup, and injected fault tests.
+
+## Eight-command shell and approved documentation cleanup
+- docs/commands/cat.md — implemented cat usage, options and limits.
+- docs/commands/head.md — implemented head usage, options and limits.
+- docs/commands/tail.md — implemented tail usage, options and limits.
+- docs/commands/pwd.md — implemented physical pwd usage, options and limits.
+- docs/commands/stat.md — implemented stat usage, options and limits.
+- docs/commands/touch.md — implemented timestamp-update usage and limits.
+- docs/commands/shell.md — builtin-shell usage, quoting/stdin semantics and limits.
+- docs/reports/shell-integration.md — implementation evidence and preserved selection plan.
+- docs/reports/shell-review.md — independent verification and dependency scope.
+- docs/reports/shell-disposition.md — accepted differences, final checks and readiness.
+- logs/commands/shell-resume-20261008.log — exact resumed eight-command gates, help-only review diffs, hashes and preserved cleanup audit.
+- logs/commands/shell-resume-allowlist.txt — explicit combined delivery/staging path allowlist; excludes concurrent/unrelated work.
+- docs/reports/touch.md — touch selection, implementation and execution evidence.
+- docs/reports/touch-review.md — independent touch review and verification.
+- docs/commands/cp.md — planned, unimplemented cp scope and mmap constraints.
+- .tmp/NEXT_BATCH.md — byte-preserved batch coordination record; Git-ignored.
+- .tmp/FOLLOW_ON_TEN.md — byte-preserved ten-command selection; Git-ignored.
+- .tmp/FOLLOW_ON_FIVE.md — byte-preserved five-command extension; Git-ignored.
+- .tmp/HERMES_HANDOFF.md — byte-preserved paused handoff; Git-ignored.
+- docs/reports/README.md — snapshot notice and current-usage pointer.
+- docs/reports/cat.md, docs/reports/head.md, docs/reports/tail.md — byte-preserved historical inventories, contracts and evidence.
+- docs/reports/pwd.md, docs/reports/stat.md, docs/reports/ls.md — byte-preserved historical inventories, contracts and evidence.
+- docs/reports/mkdir.md — byte-preserved inventory, contract and implementation evidence.
+- docs/reports/cp.md — byte-preserved planned inventory and mmap design snapshot.
+- docs/ADDING_COMMANDS.md — guided/autonomous command workflow, reusable plan template, and testing/verification gates.
+- src/shell.c, src/shell.h — builtin dispatch, lexer, shared-stdin loop and API.
+- src/registry.c, src/registry.h — checked builtin registration, lookup and discovery.
+- tests/test_shell.py — exact CLI/parity/quoting/stdin and accepted legacy diagnostics.
+- tests/test_shell_module.c — registry, borrowed-state, EINTR and allocation-fault checks.
+- src/cmd_touch.c, src/cmd_touch.h — shared timestamp-update/create/JSON module.
+- src/touch_main.c — standalone touch entry point.
+- tests/test_touch.py — reference/project timestamp, filesystem and failure cases.
+- tests/test_touch_module.c — reuse, borrowed-state and injected-fault checks.
+- src/cmd_cat.c, src/cmd_cat.h — argtable3 cat module, file/stdin copying, numbering, and I/O handling.
+- src/cat_main.c — thin standalone wrapper for the shared cat specification.
+- src/cmd_head.c, src/cmd_head.h — argtable3 head module with exact prefix reads and JSON output.
+- src/head_main.c — standalone entry point for head.
+- src/cmd_tail.c, src/cmd_tail.h — bounded last-lines queue and JSON tail module.
+- src/tail_main.c — standalone entry point for tail.
+- tests/test_cat.c — reference-first cat tests with fixed expectations and a selectable executable.
+- tests/test_cat_module.c — direct cat reuse, partial/interrupted I/O, and same-file regression tests.
+- tests/test_head.py — independent head expectations with explicit reference/project modes.
+- tests/test_head_module.c — repeated head calls, argv preservation, descriptor ownership, and no stdin read-ahead.
+- tests/test_tail.py — tail reference/project byte and JSON expectations.
+- tests/test_tail_module.c — repeated tail calls, stream consumption, argv and descriptor ownership checks.
+- tests/test_lines_random.py — seeded head/tail reference comparisons and JSON validation across buffer boundaries.
+- src/cmd_spec.h — shared command specification type.
+- src/cmd_lines.c, src/cmd_lines.h — byte output, UTF-8 validation, and JSON string helpers.
+- src/cmd_pwd.c, src/cmd_pwd.h — shared physical-working-directory and JSON module.
+- src/pwd_main.c — standalone pwd entry point.
+- tests/test_pwd.py — physical path, JSON, argument and filesystem boundary tests.
+- tests/test_pwd_module.c — repeated calls, borrowed argv/state and ownership checks.
+- logs/commands/touch-review.log — raw independent touch review evidence.
+- logs/commands/touch-review-integration.log — raw touch integration/regression evidence.

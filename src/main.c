@@ -1,9 +1,11 @@
 #define _POSIX_C_SOURCE 200809L
+#include "shell.h"    /* shell_loop, shell_dispatch, shell_help. */
+#include "registry.h" /* register_all_builtin_commands. */
 #include "traverse.h" /* Traversal/output APIs, options, HOURS_PER_DAY. */
 #include <getopt.h>   /* getopt_long, struct option, optarg, argument modes. */
 #include <stdio.h>    /* FILE, fputs, perror, stdout, stderr. */
 #include <stdlib.h>   /* free. */
-#include <string.h>   /* strdup, strlen, strrchr. */
+#include <string.h>   /* strdup, strlen, strrchr, strcmp. */
 #include <sys/stat.h> /* lstat, struct stat. */
 
 #define SHORT_OPTIONS "hr:"
@@ -27,14 +29,15 @@ static void print_help(FILE *out)
           "modification hour.\n"
           "\n"
           "The last time selector wins; selectors affect dates "
-          "and histograms.\n", out);
+          "and histograms.\n",
+          out);
 }
 
 /* Purpose: Parse options and start recursive traversal.
  * Args: argc counts command-line arguments; argv contains them.
  * Rets: 0 on success; 1 on traversal failure; 2 on option errors.
  */
-int main(int argc, char **argv)
+static int legacy_main(int argc, char **argv)
 {
     const struct option long_options[] = {
         // {name, has_arg, flag, val}
@@ -44,20 +47,16 @@ int main(int argc, char **argv)
         {"local", no_argument, NULL, 'l'},
         {"utc", no_argument, NULL, 'u'},
         {"histogram", no_argument, NULL, 'H'},
-        {NULL, 0, NULL, 0}
-    };
+        {NULL, 0, NULL, 0}};
 
     int option;
     const char *directory = NULL;
     size_t hour_counts[HOURS_PER_DAY] = {0};
     struct output_options options = {
-        .show_mtime = false,
-        .time_zone = TIME_LOCAL,
-        .hour_counts = NULL
-    };
+        .show_mtime = false, .time_zone = TIME_LOCAL, .hour_counts = NULL};
 
-    while ((option = getopt_long(argc, argv, SHORT_OPTIONS,
-                                 long_options, NULL)) != -1) {
+    while ((option = getopt_long(argc, argv, SHORT_OPTIONS, long_options,
+                                 NULL)) != -1) {
         switch (option) {
         case 'h':
             print_help(stdout);
@@ -115,3 +114,27 @@ int main(int argc, char **argv)
     return 0;
 }
 
+/* Purpose: Route shell commands or preserve legacy traversal options.
+ * Args: argc/argv contain the process invocation.
+ * Rets: Shell/module or legacy traversal exit status.
+ */
+int main(int argc, char **argv)
+{
+    if (argc > 1 && argv[1][0] == '-' && strcmp(argv[1], "--help") != 0)
+        return legacy_main(argc, argv);
+    if (register_all_builtin_commands() != 0) {
+        fputs("main: cannot initialize command registry\n", stderr);
+        return 1;
+    }
+    if (argc == 1)
+        return shell_loop();
+    if (strcmp(argv[1], "--help") == 0) {
+        if (argc != 2) {
+            fputs("main: usage: main --help\n", stderr);
+            return 2;
+        }
+        return shell_help();
+    }
+    int stop;
+    return shell_dispatch(argc - 1, argv + 1, &stop, 0);
+}

@@ -1,0 +1,2402 @@
+Shell disposition resumed October 8, 2026.
+HEAD b0db03c99bfd2e1a4add175448717cdf6e8e2718
+Evidence /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4
+Isolated snapshot: HEAD src/tests/Makefile/.clang-format plus 34 working build dependency paths; installed build/{argtable3,cunit} symlinks only; no HEAD-main substitution.
+Snapshot manifest:
+{
+  "head": "b0db03c99bfd2e1a4add175448717cdf6e8e2718",
+  "files": {
+    "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "tests/test_shell.py": "9894d1d99c6c48e96043d9a7f0143cebc0098a7ccfc6b59ec00d2d35143de283",
+    "tests/test_shell_module.c": "d46097a7ce9080ec0a55813c17d8edfcdd5359c112445c26737a52e2d4a42a46",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+    "tests/test_cat.c": "495f20dd2831450bb13ded897e3a66cee3e2b61aa938d9499c196fbacf3ad22f",
+    "tests/test_cat_module.c": "80b3f99c2b48e3d88a53ddac6498e43edb8a87ee5dd0387444a3b8cb6305c3d9",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+    "tests/test_head.py": "7a845604d698a929500d10a018703fa0b11bc0c68f59116b8d4228fffc1b7a97",
+    "tests/test_head_module.c": "b56c018c9ab445422fcd1c162116e07ec33becf9c5f6dcdbcd717c4258a9211d",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+    "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+    "tests/test_tail.py": "c03cbb2874da1a104e54d7c80858b07acab6b765864ec7112d30d06516f86f09",
+    "tests/test_tail_module.c": "7c5d1c994668f061d4629624f8e62d38ab1d1546156d0f96993c521af1ac256c",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed",
+    "tests/test_pwd.py": "6bd580e46b426a2bde8c1d79b016da3275f4af2831d7aceff9bcf53351c1b81d",
+    "tests/test_pwd_module.c": "afa67d1dd3ef614090611d6d9ae5725bd260c6fcad63b892a777fbd201f16f38",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+    "tests/test_touch.py": "20d502d6b3b667c3336df7c81335fa79517e08d0c99e0726ce60ac7cefc9f2db",
+    "tests/test_touch_module.c": "c26b1a55b9af082505f298e973bc17b300c4460036949e2188fabf5bfc61f579",
+    "tests/test_lines_random.py": "d8e8a3bee7cefe382d8ba71b6493903fb577c45ad477bbf3ee4748dbd35a81c6"
+  }
+}
+Results:
+[
+  {
+    "name": "shell",
+    "command": [
+      "make",
+      "-B",
+      "test-shell"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "targeted",
+    "command": [
+      "make",
+      "-B",
+      "test-touch-impl",
+      "test-tail-impl"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "full",
+    "command": [
+      "make",
+      "-B",
+      "test"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "build",
+    "command": [
+      "make",
+      "-B",
+      "all"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "lint",
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "format-scoped",
+    "command": [
+      "clang-format",
+      "--dry-run",
+      "--Werror",
+      "src/main.c",
+      "src/shell.c",
+      "src/shell.h",
+      "src/registry.c",
+      "src/registry.h",
+      "tests/test_shell_module.c",
+      "src/cmd_touch.c",
+      "src/cmd_touch.h",
+      "src/touch_main.c",
+      "tests/test_touch_module.c",
+      "src/cmd_tail.c",
+      "src/cmd_tail.h",
+      "src/tail_main.c",
+      "tests/test_tail_module.c"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "format-full",
+    "command": [
+      "make",
+      "format-check"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 2,
+    "expected": 2
+  },
+  {
+    "name": "diff-check",
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "Makefile",
+      "src/main.c",
+      "README.md",
+      "FILES.md"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "tail-negative",
+    "command": [
+      "python3",
+      "/home/name/.hermes/cache/scratch/shell-disposition/focused.py",
+      "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/consume-zero",
+      "test_loop_tail_zero_preserves_next_command"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 1,
+    "expected": 1
+  },
+  {
+    "name": "tail-green",
+    "command": [
+      "python3",
+      "/home/name/.hermes/cache/scratch/shell-disposition/focused.py",
+      "./build/main",
+      "test_loop_tail_zero_preserves_next_command"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "libc-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-o",
+      "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/legacy-main",
+      "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/main.c",
+      "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/traverse.c"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "legacy-negative",
+    "command": [
+      "python3",
+      "/home/name/.hermes/cache/scratch/shell-disposition/focused.py",
+      "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/legacy-main",
+      "test_dispatch_legacy_diagnostics"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 1,
+    "expected": 1
+  },
+  {
+    "name": "legacy-green",
+    "command": [
+      "python3",
+      "/home/name/.hermes/cache/scratch/shell-disposition/focused.py",
+      "./build/main",
+      "test_dispatch_legacy_diagnostics"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-build",
+    "command": [
+      "make",
+      "-B",
+      "all",
+      "build/test_shell_module",
+      "build/test_touch_module",
+      "build/test_tail_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-shell",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "python3",
+      "tests/test_shell.py",
+      "--program",
+      "./build/main",
+      "--standalone-dir",
+      "./build"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-module-shell",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "./build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": -6,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-module-touch",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "./build/test_touch_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-module-tail",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "./build/test_tail_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-cli-touch",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "python3",
+      "tests/test_touch.py",
+      "./build/touch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-cli-tail",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "python3",
+      "tests/test_tail.py",
+      "--program",
+      "./build/tail"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "working-lint",
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-shell-O0-build",
+    "command": [
+      "make",
+      "-B",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "sanitizer-module-shell-O0",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "./build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "baseline-O1-build",
+    "command": [
+      "make",
+      "-B",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/review-O1-baseline",
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "name": "baseline-O1-shell",
+    "command": [
+      "env",
+      "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS=halt_on_error=1",
+      "./build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/review-O1-baseline",
+    "status": -6,
+    "expected": -6
+  }
+]
+
+### shell
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "test-shell"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/main src/main.c src/traverse.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+./build/test_shell_module
+shell module: registry, argv lifetime, EINTR/OOM ownership passed
+
+STDERR (raw):
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.185s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+
+
+### targeted
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "test-touch-impl", "test-tail-impl"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_touch.py ./build/touch
+./build/test_touch_module
+touch module: reuse, borrowed state, allocation/syscall/output faults and resource cleanup passed
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_tail_module tests/test_tail_module.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_tail.py --program ./build/tail
+default: expected=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n' got=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'c' got=b'c'
+blank: expected=b'\nx\n' got=b'\nx\n'
+binary: expected=b'B\x00' got=b'B\x00'
+long: expected=b'y\n' got=b'y\n'
+long final: expected=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' got=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'b' got=b'b'
+explicit stdin: expected=b'b' got=b'b'
+last count wins: expected=b'b' got=b'b'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["","last"]}\n' got=b'{"path":"-","lines":["","last"]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+tail: 46 checks passed
+./build/test_tail_module
+tail module: reuse, argv, zero count, borrowed descriptors passed
+
+STDERR (raw):
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.036s
+
+OK
+
+
+### full
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "test"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_mkdir_module tests/test_mkdir_module.c src/cmd_mkdir.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=free,--wrap=mkdir,--wrap=stat,--wrap=chmod,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_ls_module tests/test_ls_module.c src/cmd_ls.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=realloc,--wrap=strdup,--wrap=opendir,--wrap=readdir,--wrap=fstatat,--wrap=closedir,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_stat_module tests/test_stat_module.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/main src/main.c src/traverse.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_help tests/test_help.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_recursive tests/test_recursive.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cat tests/test_cat.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cat_module tests/test_cat_module.c src/cmd_cat.c -Wl,--wrap=read,--wrap=write -Lbuild/cunit/lib -lcunit -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_head_module tests/test_head_module.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_tail_module tests/test_tail_module.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_pwd_module tests/test_pwd_module.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+./build/test_shell_module
+shell module: registry, argv lifetime, EINTR/OOM ownership passed
+./build/test_help
+PASS  CLI help: -h prints all usage and options
+./build/test_recursive
+PASS  Recursive traversal: prints nested names once
+PASS  Recursive traversal: prints file modification dates
+PASS  Recursive traversal: selects local or UTC modification dates
+PASS  Recursive traversal: truncates display names but preserves paths
+PASS  Recursive traversal: counts regular files by modification hour
+./build/test_cat ./build/cat --project
+Executable under test: ./build/cat
+  exit status: expected 0; got 0
+  stdout
+    expected (10 bytes): "alpha\nbeta"
+    got (10 bytes): "alpha\nbeta"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: single file preserves bytes
+  exit status: expected 0; got 0
+  stdout
+    expected (13 bytes): "second\nfirst\n"
+    got (13 bytes): "second\nfirst\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: multiple files preserve operand order
+  exit status: expected 0; got 0
+  stdout
+    expected (10 bytes): "leftright\n"
+    got (10 bytes): "leftright\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: file boundaries add no separator
+  exit status: expected 0; got 0
+  stdout
+    expected (16 bytes): "abcdefghijklmnop"
+    got (16 bytes): "abcdefghijklmnop"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: sixteen files preserve operand order
+  exit status: expected 0; got 0
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: empty files produce no output
+  exit status: expected 0; got 0
+  stdout
+    expected (7 bytes): "A\x00\xff\r\nB\x00"
+    got (7 bytes): "A\x00\xff\r\nB\x00"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: binary bytes survive concatenation
+  exit status: expected 0; got 0
+  stdout
+    expected (33 bytes): "     1\talpha\n     2\t\n     3\tbeta\n"
+    got (33 bytes): "     1\talpha\n     2\t\n     3\tbeta\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: -n numbers every line across files
+  exit status: expected 0; got 0
+  stdout
+    expected (18 bytes): "     1\t\n     2\tend"
+    got (18 bytes): "     1\t\n     2\tend"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: --number preserves missing final newline
+  exit status: expected 0; got 0
+  stdout
+    expected (36 bytes): "     1\tleftright\n     2\t\n     3\tlast"
+    got (36 bytes): "     1\tleftright\n     2\t\n     3\tlast"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: -n keeps a line spanning files intact
+  exit status: expected 0; got 0
+  stdout
+    expected (65537 bytes): "\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abc" ... (display truncated)
+    got (65537 bytes): "\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abc" ... (display truncated)
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: large file is copied completely
+  exit status: expected 0; got 0
+  stdout
+    expected (7 bytes): "in\x00put\n"
+    got (7 bytes): "in\x00put\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (6 bytes): "stream"
+    got (6 bytes): "stream"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (25 bytes): "     1\ta\n     2\t\n     3\tb"
+    got (25 bytes): "     1\ta\n     2\t\n     3\tb"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: stdin defaults, operands, and numbering
+  exit status: expected 1; got 1
+  stdout
+    expected (6 bytes): "later\n"
+    got (6 bytes): "later\n"
+  stderr must contain: cat:; got: cat: /dev/null/missing: Not a directory
+  exit status: expected 1; got 1
+  stdout
+    expected (6 bytes): "later\n"
+    got (6 bytes): "later\n"
+  stderr must contain: cat:; got: cat: /: Is a directory
+PASS  cat expected vs got: input failures preserve later output
+  exit status: expected 1; got 1
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr must contain: --invalid-cat-option; got: cat: --invalid-cat-option: No such file or directory
+PASS  cat expected vs got: -- ends option parsing
+  exit status: expected 0; got 0
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 2; got 2
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr must contain: cat:; got: cat: invalid option "--invalid-cat-option"
+PASS  cat expected vs got: project help and error precedence
+PASS  cat expected vs got: output failure stops later operands
+./build/test_cat_module
+PASS  cat module: repeated calls reset state
+PASS  cat module: EINTR and short transfers
+PASS  cat module: zero-progress output fails
+PASS  cat module: same input/output file rejected
+python3 tests/test_head.py --program ./build/head
+default: expected=b'0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n' got=b'0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'a\n' got=b'a\n'
+blank: expected=b'\n\n' got=b'\n\n'
+binary: expected=b'\x00\xff\n' got=b'\x00\xff\n'
+long: expected=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' got=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'a\n' got=b'a\n'
+explicit stdin: expected=b'a\n' got=b'a\n'
+last count wins: expected=b'a\n' got=b'a\n'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["a\\r",""]}\n' got=b'{"path":"-","lines":["a\\r",""]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+head: 45 checks passed
+./build/test_head_module
+head module: reuse, argv, no overread, borrowed descriptors passed
+python3 tests/test_tail.py --program ./build/tail
+default: expected=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n' got=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'c' got=b'c'
+blank: expected=b'\nx\n' got=b'\nx\n'
+binary: expected=b'B\x00' got=b'B\x00'
+long: expected=b'y\n' got=b'y\n'
+long final: expected=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' got=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'b' got=b'b'
+explicit stdin: expected=b'b' got=b'b'
+last count wins: expected=b'b' got=b'b'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["","last"]}\n' got=b'{"path":"-","lines":["","last"]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+tail: 46 checks passed
+./build/test_tail_module
+tail module: reuse, argv, zero count, borrowed descriptors passed
+python3 tests/test_lines_random.py
+head/tail differential: 120 raw + JSON scenarios passed
+python3 tests/test_pwd.py ./build/pwd
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-xcogz5f6\n'
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'{"cwd":"/home/name/.hermes/cache/scratch/pwd-test-zsmutub1/a\\"\\\\\\n\\t\xc3\xa9"}\n', got=b'{"cwd":"/home/name/.hermes/cache/scratch/pwd-test-zsmutub1/a\\"\\\\\\n\\t\xc3\xa9"}\n'
+expected=b'', got=b''
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-a23sc4gk/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', got=b'/home/name/.hermes/cache/scratch/pwd-test-a23sc4gk/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+expected=b'', got=b''
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-msv7ad4l/actual\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-msv7ad4l/actual\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-1sa0rr5y/quote"\\\n\t-\xff\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-1sa0rr5y/quote"\\\n\t-\xff\n'
+./build/test_pwd_module
+pwd module: 5 repeated success/error/help invocations passed
+python3 tests/test_stat.py ./build/stat
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'File: file\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513116\n', got=b'File: file\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513116\n'
+expected=b'File: empty\nType: regular empty file\nSize: 0 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n', got=b'File: empty\nType: regular empty file\nSize: 0 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n'
+expected=b'File: quote"\\\n\t\xc3\xa9\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n', got=b'File: quote"\\\n\t\xc3\xa9\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n'
+expected=b'File: -\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n', got=b'File: -\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n'
+expected=b'File: -L\nType: regular file\nSize: 6 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n', got=b'File: -L\nType: regular file\nSize: 6 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791513117\n'
+expected=b'File: bad-\xff\nType: regular empty file\nSize: 0 bytes\nMode: 0664\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: bad-\xff\nType: regular empty file\nSize: 0 bytes\nMode: 0664\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'File: sparse\nType: regular file\nSize: 8589934599 bytes\nMode: 1754\nAccess: -2\nModify: -1\nChange: 1791513117\n', got=b'File: sparse\nType: regular file\nSize: 8589934599 bytes\nMode: 1754\nAccess: -2\nModify: -1\nChange: 1791513117\n'
+expected=b'File: /dev/null\nType: character special file\nSize: 0 bytes\nMode: 0666\nAccess: 1791501522\nModify: 1791501522\nChange: 1791501522\n', got=b'File: /dev/null\nType: character special file\nSize: 0 bytes\nMode: 0666\nAccess: 1791501522\nModify: 1791501522\nChange: 1791501522\n'
+expected=b'File: dir\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: dir\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'File: fifo\nType: fifo\nSize: 0 bytes\nMode: 0664\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: fifo\nType: fifo\nSize: 0 bytes\nMode: 0664\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'File: socket\nType: socket\nSize: 0 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: socket\nType: socket\nSize: 0 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'File: link\nType: symbolic link\nSize: 3 bytes\nMode: 0777\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: link\nType: symbolic link\nSize: 3 bytes\nMode: 0777\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'File: dangling\nType: symbolic link\nSize: 7 bytes\nMode: 0777\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: dangling\nType: symbolic link\nSize: 7 bytes\nMode: 0777\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'', got=b''
+expected=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n', got=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791513117\nModify: 1791513117\nChange: 1791513117\n'
+expected=b'', got=b''
+expected=b'', got=b''
+./build/test_stat_module
+stat module: reuse, argv, stdin position, error recovery passed
+python3 tests/test_ls.py ./build/ls
+args=['--bad'] expected=b'' got=b''
+args=['a', 'b'] expected=b'' got=b''
+args=['--help', '--bad'] expected=b'' got=b''
+args=['--help', 'a', 'b'] expected=b'' got=b''
+args=['-L'] expected=b'' got=b''
+args=['--version'] expected=b'' got=b''
+args=['--', 'missing'] expected=b'' got=b''
+args=['--', ''] expected=b'' got=b''
+args=['--', 'file/child'] expected=b'' got=b''
+args=['--', 'missing/child'] expected=b'' got=b''
+args=['--', '-a'] expected=b'-a\n' got=b'-a\n'
+args=['-'] expected=b'-\n' got=b'-\n'
+args=[] expected=b'a-good\nz-bad-\xff\n' got=b'a-good\nz-bad-\xff\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-bad-\udcff'] expected=b'' got=b''
+args=['--json', '-a'] expected=b'' got=b''
+args=['dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/ddddddddddddddddddddddddddddddddddddd expected=b'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn' got=b'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'
+args=['-a'] expected=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n' got=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n'
+args=['--all', '-1'] expected=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n' got=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n'
+args=['dangling'] expected=b'dangling\n' got=b'dangling\n'
+args=['link'] expected=b'link\n' got=b'link\n'
+args=['link/'] expected=b'child\n' got=b'child\n'
+args=['--json', 'empty'] expected=b'[]\n' got=b'[]\n'
+args=['-l', 'mode-0'] expected=b'----------\t1000\t1000\t8589934592\t-1\tmode-0\n' got=b'----------\t1000\t1000\t8589934592\t-1\tmode-0\n'
+args=['-l', 'mode-1'] expected=b'-rwsrwsrwt\t1000\t1000\t8589934593\t-1\tmode-1\n' got=b'-rwsrwsrwt\t1000\t1000\t8589934593\t-1\tmode-1\n'
+args=['-l', 'mode-2'] expected=b'---S--S--T\t1000\t1000\t8589934594\t-1\tmode-2\n' got=b'---S--S--T\t1000\t1000\t8589934594\t-1\tmode-2\n'
+args=['-l', 'mode-3'] expected=b'-rwxr-xr-T\t1000\t1000\t8589934595\t-1\tmode-3\n' got=b'-rwxr-xr-T\t1000\t1000\t8589934595\t-1\tmode-3\n'
+args=['-l', 'mode-4'] expected=b'-rwxr-s---\t1000\t1000\t8589934596\t-1\tmode-4\n' got=b'-rwxr-s---\t1000\t1000\t8589934596\t-1\tmode-4\n'
+args=['-l', 'mode-5'] expected=b'-rwsr-x--x\t1000\t1000\t8589934597\t-1\tmode-5\n' got=b'-rwsr-x--x\t1000\t1000\t8589934597\t-1\tmode-5\n'
+args=['-l'] expected=b'lrwxrwxrwx\t1000\t1000\t7\t1791513117\tdangling\ndrwxrwxr-x\t1000\t1000\t4096\t1791513117\tdir\nprw-rw-r--\t1000\t1000\t0\t1791513117\tfifo\n-rwsr-x--x\t1000\t1000\t5\t-1\tfile\nlrwxrw' got=b'lrwxrwxrwx\t1000\t1000\t7\t1791513117\tdangling\ndrwxrwxr-x\t1000\t1000\t4096\t1791513117\tdir\nprw-rw-r--\t1000\t1000\t0\t1791513117\tfifo\n-rwsr-x--x\t1000\t1000\t5\t-1\tfile\nlrwxrw'
+args=['-l', 'file'] expected=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n' got=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n'
+args=['-l', 'link'] expected=b'lrwxrwxrwx\t1000\t1000\t3\t1791513117\tlink\n' got=b'lrwxrwxrwx\t1000\t1000\t3\t1791513117\tlink\n'
+args=['-l', 'file'] expected=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n' got=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n'
+args=[] expected=b'a"\\\n\t\x01\xc3\xa9\xf0\x9f\x98\x80\nentry-0000\nentry-0001\nentry-0002\nentry-0003\nentry-0004\nentry-0005\nentry-0006\nentry-0007\nentry-0008\nentry-0009\nentry-0010\nentry-0011\nentry-0012\nentr' got=b'a"\\\n\t\x01\xc3\xa9\xf0\x9f\x98\x80\nentry-0000\nentry-0001\nentry-0002\nentry-0003\nentry-0004\nentry-0005\nentry-0006\nentry-0007\nentry-0008\nentry-0009\nentry-0010\nentry-0011\nentry-0012\nentr'
+args=[] expected=b'A\nfile10\nfile2\nz\n\xc3\xa9\n' got=b'A\nfile10\nfile2\nz\n\xc3\xa9\n'
+args=['.'] expected=b'A\nfile10\nfile2\nz\n\xc3\xa9\n' got=b'A\nfile10\nfile2\nz\n\xc3\xa9\n'
+args=['empty'] expected=b'' got=b''
+args=['./A'] expected=b'./A\n' got=b'./A\n'
+args=['-aa'] expected=b'' got=b''
+args=['-ll'] expected=b'' got=b''
+args=['-11'] expected=b'' got=b''
+args=['-hh'] expected=b'' got=b''
+args=['-a', '--all'] expected=b'' got=b''
+args=['--json', '--json'] expected=b'' got=b''
+args=['-h', '--help'] expected=b'' got=b''
+args=['file', '-1'] expected=b'file\n' got=b'file\n'
+args=['--', 'file'] expected=b'file\n' got=b'file\n'
+args=['denied'] expected=b'' got=b''
+args=['--json', 'denied'] expected=b'' got=b''
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udc80'] expected=b'z-invalid-\x80\n' got=b'z-invalid-\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc0\udcaf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc0\udcaf'] expected=b'z-invalid-\xc0\xaf\n' got=b'z-invalid-\xc0\xaf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc1\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc1\udcbf'] expected=b'z-invalid-\xc1\xbf\n' got=b'z-invalid-\xc1\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc2'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc2'] expected=b'z-invalid-\xc2\n' got=b'z-invalid-\xc2\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc2A'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc2A'] expected=b'z-invalid-\xc2A\n' got=b'z-invalid-\xc2A\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udce0\udc9f\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udce0\udc9f\udcbf'] expected=b'z-invalid-\xe0\x9f\xbf\n' got=b'z-invalid-\xe0\x9f\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udced\udca0\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udced\udca0\udc80'] expected=b'z-invalid-\xed\xa0\x80\n' got=b'z-invalid-\xed\xa0\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udce2\udc82'] expected=b'' got=b''
+args=['--', 'z-invalid-\udce2\udc82'] expected=b'z-invalid-\xe2\x82\n' got=b'z-invalid-\xe2\x82\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf0\udc8f\udcbf\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf0\udc8f\udcbf\udcbf'] expected=b'z-invalid-\xf0\x8f\xbf\xbf\n' got=b'z-invalid-\xf0\x8f\xbf\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf4\udc90\udc80\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf4\udc90\udc80\udc80'] expected=b'z-invalid-\xf4\x90\x80\x80\n' got=b'z-invalid-\xf4\x90\x80\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf5\udc80\udc80\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf5\udc80\udc80\udc80'] expected=b'z-invalid-\xf5\x80\x80\x80\n' got=b'z-invalid-\xf5\x80\x80\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf0\udc90\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf0\udc90\udc80'] expected=b'z-invalid-\xf0\x90\x80\n' got=b'z-invalid-\xf0\x90\x80\n'
+./build/test_ls_module
+ls module: reuse, argv, resources, injected failures passed
+python3 tests/test_mkdir.py ./build/mkdir
+mkdir project: 55 exact fixtures passed (all)
+./build/test_mkdir_module
+mkdir module: 80 reuse calls, memory/resources, injected faults passed
+python3 tests/test_touch.py ./build/touch
+./build/test_touch_module
+touch module: reuse, borrowed state, allocation/syscall/output faults and resource cleanup passed
+
+STDERR (raw):
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.175s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.051s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.144s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.258s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.077s
+
+OK
+
+
+### build
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "all"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/main src/main.c src/traverse.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+
+STDERR (raw):
+
+
+### lint
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "lint"]
+EXIT 0
+STDOUT (raw):
+clang-tidy --checks='-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling' --warnings-as-errors='*' src/cat_main.c src/cmd_cat.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_pwd.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/pwd_main.c src/registry.c src/shell.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_shell_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c --  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
+
+STDERR (raw):
+[1/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cat_main.c.
+[2/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_cat.c.
+[3/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_head.c.
+[4/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_lines.c.
+[5/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_ls.c.
+[6/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_mkdir.c.
+[7/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_pwd.c.
+[8/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_stat.c.
+[9/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_tail.c.
+[10/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/cmd_touch.c.
+[11/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/head_main.c.
+[12/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/ls_main.c.
+[13/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/main.c.
+[14/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/mkdir_main.c.
+[15/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/pwd_main.c.
+[16/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/registry.c.
+[17/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/shell.c.
+[18/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/stat_main.c.
+[19/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/tail_main.c.
+[20/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/touch_main.c.
+[21/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/src/traverse.c.
+[22/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_cat.c.
+[23/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_cat_module.c.
+[24/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_head_module.c.
+[25/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_help.c.
+[26/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_ls_module.c.
+[27/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_mkdir_module.c.
+[28/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_pwd_module.c.
+[29/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_recursive.c.
+[30/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_shell_module.c.
+[31/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_stat_module.c.
+[32/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_tail_module.c.
+[33/33] Processing file /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree/tests/test_touch_module.c.
+1 warning generated.
+Suppressed 1 warnings (1 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+
+
+### format-scoped
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["clang-format", "--dry-run", "--Werror", "src/main.c", "src/shell.c", "src/shell.h", "src/registry.c", "src/registry.h", "tests/test_shell_module.c", "src/cmd_touch.c", "src/cmd_touch.h", "src/touch_main.c", "tests/test_touch_module.c", "src/cmd_tail.c", "src/cmd_tail.h", "src/tail_main.c", "tests/test_tail_module.c"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+
+
+### format-full
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "format-check"]
+EXIT 2
+STDOUT (raw):
+clang-format --dry-run --Werror src/cat_main.c src/cmd_cat.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_pwd.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/pwd_main.c src/registry.c src/shell.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_shell_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c src/cmd_cat.h src/cmd_head.h src/cmd_lines.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_pwd.h src/cmd_spec.h src/cmd_stat.h src/cmd_tail.h src/cmd_touch.h src/registry.h src/shell.h src/traverse.h tests/test_output.h
+
+STDERR (raw):
+src/traverse.c:6:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* fprintf, perror, snprintf, puts, printf. */
+                  ^
+src/traverse.c:36:27: error: code should be clang-formatted [-Wclang-format-violations]
+    return date != NULL &&
+                          ^
+src/traverse.c:37:63: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                              ^
+src/traverse.c:37:67: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                                  ^
+src/traverse.c:48:65: error: code should be clang-formatted [-Wclang-format-violations]
+    if (options->hour_counts == NULL || !S_ISREG(info->st_mode)) return 0;
+                                                                ^
+src/traverse.c:108:36: error: code should be clang-formatted [-Wclang-format-violations]
+        if (counts[hour] > maximum) maximum = counts[hour];
+                                   ^
+src/traverse.c:112:44: error: code should be clang-formatted [-Wclang-format-violations]
+    if (maximum % HISTOGRAM_BAR_WIDTH != 0) ++scale;
+                                           ^
+src/traverse.c:113:20: error: code should be clang-formatted [-Wclang-format-violations]
+    if (scale == 0) scale = 1;
+                   ^
+src/traverse.c:116:59: error: code should be clang-formatted [-Wclang-format-violations]
+    for (size_t value = maximum; value >= 10; value /= 10) ++count_width;
+                                                          ^
+src/traverse.c:122:51: error: code should be clang-formatted [-Wclang-format-violations]
+               zone == TIME_UTC ? "UTC" : "LOCAL",
+                                                  ^
+src/traverse.c:123:45: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                            ^
+src/traverse.c:123:59: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                                          ^
+src/traverse.c:130:37: error: code should be clang-formatted [-Wclang-format-violations]
+            if (putchar('#') == EOF) goto output_error;
+                                    ^
+src/traverse.c:132:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (putchar('\n') == EOF) goto output_error;
+                                 ^
+src/traverse.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (fflush(stdout) == EOF) goto output_error;
+                              ^
+src/traverse.c:180:47: error: code should be clang-formatted [-Wclang-format-violations]
+        if (strcmp(entry->d_name, ".") == 0 ||
+                                              ^
+src/traverse.c:181:46: error: code should be clang-formatted [-Wclang-format-violations]
+            strcmp(entry->d_name, "..") == 0) continue;
+                                             ^
+src/traverse.c:212:25: error: code should be clang-formatted [-Wclang-format-violations]
+        if (result != 0) break;
+                        ^
+tests/test_help.c:49:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+tests/test_help.c:51:25: error: code should be clang-formatted [-Wclang-format-violations]
+    if (suite == NULL ||
+                        ^
+tests/test_help.c:52:21: error: code should be clang-formatted [-Wclang-format-violations]
+        CU_add_test(
+                    ^
+tests/test_help.c:53:54: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                     ^
+tests/test_help.c:53:70: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                                     ^
+tests/test_help.c:54:18: error: code should be clang-formatted [-Wclang-format-violations]
+        ) == NULL
+                 ^
+tests/test_recursive.c:5:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* FILE, fopen, fgets, ferror, fclose, snprintf, perror. */
+                  ^
+tests/test_recursive.c:6:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdlib.h>      /* system, setenv, EXIT_SUCCESS, EXIT_FAILURE. */
+                   ^
+tests/test_recursive.c:7:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <string.h>      /* strcmp, strncmp, strstr, strchr, strlen. */
+                   ^
+tests/test_recursive.c:8:22: error: code should be clang-formatted [-Wclang-format-violations]
+#include <sys/stat.h>    /* stat, struct stat, st_mtime. */
+                     ^
+tests/test_recursive.c:9:18: error: code should be clang-formatted [-Wclang-format-violations]
+#include <time.h>        /* localtime, gmtime, strftime, tzset, struct tm. */
+                 ^
+tests/test_recursive.c:37:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:55:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:56:31: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree",
+                              ^
+tests/test_recursive.c:57:37: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child",
+                                    ^
+tests/test_recursive.c:58:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:59:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:69:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:69:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:72:28: error: code should be clang-formatted [-Wclang-format-violations]
+        if (date == NULL ||
+                           ^
+tests/test_recursive.c:73:51: error: code should be clang-formatted [-Wclang-format-violations]
+            strftime(formatted, sizeof(formatted),
+                                                  ^
+tests/test_recursive.c:78:57: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected[i], sizeof(expected[i]),
+                                                        ^
+tests/test_recursive.c:79:44: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                           ^
+tests/test_recursive.c:79:65: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                                                ^
+tests/test_recursive.c:98:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:129:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:132:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:135:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:148:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *names[] = {
+                           ^
+tests/test_recursive.c:149:22: error: code should be clang-formatted [-Wclang-format-violations]
+        "long_names",
+                     ^
+tests/test_recursive.c:150:56: error: code should be clang-formatted [-Wclang-format-violations]
+        "directory_name_longer_than_thirty_characters",
+                                                       ^
+tests/test_recursive.c:151:54: error: code should be clang-formatted [-Wclang-format-violations]
+        "file_name_longer_than_thirty_characters.txt"
+                                                     ^
+tests/test_recursive.c:195:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:196:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:197:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:206:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:206:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:259:72: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected, sizeof(expected), "%02u  %6zu   %s\n",
+                                                                       ^
+tests/test_recursive.c:260:29: error: code should be clang-formatted [-Wclang-format-violations]
+                       hour, counts[hour], bars[counts[hour]]);
+                            ^
+tests/test_recursive.c:282:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:283:65: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --utc "
+                                                                ^
+tests/test_recursive.c:284:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:285:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:286:67: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --local "
+                                                                  ^
+tests/test_recursive.c:287:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", false);
+                                  ^
+tests/test_recursive.c:290:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:305:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+src/cmd_spec.h:4:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                  ^
+src/cmd_spec.h:4:30: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                             ^
+src/cmd_spec.h:8:30: error: code should be clang-formatted [-Wclang-format-violations]
+ * Single source of truth for 
+                             ^
+src/cmd_spec.h:15:22: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *name;       // command name, e.g., "ls"
+                     ^
+src/cmd_spec.h:16:25: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *summary;    // one-line description
+                        ^
+src/cmd_spec.h:17:27: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *long_help;  // longer description / Markdown (may be NULL)
+                          ^
+src/cmd_spec.h:26:7: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+      ^
+src/cmd_spec.h:26:22: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+                     ^
+src/traverse.h:11:17: error: code should be clang-formatted [-Wclang-format-violations]
+enum time_zone {
+                ^
+src/traverse.h:12:16: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_LOCAL,
+               ^
+src/traverse.h:13:13: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_UTC
+            ^
+tests/test_output.h:19:24: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                       ^
+tests/test_output.h:19:76: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                                                                           ^
+tests/test_output.h:23:43: error: code should be clang-formatted [-Wclang-format-violations]
+    for (CU_pFailureRecord item = failure;
+                                          ^
+tests/test_output.h:24:46: error: code should be clang-formatted [-Wclang-format-violations]
+         item != NULL && item->pTest == test; item = item->pNext) {
+                                             ^
+tests/test_output.h:41:68: error: code should be clang-formatted [-Wclang-format-violations]
+    return error == CUE_SUCCESS && CU_get_number_of_failures() == 0
+                                                                   ^
+tests/test_output.h:42:23: error: code should be clang-formatted [-Wclang-format-violations]
+        ? EXIT_SUCCESS : EXIT_FAILURE;
+                      ^
+make: *** [Makefile:185: format-check] Error 1
+
+
+### diff-check
+CWD /home/name/Documents/420-EMBDX/A
+ARGV ["git", "diff", "--check", "--", "Makefile", "src/main.c", "README.md", "FILES.md"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+
+
+### tail-negative
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["python3", "/home/name/.hermes/cache/scratch/shell-disposition/focused.py", "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/consume-zero", "test_loop_tail_zero_preserves_next_command"]
+EXIT 1
+STDOUT (raw):
+
+STDERR (raw):
+test_loop_tail_zero_preserves_next_command (characterization.ShellTests.test_loop_tail_zero_preserves_next_command) ... FAIL
+
+======================================================================
+FAIL: test_loop_tail_zero_preserves_next_command (characterization.ShellTests.test_loop_tail_zero_preserves_next_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 149, in test_loop_tail_zero_preserves_next_command
+    self.check(data=b'tail -n 0\npwd\n',
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+               out=os.fsencode(self.cwd) + b'\n')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tests/test_shell.py", line 56, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b'pwd\n', b'') != (0, b'/home/name/.hermes/cache/scratch/tmp461zzjzq\n', b'')
+
+First differing element 1:
+b'pwd\n'
+b'/home/name/.hermes/cache/scratch/tmp461zzjzq\n'
+
+- (0, b'pwd\n', b'')
++ (0, b'/home/name/.hermes/cache/scratch/tmp461zzjzq\n', b'')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.055s
+
+FAILED (failures=1)
+
+
+### tail-green
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["python3", "/home/name/.hermes/cache/scratch/shell-disposition/focused.py", "./build/main", "test_loop_tail_zero_preserves_next_command"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+test_loop_tail_zero_preserves_next_command (characterization.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+
+
+### libc-build
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["cc", "-std=c17", "-Wall", "-Wextra", "-g", "-o", "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/legacy-main", "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/main.c", "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/traverse.c"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+
+
+### legacy-negative
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["python3", "/home/name/.hermes/cache/scratch/shell-disposition/focused.py", "/home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/legacy-main", "test_dispatch_legacy_diagnostics"]
+EXIT 1
+STDOUT (raw):
+
+STDERR (raw):
+test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) ... 
+  test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['-r']) ... FAIL
+  test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--recursive']) ... FAIL
+  test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['-Z']) ... FAIL
+  test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--bogus']) ... FAIL
+  test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--mtime=x']) ... FAIL
+
+======================================================================
+FAIL: test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['-r'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 145, in test_dispatch_legacy_diagnostics
+    self.assertEqual(message, diagnostic)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b"option requires an argument -- 'r'\n" != b'option requires an argument -- r\n'
+
+======================================================================
+FAIL: test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--recursive'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 145, in test_dispatch_legacy_diagnostics
+    self.assertEqual(message, diagnostic)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b"option '--recursive' requires an argument\n" != b"option `--recursive' requires an argument\n"
+
+======================================================================
+FAIL: test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['-Z'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 145, in test_dispatch_legacy_diagnostics
+    self.assertEqual(message, diagnostic)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b"invalid option -- 'Z'\n" != b'invalid option -- Z\n'
+
+======================================================================
+FAIL: test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--bogus'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 145, in test_dispatch_legacy_diagnostics
+    self.assertEqual(message, diagnostic)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b"unrecognized option '--bogus'\n" != b"unrecognized option `--bogus'\n"
+
+======================================================================
+FAIL: test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) (args=['--mtime=x'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_shell.py", line 145, in test_dispatch_legacy_diagnostics
+    self.assertEqual(message, diagnostic)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b"option '--mtime' doesn't allow an argument\n" != b"option `--mtime' doesn't allow an argument\n"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.013s
+
+FAILED (failures=5)
+
+
+### legacy-green
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["python3", "/home/name/.hermes/cache/scratch/shell-disposition/focused.py", "./build/main", "test_dispatch_legacy_diagnostics"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+test_dispatch_legacy_diagnostics (characterization.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+OK
+
+
+### sanitizer-build
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "all", "build/test_shell_module", "build/test_touch_module", "build/test_tail_module", "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/main src/main.c src/traverse.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -o build/test_tail_module tests/test_tail_module.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+
+STDERR (raw):
+
+
+### sanitizer-shell
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "python3", "tests/test_shell.py", "--program", "./build/main", "--standalone-dir", "./build"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 2.674s
+
+OK
+
+
+### sanitizer-module-shell
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "./build/test_shell_module"]
+EXIT -6
+STDOUT (raw):
+
+STDERR (raw):
+test_shell_module: tests/test_shell_module.c:145: main: Assertion `calls == 1 && interrupt_read == 0' failed.
+
+
+### sanitizer-module-touch
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "./build/test_touch_module"]
+EXIT 0
+STDOUT (raw):
+touch module: reuse, borrowed state, allocation/syscall/output faults and resource cleanup passed
+
+STDERR (raw):
+
+
+### sanitizer-module-tail
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "./build/test_tail_module"]
+EXIT 0
+STDOUT (raw):
+tail module: reuse, argv, zero count, borrowed descriptors passed
+
+STDERR (raw):
+
+
+### sanitizer-cli-touch
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "python3", "tests/test_touch.py", "./build/touch"]
+EXIT 0
+STDOUT (raw):
+
+STDERR (raw):
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.435s
+
+OK
+
+
+### sanitizer-cli-tail
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "python3", "tests/test_tail.py", "--program", "./build/tail"]
+EXIT 0
+STDOUT (raw):
+default: expected=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n' got=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'c' got=b'c'
+blank: expected=b'\nx\n' got=b'\nx\n'
+binary: expected=b'B\x00' got=b'B\x00'
+long: expected=b'y\n' got=b'y\n'
+long final: expected=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' got=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'b' got=b'b'
+explicit stdin: expected=b'b' got=b'b'
+last count wins: expected=b'b' got=b'b'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["","last"]}\n' got=b'{"path":"-","lines":["","last"]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+tail: 46 checks passed
+
+STDERR (raw):
+
+
+### working-lint
+CWD /home/name/Documents/420-EMBDX/A
+ARGV ["make", "lint"]
+EXIT 0
+STDOUT (raw):
+clang-tidy --checks='-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling' --warnings-as-errors='*' src/cat_main.c src/clear_main.c src/cmd_cat.c src/cmd_cd.c src/cmd_clear.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_pwd.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/pwd_main.c src/registry.c src/shell.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_clear_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_shell_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c --  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
+
+STDERR (raw):
+[1/37] Processing file /home/name/Documents/420-EMBDX/A/src/cat_main.c.
+[2/37] Processing file /home/name/Documents/420-EMBDX/A/src/clear_main.c.
+[3/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_cat.c.
+[4/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_cd.c.
+[5/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_clear.c.
+[6/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_head.c.
+[7/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_lines.c.
+[8/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_ls.c.
+[9/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_mkdir.c.
+[10/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_pwd.c.
+[11/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_stat.c.
+[12/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_tail.c.
+[13/37] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_touch.c.
+[14/37] Processing file /home/name/Documents/420-EMBDX/A/src/head_main.c.
+[15/37] Processing file /home/name/Documents/420-EMBDX/A/src/ls_main.c.
+[16/37] Processing file /home/name/Documents/420-EMBDX/A/src/main.c.
+[17/37] Processing file /home/name/Documents/420-EMBDX/A/src/mkdir_main.c.
+[18/37] Processing file /home/name/Documents/420-EMBDX/A/src/pwd_main.c.
+[19/37] Processing file /home/name/Documents/420-EMBDX/A/src/registry.c.
+[20/37] Processing file /home/name/Documents/420-EMBDX/A/src/shell.c.
+[21/37] Processing file /home/name/Documents/420-EMBDX/A/src/stat_main.c.
+[22/37] Processing file /home/name/Documents/420-EMBDX/A/src/tail_main.c.
+[23/37] Processing file /home/name/Documents/420-EMBDX/A/src/touch_main.c.
+[24/37] Processing file /home/name/Documents/420-EMBDX/A/src/traverse.c.
+[25/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat.c.
+[26/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat_module.c.
+[27/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_clear_module.c.
+[28/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_head_module.c.
+[29/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_help.c.
+[30/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_ls_module.c.
+[31/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_mkdir_module.c.
+[32/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_pwd_module.c.
+[33/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_recursive.c.
+[34/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_shell_module.c.
+[35/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_stat_module.c.
+[36/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_tail_module.c.
+[37/37] Processing file /home/name/Documents/420-EMBDX/A/tests/test_touch_module.c.
+1 warning generated.
+Suppressed 1 warnings (1 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+
+
+### sanitizer-shell-O0-build
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["make", "-B", "build/test_shell_module", "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+
+STDERR (raw):
+
+
+### sanitizer-module-shell-O0
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/eight-tree
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "./build/test_shell_module"]
+EXIT 0
+STDOUT (raw):
+shell module: registry, argv lifetime, EINTR/OOM ownership passed
+
+STDERR (raw):
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+
+
+### baseline-O1-build
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/review-O1-baseline
+ARGV ["make", "-B", "build/test_shell_module", "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie"]
+EXIT 0
+STDOUT (raw):
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+
+STDERR (raw):
+
+
+### baseline-O1-shell
+CWD /home/name/.hermes/cache/scratch/shell-resume-umlpp9g4/review-O1-baseline
+ARGV ["env", "ASAN_OPTIONS=detect_leaks=1:halt_on_error=1", "UBSAN_OPTIONS=halt_on_error=1", "./build/test_shell_module"]
+EXIT -6
+STDOUT (raw):
+
+STDERR (raw):
+test_shell_module: tests/test_shell_module.c:145: main: Assertion `calls == 1 && interrupt_read == 0' failed.
+
+
+### Help-only review src/cmd_touch.c
+--- 
++++ 
+@@ -22,8 +22,10 @@
+ {
+     table[HELP] = arg_lit0("h", "help", "Show help and exit.");
+     table[JSON] = arg_lit0(NULL, "json", "Emit UTF-8 JSON results.");
+-    table[PATHS] = arg_filen(NULL, NULL, "FILE", 0, maximum,
+-                             "One or more files to touch.");
++    table[PATHS] =
++        arg_filen(NULL, NULL, "FILE", 0, maximum,
++                  "Create missing files empty. Update atime and mtime; "
++                  "existing contents remain unchanged.");
+     table[END] = arg_end(20);
+     if (arg_nullcheck(table)) {
+         errno = ENOMEM;
+@@ -47,7 +49,7 @@
+     paths->hdr.mincount = 0;
+     paths->hdr.maxcount = maximum;
+     arg_print_glossary(out, table, "  %-20s %s\n");
+-    fputs("\nSet atime and mtime to now; create missing regular files.\n"
++    fputs("\nTimestamps are set to now.\n"
+           "Follow existing links; dangling links fail; '-' is literal.\n"
+           "Exit status: 0 success, 1 operational failure, 2 argument error.\n",
+           out);
+@@ -232,6 +234,8 @@
+ }
+ 
+ cmd_spec_t cmd_touch_spec = {
+-    "touch", "Update file timestamps.",
+-    "Set atime and mtime to now, creating missing files.", touch_run,
+-    touch_usage};
++    "touch",
++    "Create empty files or update timestamps without changing contents.",
++    "Create missing files empty. Set atime and mtime to now; "
++    "existing contents remain unchanged.",
++    touch_run, touch_usage};
+
+
+### Help-only review src/cmd_tail.c
+--- 
++++ 
+@@ -19,10 +19,12 @@
+ {
+     table[HELP] = arg_lit0("h", "help", "Show help and exit.");
+     table[COUNT] = arg_strn("n", "lines", "N", 0, capacity,
+-                            "Last N lines; unsigned decimal, default 10.");
++                            "Display the last N lines; unsigned decimal, "
++                            "default 10.");
+     table[JSON] = arg_lit0(NULL, "json", "Emit path and lines as UTF-8 JSON.");
+-    table[INPUT] =
+-        arg_file0(NULL, NULL, "FILE", "Input file; '-' means stdin.");
++    table[INPUT] = arg_file0(
++        NULL, NULL, "FILE",
++        "Input file; '-' means stdin. Does not create or modify input files.");
+     table[END] = arg_end(20);
+     return arg_nullcheck(table);
+ }
+@@ -311,8 +313,11 @@
+ 
+ cmd_spec_t cmd_tail_spec = {
+     .name = "tail",
+-    .summary = "Show the last lines of a finite file or stream.",
+-    .long_help = "Select a finite suffix; optionally emit UTF-8 JSON.",
++    .summary =
++        "Display the last N lines (default 10); never create input files.",
++    .long_help = "Display the last N lines (default 10) of a finite file or "
++                 "stream. Do not create or modify input files; optionally "
++                 "emit UTF-8 JSON.",
+     .run = tail_run,
+     .print_usage = tail_usage,
+ };
+
+
+### Help-only review tests/test_touch.py
+--- 
++++ 
+@@ -100,6 +100,9 @@
+             self.assertIn(b'Usage: touch', result.stdout)
+             self.assertIn(b'--json', result.stdout)
+             self.assertIn(b'FILE', result.stdout)
++            self.assertIn(b'Create missing files empty.', result.stdout)
++            self.assertIn(b'Update atime and mtime; existing contents remain '
++                          b'unchanged.', result.stdout)
+             if help_output is None:
+                 help_output = result.stdout
+             self.assertEqual(result.stdout, help_output)
+
+
+### Help-only review tests/test_tail.py
+--- 
++++ 
+@@ -61,12 +61,12 @@
+         for args in [['-n'], ['--bogus'], ['input', 'input'],
+                      ['--help', '--bogus'], ['--help', '-n', 'bad']]:
+             check('bad args '+str(args), b'', args, b'', 2, True)
+-        r = subprocess.run([program, '-h'], capture_output=True, timeout=5)
+-        assert r.returncode == 0 and b'Usage:' in r.stdout and not r.stderr
+-        checks += 1
+-        r = subprocess.run([program, '--help'], capture_output=True, timeout=5)
+-        assert r.returncode == 0 and b'Usage:' in r.stdout and not r.stderr
+-        checks += 1
++        for option in ['-h', '--help']:
++            r = subprocess.run([program, option], capture_output=True, timeout=5)
++            assert r.returncode == 0 and b'Usage:' in r.stdout and not r.stderr
++            assert b'Display the last N lines; unsigned decimal, default 10.' in r.stdout
++            assert b'Does not create or modify input files.' in r.stdout
++            checks += 1
+         for data, count, lines in [(b'a\r\n\nlast', '2', ['', 'last']),
+                                    (b'\x00"\t\n', '10', ['\x00"\t']),
+                                    ('é😀\n'.encode(), '1', ['é😀']),
+
+
+### Byte-preserved cleanup manifest: all 13 destinations matched, move sources absent
+[
+  {
+    "source": "docs/commands/cat.md",
+    "destination": "docs/reports/cat.md",
+    "sha256": "9ff5e28708cd272115b78ed512c31b691469b6a831aaba0bbb73ff88475db832",
+    "bytes": 18627,
+    "move": false
+  },
+  {
+    "source": "docs/commands/head.md",
+    "destination": "docs/reports/head.md",
+    "sha256": "1ea92c5385a9da9f6c5f7c2453c535f4b914f129e9cc00afb7f5bd5e999245cf",
+    "bytes": 7786,
+    "move": false
+  },
+  {
+    "source": "docs/commands/tail.md",
+    "destination": "docs/reports/tail.md",
+    "sha256": "7c1c11e9477de560c9bfd86fd7ad70dd82509ec12ac7e8784a108217df17c86e",
+    "bytes": 7994,
+    "move": false
+  },
+  {
+    "source": "docs/commands/pwd.md",
+    "destination": "docs/reports/pwd.md",
+    "sha256": "eca2d3987afd4455c4626668c039ac2a9efc95184d1c6426a394e29fe6d31282",
+    "bytes": 5743,
+    "move": false
+  },
+  {
+    "source": "docs/commands/stat.md",
+    "destination": "docs/reports/stat.md",
+    "sha256": "95440409da1c217309163168b833537502c81e5684f294ae97b00df34479a25e",
+    "bytes": 13418,
+    "move": false
+  },
+  {
+    "source": "docs/commands/ls.md",
+    "destination": "docs/reports/ls.md",
+    "sha256": "3dbb29d6eb5b114f24115dad1e4037899e2cc037ac5472e91ba0e94ee5dcfeef",
+    "bytes": 16273,
+    "move": false
+  },
+  {
+    "source": "docs/commands/mkdir.md",
+    "destination": "docs/reports/mkdir.md",
+    "sha256": "5346a183d039f8f3d46a497d45b14cc78ee0d9f107a62f47b9b0b2b336bd2fd6",
+    "bytes": 12122,
+    "move": false
+  },
+  {
+    "source": "docs/commands/cp.md",
+    "destination": "docs/reports/cp.md",
+    "sha256": "390098874a555e869ac5c68cf5c396cc754b779cee9147f150bcbc7408278575",
+    "bytes": 3860,
+    "move": false
+  },
+  {
+    "source": "docs/commands/FOLLOW_ON_FIVE.md",
+    "destination": ".tmp/FOLLOW_ON_FIVE.md",
+    "sha256": "112a675c37b7bb0b9b7b4f40ffda36011845376976cbd802f762eac73cbd6e69",
+    "bytes": 1991,
+    "move": true
+  },
+  {
+    "source": "docs/commands/FOLLOW_ON_TEN.md",
+    "destination": ".tmp/FOLLOW_ON_TEN.md",
+    "sha256": "6cb2cab533fcdc0a084297c8c296202dc09fd95ff17c10821a335d2cb7a75664",
+    "bytes": 6891,
+    "move": true
+  },
+  {
+    "source": "docs/commands/NEXT_BATCH.md",
+    "destination": ".tmp/NEXT_BATCH.md",
+    "sha256": "9ac2470b6544ff1f3292690141e3ffe7910e3dc99d2991808074f450ab343bbe",
+    "bytes": 7041,
+    "move": true
+  },
+  {
+    "source": "docs/commands/HERMES_HANDOFF.md",
+    "destination": ".tmp/HERMES_HANDOFF.md",
+    "sha256": "0929e8435dcc5972e238e21e3eb9fcef620afbdbbe2431b2d19289abc14de4f7",
+    "bytes": 3918,
+    "move": true
+  },
+  {
+    "source": "docs/commands/mkdir-review.md",
+    "destination": "docs/reports/mkdir-review.md",
+    "sha256": "6b6c99ae6517f85ceb5ef73f1f2cd243bab19edec6f4c5dc95dbb8a71d507d76",
+    "bytes": 9440,
+    "move": true
+  }
+]
+
+### Local Markdown link audit
+[
+  {
+    "source": "README.md",
+    "target": "docs/commands/shell.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/cat.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/head.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/tail.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/pwd.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/stat.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/ls.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/mkdir.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/touch.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/commands/cp.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "docs/reports/README.md",
+    "exists": true
+  },
+  {
+    "source": "README.md",
+    "target": "demo/2026-10-01-demo.mp4",
+    "exists": false
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "COMMAND_ANATOMY.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "COMMAND_API.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "DESIGN.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "CODING.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "TDD.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "VERIFY.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "DATA_LOOKUP.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "reports/cat.md",
+    "exists": true
+  },
+  {
+    "source": "docs/ADDING_COMMANDS.md",
+    "target": "commands/cat.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/cat.md",
+    "target": "../reports/cat.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/head.md",
+    "target": "../reports/head.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/tail.md",
+    "target": "../reports/tail.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/pwd.md",
+    "target": "../reports/pwd.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/stat.md",
+    "target": "../reports/stat.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/ls.md",
+    "target": "../reports/ls.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/mkdir.md",
+    "target": "../reports/mkdir.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/mkdir.md",
+    "target": "../reports/mkdir-review.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/touch.md",
+    "target": "../reports/touch.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/shell.md",
+    "target": "../reports/shell-integration.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/shell.md",
+    "target": "../reports/shell-review.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/shell.md",
+    "target": "../reports/shell-disposition.md",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/cat.md",
+    "target": "../ADDING_COMMANDS.md#reference-first-tests-provisional-procedure",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/README.md",
+    "target": "../../README.md#supported-commands",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/touch-review.md",
+    "target": "../../logs/commands/touch-review.log",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/touch-review.md",
+    "target": "../../logs/commands/touch-review-integration.log",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/shell-integration.md",
+    "target": "shell-disposition.md",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/shell-disposition.md",
+    "target": "shell-review.md",
+    "exists": true
+  },
+  {
+    "source": "docs/reports/shell-disposition.md",
+    "target": "shell-integration.md",
+    "exists": true
+  },
+  {
+    "source": "docs/commands/cp.md",
+    "target": "../reports/cp.md",
+    "exists": true
+  }
+]
+
+### Exact staging allowlist
+FILES.md
+Makefile
+README.md
+docs/ADDING_COMMANDS.md
+docs/commands/cat.md
+docs/commands/cp.md
+docs/commands/head.md
+docs/commands/ls.md
+docs/commands/mkdir.md
+docs/commands/pwd.md
+docs/commands/shell.md
+docs/commands/stat.md
+docs/commands/tail.md
+docs/commands/touch.md
+docs/reports/README.md
+docs/reports/cat.md
+docs/reports/cp.md
+docs/reports/head.md
+docs/reports/ls.md
+docs/reports/mkdir-review.md
+docs/reports/mkdir.md
+docs/reports/pwd.md
+docs/reports/shell-disposition.md
+docs/reports/shell-integration.md
+docs/reports/shell-review.md
+docs/reports/stat.md
+docs/reports/tail.md
+docs/reports/touch-review.md
+docs/reports/touch.md
+logs/commands/shell-resume-20261008.log
+logs/commands/shell-resume-allowlist.txt
+logs/commands/touch-review-integration.log
+logs/commands/touch-review.log
+src/cat_main.c
+src/cmd_cat.c
+src/cmd_cat.h
+src/cmd_head.c
+src/cmd_head.h
+src/cmd_pwd.c
+src/cmd_pwd.h
+src/cmd_tail.c
+src/cmd_tail.h
+src/cmd_touch.c
+src/cmd_touch.h
+src/head_main.c
+src/main.c
+src/pwd_main.c
+src/registry.c
+src/registry.h
+src/shell.c
+src/shell.h
+src/tail_main.c
+src/touch_main.c
+tests/test_cat.c
+tests/test_cat_module.c
+tests/test_head.py
+tests/test_head_module.c
+tests/test_lines_random.py
+tests/test_pwd.py
+tests/test_pwd_module.c
+tests/test_shell.py
+tests/test_shell_module.c
+tests/test_tail.py
+tests/test_tail_module.c
+tests/test_touch.py
+tests/test_touch_module.c
+
+
+### Final audit after documentation edits
+67 exact paths, one deliberate tracked deletion; index empty; build-source manifest unchanged; shared cmd_lines/spec byte-identical HEAD.
+Final path hashes (raw evidence log excluded to avoid self-reference):
+{
+  "FILES.md": "0ffa11f709431b192bb67a480bcc47373c34ce019ab6db96bf5618735e6ee67f",
+  "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+  "README.md": "d2ba0ea01e6c05d6714027bfa2c902070928685e9e4f0ea9e1fd98d2da824490",
+  "docs/ADDING_COMMANDS.md": "5aa03487435d6e6cd6a4bef35eddd988d4d88586691e84784870d05d35812455",
+  "docs/commands/cat.md": "d04c9a73d2b9d96c578ef369c91fd2a68c405fcc1bd4152e860a2cfdd2e300bf",
+  "docs/commands/cp.md": "575656872e7d343aa7500ab435b7931af268f9e0fa6919cf045f99fcf58978bd",
+  "docs/commands/head.md": "1e6b1a516794cedd855c989e3aebe2bea1412492c30b80fac78f41faef45a31b",
+  "docs/commands/ls.md": "59ba952b6f1f9bf8b5cb52306a75cfaac1a3e9892e73eae9218d380f9251bc4b",
+  "docs/commands/mkdir.md": "397a74ddc238789be5a74995b7a52d2f568e68e2ca5f22a8650634891493ff84",
+  "docs/commands/pwd.md": "4214cce9a608c17085f52e4ba3d0f253d4d09ecabf29c4b9eced7f2d76b85b1a",
+  "docs/commands/shell.md": "8d01470a4249d0f1839b32fec312bc8d1bcdb869ac773c122b6b12beacf47321",
+  "docs/commands/stat.md": "c20c6038cff864ab74b3804942031766b5c3cc566135159f620bb581f0f48c18",
+  "docs/commands/tail.md": "2b30776e19a8660e27bab797a0f04f7c243a346d02f7ba114776dfd8de43277d",
+  "docs/commands/touch.md": "5b5b4359967c0f2b1763944c2598a1ddaea123377352d9467e902a028efb074f",
+  "docs/reports/README.md": "336492eebccec72106e63981b7b34bf486267cc10e51e0802ca4ab2627ea2043",
+  "docs/reports/cat.md": "9ff5e28708cd272115b78ed512c31b691469b6a831aaba0bbb73ff88475db832",
+  "docs/reports/cp.md": "390098874a555e869ac5c68cf5c396cc754b779cee9147f150bcbc7408278575",
+  "docs/reports/head.md": "1ea92c5385a9da9f6c5f7c2453c535f4b914f129e9cc00afb7f5bd5e999245cf",
+  "docs/reports/ls.md": "3dbb29d6eb5b114f24115dad1e4037899e2cc037ac5472e91ba0e94ee5dcfeef",
+  "docs/reports/mkdir-review.md": "6b6c99ae6517f85ceb5ef73f1f2cd243bab19edec6f4c5dc95dbb8a71d507d76",
+  "docs/reports/mkdir.md": "5346a183d039f8f3d46a497d45b14cc78ee0d9f107a62f47b9b0b2b336bd2fd6",
+  "docs/reports/pwd.md": "eca2d3987afd4455c4626668c039ac2a9efc95184d1c6426a394e29fe6d31282",
+  "docs/reports/shell-disposition.md": "f48614ccd6d25867ffbb086424613d2e84a05a6d458e7881a3056b5313af2c5f",
+  "docs/reports/shell-integration.md": "7e38ffeb12a24092ed97fcc3be1ee1287068c1804fd3407278844e749fcb74e4",
+  "docs/reports/shell-review.md": "9bb3907b74734be1da66897d3783b21c9315fee276df9ad894afda8f3d290a5a",
+  "docs/reports/stat.md": "95440409da1c217309163168b833537502c81e5684f294ae97b00df34479a25e",
+  "docs/reports/tail.md": "7c1c11e9477de560c9bfd86fd7ad70dd82509ec12ac7e8784a108217df17c86e",
+  "docs/reports/touch-review.md": "10f4b33e635dbf3c1b025254b4f892e5f2fab4320a43d03169e45133a6f81c0b",
+  "docs/reports/touch.md": "9f4fa013049bb381eb65ab38fbe31052655ad6acb44556587e9b49e17b432fea",
+  "logs/commands/shell-resume-allowlist.txt": "cc7a8990e88ffca9a5592927e82280aed049242b10091103f8adc4a6cabaa481",
+  "logs/commands/touch-review-integration.log": "708cc328b49e53ec33ce287aecfdae3630ef24097cf4c7a8eeca05090ba5cea1",
+  "logs/commands/touch-review.log": "008f8b40a44780ce6b6cfce687749f7bad3b7d00d0d6b95d72807c04f6bc4c80",
+  "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+  "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+  "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+  "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+  "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+  "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+  "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+  "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+  "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+  "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+  "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+  "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+  "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+  "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed",
+  "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+  "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+  "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+  "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+  "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+  "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+  "tests/test_cat.c": "495f20dd2831450bb13ded897e3a66cee3e2b61aa938d9499c196fbacf3ad22f",
+  "tests/test_cat_module.c": "80b3f99c2b48e3d88a53ddac6498e43edb8a87ee5dd0387444a3b8cb6305c3d9",
+  "tests/test_head.py": "7a845604d698a929500d10a018703fa0b11bc0c68f59116b8d4228fffc1b7a97",
+  "tests/test_head_module.c": "b56c018c9ab445422fcd1c162116e07ec33becf9c5f6dcdbcd717c4258a9211d",
+  "tests/test_lines_random.py": "d8e8a3bee7cefe382d8ba71b6493903fb577c45ad477bbf3ee4748dbd35a81c6",
+  "tests/test_pwd.py": "6bd580e46b426a2bde8c1d79b016da3275f4af2831d7aceff9bcf53351c1b81d",
+  "tests/test_pwd_module.c": "afa67d1dd3ef614090611d6d9ae5725bd260c6fcad63b892a777fbd201f16f38",
+  "tests/test_shell.py": "9894d1d99c6c48e96043d9a7f0143cebc0098a7ccfc6b59ec00d2d35143de283",
+  "tests/test_shell_module.c": "d46097a7ce9080ec0a55813c17d8edfcdd5359c112445c26737a52e2d4a42a46",
+  "tests/test_tail.py": "c03cbb2874da1a104e54d7c80858b07acab6b765864ec7112d30d06516f86f09",
+  "tests/test_tail_module.c": "7c5d1c994668f061d4629624f8e62d38ab1d1546156d0f96993c521af1ac256c",
+  "tests/test_touch.py": "20d502d6b3b667c3336df7c81335fa79517e08d0c99e0726ce60ac7cefc9f2db",
+  "tests/test_touch_module.c": "c26b1a55b9af082505f298e973bc17b300c4460036949e2188fabf5bfc61f579"
+}
+Final allowlist:
+FILES.md
+Makefile
+README.md
+docs/ADDING_COMMANDS.md
+docs/commands/cat.md
+docs/commands/cp.md
+docs/commands/head.md
+docs/commands/ls.md
+docs/commands/mkdir-review.md
+docs/commands/mkdir.md
+docs/commands/pwd.md
+docs/commands/shell.md
+docs/commands/stat.md
+docs/commands/tail.md
+docs/commands/touch.md
+docs/reports/README.md
+docs/reports/cat.md
+docs/reports/cp.md
+docs/reports/head.md
+docs/reports/ls.md
+docs/reports/mkdir-review.md
+docs/reports/mkdir.md
+docs/reports/pwd.md
+docs/reports/shell-disposition.md
+docs/reports/shell-integration.md
+docs/reports/shell-review.md
+docs/reports/stat.md
+docs/reports/tail.md
+docs/reports/touch-review.md
+docs/reports/touch.md
+logs/commands/shell-resume-20261008.log
+logs/commands/shell-resume-allowlist.txt
+logs/commands/touch-review-integration.log
+logs/commands/touch-review.log
+src/cat_main.c
+src/cmd_cat.c
+src/cmd_cat.h
+src/cmd_head.c
+src/cmd_head.h
+src/cmd_pwd.c
+src/cmd_pwd.h
+src/cmd_tail.c
+src/cmd_tail.h
+src/cmd_touch.c
+src/cmd_touch.h
+src/head_main.c
+src/main.c
+src/pwd_main.c
+src/registry.c
+src/registry.h
+src/shell.c
+src/shell.h
+src/tail_main.c
+src/touch_main.c
+tests/test_cat.c
+tests/test_cat_module.c
+tests/test_head.py
+tests/test_head_module.c
+tests/test_lines_random.py
+tests/test_pwd.py
+tests/test_pwd_module.c
+tests/test_shell.py
+tests/test_shell_module.c
+tests/test_tail.py
+tests/test_tail_module.c
+tests/test_touch.py
+tests/test_touch_module.c
+Final doc diff-check: status 0.
