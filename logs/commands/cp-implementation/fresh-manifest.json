@@ -1,0 +1,27 @@
+{
+  "head": "c18b7e83d4661089c9984fe5e6391e4c0a88e9d9",
+  "base": "/home/name/.hermes/cache/scratch/cp-fresh-a6li8hqw",
+  "overlay": [
+    "Makefile",
+    "src/cmd_cp.c",
+    "src/cmd_cp.h",
+    "src/cp_main.c",
+    "src/registry.c",
+    "tests/test_cp.py",
+    "tests/test_cp_module.c",
+    "tests/test_shell.py",
+    "tests/test_shell_module.c"
+  ],
+  "results": [
+    [
+      "normal",
+      0
+    ],
+    [
+      "sanitizers",
+      0
+    ]
+  ],
+  "sanitizer_cflags": "-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+  "setup_note": "First executor call stopped before launch due to missing os import; corrected, rerun both."
+}

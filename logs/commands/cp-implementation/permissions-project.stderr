@@ -1,0 +1,19 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... ok
+test_4_recursive_links_guards_and_partial_errors (__main__.CopyTests.test_4_recursive_links_guards_and_partial_errors) ... ok
+test_5_permissions_force_and_seeded_no_mutations (__main__.CopyTests.test_5_permissions_force_and_seeded_no_mutations) ... FAIL
+
+======================================================================
+FAIL: test_5_permissions_force_and_seeded_no_mutations (__main__.CopyTests.test_5_permissions_force_and_seeded_no_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 183, in test_5_permissions_force_and_seeded_no_mutations
+    self.assertNotEqual(dest.stat().st_ino, inode)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 14044573 == 14044573
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.110s
+
+FAILED (failures=1)

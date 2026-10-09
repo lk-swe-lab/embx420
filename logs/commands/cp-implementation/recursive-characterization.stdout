@@ -1,0 +1,4 @@
+python3 tests/test_cp.py ./build/cp
+./build/test_cp_module
+cp module: mmap mechanism, faults, cleanup, argv/getopt, reuse passed
+python3 tests/test_cp.py /usr/bin/cp --reference

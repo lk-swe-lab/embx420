@@ -1,0 +1,110 @@
+[
+  {
+    "label": "fresh-build-regression",
+    "argv": [
+      "make",
+      "all",
+      "test",
+      "test-cp"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "fresh-default-sanitizer",
+    "argv": [
+      "make",
+      "all",
+      "test",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-no-pie -fsanitize=address,undefined"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/sanitizer",
+    "env": {
+      "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "status": 0
+  },
+  {
+    "label": "targeted",
+    "argv": [
+      "make",
+      "test-cp-impl",
+      "test-cp",
+      "test-shell"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "lint",
+    "argv": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "scoped-format",
+    "argv": [
+      "clang-format",
+      "--dry-run",
+      "--Werror",
+      "src/cmd_cp.c",
+      "src/cmd_cp.h",
+      "src/cp_main.c",
+      "src/registry.c",
+      "tests/test_cp_module.c",
+      "tests/test_shell_module.c"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "global-format",
+    "argv": [
+      "make",
+      "format-check"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 2
+  },
+  {
+    "label": "main-help",
+    "argv": [
+      "./build/main",
+      "help"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "cp-main-help",
+    "argv": [
+      "./build/main",
+      "help",
+      "cp"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  },
+  {
+    "label": "cp-standalone-help",
+    "argv": [
+      "./build/cp",
+      "--help"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "env": {},
+    "status": 0
+  }
+]

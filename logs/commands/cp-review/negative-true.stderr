@@ -1,0 +1,15 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... FAIL
+
+======================================================================
+FAIL: test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/.hermes/cache/scratch/cp-independent-review/normal/tests/test_cp.py", line 43, in test_1_regular_bytes_sizing_and_same_inode
+    self.assertEqual(dest.read_bytes(), payload)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'old trailing bytesold trailing bytesold t[16155 chars]ytes' != b''
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

@@ -1,0 +1,7 @@
+python3 tests/test_cp.py ./build/cp
+./build/test_cp_module
+cp module: mmap mechanism, faults, cleanup, argv/getopt, reuse passed
+python3 tests/test_cp.py /usr/bin/cp --reference
+python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+./build/test_shell_module
+shell module: registry, argv lifetime, EINTR/OOM ownership passed

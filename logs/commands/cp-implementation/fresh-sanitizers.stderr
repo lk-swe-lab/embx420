@@ -1,0 +1,136 @@
+test_cp_integration (__main__.ShellTests.test_cp_integration) ... ok
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.242s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.391s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.420s
+
+OK
+cd: help output failed
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... ok
+test_4_recursive_links_guards_and_partial_errors (__main__.CopyTests.test_4_recursive_links_guards_and_partial_errors) ... ok
+test_5_permissions_force_and_seeded_no_mutations (__main__.CopyTests.test_5_permissions_force_and_seeded_no_mutations) ... ok
+test_6_recursive_merge_readonly_modes_and_depth (__main__.CopyTests.test_6_recursive_merge_readonly_modes_and_depth) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.059s
+
+OK
+cp: source: Cannot allocate memory
+cp: source: Cannot allocate memory
+cp: source: Input/output error
+cp: source: Input/output error
+cp: source: Input/output error
+cp: Cannot allocate memory
+cp: Cannot allocate memory
+cp: source: Input/output error
+cp: invalid module arguments
+cp: invalid module arguments
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.133s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.482s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.906s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.222s
+
+OK

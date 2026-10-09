@@ -1,0 +1,34 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... ERROR
+
+======================================================================
+ERROR: test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 106, in test_3_directory_links_types_and_modes
+    self.run_cp(*argv, status=1)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 24, in run_cp
+    p = subprocess.run([program, *argv], cwd=self.root,
+                       env={**os.environ, 'LC_ALL': 'C'},
+                       capture_output=True, timeout=15)
+  File "/home/name/.hermes/tools/python-3.14.7+20260901-linux-x64/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/.hermes/tools/python-3.14.7+20260901-linux-x64/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/.hermes/tools/python-3.14.7+20260901-linux-x64/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/.hermes/tools/python-3.14.7+20260901-linux-x64/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/usr/bin/cp', 'fifo', 'copy']' timed out after 15 seconds
+
+----------------------------------------------------------------------
+Ran 3 tests in 15.077s
+
+FAILED (errors=1)

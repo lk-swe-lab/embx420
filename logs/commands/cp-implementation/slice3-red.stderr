@@ -1,0 +1,20 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... FAIL
+
+======================================================================
+FAIL: test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 91, in test_3_directory_links_types_and_modes
+    self.run_cp('source', 'directory')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 27, in run_cp
+    self.assertEqual(p.returncode, status, (argv, p.stdout, p.stderr))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : (('source', 'directory'), b'', b'cp: source: Is a directory\n')
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.088s
+
+FAILED (failures=1)

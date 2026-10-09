@@ -1,0 +1,10 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... ok
+test_4_recursive_links_guards_and_partial_errors (__main__.CopyTests.test_4_recursive_links_guards_and_partial_errors) ... ok
+test_5_permissions_force_and_seeded_no_mutations (__main__.CopyTests.test_5_permissions_force_and_seeded_no_mutations) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.161s
+
+OK

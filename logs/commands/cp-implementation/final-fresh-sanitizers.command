@@ -1,0 +1,1 @@
+make clean all test CFLAGS='-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie' LDFLAGS='-no-pie -fsanitize=address,undefined'

@@ -1,0 +1,8 @@
+{
+  "returncode": -7,
+  "signal": "SIGBUS",
+  "source_size": 0,
+  "destination_size": 8192,
+  "stdout": "",
+  "stderr": ""
+}

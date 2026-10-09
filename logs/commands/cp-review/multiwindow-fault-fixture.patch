@@ -1,0 +1,20 @@
+--- original fixture
++++ scratch stronger fixture
+@@ -240,14 +240,14 @@
+     assert(cwd >= 0 && chdir(directory) == 0);
+     int fd = open("source", O_CREAT | O_RDWR, 0600);
+     assert(fd >= 0);
+-    unsigned char bytes[4097];
++    unsigned char bytes[2097153];
+     memset(bytes, 0xa5, sizeof(bytes));
+     assert(write(fd, bytes, sizeof(bytes)) == (ssize_t)sizeof(bytes));
+     assert(close(fd) == 0);
+     permute = 1;
+     invoke(0);
+-    assert(mapped_calls == 2);
+-    for (int i = 1; i <= 2; ++i) {
++    assert(mapped_calls == 6);
++    for (int i = 1; i <= 6; ++i) {
+         fail_map = i;
+         invoke(1);
+     }

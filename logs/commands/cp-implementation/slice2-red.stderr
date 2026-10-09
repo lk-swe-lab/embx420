@@ -1,0 +1,19 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... FAIL
+
+======================================================================
+FAIL: test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 63, in test_2_parser_help_json_and_no_mutations
+    self.run_cp(*argv, status=2)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 31, in run_cp
+    self.assertTrue(p.stderr)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: b'' is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.079s
+
+FAILED (failures=1)

@@ -1,0 +1,24 @@
+/home/name/Documents/420-EMBDX/A/src/cmd_cp.c:185:13: error: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy,-warnings-as-errors]
+  185 |             strcpy(candidate, ".");
+      |             ^~~~~~
+/home/name/Documents/420-EMBDX/A/src/cmd_cp.c:185:13: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  185 |             strcpy(candidate, ".");
+      |             ^~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:102:24: error: va_arg() is called on an uninitialized va_list [clang-analyzer-valist.Uninitialized,-warnings-as-errors]
+  102 |         mode = (mode_t)va_arg(ap, int);
+      |                        ^
+/home/name/.local/opt/clang-tidy-18/usr/lib/llvm-18/lib/clang/18/include/__stdarg_va_arg.h:20:26: note: expanded from macro 'va_arg'
+   20 | #define va_arg(ap, type) __builtin_va_arg(ap, type)
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:99:9: note: Assuming the condition is true
+   99 |     if (flags & O_CREAT) {
+      |         ^~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:99:5: note: Taking true branch
+   99 |     if (flags & O_CREAT) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:102:24: note: va_arg() is called on an uninitialized va_list
+  102 |         mode = (mode_t)va_arg(ap, int);
+      |                        ^
+/home/name/.local/opt/clang-tidy-18/usr/lib/llvm-18/lib/clang/18/include/__stdarg_va_arg.h:20:26: note: expanded from macro 'va_arg'
+   20 | #define va_arg(ap, type) __builtin_va_arg(ap, type)
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,142 @@
+test_cp_integration (__main__.ShellTests.test_cp_integration) ... FAIL
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... FAIL
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... 
+  test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) (name='cp') ... FAIL
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... FAIL
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... FAIL
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... FAIL
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+======================================================================
+FAIL: test_cp_integration (__main__.ShellTests.test_cp_integration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 65, in test_cp_integration
+    self.check(['cp', 'data', 'copy'])
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 61, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: cp: unknown command\n') != (0, b'', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: cp: unknown command\n')
++ (0, b'', b'')
+
+======================================================================
+FAIL: test_dispatch_help (__main__.ShellTests.test_dispatch_help)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 95, in test_dispatch_help
+    self.check(['--help'], out=HELP)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 61, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b[643 chars]\n  cd       Change working directory.\n  help[116 chars] b'') != (0, b[643 chars]\n  cp       Copy files and directories.\n  cd[156 chars] b'')
+
+First differing element 1:
+b'Usa[639 chars]\n  cd       Change working directory.\n  help[110 chars]s.\n'
+b'Usa[639 chars]\n  cp       Copy files and directories.\n  cd[150 chars]s.\n'
+
+Diff is 1335 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) (name='cp')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 153, in test_dispatch_standalone_parity
+    self.assertEqual(self.run_cli([name, *args]), expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: cp: unknown command\n') != (0, b'{"source":"data","destination":"copy","status":"ok"}\n', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: cp: unknown command\n')
++ (0, b'{"source":"data","destination":"copy","status":"ok"}\n', b'')
+
+======================================================================
+FAIL: test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 199, in test_loop_multiple_and_eof
+    self.check(data=b'help\npwd\nexit\nnot-executed\n', out=HELP + pwd)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 61, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b[643 chars]\n  cd       Change working directory.\n  help[162 chars] b'') != (0, b[643 chars]\n  cp       Copy files and directories.\n  cd[202 chars] b'')
+
+First differing element 1:
+b'Usa[639 chars]\n  cd       Change working directory.\n  help[156 chars]_y\n'
+b'Usa[639 chars]\n  cp       Copy files and directories.\n  cd[196 chars]_y\n'
+
+Diff is 1441 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 237, in test_loop_repeated_modules
+    self.check(data=data, out=help_result[1] * 2, err=invalid[2])
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 61, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: cp: unknown command\nma[49 chars]d\n') != (0, b'', b'main: cp: unknown command\n')
+
+First differing element 0:
+127
+0
+
++ (0, b'', b'main: cp: unknown command\n')
+- (127,
+-  b'',
+-  b'main: cp: unknown command\nmain: cp: unknown command\nmain: cp: unknown co'
+-  b'mmand\n')
+
+======================================================================
+FAIL: test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 222, in test_loop_stdin_not_read_ahead
+    self.check(data=b'help\nhead -n 1\ndata\npwd\n',
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               out=HELP + b'data\n' + pwd)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 61, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b[643 chars]\n  cd       Change working directory.\n  help[168 chars] b'') != (0, b[643 chars]\n  cp       Copy files and directories.\n  cd[208 chars] b'')
+
+First differing element 1:
+b'Usa[639 chars]\n  cd       Change working directory.\n  help[162 chars]_8\n'
+b'Usa[639 chars]\n  cp       Copy files and directories.\n  cd[202 chars]_8\n'
+
+Diff is 1453 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.102s
+
+FAILED (failures=6)
+make: *** [Makefile:85: test-shell] Error 1

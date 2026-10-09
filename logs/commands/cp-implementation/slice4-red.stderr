@@ -1,0 +1,21 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... ok
+test_3_directory_links_types_and_modes (__main__.CopyTests.test_3_directory_links_types_and_modes) ... ok
+test_4_recursive_links_guards_and_partial_errors (__main__.CopyTests.test_4_recursive_links_guards_and_partial_errors) ... FAIL
+
+======================================================================
+FAIL: test_4_recursive_links_guards_and_partial_errors (__main__.CopyTests.test_4_recursive_links_guards_and_partial_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 135, in test_4_recursive_links_guards_and_partial_errors
+    self.run_cp('-r', 'tree', 'new')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 27, in run_cp
+    self.assertEqual(p.returncode, status, (argv, p.stdout, p.stderr))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : (('-r', 'tree', 'new'), b'', b'cp: tree: Invalid argument\n')
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.099s
+
+FAILED (failures=1)

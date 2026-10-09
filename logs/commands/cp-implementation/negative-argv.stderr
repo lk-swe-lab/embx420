@@ -1,0 +1,2 @@
+bad-module: tests/test_cp_module.c:217: invoke: Assertion `memcmp(argv, before, sizeof(before)) == 0' failed.
+Aborted (core dumped)

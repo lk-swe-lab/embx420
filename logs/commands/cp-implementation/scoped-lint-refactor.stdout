@@ -1,0 +1,18 @@
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:102:24: error: va_arg() is called on an uninitialized va_list [clang-analyzer-valist.Uninitialized,-warnings-as-errors]
+  102 |         mode = (mode_t)va_arg(ap, int);
+      |                        ^
+/home/name/.local/opt/clang-tidy-18/usr/lib/llvm-18/lib/clang/18/include/__stdarg_va_arg.h:20:26: note: expanded from macro 'va_arg'
+   20 | #define va_arg(ap, type) __builtin_va_arg(ap, type)
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:101:9: note: Assuming the condition is true
+  101 |     if (flags & O_CREAT)
+      |         ^~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:101:5: note: Taking true branch
+  101 |     if (flags & O_CREAT)
+      |     ^
+/home/name/Documents/420-EMBDX/A/tests/test_cp_module.c:102:24: note: va_arg() is called on an uninitialized va_list
+  102 |         mode = (mode_t)va_arg(ap, int);
+      |                        ^
+/home/name/.local/opt/clang-tidy-18/usr/lib/llvm-18/lib/clang/18/include/__stdarg_va_arg.h:20:26: note: expanded from macro 'va_arg'
+   20 | #define va_arg(ap, type) __builtin_va_arg(ap, type)
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~

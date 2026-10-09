@@ -1,0 +1,4 @@
+/home/name/Documents/420-EMBDX/A/logs/commands/cp-implementation/sigbus_probe.c:2:10: fatal error: cmd_cp.h: No such file or directory
+    2 | #include "cmd_cp.h"
+      |          ^~~~~~~~~~
+compilation terminated.

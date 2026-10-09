@@ -1,0 +1,10 @@
+cp: source: Cannot allocate memory
+cp: source: Cannot allocate memory
+cp: source: Input/output error
+cp: source: Input/output error
+cp: source: Input/output error
+cp: Cannot allocate memory
+cp: Cannot allocate memory
+cp: source: Interrupted system call
+test_cp_module: tests/test_cp_module.c:206: invoke: Assertion `cmd_cp_spec.run(3, argv) == expected' failed.
+Aborted (core dumped)

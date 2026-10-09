@@ -1,0 +1,206 @@
+--- a/Makefile
++++ b/Makefile
+@@ -15,7 +15,7 @@
+ CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
+ 
+ .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
+-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear
++all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp
+ 
+ build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+ 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+@@ -71,8 +71,8 @@
+ build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+ 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+ 
+-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_lines.c
+-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_lines.h
++SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_lines.c
++SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_lines.h
+ 
+ build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
+ 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
+@@ -81,11 +81,11 @@
+ 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
+ 
+ .PHONY: test-shell
+-test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear
++test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp
+ 	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+ 	./build/test_shell_module
+ 
+-test: test-shell test-clear test-cd
++test: test-shell test-clear test-cd test-cp-impl
+ 
+ build/cat: src/cat_main.c src/cmd_cat.c src/cmd_cat.h src/cmd_spec.h Makefile | build
+ 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/cat_main.c src/cmd_cat.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+@@ -191,6 +191,7 @@
+ 	mkdir -p $@
+ 
+ clean:
++	$(RM) build/cp build/test_cp_module
+ 	$(RM) build/test_cd_module
+ 	$(RM) build/clear build/test_clear_module
+ 	$(RM) build/test_shell_module
+@@ -219,3 +220,17 @@
+ test-cd: build/main build/test_cd_module
+ 	python3 tests/test_cd.py ./build/main
+ 	./build/test_cd_module
++
++.PHONY: test-cp test-cp-impl
++build/cp: src/cp_main.c src/cmd_cp.c src/cmd_cp.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
++	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/cp_main.c src/cmd_cp.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
++
++build/test_cp_module: tests/test_cp_module.c src/cmd_cp.c src/cmd_cp.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
++	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_cp_module.c src/cmd_cp.c src/cmd_lines.c -Wl,--wrap=mmap,--wrap=munmap,--wrap=msync,--wrap=ftruncate,--wrap=open,--wrap=close,--wrap=read,--wrap=write,--wrap=arg_parse,--wrap=arg_lit0,--wrap=malloc $(ARGTABLE3_LDLIBS) $(LDLIBS)
++
++test-cp:
++	python3 tests/test_cp.py /usr/bin/cp --reference
++
++test-cp-impl: build/cp build/test_cp_module
++	python3 tests/test_cp.py ./build/cp
++	./build/test_cp_module
+--- a/src/registry.c
++++ b/src/registry.c
+@@ -8,6 +8,7 @@
+ #include "cmd_mkdir.h" /* cmd_mkdir_spec. */
+ #include "cmd_touch.h" /* cmd_touch_spec. */
+ #include "cmd_clear.h" /* cmd_clear_spec. */
++#include "cmd_cp.h"    /* cmd_cp_spec. */
+ #include "cmd_cd.h"    /* cmd_cd_spec. */
+ #include <stddef.h>    /* NULL, size_t. */
+ #include <string.h>    /* strcmp. */
+@@ -58,7 +59,7 @@
+     const cmd_spec_t *builtins[] = {
+         &cmd_cat_spec,   &cmd_head_spec, &cmd_tail_spec,  &cmd_pwd_spec,
+         &cmd_stat_spec,  &cmd_ls_spec,   &cmd_mkdir_spec, &cmd_touch_spec,
+-        &cmd_clear_spec, &cmd_cd_spec};
++        &cmd_clear_spec, &cmd_cp_spec,   &cmd_cd_spec};
+     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
+         if (register_command(builtins[i]) != 0)
+             return -1;
+--- a/tests/test_shell.py
++++ b/tests/test_shell.py
+@@ -15,7 +15,7 @@
+ PROGRAM = str(Path(ARGS.program).resolve())
+ STANDALONE = Path(ARGS.standalone_dir).resolve()
+ STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
+-                    'touch', 'clear']
++                    'touch', 'clear', 'cp']
+ BUILTIN_NAMES = STANDALONE_NAMES + ['cd']
+ SUMMARIES = [
+     'Concatenate files to standard output.',
+@@ -27,6 +27,7 @@
+     'Create directories.',
+     'Create empty files or update timestamps without changing contents.',
+     'Clear an ANSI-compatible terminal screen.',
++    'Copy files and directories.',
+     'Change working directory.',
+ ]
+ HELP = (
+@@ -58,6 +59,20 @@
+ 
+     def check(self, args=(), data=b'', status=0, out=b'', err=b''):
+         self.assertEqual(self.run_cli(args, data), (status, out, err))
++
++    def test_cp_integration(self):
++        payload = (self.cwd / 'data').read_bytes()
++        self.check(['cp', 'data', 'copy'])
++        self.assertEqual((self.cwd / 'copy').read_bytes(), payload)
++        expected = b'{"source":"data","destination":"two words","status":"ok"}\n'
++        self.check(data=b'cp --json data "two words"\n'
++                   b'cp --json data "two words"\n', out=expected * 2)
++        self.assertEqual((self.cwd / 'two words').read_bytes(), payload)
++        failure = self.run_cli(['missing', 'copy'], binary=STANDALONE / 'cp')
++        self.assertEqual(self.run_cli(['cp', 'missing', 'copy']), failure)
++        self.assertEqual(self.run_cli(data=b'cp missing copy\n'), failure)
++        self.check(data=b'cp data copy\npwd\n',
++                   out=os.fsencode(self.cwd) + b'\n')
+ 
+     def test_touch_integration(self):
+         payload = (self.cwd / 'data').read_bytes()
+@@ -130,7 +145,7 @@
+                  'tail': ['-n', '2', 'data'], 'pwd': ['--json'],
+                  'stat': ['--json', 'data'], 'ls': ['-a', '--json'],
+                  'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data'],
+-                 'clear': []}
++                 'clear': [], 'cp': ['--json', 'data', 'copy']}
+         self.assertEqual(list(cases), STANDALONE_NAMES)
+         for name, args in cases.items():
+             with self.subTest(name=name):
+--- a/tests/test_shell_module.c
++++ b/tests/test_shell_module.c
+@@ -132,7 +132,7 @@
+     assert(find_command("CAT") == NULL);
+     int count = 0;
+     for_each_command(count_command, &count);
+-    enum { builtin_count = 10, registry_capacity = 32 };
++    enum { builtin_count = 11, registry_capacity = 32 };
+     assert(count == builtin_count);
+     for_each_command(NULL, NULL);
+     cmd_spec_t duplicate = cmd_cat_spec;
+--- a/docs/commands/cp.md
++++ b/docs/commands/cp.md
+@@ -1,21 +1,35 @@
+-# cp — planned, not implemented
++# cp
+ 
+-There is no project `build/cp` implementation or supported cp CLI yet.
+-
+-Planned usage (not executable documentation):
+-
+-```text
+-cp [-r|--recursive] [-f|--force] [--json] [--] SOURCE DEST
++```sh
++./build/main cp [-r|--recursive] [-f|--force] [--json] [--] SOURCE DEST
++./build/main help cp           # Also cp -h / --help
++./build/cp SOURCE DEST         # Optional standalone wrapper
+ ```
+ 
+-Proposed scope: one source/destination, directory destinations, recursive copying,
+-force retry, structured results and `-h`/`--help`. Exact JSON and path/race policy
+-remain to be settled before implementation.
++Exactly one source and destination. Existing directory DEST receives the source
++basename. Regular files are copied using bounded `mmap` windows; empty files work.
++Existing files are resized and overwritten, preserving their inode/hardlinks
++and ordinary permissions. New files/directories use source rwx permissions and
++inherited umask. No metadata/sparse/hardlink-topology preservation.
+ 
+-File contents must be copied with `mmap`, including explicit handling of empty
+-files, destination sizing and mapping/descriptor cleanup. Same-inode copies and
+-unsupported special files must be rejected. No promise of atomic replacement,
+-metadata preservation, sparse allocation or hard-link topology; failures may
+-leave partial destinations. These are design constraints, not verified behavior.
++- `-r`: merge directory trees; copy symlinks as symlinks, never descend into them.
++- `-f`: after a failed open, remove/recreate an existing regular, non-symlink file.
++- `--json`: one UTF-8 object: `{"source":"...","destination":"...","status":"ok"}`
++  (`"error"` on operational failure); destination is the original operand.
++- `--`: end options; `-` is a literal filename. No multi-source or other GNU flags.
+ 
+-[Historical inventory and design snapshot](../reports/cp.md).
++Without `-r`, source links follow to regular files. Destination links must have
++an existing regular referent; dangling links fail even with `-f`. Recursive
++**directory** destinations cannot be symlinks. Special files and same-inode
++copies fail. Mapped destinations need read **and** write access (unlike GNU).
++
++Status: 0 success, 1 operational/output failure, 2 argument error. Ordinary
++success is silent. Invalid JSON-path encoding is rejected before changes.
++Failures may leave resized/partial files or partially populated trees; no rollback.
++Recursive children continue after errors; depth is bounded to 128 directory levels.
++Use stable, trusted trees: namespace races and concurrent source changes are not
++supported. Concurrent truncation/storage faults may raise **SIGBUS and terminate
++the host shell**; no signal handler is installed. Reading may update source atime.
++
++[Implementation, tests and limits](../reports/cp-implementation.md).
++[Preserved historical inventory](../reports/cp.md).
+--- a/docs/commands/shell.md
++++ b/docs/commands/shell.md
+@@ -4,7 +4,7 @@
+ ./build/main                 # Interactive when stdin is a terminal
+ ./build/main pwd             # One-shot; arguments from the calling shell
+ ./build/main head -n 2 FILE
+-./build/main --help          # Ten builtins; see the README command index
++./build/main --help          # Eleven builtins; see the README command index
+ ./build/main help touch      # Usage; also: main touch --help
+ ```
+ 

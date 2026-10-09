@@ -1,0 +1,17 @@
+openat(AT_FDCWD</home/name/Documents/420-EMBDX/A>, "/home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source", O_RDONLY|O_NONBLOCK|O_CLOEXEC) = 3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>
+openat(AT_FDCWD</home/name/Documents/420-EMBDX/A>, "/home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest", O_RDWR|O_CREAT|O_NONBLOCK|O_CLOEXEC, 0664) = 4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>
+ftruncate(4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>, 3148800) = 0
+mmap(NULL, 1048576, PROT_READ, MAP_PRIVATE, 3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>, 0) = 0x7beebd22b000
+mmap(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_SHARED, 4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>, 0) = 0x7beebcf00000
+msync(0x7beebcf00000, 1048576, MS_SYNC) = 0
+mmap(NULL, 1048576, PROT_READ, MAP_PRIVATE, 3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>, 0x100000) = 0x7beebd22b000
+mmap(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_SHARED, 4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>, 0x100000) = 0x7beebcf00000
+msync(0x7beebcf00000, 1048576, MS_SYNC) = 0
+mmap(NULL, 1048576, PROT_READ, MAP_PRIVATE, 3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>, 0x200000) = 0x7beebd22b000
+mmap(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_SHARED, 4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>, 0x200000) = 0x7beebcf00000
+msync(0x7beebcf00000, 1048576, MS_SYNC) = 0
+mmap(NULL, 3072, PROT_READ, MAP_PRIVATE, 3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>, 0x300000) = 0x7beebd342000
+mmap(NULL, 3072, PROT_READ|PROT_WRITE, MAP_SHARED, 4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>, 0x300000) = 0x7beebd341000
+msync(0x7beebd341000, 3072, MS_SYNC)    = 0
+close(4</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/dest>) = 0
+close(3</home/name/.hermes/cache/scratch/cp-probes-eqznz0e3/source>) = 0

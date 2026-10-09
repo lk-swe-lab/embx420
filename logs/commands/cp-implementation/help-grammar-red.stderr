@@ -1,0 +1,18 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... ok
+test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations) ... FAIL
+
+======================================================================
+FAIL: test_2_parser_help_json_and_no_mutations (__main__.CopyTests.test_2_parser_help_json_and_no_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 67, in test_2_parser_help_json_and_no_mutations
+    self.assertEqual(help_bytes.splitlines()[0],
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     b'Usage: cp [-h] [-r] [-f] [--json] SOURCE DEST')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'Usage: cp [-hrf] [--json] [PATH] [PATH] SOURCE DEST' != b'Usage: cp [-h] [-r] [-f] [--json] SOURCE DEST'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.083s
+
+FAILED (failures=1)

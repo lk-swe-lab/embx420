@@ -1,0 +1,8 @@
+20	5	Makefile
+29	15	docs/commands/cp.md
+1	1	docs/commands/shell.md
+2	1	src/registry.c
+17	2	tests/test_shell.py
+1	1	tests/test_shell_module.c
+c18b7e83d4661089c9984fe5e6391e4c0a88e9d9
+f346d338cef3d2cd20c67794d6a875731277f6e7

@@ -1,0 +1,18 @@
+test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode) ... FAIL
+
+======================================================================
+FAIL: test_1_regular_bytes_sizing_and_same_inode (__main__.CopyTests.test_1_regular_bytes_sizing_and_same_inode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 42, in test_1_regular_bytes_sizing_and_same_inode
+    self.assertEqual(self.run_cp('source', 'dest'), b'')
+                     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cp.py", line 27, in run_cp
+    self.assertEqual(p.returncode, status, (argv, p.stdout, p.stderr))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : (('source', 'dest'), b'', b'')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

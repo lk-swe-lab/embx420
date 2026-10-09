@@ -1,0 +1,8 @@
+[
+  "src/cmd_spec.h",
+  "src/traverse.c",
+  "src/traverse.h",
+  "tests/test_help.c",
+  "tests/test_output.h",
+  "tests/test_recursive.c"
+]

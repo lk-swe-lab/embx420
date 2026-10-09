@@ -1,0 +1,72 @@
+{
+  "head": "c18b7e83d4661089c9984fe5e6391e4c0a88e9d9",
+  "files": {
+    "Makefile": {
+      "sha256": "457d7dd8ebef902d7073fbaae4ba54be6f899e0e2c242e219f2799b33468656b",
+      "source": "Makefile"
+    },
+    "src/cmd_cp.c": {
+      "sha256": "c919d420bd4528790c4c05b27e0b36fc8a29437339729cbdcfbf894f9d1a81f3",
+      "source": "src/cmd_cp.c"
+    },
+    "src/cmd_cp.h": {
+      "sha256": "dbe8fb24f96cd5bba88b35194ff6a65227317d680b94b1c2a1080aa7ce03fac5",
+      "source": "src/cmd_cp.h"
+    },
+    "src/cp_main.c": {
+      "sha256": "8f81eef068d3bae9dabf44d3e686a70c906d558d11bbb08f7560860244c6b7d6",
+      "source": "src/cp_main.c"
+    },
+    "src/registry.c": {
+      "sha256": "780fab9d0fae587a689063af3a3b09bc7b5b5ac14fdfad5102071bedf97927ff",
+      "source": "src/registry.c"
+    },
+    "tests/test_cp.py": {
+      "sha256": "7930bec9997de3026d117e35a5ae7cd4354f2d82940c0057108c18df1ec71884",
+      "source": "tests/test_cp.py"
+    },
+    "tests/test_cp_module.c": {
+      "sha256": "91702142cc2e5c081d38e0a80d51d373961a22abaea57e9c4eb615b8ae455b82",
+      "source": "tests/test_cp_module.c"
+    },
+    "tests/test_shell.py": {
+      "sha256": "90e744871b65044ac2b2fb66cdf634e74818fcebb20d6f50cb1cddbf34b3f890",
+      "source": "tests/test_shell.py"
+    },
+    "tests/test_shell_module.c": {
+      "sha256": "29974c0b422041d31761453c732bdf560585d7dc7197f0e12c9cddaabc853264",
+      "source": "tests/test_shell_module.c"
+    },
+    "README.md": {
+      "sha256": "3d689c61ecb1a7a8608cba4a767bc74987176299fc1e89d6b4832dd1b480458e",
+      "source": ".tmp/cp-index/README.md"
+    },
+    "FILES.md": {
+      "sha256": "34208684d911d19f0232fe694365ac64524002b81d7f784ad1a9828712ae8557",
+      "source": ".tmp/cp-index/FILES.md"
+    },
+    "docs/commands/cp.md": {
+      "sha256": "1324bfe01e05c2452b1728a5afe816b4dbaa66035120b1fcd4e4711ef201cc20",
+      "source": "docs/commands/cp.md"
+    },
+    "docs/commands/shell.md": {
+      "sha256": "1d481eae2774db92b366f945e98c9b33e8b480c21b64cfb94a688f26a8c98795",
+      "source": "docs/commands/shell.md"
+    },
+    "docs/reports/cp-implementation.md": {
+      "sha256": "6c8785664ce03a367069a7cda7c59fbf25bbb93781d3ba7f729f831824e9cfe6",
+      "source": "docs/reports/cp-implementation.md"
+    }
+  },
+  "fresh_final_results": [
+    [
+      "normal",
+      0
+    ],
+    [
+      "sanitizers",
+      0
+    ]
+  ],
+  "fresh_base": "/home/name/.hermes/cache/scratch/cp-fresh-a6li8hqw"
+}

@@ -8,6 +8,7 @@
 #include "cmd_mkdir.h" /* cmd_mkdir_spec. */
 #include "cmd_touch.h" /* cmd_touch_spec. */
 #include "cmd_clear.h" /* cmd_clear_spec. */
+#include "cmd_cp.h"    /* cmd_cp_spec. */
 #include "cmd_cd.h"    /* cmd_cd_spec. */
 #include <stddef.h>    /* NULL, size_t. */
 #include <string.h>    /* strcmp. */
@@ -58,7 +59,7 @@ int register_all_builtin_commands(void)
     const cmd_spec_t *builtins[] = {
         &cmd_cat_spec,   &cmd_head_spec, &cmd_tail_spec,  &cmd_pwd_spec,
         &cmd_stat_spec,  &cmd_ls_spec,   &cmd_mkdir_spec, &cmd_touch_spec,
-        &cmd_clear_spec, &cmd_cd_spec};
+        &cmd_clear_spec, &cmd_cp_spec,   &cmd_cd_spec};
     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
         if (register_command(builtins[i]) != 0)
             return -1;

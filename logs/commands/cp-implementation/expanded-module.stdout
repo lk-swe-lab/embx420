@@ -1,0 +1,4 @@
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cp_module tests/test_cp_module.c src/cmd_cp.c src/cmd_lines.c -Wl,--wrap=mmap,--wrap=munmap,--wrap=msync,--wrap=ftruncate,--wrap=open,--wrap=close,--wrap=read,--wrap=write,--wrap=arg_parse,--wrap=arg_lit0,--wrap=malloc -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_cp.py ./build/cp
+./build/test_cp_module
+cp module: mmap mechanism, faults, cleanup, argv/getopt, reuse passed

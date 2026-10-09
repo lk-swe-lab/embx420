@@ -1,0 +1,221 @@
+{
+  "original_allowlist_count": 219,
+  "missing_paths": [],
+  "credential_pattern_hits": [],
+  "links": [
+    {
+      "path": "README.md",
+      "url": "docs/commands/shell.md",
+      "target": "docs/commands/shell.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/cat.md",
+      "target": "docs/commands/cat.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/head.md",
+      "target": "docs/commands/head.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/tail.md",
+      "target": "docs/commands/tail.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/pwd.md",
+      "target": "docs/commands/pwd.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/stat.md",
+      "target": "docs/commands/stat.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/ls.md",
+      "target": "docs/commands/ls.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/mkdir.md",
+      "target": "docs/commands/mkdir.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/touch.md",
+      "target": "docs/commands/touch.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/clear.md",
+      "target": "docs/commands/clear.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/cp.md",
+      "target": "docs/commands/cp.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/commands/cd.md",
+      "target": "docs/commands/cd.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/reports/clear-cd-review.md",
+      "target": "docs/reports/clear-cd-review.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/reports/clear-cd-integration.md",
+      "target": "docs/reports/clear-cd-integration.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "docs/reports/cp-implementation.md",
+      "target": "docs/reports/cp-implementation.md",
+      "exists": true,
+      "introduced": true
+    },
+    {
+      "path": "README.md",
+      "url": "docs/reports/README.md",
+      "target": "docs/reports/README.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "README.md",
+      "url": "demo/2026-10-01-demo.mp4",
+      "target": "demo/2026-10-01-demo.mp4",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/cp.md",
+      "url": "../reports/cp-implementation.md",
+      "target": "docs/reports/cp-implementation.md",
+      "exists": true,
+      "introduced": true
+    },
+    {
+      "path": "docs/commands/cp.md",
+      "url": "../reports/cp.md",
+      "target": "docs/reports/cp.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "cd.md",
+      "target": "docs/commands/cd.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "clear.md",
+      "target": "docs/commands/clear.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "../reports/clear-cd-integration.md",
+      "target": "docs/reports/clear-cd-integration.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "../reports/shell-integration.md",
+      "target": "docs/reports/shell-integration.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "../reports/shell-review.md",
+      "target": "docs/reports/shell-review.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "url": "../reports/shell-disposition.md",
+      "target": "docs/reports/shell-disposition.md",
+      "exists": true,
+      "introduced": false
+    },
+    {
+      "path": "docs/reports/cp-implementation.md",
+      "url": "../../logs/commands/cp-implementation/research.stdout",
+      "target": "logs/commands/cp-implementation/research.stdout",
+      "exists": true,
+      "introduced": true
+    },
+    {
+      "path": "docs/reports/cp-implementation.md",
+      "url": "cp.md",
+      "target": "docs/reports/cp.md",
+      "exists": true,
+      "introduced": true
+    },
+    {
+      "path": "docs/reports/cp-implementation.md",
+      "url": "../../logs/commands/cp-implementation/",
+      "target": "logs/commands/cp-implementation",
+      "exists": true,
+      "introduced": true
+    },
+    {
+      "path": "docs/reports/cp-implementation.md",
+      "url": "../../logs/commands/cp-implementation/execution-commands.json",
+      "target": "logs/commands/cp-implementation/execution-commands.json",
+      "exists": true,
+      "introduced": true
+    }
+  ],
+  "global_format_paths_match_HEAD": {
+    "src/traverse.c": true,
+    "src/cmd_spec.h": true,
+    "src/traverse.h": true,
+    "tests/test_help.c": true,
+    "tests/test_recursive.c": true,
+    "tests/test_output.h": true
+  },
+  "source_changes_since_snapshot": {},
+  "HEAD": "c18b7e83d4661089c9984fe5e6391e4c0a88e9d9",
+  "index_empty": true
+}

@@ -1,0 +1,120 @@
+[
+  {
+    "label": "mechanism-strace",
+    "argv": [
+      "strace",
+      "-yy",
+      "-o",
+      "/home/name/Documents/420-EMBDX/A/logs/commands/cp-review/mechanism.strace",
+      "-e",
+      "trace=openat,close,ftruncate,mmap,msync,munmap,read,write,sendfile,copy_file_range",
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/source",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/dest"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 0
+  },
+  {
+    "label": "large-24MiB-cap",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/source",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/dest"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 0
+  },
+  {
+    "label": "extra-2",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "-f",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/source",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/dest"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 1
+  },
+  {
+    "label": "extra-3",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "--bad",
+      "--help",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/source",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/dest"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 2
+  },
+  {
+    "label": "extra-4",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "-r",
+      "-r",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/source",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/dest"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 2
+  },
+  {
+    "label": "self-deep",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/cp",
+      "-r",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/tree",
+      "/home/name/.hermes/cache/scratch/tmp8oknxipj/tree/notyet/inside"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 1
+  },
+  {
+    "label": "main-mixed-reuse",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/main"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/tmp8oknxipj",
+    "status": 0
+  },
+  {
+    "label": "multiwindow-fault-build",
+    "argv": [
+      "make",
+      "build/test_cp_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 0
+  },
+  {
+    "label": "multiwindow-fault-module",
+    "argv": [
+      "./build/test_cp_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 0
+  },
+  {
+    "label": "sigbus-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-g3",
+      "-O0",
+      "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+      "/home/name/Documents/420-EMBDX/A/logs/commands/cp-implementation/sigbus_probe.c",
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/src/cmd_cp.c",
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/src/cmd_lines.c",
+      "-Wl,--wrap=mmap",
+      "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/sigbus_probe"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/cp-independent-review/normal",
+    "status": 1
+  }
+]

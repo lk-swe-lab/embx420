@@ -15,7 +15,7 @@ ARGS = PARSER.parse_args()
 PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
-                    'touch', 'clear']
+                    'touch', 'clear', 'cp']
 BUILTIN_NAMES = STANDALONE_NAMES + ['cd']
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -27,6 +27,7 @@ SUMMARIES = [
     'Create directories.',
     'Create empty files or update timestamps without changing contents.',
     'Clear an ANSI-compatible terminal screen.',
+    'Copy files and directories.',
     'Change working directory.',
 ]
 HELP = (
@@ -58,6 +59,20 @@ class ShellTests(unittest.TestCase):
 
     def check(self, args=(), data=b'', status=0, out=b'', err=b''):
         self.assertEqual(self.run_cli(args, data), (status, out, err))
+
+    def test_cp_integration(self):
+        payload = (self.cwd / 'data').read_bytes()
+        self.check(['cp', 'data', 'copy'])
+        self.assertEqual((self.cwd / 'copy').read_bytes(), payload)
+        expected = b'{"source":"data","destination":"two words","status":"ok"}\n'
+        self.check(data=b'cp --json data "two words"\n'
+                   b'cp --json data "two words"\n', out=expected * 2)
+        self.assertEqual((self.cwd / 'two words').read_bytes(), payload)
+        failure = self.run_cli(['missing', 'copy'], binary=STANDALONE / 'cp')
+        self.assertEqual(self.run_cli(['cp', 'missing', 'copy']), failure)
+        self.assertEqual(self.run_cli(data=b'cp missing copy\n'), failure)
+        self.check(data=b'cp data copy\npwd\n',
+                   out=os.fsencode(self.cwd) + b'\n')
 
     def test_touch_integration(self):
         payload = (self.cwd / 'data').read_bytes()
@@ -130,7 +145,7 @@ class ShellTests(unittest.TestCase):
                  'tail': ['-n', '2', 'data'], 'pwd': ['--json'],
                  'stat': ['--json', 'data'], 'ls': ['-a', '--json'],
                  'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data'],
-                 'clear': []}
+                 'clear': [], 'cp': ['--json', 'data', 'copy']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):

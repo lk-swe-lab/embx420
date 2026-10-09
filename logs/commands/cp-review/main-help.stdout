@@ -1,0 +1,19 @@
+Usage: main COMMAND [ARGS...]
+       main                 # read commands from stdin
+       main --help
+       main -r DIR [--mtime] [--local|--utc] [--histogram]
+
+Commands:
+  cat      Concatenate files to standard output.
+  head     Show the first lines of a file or stream.
+  tail     Display the last N lines (default 10); never create input files.
+  pwd      Print physical working directory.
+  stat     Inspect file metadata.
+  ls       List directory contents.
+  mkdir    Create directories.
+  touch    Create empty files or update timestamps without changing contents.
+  clear    Clear an ANSI-compatible terminal screen.
+  cp       Copy files and directories.
+  cd       Change working directory.
+  help [COMMAND]  List commands or show command usage.
+  exit            Leave the loop with the last command status.

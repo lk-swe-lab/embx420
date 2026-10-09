@@ -1,0 +1,38 @@
+{
+  "verified_links": [
+    [
+      "README.md",
+      "docs/commands/cp.md"
+    ],
+    [
+      "README.md",
+      "docs/reports/cp-implementation.md"
+    ],
+    [
+      "docs/commands/cp.md",
+      "../reports/cp-implementation.md"
+    ],
+    [
+      "docs/commands/cp.md",
+      "../reports/cp.md"
+    ],
+    [
+      "docs/reports/cp-implementation.md",
+      "../../logs/commands/cp-implementation/research.stdout"
+    ],
+    [
+      "docs/reports/cp-implementation.md",
+      "cp.md"
+    ],
+    [
+      "docs/reports/cp-implementation.md",
+      "../../logs/commands/cp-implementation/"
+    ],
+    [
+      "docs/reports/cp-implementation.md",
+      "../../logs/commands/cp-implementation/execution-commands.json"
+    ]
+  ],
+  "checkout": "/home/name/.hermes/cache/scratch/cp-fresh-a6li8hqw/proposal-docs",
+  "index_writes": false
+}

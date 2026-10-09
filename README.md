@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs ten builtin commands directly; no external-command fallback.
+`main` runs eleven builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -61,12 +61,14 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [mkdir](docs/commands/mkdir.md) | Create directories, optionally parents/JSON | `./build/mkdir --help` |
 | [touch](docs/commands/touch.md) | Update timestamps/create files; optional JSON | `./build/touch --help` |
 | [clear](docs/commands/clear.md) | Clear visible ANSI terminal screen; redirected output is silent | `./build/main help clear` |
+| [cp](docs/commands/cp.md) | mmap file/tree copying; force retry and optional JSON | `./build/main help cp` |
 | [cd](docs/commands/cd.md) | Change physical cwd persistently in the loop | `./build/main help cd` |
 
 These are selected subsets, not full GNU replacements; also registered builtins.
 Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;
 final delivery remains conditional. See [integration evidence](docs/reports/clear-cd-integration.md).
-`cp` is [planned, not implemented](docs/commands/cp.md).
+`cp` implementation [evidence and limits](docs/reports/cp-implementation.md);
+[independent review](docs/reports/cp-review.md) passes selected runtime gates.
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 
 ## Demo

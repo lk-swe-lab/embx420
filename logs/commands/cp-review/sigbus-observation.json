@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "cc",
+    "-std=c17",
+    "-g3",
+    "-O0",
+    "-I/home/name/.hermes/cache/scratch/cp-independent-review/normal/src",
+    "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+    "/home/name/Documents/420-EMBDX/A/logs/commands/cp-implementation/sigbus_probe.c",
+    "/home/name/.hermes/cache/scratch/cp-independent-review/normal/src/cmd_cp.c",
+    "/home/name/.hermes/cache/scratch/cp-independent-review/normal/src/cmd_lines.c",
+    "-Wl,--wrap=mmap",
+    "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+    "-largtable3",
+    "-lm",
+    "-o",
+    "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/sigbus_probe"
+  ],
+  "child_argv": [
+    "/home/name/.hermes/cache/scratch/cp-independent-review/normal/build/sigbus_probe",
+    "source",
+    "dest"
+  ],
+  "status": -7,
+  "source_size_after": 0,
+  "core_limit": 0
+}

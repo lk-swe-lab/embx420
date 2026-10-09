@@ -1,0 +1,13 @@
+Usage: cp [-hrf] [--json] SOURCE DEST
+
+  -h, --help           Show help and exit.
+  -r, --recursive      Copy directories recursively.
+  -f, --force          Retry failed destination opens.
+  --json               Emit UTF-8 operation summary.
+  SOURCE               One source path.
+  DEST                 One destination path.
+
+Copy files; existing destinations are resized and overwritten.
+Directory DEST receives SOURCE basename. -r copies links as links.
+Failures can leave partial results; concurrent changes unsupported.
+Exit status: 0 success, 1 operational failure, 2 argument error.

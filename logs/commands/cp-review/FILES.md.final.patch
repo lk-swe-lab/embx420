@@ -1,0 +1,28 @@
+--- a/FILES.md
++++ b/FILES.md
+@@ -1,7 +1,7 @@
+ # File registry
+ 
+ ## Existing
+-- README.md — builtin-shell/traversal usage, ten-command index, build/run and tests.
++- README.md — builtin-shell/traversal usage, eleven-command index, build/run and tests.
+ - AGENTS.md — collaboration, development, and logging rules.
+ - Introduction.odt — assignment requirements.
+ - FILES.md — this registry; update when files change.
+@@ -85,7 +85,15 @@
+ - logs/commands/shell-resume-allowlist.txt — explicit combined delivery/staging path allowlist; excludes concurrent/unrelated work.
+ - docs/reports/touch.md — touch selection, implementation and execution evidence.
+ - docs/reports/touch-review.md — independent touch review and verification.
+-- docs/commands/cp.md — planned, unimplemented cp scope and mmap constraints.
++- docs/commands/cp.md — implemented mmap copy usage, options and limits.
++- src/cmd_cp.c, src/cmd_cp.h — invocation-local mmap file/tree copy specification.
++- src/cp_main.c — thin standalone cp wrapper.
++- tests/test_cp.py — independent GNU-subset/project bytes, links, modes and errors.
++- tests/test_cp_module.c — mmap-only transfer, borrowed state, fault/cleanup/reuse tests.
++- docs/reports/cp-implementation.md — selected contract, incremental TDD and verification.
++- logs/commands/cp-implementation/ — raw research, RED/GREEN, negative controls and gates.
++- docs/reports/cp-review.md — independent cp review and exact-scope verification.
++- logs/commands/cp-review/ — fresh independent regression, sanitizer, mechanism and scope evidence.
+ - .tmp/NEXT_BATCH.md — byte-preserved batch coordination record; Git-ignored.
+ - .tmp/FOLLOW_ON_TEN.md — byte-preserved ten-command selection; Git-ignored.
+ - .tmp/FOLLOW_ON_FIVE.md — byte-preserved five-command extension; Git-ignored.
