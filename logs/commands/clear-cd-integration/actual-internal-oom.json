@@ -1,0 +1,9 @@
+{
+  "command": [
+    "./build/test_cd_module",
+    "--internal-oom"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 1
+}

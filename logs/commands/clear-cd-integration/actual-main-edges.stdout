@@ -1,0 +1,41 @@
+{
+  "euid": 1000,
+  "observations": [
+    {
+      "gate": "regular-file clear",
+      "TERM": null,
+      "status": 0
+    },
+    {
+      "gate": "regular-file clear",
+      "TERM": "",
+      "status": 0
+    },
+    {
+      "gate": "regular-file clear",
+      "TERM": "dumb",
+      "status": 0
+    },
+    {
+      "gate": "regular-file clear",
+      "TERM": "xterm",
+      "status": 0
+    },
+    {
+      "gate": "regular-file clear",
+      "TERM": "unknown-terminal",
+      "status": 0
+    },
+    {
+      "gate": "fully interactive PTY combined loop",
+      "status": 0,
+      "stdout_hex": "2f686f6d652f6e616d652f2e6865726d65732f63616368652f736372617463682f746d70726238635f326a680d0a1b5b481b5b324a2f686f6d652f6e616d652f2e6865726d65732f63616368652f736372617463682f746d70726238635f326a682f7265616c2f6e65737465640d0a2f686f6d652f6e616d652f2e6865726d65732f63616368652f736372617463682f746d70726238635f326a682f7265616c0d0a1b5b481b5b324a",
+      "stderr_hex": "6d61696e3e206d61696e3e206d61696e3e206d61696e3e206d61696e3e206d61696e3e206d61696e3e206d61696e3e20"
+    },
+    {
+      "gate": "physical cwd beyond PATH_MAX and absolute recovery",
+      "path_bytes": 4624,
+      "status": 0
+    }
+  ]
+}

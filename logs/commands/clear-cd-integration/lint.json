@@ -1,0 +1,9 @@
+{
+  "command": [
+    "make",
+    "lint"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 0
+}

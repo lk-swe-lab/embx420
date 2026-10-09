@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "tests/test_cd.py",
+    "./build/main",
+    "--test",
+    "test_absolute_relative_persistence"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 1
+}

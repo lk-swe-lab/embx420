@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, eight-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, ten-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -63,6 +63,20 @@
 - docs/commands/pwd.md — implemented physical pwd usage, options and limits.
 - docs/commands/stat.md — implemented stat usage, options and limits.
 - docs/commands/touch.md — implemented timestamp-update usage and limits.
+- docs/commands/clear.md — integrated ANSI terminal-screen clearing and redirect limits.
+- docs/commands/cd.md — integrated physical cwd/HOME builtin, without standalone cd.
+- src/cmd_clear.c, src/cmd_clear.h — shared ANSI terminal clear module.
+- src/clear_main.c — optional standalone clear entry point.
+- tests/test_clear.py, tests/test_clear_module.c — byte/PTY/main parity, reuse and fault tests.
+- src/cmd_cd.c, src/cmd_cd.h — physical cwd-only builtin and shared help.
+- tests/test_cd.py, tests/test_cd_module.c — persistent main/cwd, borrowed-state and fault tests.
+- docs/reports/clear.md, docs/reports/clear-review.md — preserved implementation and independent clear review.
+- docs/reports/cd.md, docs/reports/cd-review.md, docs/reports/cd-fix-review.md — preserved cd implementation, original review and fix re-review.
+- logs/commands/cd-review-20261008-205019/evidence.json — linked original cd-review aggregate.
+- docs/reports/clear-cd-integration.md — actual sequential integration and combined delivery gates.
+- logs/commands/clear-cd-integration/ — exact commands, raw stdout/stderr, fresh manifests and edge gates.
+- docs/reports/clear-cd-review.md — independent actual-main review and narrow delivery audit.
+- logs/commands/clear-cd-review/ — fresh gate outputs, hashes, audit and explicit final delivery allowlist.
 - docs/commands/shell.md — builtin-shell usage, quoting/stdin semantics and limits.
 - docs/reports/shell-integration.md — implementation evidence and preserved selection plan.
 - docs/reports/shell-review.md — independent verification and dependency scope.

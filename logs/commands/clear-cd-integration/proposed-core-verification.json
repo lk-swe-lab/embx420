@@ -1,0 +1,15 @@
+{
+  "tree": "/home/name/.hermes/cache/scratch/clear-cd-proposed-core-t3wyhnyf",
+  "runtime_full_test_status": 0,
+  "missing_new_markdown_links": [
+    {
+      "source": "docs/reports/clear.md",
+      "target": "docs/COMMAND_ANATOMY.md"
+    },
+    {
+      "source": "docs/reports/clear.md",
+      "target": "docs/COMMAND_API.md"
+    }
+  ],
+  "real_index_empty": true
+}

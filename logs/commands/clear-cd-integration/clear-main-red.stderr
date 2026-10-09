@@ -1,0 +1,171 @@
+FFFFFFFFF
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=(), term='xterm', terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b'\x1b[H\x1b[2J', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0, b'\x1b[H\x1b[2J', b'')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=('--',), term='xterm', terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b'\x1b[H\x1b[2J', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0, b'\x1b[H\x1b[2J', b'')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=(), term=None, terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (1, b'', b'clear: terminal requires usable TERM\n')
+
+First differing element 0:
+127
+1
+
+- (127, b'', b'main: clear: unknown command\n')
++ (1, b'', b'clear: terminal requires usable TERM\n')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=(), term='dumb', terminal=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b'', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0, b'', b'')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=('--help',), term=None, terminal=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b"Usage: clear [-h]\n\n  -h, --help   [325 chars] b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0,
++  b'Usage: clear [-h]\n\n  -h, --help           Show help and exit.\n\nHome the '
++  b'cursor and erase the visible ANSI terminal screen.\nNo operands. Nontermi'
++  b'nal stdout is a silent success.\nTerminal stdout requires nonempty TERM o'
++  b"ther than 'dumb'.\nNo scrollback reset or terminal-capability lookup.\nExi"
++  b't status: 0 success, 1 operational failure, 2 argument error.\n',
++  b'')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=('-h',), term='dumb', terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b"Usage: clear [-h]\r\n\r\n  -h, --hel[343 chars] b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0,
++  b'Usage: clear [-h]\r\n\r\n  -h, --help           Show help and exit.\r\n\r\nH'
++  b'ome the cursor and erase the visible ANSI terminal screen.\r\nNo operands.'
++  b' Nonterminal stdout is a silent success.\r\nTerminal stdout requires nonem'
++  b"pty TERM other than 'dumb'.\r\nNo scrollback reset or terminal-capability "
++  b'lookup.\r\nExit status: 0 success, 1 operational failure, 2 argument error'
++  b'.\r\n',
++  b'')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=('operand',), term='xterm', terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (2, b'', b'clear: unexpected argument "operand"\n')
+
+First differing element 0:
+127
+2
+
+- (127, b'', b'main: clear: unknown command\n')
++ (2, b'', b'clear: unexpected argument "operand"\n')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity) (args=('--help', '--bad'), term='xterm', terminal=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 116, in test_main_parity
+    self.assertEqual(invoke(args, term, terminal, main=True),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     invoke(args, term, terminal))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (2, b'', b'clear: invalid option "--bad"\n')
+
+First differing element 0:
+127
+2
+
+- (127, b'', b'main: clear: unknown command\n')
++ (2, b'', b'clear: invalid option "--bad"\n')
+
+======================================================================
+FAIL: test_main_parity (__main__.ClearTests.test_main_parity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_clear.py", line 121, in test_main_parity
+    self.assertIn(b"clear", listing.stdout)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'clear' not found in b'Usage: main COMMAND [ARGS...]\n       main                 # read commands from stdin\n       main --help\n       main -r DIR [--mtime] [--local|--utc] [--histogram]\n\nCommands:\n  cat      Concatenate files to standard output.\n  head     Show the first lines of a file or stream.\n  tail     Display the last N lines (default 10); never create input files.\n  pwd      Print physical working directory.\n  stat     Inspect file metadata.\n  ls       List directory contents.\n  mkdir    Create directories.\n  touch    Create empty files or update timestamps without changing contents.\n  help [COMMAND]  List commands or show command usage.\n  exit            Leave the loop with the last command status.\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.015s
+
+FAILED (failures=9)

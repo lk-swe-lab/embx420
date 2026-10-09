@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "tests/test_clear.py",
+    "--program",
+    "./build/clear",
+    "--main",
+    "./build/main",
+    "ClearTests.test_main_parity"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 1
+}

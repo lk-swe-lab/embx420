@@ -1,0 +1,434 @@
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_mkdir_module tests/test_mkdir_module.c src/cmd_mkdir.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=free,--wrap=mkdir,--wrap=stat,--wrap=chmod,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_ls_module tests/test_ls_module.c src/cmd_ls.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=realloc,--wrap=strdup,--wrap=opendir,--wrap=readdir,--wrap=fstatat,--wrap=closedir,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_stat_module tests/test_stat_module.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/main src/main.c src/traverse.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_help tests/test_help.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_recursive tests/test_recursive.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cat tests/test_cat.c -Lbuild/cunit/lib -lcunit 
+cc  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cat_module tests/test_cat_module.c src/cmd_cat.c -Wl,--wrap=read,--wrap=write -Lbuild/cunit/lib -lcunit -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_head_module tests/test_head_module.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_tail_module tests/test_tail_module.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_pwd_module tests/test_pwd_module.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -Isrc -o build/test_shell_module tests/test_shell_module.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/clear src/clear_main.c src/cmd_clear.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+./build/test_shell_module
+shell module: registry, argv lifetime, EINTR/OOM ownership passed
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_clear_module tests/test_clear_module.c src/cmd_clear.c src/cmd_lines.c -Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_clear.py --program ./build/clear --main ./build/main
+./build/test_clear_module
+clear module: borrowing, reuse, parse guards and faults passed
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_cd_module tests/test_cd_module.c src/cmd_cd.c -Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_cd.py ./build/main
+./build/test_cd_module
+cd module: malformed argv, 400 repeated calls, ownership/faults and exported getopt preservation passed
+./build/test_help
+PASS  CLI help: -h prints all usage and options
+./build/test_recursive
+PASS  Recursive traversal: prints nested names once
+PASS  Recursive traversal: prints file modification dates
+PASS  Recursive traversal: selects local or UTC modification dates
+PASS  Recursive traversal: truncates display names but preserves paths
+PASS  Recursive traversal: counts regular files by modification hour
+./build/test_cat ./build/cat --project
+Executable under test: ./build/cat
+  exit status: expected 0; got 0
+  stdout
+    expected (10 bytes): "alpha\nbeta"
+    got (10 bytes): "alpha\nbeta"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: single file preserves bytes
+  exit status: expected 0; got 0
+  stdout
+    expected (13 bytes): "second\nfirst\n"
+    got (13 bytes): "second\nfirst\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: multiple files preserve operand order
+  exit status: expected 0; got 0
+  stdout
+    expected (10 bytes): "leftright\n"
+    got (10 bytes): "leftright\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: file boundaries add no separator
+  exit status: expected 0; got 0
+  stdout
+    expected (16 bytes): "abcdefghijklmnop"
+    got (16 bytes): "abcdefghijklmnop"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: sixteen files preserve operand order
+  exit status: expected 0; got 0
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: empty files produce no output
+  exit status: expected 0; got 0
+  stdout
+    expected (7 bytes): "A\x00\xff\r\nB\x00"
+    got (7 bytes): "A\x00\xff\r\nB\x00"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: binary bytes survive concatenation
+  exit status: expected 0; got 0
+  stdout
+    expected (33 bytes): "     1\talpha\n     2\t\n     3\tbeta\n"
+    got (33 bytes): "     1\talpha\n     2\t\n     3\tbeta\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: -n numbers every line across files
+  exit status: expected 0; got 0
+  stdout
+    expected (18 bytes): "     1\t\n     2\tend"
+    got (18 bytes): "     1\t\n     2\tend"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: --number preserves missing final newline
+  exit status: expected 0; got 0
+  stdout
+    expected (36 bytes): "     1\tleftright\n     2\t\n     3\tlast"
+    got (36 bytes): "     1\tleftright\n     2\t\n     3\tlast"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: -n keeps a line spanning files intact
+  exit status: expected 0; got 0
+  stdout
+    expected (65537 bytes): "\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abc" ... (display truncated)
+    got (65537 bytes): "\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abc" ... (display truncated)
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: large file is copied completely
+  exit status: expected 0; got 0
+  stdout
+    expected (7 bytes): "in\x00put\n"
+    got (7 bytes): "in\x00put\n"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (6 bytes): "stream"
+    got (6 bytes): "stream"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stdout
+    expected (25 bytes): "     1\ta\n     2\t\n     3\tb"
+    got (25 bytes): "     1\ta\n     2\t\n     3\tb"
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+PASS  cat expected vs got: stdin defaults, operands, and numbering
+  exit status: expected 1; got 1
+  stdout
+    expected (6 bytes): "later\n"
+    got (6 bytes): "later\n"
+  stderr must contain: cat:; got: cat: /dev/null/missing: Not a directory
+  exit status: expected 1; got 1
+  stdout
+    expected (6 bytes): "later\n"
+    got (6 bytes): "later\n"
+  stderr must contain: cat:; got: cat: /: Is a directory
+PASS  cat expected vs got: input failures preserve later output
+  exit status: expected 1; got 1
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr must contain: --invalid-cat-option; got: cat: --invalid-cat-option: No such file or directory
+PASS  cat expected vs got: -- ends option parsing
+  exit status: expected 0; got 0
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 0; got 0
+  stderr
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  exit status: expected 2; got 2
+  stdout
+    expected (0 bytes): ""
+    got (0 bytes): ""
+  stderr must contain: cat:; got: cat: invalid option "--invalid-cat-option"
+PASS  cat expected vs got: project help and error precedence
+PASS  cat expected vs got: output failure stops later operands
+./build/test_cat_module
+PASS  cat module: repeated calls reset state
+PASS  cat module: EINTR and short transfers
+PASS  cat module: zero-progress output fails
+PASS  cat module: same input/output file rejected
+python3 tests/test_head.py --program ./build/head
+default: expected=b'0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n' got=b'0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'a\n' got=b'a\n'
+blank: expected=b'\n\n' got=b'\n\n'
+binary: expected=b'\x00\xff\n' got=b'\x00\xff\n'
+long: expected=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' got=b'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'a\n' got=b'a\n'
+explicit stdin: expected=b'a\n' got=b'a\n'
+last count wins: expected=b'a\n' got=b'a\n'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["a\\r",""]}\n' got=b'{"path":"-","lines":["a\\r",""]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+head: 45 checks passed
+./build/test_head_module
+head module: reuse, argv, no overread, borrowed descriptors passed
+python3 tests/test_tail.py --program ./build/tail
+default: expected=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n' got=b'2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n'
+empty: expected=b'' got=b''
+zero: expected=b'' got=b''
+one: expected=b'c' got=b'c'
+blank: expected=b'\nx\n' got=b'\nx\n'
+binary: expected=b'B\x00' got=b'B\x00'
+long: expected=b'y\n' got=b'y\n'
+long final: expected=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy' got=b'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+larger: expected=b'a\nb' got=b'a\nb'
+unsigned_max: expected=b'a\nb' got=b'a\nb'
+named: expected=b'b' got=b'b'
+explicit stdin: expected=b'b' got=b'b'
+last count wins: expected=b'b' got=b'b'
+dash path: expected=b'odd\n' got=b'odd\n'
+missing: expected=b'' got=b''
+directory read: expected=b'' got=b''
+bad count '': expected=b'' got=b''
+bad count '-1': expected=b'' got=b''
+bad count '+1': expected=b'' got=b''
+bad count ' 1': expected=b'' got=b''
+bad count '1K': expected=b'' got=b''
+bad count '1x': expected=b'' got=b''
+bad count '18446744073709551616': expected=b'' got=b''
+bad args ['-n']: expected=b'' got=b''
+bad args ['--bogus']: expected=b'' got=b''
+bad args ['input', 'input']: expected=b'' got=b''
+bad args ['--help', '--bogus']: expected=b'' got=b''
+bad args ['--help', '-n', 'bad']: expected=b'' got=b''
+json: expected=b'{"path":"-","lines":["","last"]}\n' got=b'{"path":"-","lines":["","last"]}\n'
+json: expected=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n' got=b'{"path":"-","lines":["\\u0000\\"\\t"]}\n'
+json: expected=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n' got=b'{"path":"-","lines":["\xc3\xa9\xf0\x9f\x98\x80"]}\n'
+json: expected=b'{"path":"-","lines":[]}\n' got=b'{"path":"-","lines":[]}\n'
+bad UTF8: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+invalid scalar: expected=b'' got=b''
+terminal LF no phantom line: expected=b'{"path":"-","lines":["x"]}\n' got=b'{"path":"-","lines":["x"]}\n'
+JSON path escape: expected=b'{"path":"quote\\"\\\\name","lines":["a"]}\n' got=b'{"path":"quote\\"\\\\name","lines":["a"]}\n'
+invalid UTF8 path: expected=b'' got=b''
+validate selected only: expected=b'{"path":"-","lines":["good"]}\n' got=b'{"path":"-","lines":["good"]}\n'
+zero opens file: expected=b'' got=b''
+tail: 46 checks passed
+./build/test_tail_module
+tail module: reuse, argv, zero count, borrowed descriptors passed
+python3 tests/test_lines_random.py
+head/tail differential: 120 raw + JSON scenarios passed
+python3 tests/test_pwd.py ./build/pwd
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-w7j8j9_p\n'
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'{"cwd":"/home/name/.hermes/cache/scratch/pwd-test-hp9r2xre/a\\"\\\\\\n\\t\xc3\xa9"}\n', got=b'{"cwd":"/home/name/.hermes/cache/scratch/pwd-test-hp9r2xre/a\\"\\\\\\n\\t\xc3\xa9"}\n'
+expected=b'', got=b''
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-d9z4mbld/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', got=b'/home/name/.hermes/cache/scratch/pwd-test-d9z4mbld/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+expected=b'', got=b''
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-cu7ytuzj/actual\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-cu7ytuzj/actual\n'
+expected=b'/home/name/.hermes/cache/scratch/pwd-test-t0twsozq/quote"\\\n\t-\xff\n', got=b'/home/name/.hermes/cache/scratch/pwd-test-t0twsozq/quote"\\\n\t-\xff\n'
+./build/test_pwd_module
+pwd module: 5 repeated success/error/help invocations passed
+python3 tests/test_stat.py ./build/stat
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'File: file\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n', got=b'File: file\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n'
+expected=b'File: empty\nType: regular empty file\nSize: 0 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n', got=b'File: empty\nType: regular empty file\nSize: 0 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n'
+expected=b'File: quote"\\\n\t\xc3\xa9\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n', got=b'File: quote"\\\n\t\xc3\xa9\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n'
+expected=b'File: -\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n', got=b'File: -\nType: regular file\nSize: 4 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n'
+expected=b'File: -L\nType: regular file\nSize: 6 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n', got=b'File: -L\nType: regular file\nSize: 6 bytes\nMode: 0640\nAccess: 1000000000\nModify: 1100000000\nChange: 1791516342\n'
+expected=b'File: bad-\xff\nType: regular empty file\nSize: 0 bytes\nMode: 0664\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: bad-\xff\nType: regular empty file\nSize: 0 bytes\nMode: 0664\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'', got=b''
+expected=b'File: sparse\nType: regular file\nSize: 8589934599 bytes\nMode: 1754\nAccess: -2\nModify: -1\nChange: 1791516342\n', got=b'File: sparse\nType: regular file\nSize: 8589934599 bytes\nMode: 1754\nAccess: -2\nModify: -1\nChange: 1791516342\n'
+expected=b'File: /dev/null\nType: character special file\nSize: 0 bytes\nMode: 0666\nAccess: 1791501522\nModify: 1791501522\nChange: 1791501522\n', got=b'File: /dev/null\nType: character special file\nSize: 0 bytes\nMode: 0666\nAccess: 1791501522\nModify: 1791501522\nChange: 1791501522\n'
+expected=b'File: dir\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: dir\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'File: fifo\nType: fifo\nSize: 0 bytes\nMode: 0664\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: fifo\nType: fifo\nSize: 0 bytes\nMode: 0664\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'File: socket\nType: socket\nSize: 0 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: socket\nType: socket\nSize: 0 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'File: link\nType: symbolic link\nSize: 3 bytes\nMode: 0777\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: link\nType: symbolic link\nSize: 3 bytes\nMode: 0777\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'File: dangling\nType: symbolic link\nSize: 7 bytes\nMode: 0777\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: dangling\nType: symbolic link\nSize: 7 bytes\nMode: 0777\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'', got=b''
+expected=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n', got=b'File: link\nType: directory\nSize: 4096 bytes\nMode: 0775\nAccess: 1791516342\nModify: 1791516342\nChange: 1791516342\n'
+expected=b'', got=b''
+expected=b'', got=b''
+./build/test_stat_module
+stat module: reuse, argv, stdin position, error recovery passed
+python3 tests/test_ls.py ./build/ls
+args=['--bad'] expected=b'' got=b''
+args=['a', 'b'] expected=b'' got=b''
+args=['--help', '--bad'] expected=b'' got=b''
+args=['--help', 'a', 'b'] expected=b'' got=b''
+args=['-L'] expected=b'' got=b''
+args=['--version'] expected=b'' got=b''
+args=['--', 'missing'] expected=b'' got=b''
+args=['--', ''] expected=b'' got=b''
+args=['--', 'file/child'] expected=b'' got=b''
+args=['--', 'missing/child'] expected=b'' got=b''
+args=['--', '-a'] expected=b'-a\n' got=b'-a\n'
+args=['-'] expected=b'-\n' got=b'-\n'
+args=[] expected=b'a-good\nz-bad-\xff\n' got=b'a-good\nz-bad-\xff\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-bad-\udcff'] expected=b'' got=b''
+args=['--json', '-a'] expected=b'' got=b''
+args=['dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd/ddddddddddddddddddddddddddddddddddddd expected=b'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn' got=b'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'
+args=['-a'] expected=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n' got=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n'
+args=['--all', '-1'] expected=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n' got=b'.\n..\n.hidden\ndangling\ndir\nlink\nvisible\n'
+args=['dangling'] expected=b'dangling\n' got=b'dangling\n'
+args=['link'] expected=b'link\n' got=b'link\n'
+args=['link/'] expected=b'child\n' got=b'child\n'
+args=['--json', 'empty'] expected=b'[]\n' got=b'[]\n'
+args=['-l', 'mode-0'] expected=b'----------\t1000\t1000\t8589934592\t-1\tmode-0\n' got=b'----------\t1000\t1000\t8589934592\t-1\tmode-0\n'
+args=['-l', 'mode-1'] expected=b'-rwsrwsrwt\t1000\t1000\t8589934593\t-1\tmode-1\n' got=b'-rwsrwsrwt\t1000\t1000\t8589934593\t-1\tmode-1\n'
+args=['-l', 'mode-2'] expected=b'---S--S--T\t1000\t1000\t8589934594\t-1\tmode-2\n' got=b'---S--S--T\t1000\t1000\t8589934594\t-1\tmode-2\n'
+args=['-l', 'mode-3'] expected=b'-rwxr-xr-T\t1000\t1000\t8589934595\t-1\tmode-3\n' got=b'-rwxr-xr-T\t1000\t1000\t8589934595\t-1\tmode-3\n'
+args=['-l', 'mode-4'] expected=b'-rwxr-s---\t1000\t1000\t8589934596\t-1\tmode-4\n' got=b'-rwxr-s---\t1000\t1000\t8589934596\t-1\tmode-4\n'
+args=['-l', 'mode-5'] expected=b'-rwsr-x--x\t1000\t1000\t8589934597\t-1\tmode-5\n' got=b'-rwsr-x--x\t1000\t1000\t8589934597\t-1\tmode-5\n'
+args=['-l'] expected=b'lrwxrwxrwx\t1000\t1000\t7\t1791516343\tdangling\ndrwxrwxr-x\t1000\t1000\t4096\t1791516343\tdir\nprw-rw-r--\t1000\t1000\t0\t1791516343\tfifo\n-rwsr-x--x\t1000\t1000\t5\t-1\tfile\nlrwxrw' got=b'lrwxrwxrwx\t1000\t1000\t7\t1791516343\tdangling\ndrwxrwxr-x\t1000\t1000\t4096\t1791516343\tdir\nprw-rw-r--\t1000\t1000\t0\t1791516343\tfifo\n-rwsr-x--x\t1000\t1000\t5\t-1\tfile\nlrwxrw'
+args=['-l', 'file'] expected=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n' got=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n'
+args=['-l', 'link'] expected=b'lrwxrwxrwx\t1000\t1000\t3\t1791516343\tlink\n' got=b'lrwxrwxrwx\t1000\t1000\t3\t1791516343\tlink\n'
+args=['-l', 'file'] expected=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n' got=b'-rwsr-x--x\t1000\t1000\t5\t-1\tfile\n'
+args=[] expected=b'a"\\\n\t\x01\xc3\xa9\xf0\x9f\x98\x80\nentry-0000\nentry-0001\nentry-0002\nentry-0003\nentry-0004\nentry-0005\nentry-0006\nentry-0007\nentry-0008\nentry-0009\nentry-0010\nentry-0011\nentry-0012\nentr' got=b'a"\\\n\t\x01\xc3\xa9\xf0\x9f\x98\x80\nentry-0000\nentry-0001\nentry-0002\nentry-0003\nentry-0004\nentry-0005\nentry-0006\nentry-0007\nentry-0008\nentry-0009\nentry-0010\nentry-0011\nentry-0012\nentr'
+args=[] expected=b'A\nfile10\nfile2\nz\n\xc3\xa9\n' got=b'A\nfile10\nfile2\nz\n\xc3\xa9\n'
+args=['.'] expected=b'A\nfile10\nfile2\nz\n\xc3\xa9\n' got=b'A\nfile10\nfile2\nz\n\xc3\xa9\n'
+args=['empty'] expected=b'' got=b''
+args=['./A'] expected=b'./A\n' got=b'./A\n'
+args=['-aa'] expected=b'' got=b''
+args=['-ll'] expected=b'' got=b''
+args=['-11'] expected=b'' got=b''
+args=['-hh'] expected=b'' got=b''
+args=['-a', '--all'] expected=b'' got=b''
+args=['--json', '--json'] expected=b'' got=b''
+args=['-h', '--help'] expected=b'' got=b''
+args=['file', '-1'] expected=b'file\n' got=b'file\n'
+args=['--', 'file'] expected=b'file\n' got=b'file\n'
+args=['denied'] expected=b'' got=b''
+args=['--json', 'denied'] expected=b'' got=b''
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udc80'] expected=b'z-invalid-\x80\n' got=b'z-invalid-\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc0\udcaf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc0\udcaf'] expected=b'z-invalid-\xc0\xaf\n' got=b'z-invalid-\xc0\xaf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc1\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc1\udcbf'] expected=b'z-invalid-\xc1\xbf\n' got=b'z-invalid-\xc1\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc2'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc2'] expected=b'z-invalid-\xc2\n' got=b'z-invalid-\xc2\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcc2A'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcc2A'] expected=b'z-invalid-\xc2A\n' got=b'z-invalid-\xc2A\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udce0\udc9f\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udce0\udc9f\udcbf'] expected=b'z-invalid-\xe0\x9f\xbf\n' got=b'z-invalid-\xe0\x9f\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udced\udca0\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udced\udca0\udc80'] expected=b'z-invalid-\xed\xa0\x80\n' got=b'z-invalid-\xed\xa0\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udce2\udc82'] expected=b'' got=b''
+args=['--', 'z-invalid-\udce2\udc82'] expected=b'z-invalid-\xe2\x82\n' got=b'z-invalid-\xe2\x82\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf0\udc8f\udcbf\udcbf'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf0\udc8f\udcbf\udcbf'] expected=b'z-invalid-\xf0\x8f\xbf\xbf\n' got=b'z-invalid-\xf0\x8f\xbf\xbf\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf4\udc90\udc80\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf4\udc90\udc80\udc80'] expected=b'z-invalid-\xf4\x90\x80\x80\n' got=b'z-invalid-\xf4\x90\x80\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf5\udc80\udc80\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf5\udc80\udc80\udc80'] expected=b'z-invalid-\xf5\x80\x80\x80\n' got=b'z-invalid-\xf5\x80\x80\x80\n'
+args=['--json'] expected=b'' got=b''
+args=['--json', '--', 'z-invalid-\udcf0\udc90\udc80'] expected=b'' got=b''
+args=['--', 'z-invalid-\udcf0\udc90\udc80'] expected=b'z-invalid-\xf0\x90\x80\n' got=b'z-invalid-\xf0\x90\x80\n'
+./build/test_ls_module
+ls module: reuse, argv, resources, injected failures passed
+python3 tests/test_mkdir.py ./build/mkdir
+mkdir project: 55 exact fixtures passed (all)
+./build/test_mkdir_module
+mkdir module: 80 reuse calls, memory/resources, injected faults passed
+python3 tests/test_touch.py ./build/touch
+./build/test_touch_module
+touch module: reuse, borrowed state, allocation/syscall/output faults and resource cleanup passed

@@ -1,0 +1,39 @@
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... FAIL
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... FAIL
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+
+======================================================================
+FAIL: test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 109, in test_dispatch_cd_help
+    self.assertEqual(direct[0], 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: 127 != 0
+
+======================================================================
+FAIL: test_dispatch_help (__main__.ShellTests.test_dispatch_help)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 80, in test_dispatch_help
+    self.check(['--help'], out=HELP)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 60, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b[642 chars].\n  help [COMMAND]  List commands or show com[79 chars] b'') != (0, b[642 chars].\n  cd       Change working directory.\n  hel[117 chars] b'')
+
+First differing element 1:
+b'Usa[638 chars].\n  help [COMMAND]  List commands or show com[73 chars]s.\n'
+b'Usa[638 chars].\n  cd       Change working directory.\n  hel[111 chars]s.\n'
+
+Diff is 1250 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.036s
+
+FAILED (failures=2)

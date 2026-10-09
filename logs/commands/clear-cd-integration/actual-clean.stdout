@@ -1,0 +1,9 @@
+rm -f build/test_cd_module
+rm -f build/clear build/test_clear_module
+rm -f build/test_shell_module
+rm -f build/touch build/test_touch_module
+rm -f build/mkdir build/test_mkdir_module
+rm -f build/ls build/test_ls_module
+rm -f build/stat build/test_stat_module
+rm -f build/pwd build/test_pwd_module
+rm -f build/main build/cat build/head build/tail build/test_head_module build/test_tail_module build/test_help build/test_recursive build/test_cat build/test_cat_module build/help.stdout build/help.stderr

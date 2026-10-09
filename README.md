@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs eight builtin commands directly; no external-command fallback.
+`main` runs ten builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -46,7 +46,9 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Optional standalone tools (run from the project root):
+Nine commands also have optional standalone tools in `build/`; `cd` is
+in-process only, with no standalone executable. Existing standalone help
+examples below remain valid; every command also supports `main help COMMAND`.
 
 | Command | Purpose | Help |
 | --- | --- | --- |
@@ -58,8 +60,12 @@ Optional standalone tools (run from the project root):
 | [ls](docs/commands/ls.md) | One directory/file listing; optional JSON | `./build/ls --help` |
 | [mkdir](docs/commands/mkdir.md) | Create directories, optionally parents/JSON | `./build/mkdir --help` |
 | [touch](docs/commands/touch.md) | Update timestamps/create files; optional JSON | `./build/touch --help` |
+| [clear](docs/commands/clear.md) | Clear visible ANSI terminal screen; redirected output is silent | `./build/main help clear` |
+| [cd](docs/commands/cd.md) | Change physical cwd persistently in the loop | `./build/main help cd` |
 
 These are selected subsets, not full GNU replacements; also registered builtins.
+Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;
+final delivery remains conditional. See [integration evidence](docs/reports/clear-cd-integration.md).
 `cp` is [planned, not implemented](docs/commands/cp.md).
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "clang-format",
+    "--dry-run",
+    "--Werror",
+    "src/registry.c",
+    "tests/test_shell_module.c",
+    "src/cmd_clear.c",
+    "src/cmd_clear.h",
+    "src/clear_main.c",
+    "tests/test_clear_module.c",
+    "src/cmd_cd.c",
+    "src/cmd_cd.h",
+    "tests/test_cd_module.c"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 0
+}

@@ -4,7 +4,7 @@
 ./build/main                 # Interactive when stdin is a terminal
 ./build/main pwd             # One-shot; arguments from the calling shell
 ./build/main head -n 2 FILE
-./build/main --help          # cat, head, tail, pwd, stat, ls, mkdir, touch
+./build/main --help          # Ten builtins; see the README command index
 ./build/main help touch      # Usage; also: main touch --help
 ```
 
@@ -20,7 +20,12 @@ continuation.
 Unclosed quotes, dangling escapes, NUL and unquoted `| & ; < >` reject the whole
 line without partial execution; quoted/escaped operators are literal. `$`,
 backticks, glob characters and `#` are literal. No expansion, substitution,
-comments, pipes, redirects, jobs, external commands, assignments, `cd` or packages.
+comments, pipes, redirects, jobs, external commands, assignments or packages.
+
+`cd` changes this process's physical cwd persistently; no environment updates
+or standalone cd. `clear` emits ANSI screen-clear bytes only to terminal stdout;
+valid redirected stdout is a silent success. See [cd](cd.md), [clear](clear.md)
+and [combined integration](../reports/clear-cd-integration.md).
 
 **Shared stdin:** no reader read-ahead. `head -n 1` consumes one data line, then
 parsing resumes. Successful stdin cat and positive-count/default tail consume

@@ -1,0 +1,118 @@
+{
+  "baseline-shell": {
+    "status": 0,
+    "python_suite_counts": [
+      19
+    ],
+    "CUnit_totals": []
+  },
+  "clear-green": {
+    "status": 0,
+    "python_suite_counts": [
+      8,
+      19
+    ],
+    "CUnit_totals": []
+  },
+  "combined-green": {
+    "status": 0,
+    "python_suite_counts": [
+      7,
+      8,
+      21
+    ],
+    "CUnit_totals": []
+  },
+  "full-regression": {
+    "status": 0,
+    "python_suite_counts": [
+      21,
+      8,
+      7,
+      9,
+      10,
+      15,
+      11
+    ],
+    "CUnit_totals": []
+  },
+  "strict-o0": {
+    "status": 0,
+    "python_suite_counts": [
+      21,
+      8,
+      7,
+      9,
+      10,
+      15,
+      11
+    ],
+    "CUnit_totals": []
+  },
+  "strict-o2": {
+    "status": 0,
+    "python_suite_counts": [
+      8,
+      7,
+      21
+    ],
+    "CUnit_totals": []
+  },
+  "sanitizer-o0": {
+    "status": 0,
+    "python_suite_counts": [
+      21,
+      8,
+      7,
+      9,
+      10,
+      15,
+      11
+    ],
+    "CUnit_totals": []
+  },
+  "actual-final-test": {
+    "status": 0,
+    "python_suite_counts": [
+      21,
+      8,
+      7,
+      9,
+      10,
+      15,
+      11
+    ],
+    "CUnit_totals": []
+  },
+  "format_fail_paths": [
+    "src/cmd_spec.h",
+    "src/traverse.c",
+    "src/traverse.h",
+    "tests/test_help.c",
+    "tests/test_output.h",
+    "tests/test_recursive.c"
+  ],
+  "format_paths_match_HEAD": {
+    "src/cmd_spec.h": true,
+    "src/traverse.c": true,
+    "src/traverse.h": true,
+    "tests/test_help.c": true,
+    "tests/test_output.h": true,
+    "tests/test_recursive.c": true
+  },
+  "clear_reviewed_code_unchanged": {
+    "src/cmd_clear.c": true,
+    "src/cmd_clear.h": true,
+    "src/clear_main.c": true,
+    "tests/test_clear.py": true,
+    "tests/test_clear_module.c": true
+  },
+  "cd_reviewed_code_unchanged": {
+    "src/cmd_cd.c": true,
+    "src/cmd_cd.h": true,
+    "tests/test_cd_module.c": true,
+    "tests/test_cd.py": true
+  },
+  "remaining_capacity": 21,
+  "index_empty": true
+}

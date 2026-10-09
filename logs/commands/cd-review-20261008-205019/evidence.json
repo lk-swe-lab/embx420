@@ -1,0 +1,722 @@
+{
+  "session": "20261008_205019_2a746d",
+  "euid": 1000,
+  "driver_cwd_before": "/home/name/Documents/420-EMBDX/A",
+  "records": [
+    {
+      "label": "patch-check",
+      "argv": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "scratch-patch",
+      "argv": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "test-cd",
+      "argv": [
+        "make",
+        "test-cd"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "make",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "format",
+      "argv": [
+        "make",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "internal-oom",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree/build/test_cd_module",
+        "--internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1,
+      "environment_overrides": {}
+    },
+    {
+      "label": "python-syntax",
+      "argv": [
+        "python3",
+        "-m",
+        "py_compile",
+        "tests/test_cd.py"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "global-probe-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/global_probe.c",
+        "src/cmd_cd.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/global_probe"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "global-probe",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/global_probe"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1,
+      "environment_overrides": {}
+    },
+    {
+      "label": "independent-persistent",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz",
+      "status": 0,
+      "environment_overrides": {
+        "HOME": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz",
+        "PWD": "stale",
+        "OLDPWD": "old",
+        "CDPATH": "/ignored"
+      },
+      "stdin": "pwd\ncd alias\npwd\ncd ..\npwd\ncd ../blocked\npwd\ncd ../file\npwd\ncd ../loop\npwd\ncd ../missing\npwd\ncd\npwd\n"
+    },
+    {
+      "label": "persistent-100-transitions",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz",
+      "status": 0,
+      "environment_overrides": {},
+      "stdin": "cd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/absent\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/loop\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/file\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real/nested\npwd\ncd /home/name/.hermes/cache/scratch/cd-review-20261008-205019/independent-tgme61sz/real\npwd\n"
+    },
+    {
+      "label": "negative-no-chdir-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "src/main.c",
+        "src/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/no_chdir.c",
+        "src/shell.c",
+        "src/registry.c",
+        "src/cmd_cat.c",
+        "src/cmd_head.c",
+        "src/cmd_tail.c",
+        "src/cmd_pwd.c",
+        "src/cmd_stat.c",
+        "src/cmd_ls.c",
+        "src/cmd_mkdir.c",
+        "src/cmd_touch.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-no-chdir"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "negative-no-chdir",
+      "argv": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-no-chdir",
+        "--test",
+        "test_absolute_relative_persistence"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1,
+      "environment_overrides": {}
+    },
+    {
+      "label": "sanitizer-build",
+      "argv": [
+        "make",
+        "-B",
+        "build/main",
+        "build/test_cd_module",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {}
+    },
+    {
+      "label": "sanitizer-module",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree/build/test_cd_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    },
+    {
+      "label": "sanitizer-main",
+      "argv": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree/build/main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0,
+      "environment_overrides": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    },
+    {
+      "label": "negative-argv-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "tests/test_cd_module.c",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/borrowed_argv.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/module-borrowed-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "negative-argv",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/module-borrowed-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": -6
+    },
+    {
+      "label": "home-unset",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": null,
+      "home_unset": true
+    },
+    {
+      "label": "home-empty",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "",
+      "home_unset": false
+    },
+    {
+      "label": "home-missing",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/not-a-real-home",
+      "home_unset": false
+    },
+    {
+      "label": "home-file",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "/home/name/Documents/420-EMBDX/A/logs/commands/cd-review-20261008-205019/evidence.json",
+      "home_unset": false
+    },
+    {
+      "label": "shell-build",
+      "argv": [
+        "make",
+        "-B",
+        "all",
+        "build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "shell-regression-added-cd-missing-fixture-setup",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "./build/main",
+        "--standalone-dir",
+        "./build"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1
+    },
+    {
+      "label": "shell-module-added-cd",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree/build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": -6
+    },
+    {
+      "label": "baseline-main-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "src/main.c",
+        "src/traverse.c",
+        "src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline_registry.c",
+        "src/cmd_cat.c",
+        "src/cmd_head.c",
+        "src/cmd_tail.c",
+        "src/cmd_pwd.c",
+        "src/cmd_stat.c",
+        "src/cmd_ls.c",
+        "src/cmd_mkdir.c",
+        "src/cmd_touch.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "baseline-shell-regression-missing-fixture-setup",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-main",
+        "--standalone-dir",
+        "./build"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1
+    },
+    {
+      "label": "home-unset",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": null,
+      "home_unset": true
+    },
+    {
+      "label": "home-empty",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "",
+      "home_unset": false
+    },
+    {
+      "label": "home-missing",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/not-a-real-home",
+      "home_unset": false
+    },
+    {
+      "label": "home-file",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/main-normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019",
+      "status": 0,
+      "stdin": "cd\npwd\n",
+      "HOME": "/home/name/Documents/420-EMBDX/A/logs/commands/cd-review-20261008-205019/evidence.json",
+      "home_unset": false
+    },
+    {
+      "label": "shell-build",
+      "argv": [
+        "make",
+        "-B",
+        "all",
+        "build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "shell-regression-added-cd",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "./build/main",
+        "--standalone-dir",
+        "./build"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 1
+    },
+    {
+      "label": "shell-module-added-cd",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree/build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": -6
+    },
+    {
+      "label": "baseline-main-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "src/main.c",
+        "src/traverse.c",
+        "src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline_registry.c",
+        "src/cmd_cat.c",
+        "src/cmd_head.c",
+        "src/cmd_tail.c",
+        "src/cmd_pwd.c",
+        "src/cmd_stat.c",
+        "src/cmd_ls.c",
+        "src/cmd_mkdir.c",
+        "src/cmd_touch.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "baseline-shell-regression",
+      "argv": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-main",
+        "--standalone-dir",
+        "./build"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "baseline-shell-module-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "tests/test_shell_module.c",
+        "src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline_registry.c",
+        "src/cmd_cat.c",
+        "src/cmd_head.c",
+        "src/cmd_tail.c",
+        "src/cmd_pwd.c",
+        "src/cmd_stat.c",
+        "src/cmd_ls.c",
+        "src/cmd_mkdir.c",
+        "src/cmd_touch.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=realloc,--wrap=read",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-shell-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    },
+    {
+      "label": "baseline-shell-module",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/baseline-shell-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+      "status": 0
+    }
+  ],
+  "original_hashes": {
+    "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+    ".clang-format": "05b8c7d43e3263c840b9e6a693e342f4bf9cead959202bbd29bc7f4bb45d3989",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_cd_module.c": "95af7f9f2f8ef257a8833bdd2f907ef48850ef8cbb31b0d50b8099dc20a6eb15",
+    "src/cmd_ls.c": "9667df4da45db8aa57921facb7aa014b6da63cf096a1950323200099271e04a6",
+    "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+    "src/cmd_stat.h": "74a191853ac383685600d624789fe9a2fb2f7ec6120ab6c8b405a0c394e40978",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/ls_main.c": "e5eef04dea8119af393f7c468746ddfbc1ac16ffbb519015e5cd45595bfa46bc",
+    "src/cmd_mkdir.c": "a0847d5184bbe9f4a6f0f692ecd61f8b7c22381e1dabe39890a527c3ecdd67c2",
+    "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/stat_main.c": "5258c7cc45a026df55f0268865a5e8efcb68c22594962abda697f8ccb0963222",
+    "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+    "src/mkdir_main.c": "75af3a58255981f899e8cecf369506a7458ba2d2101eb6d2be6ea60217903d1e",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+    "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/cmd_stat.c": "eef1255bcaefef7e147e3adf6a6f210379113f87655cbc7e52db160a37e20c8d",
+    "src/cmd_mkdir.h": "b6d3aa68cd0647095b75756cb8c0993482b2bbad35cc164aa4a33f8ece70ae66",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+    "src/cmd_cd.c": "b6ec1f300b506d5c421fe6a290a04e094dd4f00c2cabbc13925a77da1cf63436",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_ls.h": "5d0441de65fd0e6115c01d32fec54d2d4756f24e9fc5cbcc4bbf520fdf1d4ed2",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+    "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed"
+  },
+  "dependency_hash": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+  "repository_cd_hashes": {
+    "src/cmd_cd.c": "b6ec1f300b506d5c421fe6a290a04e094dd4f00c2cabbc13925a77da1cf63436",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_cd_module.c": "95af7f9f2f8ef257a8833bdd2f907ef48850ef8cbb31b0d50b8099dc20a6eb15",
+    "docs/commands/cd.md": "7046ca7b951c4e2c006c3ef4feb7fec9ea361111065ceaa7f735192eed0db458",
+    "docs/reports/cd.md": "39a3ef2cf18fe2076f072f72d4f5a5b4db4c13bea7da4a6d6e44d28fb2f681a2"
+  },
+  "driver_cwd_after": "/home/name/Documents/420-EMBDX/A",
+  "reviewed_hashes": {
+    "Makefile": "1f3251ba7889814ea359a2a18b4ff19a861b2339e4e2ff88e4c16f362e1bbc39",
+    ".clang-format": "05b8c7d43e3263c840b9e6a693e342f4bf9cead959202bbd29bc7f4bb45d3989",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_cd_module.c": "95af7f9f2f8ef257a8833bdd2f907ef48850ef8cbb31b0d50b8099dc20a6eb15",
+    "src/cmd_ls.c": "9667df4da45db8aa57921facb7aa014b6da63cf096a1950323200099271e04a6",
+    "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+    "src/cmd_stat.h": "74a191853ac383685600d624789fe9a2fb2f7ec6120ab6c8b405a0c394e40978",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/ls_main.c": "e5eef04dea8119af393f7c468746ddfbc1ac16ffbb519015e5cd45595bfa46bc",
+    "src/cmd_mkdir.c": "a0847d5184bbe9f4a6f0f692ecd61f8b7c22381e1dabe39890a527c3ecdd67c2",
+    "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/stat_main.c": "5258c7cc45a026df55f0268865a5e8efcb68c22594962abda697f8ccb0963222",
+    "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+    "src/mkdir_main.c": "75af3a58255981f899e8cecf369506a7458ba2d2101eb6d2be6ea60217903d1e",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+    "src/registry.c": "5aaf3ed6f5b9bd55fb5b8cac341f95ef09e0a206f37b1f9ce88eda5c8355202b",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/cmd_stat.c": "eef1255bcaefef7e147e3adf6a6f210379113f87655cbc7e52db160a37e20c8d",
+    "src/cmd_mkdir.h": "b6d3aa68cd0647095b75756cb8c0993482b2bbad35cc164aa4a33f8ece70ae66",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+    "src/cmd_cd.c": "b6ec1f300b506d5c421fe6a290a04e094dd4f00c2cabbc13925a77da1cf63436",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_ls.h": "5d0441de65fd0e6115c01d32fec54d2d4756f24e9fc5cbcc4bbf520fdf1d4ed2",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+    "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed"
+  },
+  "global_state_probe_failed": true,
+  "persistent_property_transitions": 100,
+  "extra_driver_cwd_before": "/home/name/Documents/420-EMBDX/A",
+  "extra_driver_cwd_after": "/home/name/Documents/420-EMBDX/A",
+  "owned_sources_unchanged": {
+    "src/cmd_cd.c": true,
+    "src/cmd_cd.h": true,
+    "tests/test_cd.py": true,
+    "tests/test_cd_module.c": true,
+    "docs/commands/cd.md": true,
+    "docs/reports/cd.md": true
+  },
+  "preserved_prior_evidence": [
+    "evidence.json",
+    "research.json",
+    "persistent-demo.json",
+    "final-80-tests.json",
+    "final-80-tests.stdout",
+    "final-80-tests.stderr",
+    "final-80-lint.json",
+    "final-80-lint.stdout",
+    "final-80-lint.stderr",
+    "final-80-format-check.json",
+    "final-80-format-check.stdout",
+    "final-80-format-check.stderr",
+    "final-80-san-main.json",
+    "final-80-san-main.stdout",
+    "final-80-san-main.stderr",
+    "final-80-san-module.json",
+    "final-80-san-module.stdout",
+    "final-80-san-module.stderr",
+    "delivery-proof-internal-oom.json",
+    "delivery-proof-internal-oom.stdout",
+    "delivery-proof-internal-oom.stderr",
+    "borrowed-sensitive-red.json",
+    "borrowed-sensitive-red.stdout",
+    "borrowed-sensitive-red.stderr",
+    "borrowed-sensitive-green.json",
+    "borrowed-sensitive-green.stdout",
+    "borrowed-sensitive-green.stderr",
+    "slice1-red-resumed.json",
+    "slice1-red-resumed.stdout",
+    "slice1-red-resumed.stderr"
+  ],
+  "review_verdict": {
+    "passed": false,
+    "security_concerns": [],
+    "logic_errors": [
+      "arg_parse overwrites caller exported getopt globals; existing module tests do not detect this"
+    ],
+    "suggestions": [
+      "Add sentinel preservation checks and agreed exported-global restoration policy; do not promise private getopt state or thread safety."
+    ],
+    "summary": "Selected cd behavior passes, but full host-global ownership acceptance requires correction or an explicit limitation decision."
+  },
+  "integration_test_blocker": "Existing Python exact shell help expects eight commands (3 failures); C registry count asserts eight (SIGABRT). Fresh pre-cd baseline passes both.",
+  "final_test_cd": {
+    "argv": ["make", "-B", "test-cd"],
+    "cwd": "/home/name/.hermes/cache/scratch/cd-review-20261008-205019/tree",
+    "status": 0,
+    "stdout": "final-test-cd.stdout",
+    "stderr": "final-test-cd.stderr"
+  },
+  "source_hash_parity_with_prior": true
+}

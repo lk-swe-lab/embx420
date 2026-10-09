@@ -14,7 +14,9 @@ PARSER.add_argument('--slice', choices=['dispatch', 'loop', 'all'], default='all
 ARGS = PARSER.parse_args()
 PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
-NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir', 'touch']
+STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
+                    'touch', 'clear']
+BUILTIN_NAMES = STANDALONE_NAMES + ['cd']
 SUMMARIES = [
     'Concatenate files to standard output.',
     'Show the first lines of a file or stream.',
@@ -24,6 +26,8 @@ SUMMARIES = [
     'List directory contents.',
     'Create directories.',
     'Create empty files or update timestamps without changing contents.',
+    'Clear an ANSI-compatible terminal screen.',
+    'Change working directory.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -31,7 +35,7 @@ HELP = (
     '       main --help\n'
     '       main -r DIR [--mtime] [--local|--utc] [--histogram]\n'
     '\nCommands:\n'
-    + ''.join(f'  {n:<8} {s}\n' for n, s in zip(NAMES, SUMMARIES))
+    + ''.join(f'  {n:<8} {s}\n' for n, s in zip(BUILTIN_NAMES, SUMMARIES))
     + '  help [COMMAND]  List commands or show command usage.\n'
     '  exit            Leave the loop with the last command status.\n'
 ).encode()
@@ -75,7 +79,7 @@ class ShellTests(unittest.TestCase):
     def test_dispatch_help(self):
         self.check(['--help'], out=HELP)
         self.check(['help'], out=HELP)
-        for name in NAMES:
+        for name in STANDALONE_NAMES:
             expected = self.run_cli(['--help'], binary=STANDALONE / name)
             self.assertEqual(self.run_cli([name, '--help']), expected)
             # Existing head/tail run tables size repeated -n by argc;
@@ -100,11 +104,34 @@ class ShellTests(unittest.TestCase):
         self.check(['--help', 'extra'], status=2,
                    err=b'main: usage: main --help\n')
 
+    def test_dispatch_cd_help(self):
+        direct = self.run_cli(['cd', '--help'])
+        self.assertEqual(direct[0], 0)
+        self.assertEqual(direct[2], b'')
+        self.assertTrue(direct[1].startswith(b'Usage: cd'))
+        self.assertEqual(self.run_cli(['help', 'cd']), direct)
+        self.assertEqual(self.run_cli(['cd', '-h']), direct)
+
+    def test_loop_cd_physical_persistence(self):
+        nested = self.cwd / 'real' / 'nested'
+        nested.mkdir(parents=True)
+        (self.cwd / 'alias').symlink_to('real/nested')
+        expected = b''.join(os.fsencode(path) + b'\n' for path in
+                            [nested, nested.parent, nested.parent])
+        invalid = self.run_cli(['cd', 'missing'])
+        self.assertEqual(invalid[0], 1)
+        help_result = self.run_cli(['help', 'cd'])
+        self.check(data=b'cd alias\npwd\nclear\ncd ..\npwd\n'
+                   b'cd missing\npwd\nhelp cd\ncd --help\n',
+                   out=expected + help_result[1] * 2, err=invalid[2])
+
     def test_dispatch_standalone_parity(self):
         cases = {'cat': ['-n', 'data'], 'head': ['-n', '2', 'data'],
                  'tail': ['-n', '2', 'data'], 'pwd': ['--json'],
                  'stat': ['--json', 'data'], 'ls': ['-a', '--json'],
-                 'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data']}
+                 'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data'],
+                 'clear': []}
+        self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
                 expected = self.run_cli(args, binary=STANDALONE / name)
@@ -188,7 +215,7 @@ class ShellTests(unittest.TestCase):
                     'mkdir -p directory', 'mkdir -p directory']
         expected = b''.join(self.run_cli(cmd.split())[1] for cmd in commands)
         self.check(data=('\n'.join(commands) + '\n').encode(), out=expected)
-        for name in NAMES:
+        for name in BUILTIN_NAMES:
             help_result = self.run_cli(['help', name])
             invalid = self.run_cli([name, '--not-an-option'])
             data = f'help {name}\n{name} --not-an-option\nhelp {name}\n'.encode()

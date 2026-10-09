@@ -1,0 +1,10 @@
+{
+  "command": [
+    "make",
+    "-B",
+    "test"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/clear-cd-proposed-core-t3wyhnyf",
+  "environment": {},
+  "status": 0
+}

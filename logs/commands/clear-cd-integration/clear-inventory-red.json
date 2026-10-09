@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python3",
+    "tests/test_shell.py",
+    "--program",
+    "./build/main",
+    "--standalone-dir",
+    "./build",
+    "--slice",
+    "dispatch"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 1
+}

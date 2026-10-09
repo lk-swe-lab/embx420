@@ -1,0 +1,24 @@
+{
+  "command": [
+    "cc",
+    "-std=c17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-g3",
+    "-O0",
+    "-Ibuild/argtable3/include",
+    "-o",
+    "build/clear",
+    "src/clear_main.c",
+    "src/cmd_clear.c",
+    "src/cmd_lines.c",
+    "-Lbuild/argtable3/lib",
+    "-largtable3",
+    "-lm"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 0
+}

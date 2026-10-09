@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/logs/commands/clear-cd-integration/verify_proposal.py", line 45, in <module>
+    assert {item['target'] for item in missing} == {'docs/COMMAND_ANATOMY.md', 'docs/COMMAND_API.md'}, missing
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [{'source': 'docs/reports/clear.md', 'target': 'docs/COMMAND_ANATOMY.md'}, {'source': 'docs/reports/clear.md', 'target': 'docs/COMMAND_API.md'}, {'source': 'docs/reports/cd-review.md', 'target': 'logs/commands/cd-review-20261008-205019/evidence.json'}, {'source': 'docs/reports/cd-review.md', 'target': 'logs/commands/cd-review-20261008-205019'}]

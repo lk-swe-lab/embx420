@@ -1,0 +1,46 @@
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... FAIL
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... 
+  test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) (name='clear') ... FAIL
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+
+======================================================================
+FAIL: test_dispatch_help (__main__.ShellTests.test_dispatch_help)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 79, in test_dispatch_help
+    self.check(['--help'], out=HELP)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 59, in check
+    self.assertEqual(self.run_cli(args, data), (status, out, err))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b[588 chars].\n  help [COMMAND]  List commands or show com[79 chars] b'') != (0, b[588 chars].\n  clear    Clear an ANSI-compatible termina[133 chars] b'')
+
+First differing element 1:
+b'Usa[584 chars].\n  help [COMMAND]  List commands or show com[73 chars]s.\n'
+b'Usa[584 chars].\n  clear    Clear an ANSI-compatible termina[127 chars]s.\n'
+
+Diff is 1136 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) (name='clear')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_shell.py", line 116, in test_dispatch_standalone_parity
+    self.assertEqual(self.run_cli([name, *args]), expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (127, b'', b'main: clear: unknown command\n') != (0, b'', b'')
+
+First differing element 0:
+127
+0
+
+- (127, b'', b'main: clear: unknown command\n')
++ (0, b'', b'')
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.033s
+
+FAILED (failures=2)

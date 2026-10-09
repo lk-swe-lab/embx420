@@ -1,13 +1,15 @@
 #define _POSIX_C_SOURCE 200809L
-#include "../src/shell.h"    /* shell_loop, shell_dispatch. */
-#include "../src/registry.h" /* Registry API, cmd_spec_t. */
-#include "../src/cmd_cat.h"  /* cmd_cat_spec. */
-#include <assert.h>          /* assert. */
-#include <errno.h>           /* errno, EINTR, ENOMEM. */
-#include <fcntl.h>           /* fcntl, F_GETFD. */
-#include <stdio.h>           /* FILE, puts, snprintf. */
-#include <stdlib.h>          /* malloc, realloc, free. */
-#include <string.h>          /* strcmp, strlen. */
+#include "../src/shell.h"     /* shell_loop, shell_dispatch. */
+#include "../src/registry.h"  /* Registry API, cmd_spec_t. */
+#include "../src/cmd_cat.h"   /* cmd_cat_spec. */
+#include "../src/cmd_clear.h" /* cmd_clear_spec. */
+#include "../src/cmd_cd.h"    /* cmd_cd_spec. */
+#include <assert.h>           /* assert. */
+#include <errno.h>            /* errno, EINTR, ENOMEM. */
+#include <fcntl.h>            /* fcntl, F_GETFD. */
+#include <stdio.h>            /* FILE, puts, snprintf. */
+#include <stdlib.h>           /* malloc, realloc, free. */
+#include <string.h>           /* strcmp, strlen. */
 #include <unistd.h> /* read, write, pipe, dup, dup2, close, STDIN_FILENO. */
 
 void *__real_malloc(size_t size);
@@ -125,10 +127,13 @@ int main(void)
     assert(register_all_builtin_commands() == 0);
     assert(register_all_builtin_commands() == 0);
     assert(find_command("cat") == &cmd_cat_spec);
+    assert(find_command("clear") == &cmd_clear_spec);
+    assert(find_command("cd") == &cmd_cd_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    assert(count == 8);
+    enum { builtin_count = 10, registry_capacity = 32 };
+    assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;
     assert(register_command(&duplicate) == -1);
@@ -164,11 +169,12 @@ int main(void)
         assert(snprintf(names[i], sizeof(names[i]), "extra%d", i) > 0);
         extras[i] = probe;
         extras[i].name = names[i];
-        assert(register_command(&extras[i]) == (i < 23 ? 0 : -1));
+        int available = registry_capacity - builtin_count - 1;
+        assert(register_command(&extras[i]) == (i < available ? 0 : -1));
     }
     count = 0;
     for_each_command(count_command, &count);
-    assert(count == 32);
+    assert(count == registry_capacity);
     assert(register_command(&probe) == 0);
     puts("shell module: registry, argv lifetime, EINTR/OOM ownership passed");
     return 0;

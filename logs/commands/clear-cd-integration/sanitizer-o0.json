@@ -1,0 +1,14 @@
+{
+  "command": [
+    "make",
+    "-B",
+    "test",
+    "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/clear-cd-final-ifhkpz1n/sanitizer-o0",
+  "environment": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "status": 0
+}

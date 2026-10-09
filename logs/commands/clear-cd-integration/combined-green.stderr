@@ -1,0 +1,49 @@
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.032s
+
+OK
+cd: help output failed
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.036s
+
+OK
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.152s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command

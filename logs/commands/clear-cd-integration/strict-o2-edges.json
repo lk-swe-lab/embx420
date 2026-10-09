@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "/home/name/Documents/420-EMBDX/A/logs/commands/clear-cd-integration/edges.py",
+    "/home/name/.hermes/cache/scratch/clear-cd-final-ifhkpz1n/strict-o2/build/main"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/clear-cd-final-ifhkpz1n/strict-o2",
+  "environment": {},
+  "status": 0
+}

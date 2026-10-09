@@ -1,0 +1,56 @@
+{
+  "head": "0ef9cb995568626e9edef7cfb5e6580995749369",
+  "proposal": "/home/name/.hermes/cache/scratch/clear-cd-reviewed-proposal-milth3a5",
+  "counts": {
+    "original_core": 25,
+    "original_evidence": 88,
+    "review_additions": 8,
+    "final": 121
+  },
+  "original_proposal_bytes": 505476,
+  "duplicate_paths": [],
+  "binary_paths": [],
+  "credential_flags": [],
+  "historical_missing_links": [
+    {
+      "source": "docs/reports/clear.md",
+      "target": "../COMMAND_ANATOMY.md",
+      "resolved": "docs/COMMAND_ANATOMY.md"
+    },
+    {
+      "source": "docs/reports/clear.md",
+      "target": "../COMMAND_API.md",
+      "resolved": "docs/COMMAND_API.md"
+    }
+  ],
+  "disposition": "Preserve byte snapshots under HEAD docs/reports/README.md historical-link notice; optional correction only in scratch.",
+  "prior_reviewed_code_matches": {
+    "src/cmd_clear.c": true,
+    "src/cmd_clear.h": true,
+    "src/clear_main.c": true,
+    "tests/test_clear.py": true,
+    "tests/test_clear_module.c": true,
+    "src/cmd_cd.c": true,
+    "src/cmd_cd.h": true,
+    "tests/test_cd_module.c": true,
+    "tests/test_cd.py": true
+  },
+  "format_paths_match_HEAD": {
+    "src/cmd_spec.h": true,
+    "src/traverse.c": true,
+    "src/traverse.h": true,
+    "tests/test_help.c": true,
+    "tests/test_output.h": true,
+    "tests/test_recursive.c": true
+  },
+  "source_unchanged_after_gates": true,
+  "mixed_doc_versions_sha256": {
+    "README.md": "89e83b520a1bbbbeeeef4f848da970cca5254145a0bb8bb7b1531b85de3ff5ea",
+    "FILES.md": "3972be35f890761dd8baae0be7baa3079d038dea8be04f751e43ac03e0e73833",
+    "docs/commands/clear.md": "c1c687eb5aa221649b500d62f897b55d813d6513478e40d3d9e3a73322b1125b",
+    "docs/commands/cd.md": "0a43b7394b6b32e57e9f003503441f5079de918c029e5685332510b001721ba4"
+  },
+  "original_allowlist_sha256": "140e36ed4bcbfd29c1f6eec2b15923cda40c4eadbfe82dc5bec5feb7379fe237",
+  "exact_proposal_test_status": 0,
+  "mixed_docs_patch_check_status": 0
+}

@@ -1,0 +1,876 @@
+
+### actual-full-regression
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.131s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.037s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.030s
+
+OK
+cd: help output failed
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.014s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.043s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.079s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.023s
+
+OK
+
+### actual-build
+
+### actual-lint
+[1/38] Processing file /home/name/Documents/420-EMBDX/A/src/cat_main.c.
+[2/38] Processing file /home/name/Documents/420-EMBDX/A/src/clear_main.c.
+[3/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_cat.c.
+[4/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_cd.c.
+[5/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_clear.c.
+[6/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_head.c.
+[7/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_lines.c.
+[8/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_ls.c.
+[9/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_mkdir.c.
+[10/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_pwd.c.
+[11/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_stat.c.
+[12/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_tail.c.
+[13/38] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_touch.c.
+[14/38] Processing file /home/name/Documents/420-EMBDX/A/src/head_main.c.
+[15/38] Processing file /home/name/Documents/420-EMBDX/A/src/ls_main.c.
+[16/38] Processing file /home/name/Documents/420-EMBDX/A/src/main.c.
+[17/38] Processing file /home/name/Documents/420-EMBDX/A/src/mkdir_main.c.
+[18/38] Processing file /home/name/Documents/420-EMBDX/A/src/pwd_main.c.
+[19/38] Processing file /home/name/Documents/420-EMBDX/A/src/registry.c.
+[20/38] Processing file /home/name/Documents/420-EMBDX/A/src/shell.c.
+[21/38] Processing file /home/name/Documents/420-EMBDX/A/src/stat_main.c.
+[22/38] Processing file /home/name/Documents/420-EMBDX/A/src/tail_main.c.
+[23/38] Processing file /home/name/Documents/420-EMBDX/A/src/touch_main.c.
+[24/38] Processing file /home/name/Documents/420-EMBDX/A/src/traverse.c.
+[25/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat.c.
+[26/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat_module.c.
+[27/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cd_module.c.
+[28/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_clear_module.c.
+[29/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_head_module.c.
+[30/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_help.c.
+[31/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_ls_module.c.
+[32/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_mkdir_module.c.
+[33/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_pwd_module.c.
+[34/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_recursive.c.
+[35/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_shell_module.c.
+[36/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_stat_module.c.
+[37/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_tail_module.c.
+[38/38] Processing file /home/name/Documents/420-EMBDX/A/tests/test_touch_module.c.
+1 warning generated.
+Suppressed 1 warnings (1 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+
+### scoped-format
+
+### global-format
+src/traverse.c:6:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* fprintf, perror, snprintf, puts, printf. */
+                  ^
+src/traverse.c:36:27: error: code should be clang-formatted [-Wclang-format-violations]
+    return date != NULL &&
+                          ^
+src/traverse.c:37:63: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                              ^
+src/traverse.c:37:67: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                                  ^
+src/traverse.c:48:65: error: code should be clang-formatted [-Wclang-format-violations]
+    if (options->hour_counts == NULL || !S_ISREG(info->st_mode)) return 0;
+                                                                ^
+src/traverse.c:108:36: error: code should be clang-formatted [-Wclang-format-violations]
+        if (counts[hour] > maximum) maximum = counts[hour];
+                                   ^
+src/traverse.c:112:44: error: code should be clang-formatted [-Wclang-format-violations]
+    if (maximum % HISTOGRAM_BAR_WIDTH != 0) ++scale;
+                                           ^
+src/traverse.c:113:20: error: code should be clang-formatted [-Wclang-format-violations]
+    if (scale == 0) scale = 1;
+                   ^
+src/traverse.c:116:59: error: code should be clang-formatted [-Wclang-format-violations]
+    for (size_t value = maximum; value >= 10; value /= 10) ++count_width;
+                                                          ^
+src/traverse.c:122:51: error: code should be clang-formatted [-Wclang-format-violations]
+               zone == TIME_UTC ? "UTC" : "LOCAL",
+                                                  ^
+src/traverse.c:123:45: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                            ^
+src/traverse.c:123:59: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                                          ^
+src/traverse.c:130:37: error: code should be clang-formatted [-Wclang-format-violations]
+            if (putchar('#') == EOF) goto output_error;
+                                    ^
+src/traverse.c:132:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (putchar('\n') == EOF) goto output_error;
+                                 ^
+src/traverse.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (fflush(stdout) == EOF) goto output_error;
+                              ^
+src/traverse.c:180:47: error: code should be clang-formatted [-Wclang-format-violations]
+        if (strcmp(entry->d_name, ".") == 0 ||
+                                              ^
+src/traverse.c:181:46: error: code should be clang-formatted [-Wclang-format-violations]
+            strcmp(entry->d_name, "..") == 0) continue;
+                                             ^
+src/traverse.c:212:25: error: code should be clang-formatted [-Wclang-format-violations]
+        if (result != 0) break;
+                        ^
+tests/test_help.c:49:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+tests/test_help.c:51:25: error: code should be clang-formatted [-Wclang-format-violations]
+    if (suite == NULL ||
+                        ^
+tests/test_help.c:52:21: error: code should be clang-formatted [-Wclang-format-violations]
+        CU_add_test(
+                    ^
+tests/test_help.c:53:54: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                     ^
+tests/test_help.c:53:70: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                                     ^
+tests/test_help.c:54:18: error: code should be clang-formatted [-Wclang-format-violations]
+        ) == NULL
+                 ^
+tests/test_recursive.c:5:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* FILE, fopen, fgets, ferror, fclose, snprintf, perror. */
+                  ^
+tests/test_recursive.c:6:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdlib.h>      /* system, setenv, EXIT_SUCCESS, EXIT_FAILURE. */
+                   ^
+tests/test_recursive.c:7:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <string.h>      /* strcmp, strncmp, strstr, strchr, strlen. */
+                   ^
+tests/test_recursive.c:8:22: error: code should be clang-formatted [-Wclang-format-violations]
+#include <sys/stat.h>    /* stat, struct stat, st_mtime. */
+                     ^
+tests/test_recursive.c:9:18: error: code should be clang-formatted [-Wclang-format-violations]
+#include <time.h>        /* localtime, gmtime, strftime, tzset, struct tm. */
+                 ^
+tests/test_recursive.c:37:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:55:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:56:31: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree",
+                              ^
+tests/test_recursive.c:57:37: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child",
+                                    ^
+tests/test_recursive.c:58:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:59:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:69:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:69:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:72:28: error: code should be clang-formatted [-Wclang-format-violations]
+        if (date == NULL ||
+                           ^
+tests/test_recursive.c:73:51: error: code should be clang-formatted [-Wclang-format-violations]
+            strftime(formatted, sizeof(formatted),
+                                                  ^
+tests/test_recursive.c:78:57: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected[i], sizeof(expected[i]),
+                                                        ^
+tests/test_recursive.c:79:44: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                           ^
+tests/test_recursive.c:79:65: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                                                ^
+tests/test_recursive.c:98:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:129:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:132:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:135:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:148:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *names[] = {
+                           ^
+tests/test_recursive.c:149:22: error: code should be clang-formatted [-Wclang-format-violations]
+        "long_names",
+                     ^
+tests/test_recursive.c:150:56: error: code should be clang-formatted [-Wclang-format-violations]
+        "directory_name_longer_than_thirty_characters",
+                                                       ^
+tests/test_recursive.c:151:54: error: code should be clang-formatted [-Wclang-format-violations]
+        "file_name_longer_than_thirty_characters.txt"
+                                                     ^
+tests/test_recursive.c:195:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:196:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:197:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:206:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:206:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:259:72: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected, sizeof(expected), "%02u  %6zu   %s\n",
+                                                                       ^
+tests/test_recursive.c:260:29: error: code should be clang-formatted [-Wclang-format-violations]
+                       hour, counts[hour], bars[counts[hour]]);
+                            ^
+tests/test_recursive.c:282:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:283:65: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --utc "
+                                                                ^
+tests/test_recursive.c:284:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:285:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:286:67: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --local "
+                                                                  ^
+tests/test_recursive.c:287:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", false);
+                                  ^
+tests/test_recursive.c:290:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:305:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+src/cmd_spec.h:4:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                  ^
+src/cmd_spec.h:4:30: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                             ^
+src/cmd_spec.h:8:30: error: code should be clang-formatted [-Wclang-format-violations]
+ * Single source of truth for 
+                             ^
+src/cmd_spec.h:15:22: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *name;       // command name, e.g., "ls"
+                     ^
+src/cmd_spec.h:16:25: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *summary;    // one-line description
+                        ^
+src/cmd_spec.h:17:27: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *long_help;  // longer description / Markdown (may be NULL)
+                          ^
+src/cmd_spec.h:26:7: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+      ^
+src/cmd_spec.h:26:22: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+                     ^
+src/traverse.h:11:17: error: code should be clang-formatted [-Wclang-format-violations]
+enum time_zone {
+                ^
+src/traverse.h:12:16: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_LOCAL,
+               ^
+src/traverse.h:13:13: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_UTC
+            ^
+tests/test_output.h:19:24: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                       ^
+tests/test_output.h:19:76: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                                                                           ^
+tests/test_output.h:23:43: error: code should be clang-formatted [-Wclang-format-violations]
+    for (CU_pFailureRecord item = failure;
+                                          ^
+tests/test_output.h:24:46: error: code should be clang-formatted [-Wclang-format-violations]
+         item != NULL && item->pTest == test; item = item->pNext) {
+                                             ^
+tests/test_output.h:41:68: error: code should be clang-formatted [-Wclang-format-violations]
+    return error == CUE_SUCCESS && CU_get_number_of_failures() == 0
+                                                                   ^
+tests/test_output.h:42:23: error: code should be clang-formatted [-Wclang-format-violations]
+        ? EXIT_SUCCESS : EXIT_FAILURE;
+                      ^
+make: *** [Makefile:185: format-check] Error 1
+
+### actual-pty-cwd-edges
+
+### dependency-internal-oom
+Out of memory!
+
+### strict-o2
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.163s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.043s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.036s
+
+OK
+cd: help output failed
+
+### strict-o2-pty-cwd-edges
+
+### sanitizer-o0
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.576s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.462s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.336s
+
+OK
+cd: help output failed
+
+### sanitizer-o0-pty-cwd-edges
+
+### index-still-empty
+
+### exact-reviewed-proposal-full-regression
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.125s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.033s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.031s
+
+OK
+cd: help output failed
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.015s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.042s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.078s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.024s
+
+OK
+
+### exact-reviewed-proposal-full-regression
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.127s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.036s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.030s
+
+OK
+cd: help output failed
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.014s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.043s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.077s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.024s
+
+OK
+
+### exact-reviewed-proposal-full-regression
+test_dispatch_cd_help (__main__.ShellTests.test_dispatch_cd_help) ... ok
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_cd_physical_persistence (__main__.ShellTests.test_loop_cd_physical_persistence) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.133s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.037s
+
+OK
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.036s
+
+OK
+cd: help output failed
+test_default_and_physical (__main__.PwdTests.test_default_and_physical) ... ok
+test_help_and_arguments (__main__.PwdTests.test_help_and_arguments) ... ok
+test_json (__main__.PwdTests.test_json) ... ok
+test_json_invalid_utf8 (__main__.PwdTests.test_json_invalid_utf8) ... ok
+test_large_path (__main__.PwdTests.test_large_path) ... ok
+test_output_failure (__main__.PwdTests.test_output_failure) ... ok
+test_removed_cwd (__main__.PwdTests.test_removed_cwd) ... ok
+test_symlink_ignores_pwd (__main__.PwdTests.test_symlink_ignores_pwd) ... ok
+test_unusual_bytes (__main__.PwdTests.test_unusual_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.014s
+
+OK
+test_arguments (__main__.StatTests.test_arguments) ... ok
+test_broken_pipe_inherits_signal_policy (__main__.StatTests.test_broken_pipe_inherits_signal_policy) ... ok
+test_file_metadata_without_reading (__main__.StatTests.test_file_metadata_without_reading) ... ok
+test_invalid_utf8 (__main__.StatTests.test_invalid_utf8) ... ok
+test_json (__main__.StatTests.test_json) ... ok
+test_json_types_and_generated_paths (__main__.StatTests.test_json_types_and_generated_paths) ... ok
+test_lookup_failures (__main__.StatTests.test_lookup_failures) ... ok
+test_metadata_boundaries (__main__.StatTests.test_metadata_boundaries) ... ok
+test_output_failure (__main__.StatTests.test_output_failure) ... ok
+test_types_and_dereference (__main__.StatTests.test_types_and_dereference) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.042s
+
+OK
+test_arguments_and_lookup (__main__.LsTests.test_arguments_and_lookup) ... ok
+test_binary_names (__main__.LsTests.test_binary_names) ... ok
+test_directory_relative_lookup (__main__.LsTests.test_directory_relative_lookup) ... ok
+test_hidden_and_symlinks (__main__.LsTests.test_hidden_and_symlinks) ... ok
+test_json (__main__.LsTests.test_json) ... ok
+test_json_all_and_special_modes (__main__.LsTests.test_json_all_and_special_modes) ... ok
+test_json_types_and_no_mutations (__main__.LsTests.test_json_types_and_no_mutations) ... ok
+test_long_metadata (__main__.LsTests.test_long_metadata) ... ok
+test_many_and_unusual_names (__main__.LsTests.test_many_and_unusual_names) ... ok
+test_names (__main__.LsTests.test_names) ... ok
+test_no_mutations_all_modes (__main__.LsTests.test_no_mutations_all_modes) ... ok
+test_output_failure (__main__.LsTests.test_output_failure) ... ok
+test_parser_repetition_help_and_placement (__main__.LsTests.test_parser_repetition_help_and_placement) ... ok
+test_permission_failure (__main__.LsTests.test_permission_failure) ... ok
+test_utf8_scalar_boundaries (__main__.LsTests.test_utf8_scalar_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.079s
+
+OK
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.023s
+
+OK

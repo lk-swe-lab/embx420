@@ -1,0 +1,9 @@
+{
+  "command": [
+    "python3",
+    "logs/commands/clear-cd-integration/verify_proposal.py"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 1
+}

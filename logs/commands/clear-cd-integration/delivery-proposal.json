@@ -1,0 +1,44 @@
+{
+  "base_HEAD": "0ef9cb995568626e9edef7cfb5e6580995749369",
+  "proposal": "/home/name/.hermes/cache/scratch/clear-cd-index-proposal-9r5nfy4z",
+  "core_count": 25,
+  "evidence_count": 88,
+  "final_count": 113,
+  "real_index_empty": true,
+  "euid": 1000,
+  "mixed_index_sha256": {
+    "README.md": "c135be25d82ca690701c3996ae4bcc19326985df1938a789fc9153839d6c77d2",
+    "FILES.md": "4f171ff69776bf5aaa59f00d8027d7e0f20f701c0e91495e69881476ea06c005"
+  },
+  "allowlisted_working_sha256": {
+    "Makefile": "f3e1e2144458a836f95c450c65402678a735839d9734eb3e8aae3d6244fc8a0a",
+    "src/registry.c": "1bb16951fd1885ffbf74e489cbfb00644ed522dc411036fd6e44814f76d5e838",
+    "tests/test_shell.py": "c70198c0056d9f018f34513b0e952d77ffd0039b9bf621c4af4350cf870479b1",
+    "tests/test_shell_module.c": "5f6517f3c8fa4c0663cf8e253fd199581a302e77910d06fe6ddd19b24bd1eccc",
+    "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+    "tests/test_clear.py": "88af200f59aa8d15ea4e16f3c61a8b9fce0aece3a35a6f54e10c8cd681fe03a9",
+    "tests/test_clear_module.c": "8e5d9c3ba17738b3810deda9af008b0dadecc598e89f9e7190ea820196f915e3",
+    "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_cd_module.c": "57159dba1462bd0e56cebdf13f65c99cae364a0e04e1d23bdace6c240461de69",
+    "README.md": "6027b8201f8d9d35ba59c89bc38569c56d36ea9d8d54be454249c3c3c6b72809",
+    "FILES.md": "8fe6b2bc31fa00a9a58b5041bbff3bc6f5bc5a9f7536ec2630235ac094e0b527",
+    "docs/commands/shell.md": "da6ba50c8a2b976031735348afbc65881e8c81bac4ede7ecae4268a82183b7ad",
+    "docs/commands/clear.md": "17fcc410b6593fbd7ba52814d8f0b7c5d17d97a7572df83ade3604008336fecf",
+    "docs/commands/cd.md": "7a9e4439c07fb399cb9f86d6e687d23139b691c282bce8ec8050caedd42c40a8",
+    "docs/reports/clear.md": "76856eedcaa0769d61d60741ed25305a3d1f2cb1e15041492d198c1aa7722dca",
+    "docs/reports/clear-review.md": "c9c3f4fc1d1d30406f78d6d5e1158ec4361c2c7f5126233439082e8a965e4a0f",
+    "docs/reports/cd.md": "cb045ab475827c41a0991665fcf73c01bcb1ff50adae01726855d61ad7ada4f6",
+    "docs/reports/cd-review.md": "eb564e067329951b6a831c88f0455dc49848c4e9cea7fdfd703192c5b417cea1",
+    "docs/reports/cd-fix-review.md": "8ec863eba1e9db0bcf8ff8becb060d1236fdc1ef27a581944deb0cb7addffdff",
+    "docs/reports/clear-cd-integration.md": "dcca81591fe23a707bfa3ce07c09aa92adc2c6b79c9d19b43f736216b6de7306",
+    "logs/commands/cd-review-20261008-205019/evidence.json": "0a502e201476d8338a6abc03a07d38b15aeed67a0b846fac7f1300d5c39d285b"
+  },
+  "new_doc_dependency_paths_excluded": [
+    "docs/COMMAND_ANATOMY.md",
+    "docs/COMMAND_API.md"
+  ]
+}

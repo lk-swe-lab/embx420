@@ -1,0 +1,13 @@
+{
+  "command": [
+    "make",
+    "-B",
+    "test-clear",
+    "test-cd",
+    "test-shell",
+    "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O2"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/clear-cd-final-ifhkpz1n/strict-o2",
+  "environment": {},
+  "status": 0
+}

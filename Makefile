@@ -15,7 +15,7 @@ C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
 CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
 
 .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch
+all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear
 
 build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -71,8 +71,8 @@ test-ls-impl: build/ls build/test_ls_module
 build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c
-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_lines.h
+SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_lines.c
+SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_lines.h
 
 build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -81,11 +81,11 @@ build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEAD
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
 .PHONY: test-shell
-test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch
+test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear
 	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
 	./build/test_shell_module
 
-test: test-shell
+test: test-shell test-clear test-cd
 
 build/cat: src/cat_main.c src/cmd_cat.c src/cmd_cat.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/cat_main.c src/cmd_cat.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -191,6 +191,8 @@ build:
 	mkdir -p $@
 
 clean:
+	$(RM) build/test_cd_module
+	$(RM) build/clear build/test_clear_module
 	$(RM) build/test_shell_module
 	$(RM) build/touch build/test_touch_module
 	$(RM) build/mkdir build/test_mkdir_module
@@ -198,3 +200,22 @@ clean:
 	$(RM) build/stat build/test_stat_module
 	$(RM) build/pwd build/test_pwd_module
 	$(RM) build/main build/cat build/head build/tail build/test_head_module build/test_tail_module build/test_help build/test_recursive build/test_cat build/test_cat_module build/help.stdout build/help.stderr
+
+.PHONY: test-clear
+build/clear: src/clear_main.c src/cmd_clear.c src/cmd_clear.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/clear_main.c src/cmd_clear.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_clear_module: tests/test_clear_module.c src/cmd_clear.c src/cmd_clear.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_clear_module.c src/cmd_clear.c src/cmd_lines.c -Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-clear: build/clear build/test_clear_module build/main
+	python3 tests/test_clear.py --program ./build/clear --main ./build/main
+	./build/test_clear_module
+
+.PHONY: test-cd
+build/test_cd_module: tests/test_cd_module.c src/cmd_cd.c src/cmd_cd.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_cd_module.c src/cmd_cd.c -Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-cd: build/main build/test_cd_module
+	python3 tests/test_cd.py ./build/main
+	./build/test_cd_module

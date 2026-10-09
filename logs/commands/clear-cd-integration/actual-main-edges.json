@@ -1,0 +1,10 @@
+{
+  "command": [
+    "python3",
+    "logs/commands/clear-cd-integration/edges.py",
+    "./build/main"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "environment": {},
+  "status": 0
+}
