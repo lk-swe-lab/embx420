@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, eleven-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, twelve-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -133,3 +133,11 @@
 - tests/test_pwd_module.c — repeated calls, borrowed argv/state and ownership checks.
 - logs/commands/touch-review.log — raw independent touch review evidence.
 - logs/commands/touch-review-integration.log — raw touch integration/regression evidence.
+
+## rg command
+- docs/commands/rg.md — explicit-path regex/literal search usage and limits.
+- src/cmd_rg.c, src/cmd_rg.h — invocation-local read-only search specification.
+- src/rg_main.c — thin standalone rg wrapper.
+- tests/test_rg.py, tests/test_rg_module.c — exact/reference/property and fault/reuse checks.
+- docs/reports/rg-implementation.md — selected contract, TDD and verification.
+- logs/commands/rg-evidence.json — raw commands, stdout/stderr and exit statuses.

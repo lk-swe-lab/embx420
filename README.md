@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs eleven builtin commands directly; no external-command fallback.
+`main` runs twelve builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -46,7 +46,7 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Nine commands also have optional standalone tools in `build/`; `cd` is
+Eleven commands also have optional standalone tools in `build/`; `cd` is
 in-process only, with no standalone executable. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
@@ -63,6 +63,7 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [clear](docs/commands/clear.md) | Clear visible ANSI terminal screen; redirected output is silent | `./build/main help clear` |
 | [cp](docs/commands/cp.md) | mmap file/tree copying; force retry and optional JSON | `./build/main help cp` |
 | [cd](docs/commands/cd.md) | Change physical cwd persistently in the loop | `./build/main help cd` |
+| [rg](docs/commands/rg.md) | Search explicit files/trees; ERE, literals, context and JSON | `./build/main help rg` |
 
 These are selected subsets, not full GNU replacements; also registered builtins.
 Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;

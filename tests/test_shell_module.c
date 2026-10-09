@@ -4,6 +4,7 @@
 #include "../src/cmd_cat.h"   /* cmd_cat_spec. */
 #include "../src/cmd_clear.h" /* cmd_clear_spec. */
 #include "../src/cmd_cd.h"    /* cmd_cd_spec. */
+#include "../src/cmd_rg.h"    /* cmd_rg_spec. */
 #include <assert.h>           /* assert. */
 #include <errno.h>            /* errno, EINTR, ENOMEM. */
 #include <fcntl.h>            /* fcntl, F_GETFD. */
@@ -129,10 +130,11 @@ int main(void)
     assert(find_command("cat") == &cmd_cat_spec);
     assert(find_command("clear") == &cmd_clear_spec);
     assert(find_command("cd") == &cmd_cd_spec);
+    assert(find_command("rg") == &cmd_rg_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 11, registry_capacity = 32 };
+    enum { builtin_count = 12, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;

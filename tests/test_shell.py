@@ -15,8 +15,8 @@ ARGS = PARSER.parse_args()
 PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
-                    'touch', 'clear', 'cp']
-BUILTIN_NAMES = STANDALONE_NAMES + ['cd']
+                    'touch', 'clear', 'cp', 'rg']
+BUILTIN_NAMES = STANDALONE_NAMES[:-1] + ['cd', 'rg']
 SUMMARIES = [
     'Concatenate files to standard output.',
     'Show the first lines of a file or stream.',
@@ -29,6 +29,7 @@ SUMMARIES = [
     'Clear an ANSI-compatible terminal screen.',
     'Copy files and directories.',
     'Change working directory.',
+    'Search explicit files and directories.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -73,6 +74,20 @@ class ShellTests(unittest.TestCase):
         self.assertEqual(self.run_cli(data=b'cp missing copy\n'), failure)
         self.check(data=b'cp data copy\npwd\n',
                    out=os.fsencode(self.cwd) + b'\n')
+
+    def test_rg_integration(self):
+        expected = b'data:2:second\n'
+        self.check(['rg', '-n', 'second', 'data'], out=expected)
+        self.check(data=b'rg -n second data\nrg -n second data\npwd\n',
+                   out=expected * 2 + os.fsencode(self.cwd) + b'\n')
+        self.check(['rg', 'absent', 'data'], status=1)
+        self.check(data=b'rg absent data\nexit\n', status=1)
+        invalid = self.run_cli(['rg', '[', 'data'])
+        self.assertEqual(invalid[0], 2)
+        self.assertTrue(invalid[2])
+        self.assertEqual(self.run_cli(data=b'rg "[" data\nexit\n'), invalid)
+        self.check(data=b'rg "[" data\nrg -n second data\n',
+                   out=expected, err=invalid[2])
 
     def test_touch_integration(self):
         payload = (self.cwd / 'data').read_bytes()
@@ -145,7 +160,8 @@ class ShellTests(unittest.TestCase):
                  'tail': ['-n', '2', 'data'], 'pwd': ['--json'],
                  'stat': ['--json', 'data'], 'ls': ['-a', '--json'],
                  'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data'],
-                 'clear': [], 'cp': ['--json', 'data', 'copy']}
+                 'clear': [], 'cp': ['--json', 'data', 'copy'],
+                 'rg': ['--json', 'second', 'data']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
