@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, nineteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, twenty-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -204,3 +204,14 @@
 - tests/test_echo_review.py — reviewer-owned independent grammar/byte oracle and GNU-compatible fixtures.
 - docs/reports/echo-review.md — independent verdict, executed gates and inherited limits.
 - logs/commands/echo-review-execution.log, logs/commands/echo-review-evidence.json — compact complete reviewer execution streams and command/status/hash ledger.
+
+## date command
+- src/cmd_date.c, src/cmd_date.h — numeric read-only local/UTC clock module and shared parser/help.
+- src/date_main.c — thin standalone wrapper.
+- tests/test_date.py, tests/test_date_module.c — bounded real clock/GNU fixtures, main/PTY, synthetic calendars, state/reuse and faults.
+- docs/commands/date.md — usage, format and deliberate GNU differences.
+- docs/reports/date-implementation.md — manual inventory, selected contract, TDD and executed verification.
+- logs/commands/date-execution.log, logs/commands/date-evidence.json — compact complete streams and command/status/hash ledger.
+- tests/test_date_review.py — independent real/synthetic clock oracle, GNU adapters and mechanism checks.
+- docs/reports/date-review.md — independent verdict, execution gates and diagnosed limits.
+- logs/commands/date-review-execution.log, logs/commands/date-review-evidence.json — complete review streams and command/status/hash ledger.

@@ -1,0 +1,551 @@
+{
+  "head": "08d4bc5b7e26c2016bfc2594dcfd711abd044a37",
+  "commands": [
+    {
+      "stage": "reference",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date"
+      ],
+      "status": 0,
+      "stdout_size": 120,
+      "stderr_size": 0,
+      "stdout_sha256": "70af9e38c85e0e26a17af2b082aa1bf9e3cfd96361a62be0f40940ff1da2db52",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "build-baseline",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "build/date"
+      ],
+      "status": 0,
+      "stdout_size": 226,
+      "stderr_size": 0,
+      "stdout_sha256": "7cd2c11942132d8d4ccb36b3afaca5a405176b5254d0b1a954095f7c37f82c81",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "red-local",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "tests/test_date.py",
+        "./build/date",
+        "--slice",
+        "local"
+      ],
+      "status": 1,
+      "stdout_size": 0,
+      "stderr_size": 561,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0f6c5838726e31a06feeee9cfc59d4308c3e9c6dad6eaeae4256201976bf5c96"
+    },
+    {
+      "stage": "green-local",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "sh",
+        "-c",
+        "make build/date && python3 tests/test_date.py ./build/date --slice local"
+      ],
+      "status": 0,
+      "stdout_size": 292,
+      "stderr_size": 0,
+      "stdout_sha256": "e20c229afb3ff978d02c8c6f8e2b6c231092e94d94b1281fe9717b6260efc50a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "red-utc",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "tests/test_date.py",
+        "./build/date"
+      ],
+      "status": 1,
+      "stdout_size": 0,
+      "stderr_size": 578,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7898022dc49c38579c228465e22d0ae332d81106e973e91882d49baf01537199"
+    },
+    {
+      "stage": "green-utc-parser",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 2,
+      "stdout_size": 266,
+      "stderr_size": 642,
+      "stdout_sha256": "47f45a8e52e6838a0171a92c94b29f35d323c31b9b8d797e9242df207c2f389c",
+      "stderr_sha256": "f893d0b7d7484155be167c827c530e0da9f864673417b40777326469bf3e8cf4"
+    },
+    {
+      "stage": "green-utc-parser-fixed",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 0,
+      "stdout_size": 333,
+      "stderr_size": 0,
+      "stdout_sha256": "be0e962c8ffd6f633676b8562fe4174a2b32cd48b87314bc461c800e9e963e1c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "synthetic-fault-characterization",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 0,
+      "stdout_size": 1064,
+      "stderr_size": 0,
+      "stdout_sha256": "837069eec6294a8aa2723039f8996c4fe6041d5d9de01cf7aa57f8e2622fe0b1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "red-main-dispatch",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 2,
+      "stdout_size": 1445,
+      "stderr_size": 614,
+      "stdout_sha256": "ca3f6a5a1b15bafbfd34610e48e5f38c15b3a825c322631ef5fa9617904ca9b3",
+      "stderr_sha256": "7927f5228d7e3f3fb26325e1830c8b8bbc02bb882d50ac67ed28d320703ba503"
+    },
+    {
+      "stage": "green-main-dispatch-loop-pty",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 0,
+      "stdout_size": 1667,
+      "stderr_size": 0,
+      "stdout_sha256": "aa12f3bc460315959ee5c2adacbb8f386d09e67f7e967d4e21034be3db686c36",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "research-primary",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "../research.py"
+      ],
+      "status": 0,
+      "stdout_size": 23753,
+      "stderr_size": 0,
+      "stdout_sha256": "9ac5318da3f5681eeacb0f13f77fad39fd140ea5c3cbdad72edc36f1fba8fade",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "reference-final",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date"
+      ],
+      "status": 0,
+      "stdout_size": 120,
+      "stderr_size": 0,
+      "stdout_sha256": "223f0051fb45e299b67760e9a6142ab3291285bbe0d23aed6fc73b308523db7e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "fault-and-partial-final",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "test-date-impl"
+      ],
+      "status": 0,
+      "stdout_size": 1683,
+      "stderr_size": 0,
+      "stdout_sha256": "b8a944b591eab905dcc6976f8a8de553ae49c07bb8cf56d90c9933329bfec088",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "mutants",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "../negatives.py"
+      ],
+      "status": 0,
+      "stdout_size": 5031,
+      "stderr_size": 0,
+      "stdout_sha256": "6aaa4c776dc4fe2cc5c111e12a8d514f2449b6aa7965f72a6ca7643b32b647dc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "scoped-format-apply",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_date.c",
+        "src/cmd_date.h",
+        "src/date_main.c",
+        "tests/test_date_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "full-normal",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "all",
+        "test"
+      ],
+      "status": 0,
+      "stdout_size": 41985,
+      "stderr_size": 30891,
+      "stdout_sha256": "64098b479ff40621307508b4be8d4dc023d2f43b471381f4fd2ae35c1f8dce79",
+      "stderr_sha256": "f26b9801f474207b9130f3efe01c91323ab653116483c98ae42c0c66ae390975"
+    },
+    {
+      "stage": "lint",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": 2,
+      "stdout_size": 2679,
+      "stderr_size": 8579,
+      "stdout_sha256": "7af1b475a17f648e15074b6eab90adf9e5018869d1b27403663f4b3759a0a7c1",
+      "stderr_sha256": "5408051759e984b65d1e2aa592e8dd6539c219958c46b45282e6f1453a9b2a2a"
+    },
+    {
+      "stage": "scoped-format",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_date.c",
+        "src/cmd_date.h",
+        "src/date_main.c",
+        "tests/test_date_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "global-format",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "format-check"
+      ],
+      "status": 2,
+      "stdout_size": 1824,
+      "stderr_size": 15095,
+      "stdout_sha256": "4be1b705d5ad654fe9ec88827f9b3801671ab92631ea2e457205c4a51cc19bd8",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "stage": "lint-probe",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "sh",
+        "-c",
+        "clang-tidy --version; cc -std=c17 -Ibuild/argtable3/include -E tests/test_date_module.c >../module-preprocessed.c; clang-tidy --checks=\"-*,clang-analyzer-valist.Uninitialized\" --warnings-as-errors=\"*\" tests/test_date_module.c -- -std=c17 -Ibuild/argtable3/include"
+      ],
+      "status": 0,
+      "stdout_size": 46,
+      "stderr_size": 0,
+      "stdout_sha256": "cfb9286322cccef53a692448cf4007a998d186dfb8e8313d317390a95eeb10f1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "lint-probe-all",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint",
+        "C_SOURCES=tests/test_date_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 309,
+      "stderr_size": 67,
+      "stdout_sha256": "e2449371a9ce7f31fc662ae411c38fb64a9a9b535ceefec57c429c224487c9f6",
+      "stderr_sha256": "4cb7e7191064910d952b43a72c8d6cde069d2be66280e9dc731415e4684fa3a7"
+    },
+    {
+      "stage": "lint-reproduce",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": 2,
+      "stdout_size": 2679,
+      "stderr_size": 8579,
+      "stdout_sha256": "7af1b475a17f648e15074b6eab90adf9e5018869d1b27403663f4b3759a0a7c1",
+      "stderr_sha256": "5408051759e984b65d1e2aa592e8dd6539c219958c46b45282e6f1453a9b2a2a"
+    },
+    {
+      "stage": "lint-two-tu",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint",
+        "C_SOURCES=src/cmd_date.c tests/test_date_module.c"
+      ],
+      "status": 2,
+      "stdout_size": 1355,
+      "stderr_size": 362,
+      "stdout_sha256": "e583d02759cbb9bcd89fdd8fa9a58f430bd4bd6afa0f13e412012adcf27fb592",
+      "stderr_sha256": "17210beb23cd2cb3c273c47377567c64fb4af9286c6bdbf8abf78905f04e5765"
+    },
+    {
+      "stage": "lint-order-probe",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint",
+        "C_SOURCES=tests/test_date_module.c src/cmd_date.c"
+      ],
+      "status": 0,
+      "stdout_size": 324,
+      "stderr_size": 316,
+      "stdout_sha256": "a05b8e7ccb086ae6a3c971a58351a167ad3aff7f9b02e64d5b5fa909923b1750",
+      "stderr_sha256": "d60bff679688a143bef73cd5ce0d856ab1744fdf819ade3fcfe56b0d3852d48a"
+    },
+    {
+      "stage": "formatting-after-probe",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "-i",
+        "tests/test_date_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "lint-final",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "status": 0,
+      "stdout_size": 1648,
+      "stderr_size": 8495,
+      "stdout_sha256": "4bca7b50b3fd58b629e30a16978e663125b5771a72417b2d72d7d66960b2d662",
+      "stderr_sha256": "fa82b4986ad17b3ae71abc9033698549a968e1f107d2068cb4bf147383be00d1"
+    },
+    {
+      "stage": "baseline-global-format",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/baseline",
+      "command": [
+        "make",
+        "format-check"
+      ],
+      "status": 2,
+      "stdout_size": 1753,
+      "stderr_size": 15095,
+      "stdout_sha256": "afc0b000ae394b7ba9d1650bb9f0eebbfe6089d795d848d0587fc9dcf5442b18",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "stage": "baseline-optimized-sanitizer",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/baseline",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "status": 2,
+      "stdout_size": 11593,
+      "stderr_size": 4267,
+      "stdout_sha256": "cc1b69893ef95f2a5130a14d5bbb805a83793adba572e7e4932ee9b15eac7a61",
+      "stderr_sha256": "42def1f4127c8e4e15840fb94ab37dfeb1dde4e98a59b81fe34b60ef880837b9"
+    },
+    {
+      "stage": "full-default-sanitizer",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate-asan",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "status": 0,
+      "stdout_size": 46615,
+      "stderr_size": 30891,
+      "stdout_sha256": "637cf594799ae0c8b3c296a350e9c7472e4783f2ad7753d902c15f923872d021",
+      "stderr_sha256": "964cf2d1760723da4c56348b2f0d58463643f402a06690d0944a7e324f9bcf6a"
+    },
+    {
+      "stage": "baseline-clean",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/baseline",
+      "command": [
+        "make",
+        "clean"
+      ],
+      "status": 0,
+      "stdout_size": 1001,
+      "stderr_size": 0,
+      "stdout_sha256": "db05a173a2ddd29797f95ee2b490950b78423f0fa25c885c6f08d037d5791d96",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "baseline-default-sanitizer",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/baseline",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "status": 0,
+      "stdout_size": 45143,
+      "stderr_size": 30891,
+      "stdout_sha256": "6ec3d043d6ae076205b258ab19092dd5ee4bd580dfc7e43e753a02bc67107f5e",
+      "stderr_sha256": "9190ae7d2d5446ed489dfd10c93047d79df07a85428e31f91d1e41dfd6642ea1"
+    },
+    {
+      "stage": "final-mutants",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "../negatives.py"
+      ],
+      "status": 0,
+      "stdout_size": 5031,
+      "stderr_size": 0,
+      "stdout_sha256": "6aaa4c776dc4fe2cc5c111e12a8d514f2449b6aa7965f72a6ca7643b32b647dc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "preservation-format-audit",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "../audit.py"
+      ],
+      "status": 1,
+      "stdout_size": 0,
+      "stderr_size": 286,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "986680989f74566287be4e92be3850ffc8d151ac2360c757813d789f51efd838"
+    },
+    {
+      "stage": "final-scoped-format",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_date.c",
+        "src/cmd_date.h",
+        "src/date_main.c",
+        "tests/test_date_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "include-format",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_date.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "preservation-audit-fixed",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "python3",
+        "../audit.py"
+      ],
+      "status": 0,
+      "stdout_size": 284,
+      "stderr_size": 0,
+      "stdout_sha256": "ff580e41755a5d4428924cb9961e518c04df8e7546d19f83b51bf256975c1b9d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "stage": "format-width-fixed",
+      "cwd": "/home/name/.hermes/cache/scratch/date-08d4bc5-implementation/candidate",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_date.c",
+        "src/cmd_date.h",
+        "src/date_main.c",
+        "tests/test_date_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "status": 0,
+      "stdout_size": 0,
+      "stderr_size": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "contract": "# date selection and test contract (before tests)\n\nBase: 08d4bc5b7e26c2016bfc2594dcfd711abd044a37; isolated archive only.\nCourse SQLite: data/02/CLI_Tools.docx paragraphs 233\u2013235: show system time,\n-h/--help. Human-tool JSON optional; omitted.\n\n## Manual catalogue\n\nGNU coreutils installed date 9.4, date(1); official date invocation manual,\nand the actual installed --help/version, inspected before selection.\nSource: https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html\n\n- Display now in local timezone: keep purpose; replace locale-dependent GNU\n  default with numeric YYYY-MM-DDTHH:MM:SS plus LF (no offset).\n- -u/--utc/--universal: keep all aliases; numeric UTC suffix Z plus LF.\n- --help: keep; course -h also accepted. Invalid arguments take precedence.\n- --version: defer; no packaging/version workflow.\n- -d/--date STRING, -f/--file DATEFILE, -r/--reference FILE, --resolution:\n  defer; current-clock-only scope, no parsing/file-time/resolution workflow.\n  GNU display selectors are mutually exclusive.\n- -s/--set STRING and MMDDhhmm[[CC]YY][.ss] operand: defer; never set clock.\n- --debug: defer with date parsing.\n- -I[FMT]/--iso-8601[=FMT] (date/hours/minutes/seconds/ns), -R/--rfc-email,\n  --rfc-3339=FMT (date/seconds/ns): defer; one stable format only.\n- +FORMAT: defer broad formatting language. GNU supports literal %, weekday/\n  month names, locale date/time, year/century/ISO year, month/day/day-of-year,\n  hour/minute/second/nanosecond, epoch, quarter, AM/PM, weeks/weekdays, newline/\n  tab and timezone directives; %-/_/0/+ /^/# flags, field widths, E/O modifiers.\n  These are not silently supported. GNU defaults zero-pad numeric directives.\n- GNU stdout date/help/version, stderr diagnostics, zero success/nonzero failure:\n  retain streams; project exact statuses 0 success, 1 operational, 2 syntax.\n- GNU locale and TZ influence display; project numeric digits independent of\n  locale. Local timezone from libc TZ/default configuration. UTC uses gmtime_r,\n  never setenv/unsetenv/putenv. Local calls tzset to refresh libc cache, not TZ\n  contents. This is not a promise to preserve libc internal timezone caches.\n\n## Selected behavior and limits\n\nNo operands, JSON, custom format, setting, parsing or environmental updates.\nBare -- accepted, subsequent operands rejected; duplicate flags accepted.\nArgtable3 defines parse/help. Host argv strings/pointers and exported getopt\nvalues preserved; private getopt scan/thread safety not promised. Stdin and\nborrowed fds/cwd/signal dispositions untouched. No owned fds. Parser constructors\nand module malloc failure return 1; Argtable internal panic/OOM separate limit.\nRead CLOCK_REALTIME once after valid parse, never for help/errors. Use timespec\nseconds as time_t, allow negative epochs. Conversion failure and years outside\n0000..9999 are errors, no stdout. Numeric snprintf, no strftime dependency.\nValidate calendar ranges before arithmetic; tm_sec 60 can be rendered if libc\nprovides it. POSIX realtime normally ignores leap seconds; no leap-count model.\nDiscard subseconds; system clock can jump; no monotonicity promise. Local default\nis deliberately offset-less/ambiguous at DST folds; use UTC for unique timestamps.\nOutput retry: short writes/EINTR, zero-write -> EIO, errors return 1; an emitted\nprefix cannot be rolled back. Inherited SIGPIPE may terminate process. Explicit\nhelp flush checks stream error and clears failure for subsequent module calls.\nUsage callback is void, reports allocation error on its borrowed output stream.\n\n## Planned slices and acceptance\n\n1. Runnable invalid-vector baseline -> valid local clock bytes (synthetic epoch,\n   bounded real-clock interval, actual GNU +selected format independent oracle).\n2. UTC aliases/help/parser -> GNU selected-format adapter; invalid operands/flags,\n   help precedence, --, POSIXLY_CORRECT, no clock call on help/errors.\n3. Conversion/clock/range/leap failures, output retry/failure and malloc/constructor\n   seams -> reused module, malformed vectors, pointer permutation, getopt sentinels,\n   borrowed stdin/fds/cwd/environment/TZ unchanged, help output failure recovery.\n4. Registry/main discovery/help/dispatch, repeated piped and real child-owned PTY\n   stdin/stdout, inventory/parity/capacity, build/test/lint/scoped format.\n5. Freeze HEAD patch/manifest, apply into fresh archive, normal full regression\n   and default O0 non-PIE ASan/UBSan full regression, per-checkout TMPDIR.\n\nSix inherited global-format issues and inherited optimized sanitizer-fault\nlimitations remain separate; no rmdir queries/tests, no shared modifications,\nAI_LOG/wiki/push/stage/commit. Original 1237-path preservation plus task inventory\nchecked before delivery; dependency hashes and exact allowlist recorded externally.\n",
+  "scripts": {
+    "run.py": "#!/usr/bin/env python3\n\"\"\"Capture full command streams without inheriting secret environment values.\"\"\"\nimport fcntl\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport subprocess\nimport sys\nBASE = Path(__file__).resolve().parent\nstage, checkout, *command = sys.argv[1:]\nroot = BASE / checkout\nscratch = BASE / ('tmp-' + checkout)\nscratch.mkdir(exist_ok=True)\nenv = {'PATH': '/home/name/.local/bin:/usr/bin:/bin', 'HOME': '/home/name',\n       'LC_ALL': 'C', 'TZ': 'UTC0', 'TMPDIR': str(scratch),\n       'ASAN_OPTIONS': 'detect_leaks=1:abort_on_error=1',\n       'UBSAN_OPTIONS': 'halt_on_error=1:print_stacktrace=1'}\nr = subprocess.run(command, cwd=root, env=env, stdout=subprocess.PIPE,\n                   stderr=subprocess.PIPE, timeout=550)\nlog = BASE / 'execution.log'\nlock = (BASE / 'evidence.lock').open('a')\nfcntl.flock(lock, fcntl.LOCK_EX)\nwith log.open('ab') as f:\n    f.write(('\\n=== ' + stage + ' ===\\nCWD ' + str(root) + '\\nCMD ' +\n             repr(command) + '\\nSTDOUT\\n').encode())\n    f.write(r.stdout)\n    f.write(b'\\nSTDERR\\n' + r.stderr + ('\\nSTATUS ' + str(r.returncode) + '\\n').encode())\nledger = BASE / 'ledger.json'\ndata = json.loads(ledger.read_text()) if ledger.exists() else []\ndata.append({'stage': stage, 'cwd': str(root), 'command': command,\n             'status': r.returncode, 'stdout_size': len(r.stdout),\n             'stderr_size': len(r.stderr),\n             'stdout_sha256': hashlib.sha256(r.stdout).hexdigest(),\n             'stderr_sha256': hashlib.sha256(r.stderr).hexdigest()})\nledger.write_text(json.dumps(data, indent=2) + '\\n')\nprint(stage, 'status', r.returncode, 'stdout bytes', len(r.stdout),\n      'stderr bytes', len(r.stderr))\nprint((r.stdout + r.stderr)[-5000:].decode(errors='backslashreplace'))\nraise SystemExit(r.returncode)\n",
+    "research.py": "#!/usr/bin/env python3\n\"\"\"Inspect primary API/manual pages already downloaded, without execution.\"\"\"\nfrom html.parser import HTMLParser\nfrom pathlib import Path\nclass Text(HTMLParser):\n    def __init__(self):\n        super().__init__()\n        self.parts = []\n    def handle_data(self, data):\n        self.parts.append(data)\nbase = Path(__file__).resolve().parent\nfor name in ['gnu', 'clock', 'local', 'utc']:\n    p = Text()\n    p.feed((base / (name + '.html')).read_text())\n    text = ' '.join(' '.join(p.parts).split())\n    print(name, text)\n",
+    "negatives.py": "#!/usr/bin/env python3\n\"\"\"Fresh scratch-only behavioral mutants; require defect-specific markers.\"\"\"\nimport os\nfrom pathlib import Path\nimport subprocess\nBASE = Path(__file__).resolve().parent\nROOT = Path.cwd()\nsource = (ROOT / 'src/cmd_date.c').read_text()\nflags = ['-std=c17', '-Wall', '-Wextra', '-Wpedantic', '-Wformat=2', '-g3', '-O0',\n         '-Isrc', '-Ibuild/argtable3/include']\nwrap = '-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write,' + \\\n       '--wrap=clock_gettime,--wrap=gmtime_r,--wrap=localtime_r,--wrap=snprintf'\nvariants = [\n    ('utc-ignored', 'emit(((struct arg_lit *)table[UTC])->count != 0)',\n     'emit(0)', b'DATE_OUTPUT_LENGTH'),\n    ('caller-argv', 'arg_parse(argc, copy, table)',\n     'arg_parse(argc, argv, table)', b'DATE_ARGV_POINTER'),\n    ('getopt-state', 'optind = saved_optind;',\n     '(void)saved_optind;', b'DATE_GETOPT'),\n    ('bad-calendar', 'calendar.tm_mon < 0 || calendar.tm_mon > 11 ||',\n     '0 ||', b'DATE_STATUS'),\n    ('output-ignored', 'return lines_write((const unsigned char *)output, (size_t)length);',\n     '(void)lines_write((const unsigned char *)output, (size_t)length);\\n    return 0;',\n     b'DATE_STATUS'),\n]\nfor name, old, new, marker in variants:\n    assert source.count(old) == 1\n    mutant = BASE / (name + '.c')\n    mutant.write_text(source.replace(old, new))\n    obj = BASE / (name + '.o')\n    binary = BASE / name\n    compile_cmd = ['cc', *flags, '-Dmalloc=date_test_malloc', '-Dfree=date_test_free',\n                   '-c', str(mutant), '-o', str(obj)]\n    link_cmd = ['cc', *flags, 'tests/test_date_module.c', str(obj),\n                'src/cmd_lines.c', wrap, '-Lbuild/argtable3/lib', '-largtable3',\n                '-lm', '-o', str(binary)]\n    for command in [compile_cmd, link_cmd]:\n        r = subprocess.run(command, capture_output=True, timeout=30)\n        print('COMMAND', command, 'STATUS', r.returncode)\n        print(r.stdout.decode(errors='backslashreplace'))\n        print(r.stderr.decode(errors='backslashreplace'))\n        assert r.returncode == 0, 'mutant setup failure'\n    r = subprocess.run([str(binary)], capture_output=True, timeout=30)\n    print('RUN', name, 'STATUS', r.returncode, 'STDOUT', repr(r.stdout),\n          'STDERR', repr(r.stderr))\n    assert r.returncode != 0 and marker in r.stderr, (name, marker, r)\nprint('Five genuine behavioral mutants rejected with intended markers.')\n",
+    "audit.py": "#!/usr/bin/env python3\n\"\"\"Authenticate fixed inventories, HEAD and unchanged checkout anchors.\"\"\"\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport re\nimport subprocess\nBASE = Path(__file__).resolve().parent\nSHARED = Path('/home/name/Documents/420-EMBDX/A')\nHEAD = '08d4bc5b7e26c2016bfc2594dcfd711abd044a37'\n\ndef fingerprint(path):\n    if path.is_symlink():\n        return {'link': os.readlink(path)}\n    if path.is_file():\n        return {'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),\n                'mode': path.stat().st_mode}\n    return {'absent': True}\n\nassert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=SHARED).decode().strip() == HEAD\nassert not subprocess.check_output(['git', 'diff', '--cached', '--name-only'], cwd=SHARED)\nresults = []\nfor inventory in [BASE / 'shared-inventory.json',\n                  Path('/home/name/.hermes/cache/scratch/echo-index-20261009-120259/preservation-before.json')]:\n    saved = json.loads(inventory.read_text())\n    changed = []\n    for name, before in saved.items():\n        now = fingerprint(SHARED / name)\n        if before != now:\n            changed.append({'path': name, 'before': before, 'after': now})\n    results.append({'inventory': str(inventory), 'count': len(saved),\n                    'changed': changed})\n    assert not changed, changed\nlog = (BASE / 'execution.log').read_bytes()\n# Exact candidate and baseline format diagnostics must be identical.\nsegments = log.split(b'\\n=== ')\nformats = {}\nfor segment in segments:\n    stage = segment.split(b' ===', 1)[0].decode(errors='replace')\n    if stage in ['global-format', 'baseline-global-format']:\n        stderr = segment.split(b'\\nSTDERR\\n', 1)[1].rsplit(b'\\nSTATUS ', 1)[0]\n        formats[stage] = stderr\nassert formats['global-format'] == formats['baseline-global-format']\npaths = sorted(set(re.findall(rb'(?m)^([^\\n:]+):\\d+:\\d+: error:', formats['global-format'])))\nassert len(paths) == 6, paths\nallow = (BASE / 'allowlist.txt').read_text().splitlines()\nfor name in allow:\n    if name.endswith(('.c', '.h')):\n        lines = (BASE / 'candidate' / name).read_bytes().split(b'\\n')\n        assert all(len(line) <= 80 for line in lines), name\nprint('HEAD and empty shared index authenticated.')\nprint('Preservation:', [(r['count'], len(r['changed'])) for r in results])\nprint('Six identical inherited format paths:', [p.decode() for p in paths])\nprint('Changed C/header 80-column bound passed.')\n(BASE / 'preservation-result.json').write_text(json.dumps(results, indent=2) + '\\n')\n"
+  },
+  "source_sha256": {
+    "src/registry.c": "7b687a15a1e9b8a8d071a1c01c65adfcb19bfdb3111b0bea753319f0695f9c25",
+    "src/cmd_date.c": "c95c788b4575037eea95e38b582e55174d8ac5dc7e78aacc6d7f67e88eca12cf",
+    "src/cmd_date.h": "5c9afac6814d0af0db549e21e9906cf842f3c678cbd5da48db935d076d355511",
+    "src/date_main.c": "76e8eb1badbede4cbe88b9ac137604ca83918533428e56496ea6db9471e17777",
+    "tests/test_date.py": "979deed91d814af1fb95a52a4c79195bb487b5607cc40fb9feec67e18c088282",
+    "tests/test_date_module.c": "a315a7812fb64140d06b153f783d3fa2b3196dd7a37e6bbd79f06c7afa0b69d3",
+    "tests/test_shell.py": "92c3b6261bb15163704d86fd177a75c2d77347953663724d19484539d177c7a5",
+    "tests/test_shell_module.c": "ee57c5e89e4b3eb916b229387a39e8169be93f7910183d5b58f9175b2bea5a6b"
+  }
+}

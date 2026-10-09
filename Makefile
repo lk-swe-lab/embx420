@@ -15,7 +15,7 @@ C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
 CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
 
 .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo
+all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo build/date
 
 build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -71,8 +71,8 @@ test-ls-impl: build/ls build/test_ls_module
 build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c src/cmd_edit_delete_line.c src/cmd_edit_replace.c src/cmd_mv.c src/cmd_env.c src/cmd_echo.c
-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h src/cmd_edit_delete_line.h src/cmd_edit_replace.h src/cmd_mv.h src/cmd_env.h src/cmd_echo.h
+SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c src/cmd_edit_delete_line.c src/cmd_edit_replace.c src/cmd_mv.c src/cmd_env.c src/cmd_echo.c src/cmd_date.c
+SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h src/cmd_edit_delete_line.h src/cmd_edit_replace.h src/cmd_mv.h src/cmd_env.h src/cmd_echo.h src/cmd_date.h
 
 build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -81,7 +81,7 @@ build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEAD
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
 .PHONY: test-shell
-test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo
+test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo build/date
 	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
 	./build/test_shell_module
 
@@ -191,6 +191,7 @@ build:
 	mkdir -p $@
 
 clean:
+	$(RM) build/date build/test_date_module build/cmd_date_test.o
 	$(RM) build/echo build/test_echo_module build/cmd_echo_test.o
 	$(RM) build/env build/test_env_module build/cmd_env_test.o
 	$(RM) build/mv build/test_mv_module build/cmd_mv_test.o
@@ -358,3 +359,22 @@ test-echo-impl: build/echo build/main build/test_echo_module
 	./build/test_echo_module
 
 test: test-echo-impl
+
+.PHONY: test-date test-date-impl
+build/date: src/date_main.c src/cmd_date.c src/cmd_date.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/date_main.c src/cmd_date.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-date:
+	python3 tests/test_date.py /usr/bin/date --reference
+
+build/cmd_date_test.o: src/cmd_date.c src/cmd_date.h src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=date_test_malloc -Dfree=date_test_free -c -o $@ src/cmd_date.c
+
+build/test_date_module: tests/test_date_module.c build/cmd_date_test.o src/cmd_lines.c src/cmd_lines.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_date_module.c build/cmd_date_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write,--wrap=clock_gettime,--wrap=gmtime_r,--wrap=localtime_r,--wrap=snprintf $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-date-impl: build/date build/main build/test_date_module
+	python3 tests/test_date.py ./build/date --main ./build/main
+	./build/test_date_module
+
+test: test-date-impl

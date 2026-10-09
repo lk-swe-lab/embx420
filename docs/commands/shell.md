@@ -4,7 +4,7 @@
 ./build/main                 # Interactive when stdin is a terminal
 ./build/main pwd             # One-shot; arguments from the calling shell
 ./build/main head -n 2 FILE
-./build/main --help          # Nineteen builtins; see the README command index
+./build/main --help          # Twenty builtins; see the README command index
 ./build/main help touch      # Usage; also: main touch --help
 ```
 
