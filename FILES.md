@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, sixteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, seventeen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -173,3 +173,14 @@
 - logs/commands/edit-insert-line-review-execution.log, logs/commands/edit-insert-line-review-evidence.json — independent complete streams, command/status/hash ledger and reproduction scripts.
 - docs/reports/edit-delete-line-review.md — independent source review, exhaustive byte oracle and delivery limits.
 - logs/commands/edit-delete-line-review-execution.log, logs/commands/edit-delete-line-review-evidence.json — complete independent streams, command/status/hash ledger and reproduction scripts.
+
+## mv delivery
+- docs/commands/mv.md — same-filesystem rename usage and limits.
+- src/cmd_mv.c, src/cmd_mv.h — invocation-local rename, force and JSON specification.
+- src/mv_main.c — thin standalone mv wrapper.
+- tests/test_mv.py, tests/test_mv_module.c — independent reference/project, namespace, reuse and fault checks.
+- docs/reports/mv-implementation.md — manual inventory, selected contract, TDD and executed verification.
+- logs/commands/mv-execution.log, logs/commands/mv-evidence.json — full raw streams and structured execution ledger.
+- tests/test_mv_review.py — independent entry-type, force, namespace and byte-path oracle.
+- docs/reports/mv-review.md — independent source review, executed gates and limits.
+- logs/commands/mv-review-execution.log, logs/commands/mv-review-evidence.json — complete review streams and command/status ledger.

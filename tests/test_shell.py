@@ -16,7 +16,7 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line', 'edit-replace']
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -35,6 +35,7 @@ SUMMARIES = [
     'Insert one line using staged file editing.',
     'Delete one existing line using staged file editing.',
     'Replace all matches using staged file editing.',
+    'Move files and directories.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -65,6 +66,60 @@ class ShellTests(unittest.TestCase):
 
     def check(self, args=(), data=b'', status=0, out=b'', err=b''):
         self.assertEqual(self.run_cli(args, data), (status, out, err))
+
+    def test_mv_registry_loop_and_pty(self):
+        payload = (self.cwd / 'data').read_bytes()
+        expected = b'{"source":"data","destination":"two words","status":"ok"}\n'
+        self.check(['mv', '--json', 'data', 'two words'], out=expected)
+        self.assertFalse((self.cwd / 'data').exists())
+        self.assertEqual((self.cwd / 'two words').read_bytes(), payload)
+        self.check(data=b'mv "two words" data\nmv data moved\n'
+                   b'mv moved data\npwd\n', out=os.fsencode(self.cwd) + b'\n')
+        self.assertEqual((self.cwd / 'data').read_bytes(), payload)
+        failure = self.run_cli(['missing', 'dest'], binary=STANDALONE / 'mv')
+        self.assertEqual(failure[0], 1)
+        self.assertEqual(self.run_cli(['mv', 'missing', 'dest']), failure)
+        self.assertEqual(self.run_cli(data=b'mv missing dest\nexit\n'), failure)
+        self.assertEqual(self.run_cli(['help', 'mv']),
+                         self.run_cli(['--help'], binary=STANDALONE / 'mv'))
+        import pty
+        import select
+        import termios
+        master, slave = pty.openpty()
+        settings = termios.tcgetattr(slave)
+        settings[3] &= ~termios.ECHO
+        termios.tcsetattr(slave, termios.TCSANOW, settings)
+        proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
+                                stderr=subprocess.PIPE, cwd=self.cwd)
+        os.close(slave)
+        try:
+            os.write(master, b'mv data "pty moved"\n'
+                     b'mv "pty moved" data\npwd\nexit\n')
+            out = b''
+            import time
+            deadline = time.monotonic() + 5
+            while time.monotonic() < deadline:
+                ready, _, _ = select.select([master], [], [], 0.05)
+                if ready:
+                    try:
+                        chunk = os.read(master, 4096)
+                    except OSError:
+                        break
+                    if not chunk:
+                        break
+                    out += chunk
+                elif proc.poll() is not None:
+                    break
+            _, err = proc.communicate(timeout=2)
+            self.assertEqual((proc.returncode, out, err),
+                             (0, os.fsencode(self.cwd) + b'\r\n', b'main> ' * 4))
+            self.assertEqual((self.cwd / 'data').read_bytes(), payload)
+            self.assertFalse((self.cwd / 'pty moved').exists())
+        finally:
+            os.close(master)
+            if proc.poll() is None:
+                proc.kill()
+                proc.communicate()
 
     def test_cp_integration(self):
         payload = (self.cwd / 'data').read_bytes()
@@ -480,18 +535,28 @@ class ShellTests(unittest.TestCase):
                  'edit-replace-line': ['--json', 'data', '2', 'replacement'],
                  'edit-insert-line': ['--json', 'data', '2', 'insertion'],
                  'edit-delete-line': ['--json', 'data', '2'],
-                 'edit-replace': ['--json', 'data', 'first|third', 'replacement']}
+                 'edit-replace': ['--json', 'data', 'first|third', 'replacement'],
+                 'mv': ['--json', 'move-source', 'move-target']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
                 edited = b''
                 if name == 'edit-replace':
                     (self.cwd / 'data').write_bytes(b'first\nthird')
+                if name == 'mv':
+                    (self.cwd / 'move-source').write_bytes(b'move')
                 expected = self.run_cli(args, binary=STANDALONE / name)
+                if name == 'mv':
+                    self.assertEqual((self.cwd / 'move-target').read_bytes(), b'move')
+                    (self.cwd / 'move-target').unlink()
+                    (self.cwd / 'move-source').write_bytes(b'move')
                 if name == 'edit-replace':
                     edited = (self.cwd / 'data').read_bytes()
                     (self.cwd / 'data').write_bytes(b'first\nthird')
                 self.assertEqual(self.run_cli([name, *args]), expected)
+                if name == 'mv':
+                    self.assertFalse((self.cwd / 'move-source').exists())
+                    self.assertEqual((self.cwd / 'move-target').read_bytes(), b'move')
                 if name == 'edit-replace':
                     self.assertEqual((self.cwd / 'data').read_bytes(), edited)
                 invalid = ['--not-an-option']
