@@ -8,6 +8,7 @@
 #include "../src/cmd_edit_replace_line.h" /* cmd_edit_replace_line_spec. */
 #include "../src/cmd_edit_insert_line.h"  /* cmd_edit_insert_line_spec. */
 #include "../src/cmd_edit_delete_line.h"  /* cmd_edit_delete_line_spec. */
+#include "../src/cmd_edit_replace.h"      /* cmd_edit_replace_spec. */
 #include <assert.h>                       /* assert. */
 #include <errno.h>                        /* errno, EINTR, ENOMEM. */
 #include <fcntl.h>                        /* fcntl, F_GETFD. */
@@ -137,10 +138,11 @@ int main(void)
     assert(find_command("edit-replace-line") == &cmd_edit_replace_line_spec);
     assert(find_command("edit-insert-line") == &cmd_edit_insert_line_spec);
     assert(find_command("edit-delete-line") == &cmd_edit_delete_line_spec);
+    assert(find_command("edit-replace") == &cmd_edit_replace_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 15, registry_capacity = 32 };
+    enum { builtin_count = 16, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;

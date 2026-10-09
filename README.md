@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs fifteen builtin commands directly; no external-command fallback.
+`main` runs sixteen builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -46,7 +46,7 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Fourteen commands also have optional standalone tools in `build/`; `cd` is
+Fifteen commands also have optional standalone tools in `build/`; `cd` is
 in-process only, with no standalone executable. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
@@ -67,6 +67,7 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [edit-replace-line](docs/commands/edit-replace-line.md) | Replace one existing line through staged editing; optional JSON | `./build/main help edit-replace-line` |
 | [edit-insert-line](docs/commands/edit-insert-line.md) | Insert before a line or append through staged editing; optional JSON | `./build/main help edit-insert-line` |
 | [edit-delete-line](docs/commands/edit-delete-line.md) | Delete one existing line through staged editing; optional JSON | `./build/main help edit-delete-line` |
+| [edit-replace](docs/commands/edit-replace.md) | Global ERE/literal replacement through staged editing; optional JSON | `./build/main help edit-replace` |
 
 These are selected subsets, not full GNU replacements; also registered builtins.
 Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;
@@ -76,6 +77,8 @@ final delivery remains conditional. See [integration evidence](docs/reports/clea
 `edit-insert-line` [independent review](docs/reports/edit-insert-line-review.md)
 passes the selected contract; exact-index delivery remains a separate gate.
 `edit-delete-line` [independent review](docs/reports/edit-delete-line-review.md)
+passes the selected contract; exact-index delivery remains a separate gate.
+`edit-replace` [independent review](docs/reports/edit-replace-review.md)
 passes the selected contract; exact-index delivery remains a separate gate.
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 

@@ -16,7 +16,7 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line']
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -34,6 +34,7 @@ SUMMARIES = [
     'Replace one existing line using staged file editing.',
     'Insert one line using staged file editing.',
     'Delete one existing line using staged file editing.',
+    'Replace all matches using staged file editing.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -319,6 +320,76 @@ class ShellTests(unittest.TestCase):
                 proc.wait(timeout=2)
             os.close(master)
 
+
+    def test_edit_replace_integration(self):
+        expected = b'{"path":"data","matches":1,"replacements":1}\n'
+        self.check(['edit-replace', '--json', 'data', 'second', 'one'], out=expected)
+        self.assertEqual((self.cwd / 'data').read_bytes(), b'first\none\nthird\n')
+        failure = self.run_cli(['edit-replace', 'data', '[', 'bad'])
+        self.assertEqual(failure[0], 2)
+        self.assertEqual(self.run_cli(data=b'edit-replace data "[" bad\nexit\n'), failure)
+        help_bytes = self.run_cli(['help', 'edit-replace'])[1]
+        self.check(data=b'edit-replace --json data one "two words"\n'
+                   b'edit-replace data "[" bad\nhelp edit-replace\n'
+                   b'edit-replace --help\n'
+                   b'edit-replace --json data "two words" final\npwd\nexit\n',
+                   out=expected + help_bytes * 2 + expected + os.fsencode(self.cwd) + b'\n',
+                   err=failure[2])
+        self.assertEqual((self.cwd / 'data').read_bytes(), b'first\nfinal\nthird\n')
+        self.check(data=b'edit-replace --json data absent X\nexit\n',
+                   out=b'{"path":"data","matches":0,"replacements":0}\n')
+
+    def test_edit_replace_child_pty(self):
+        import errno
+        import fcntl
+        import pty
+        import select
+        import termios
+        import time
+        master, slave = pty.openpty()
+        attrs = termios.tcgetattr(slave)
+        attrs[3] &= ~termios.ECHO
+        termios.tcsetattr(slave, termios.TCSANOW, attrs)
+        def own_terminal():
+            os.setsid()
+            fcntl.ioctl(slave, termios.TIOCSCTTY, 0)
+        proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
+                                stderr=slave, cwd=self.cwd,
+                                env={**os.environ, 'LC_ALL': 'C'},
+                                preexec_fn=own_terminal)
+        os.close(slave)
+        try:
+            os.write(master, b'edit-replace --json data second one\n'
+                     b'edit-replace data "[" bad\n'
+                     b'edit-replace --json data one final\nexit\n')
+            captured = b''
+            deadline = time.monotonic() + 10
+            while time.monotonic() < deadline:
+                ready, _, _ = select.select([master], [], [], 0.1)
+                if ready:
+                    try:
+                        chunk = os.read(master, 65536)
+                    except OSError as error:
+                        if error.errno == errno.EIO:
+                            break
+                        raise
+                    if not chunk:
+                        break
+                    captured += chunk
+                elif proc.poll() is not None:
+                    break
+            self.assertEqual(proc.wait(timeout=2), 0)
+            result = b'{"path":"data","matches":1,"replacements":1}\r\n'
+            self.assertEqual(captured, b'main> ' + result +
+                             b'main> edit-replace: invalid or unsupported POSIX ERE\r\n'
+                             b'main> ' + result + b'main> ')
+            self.assertEqual((self.cwd / 'data').read_bytes(), b'first\nfinal\nthird\n')
+        finally:
+            if proc.poll() is None:
+                proc.kill()
+                proc.wait(timeout=2)
+            os.close(master)
+
     def test_rg_integration(self):
         expected = b'data:2:second\n'
         self.check(['rg', '-n', 'second', 'data'], out=expected)
@@ -408,12 +479,21 @@ class ShellTests(unittest.TestCase):
                  'rg': ['--json', 'second', 'data'],
                  'edit-replace-line': ['--json', 'data', '2', 'replacement'],
                  'edit-insert-line': ['--json', 'data', '2', 'insertion'],
-                 'edit-delete-line': ['--json', 'data', '2']}
+                 'edit-delete-line': ['--json', 'data', '2'],
+                 'edit-replace': ['--json', 'data', 'first|third', 'replacement']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
+                edited = b''
+                if name == 'edit-replace':
+                    (self.cwd / 'data').write_bytes(b'first\nthird')
                 expected = self.run_cli(args, binary=STANDALONE / name)
+                if name == 'edit-replace':
+                    edited = (self.cwd / 'data').read_bytes()
+                    (self.cwd / 'data').write_bytes(b'first\nthird')
                 self.assertEqual(self.run_cli([name, *args]), expected)
+                if name == 'edit-replace':
+                    self.assertEqual((self.cwd / 'data').read_bytes(), edited)
                 invalid = ['--not-an-option']
                 expected = self.run_cli(invalid, binary=STANDALONE / name)
                 self.assertEqual(self.run_cli([name, *invalid]), expected)

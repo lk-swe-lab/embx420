@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, fifteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, sixteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -100,6 +100,14 @@
 - tests/test_edit_delete_line.py, tests/test_edit_delete_line_module.c — independent byte/property, safety, fault, reuse and mechanism checks.
 - docs/reports/edit-delete-line-implementation.md — selected course contract, TDD and executed verification.
 - logs/commands/edit-delete-line-execution.log, logs/commands/edit-delete-line-evidence.json — complete raw streams, commands/statuses and tested-source hashes.
+- docs/commands/edit-replace.md — whole-file ERE/literal global replacement usage and limits.
+- src/cmd_edit_replace.c, src/cmd_edit_replace.h — invocation-local matcher/parser, staged editing and counts.
+- src/edit_replace_main.c — optional standalone global-replacement wrapper.
+- tests/test_edit_replace.py, tests/test_edit_replace_module.c — independent byte/property, boundaries, safety, faults and borrowed-state tests.
+- docs/reports/edit-replace-implementation.md — selected course contract, TDD and actual verification.
+- logs/commands/edit-replace-execution.log, logs/commands/edit-replace-evidence.json — compact raw streams, command/status ledger and tested-source hashes.
+- docs/reports/edit-replace-review.md — independent source review, finite-language byte oracle and delivery limits.
+- logs/commands/edit-replace-review-execution.log, logs/commands/edit-replace-review-evidence.json — independent complete streams, command/status/hash ledger and reproduction scripts.
 - .tmp/NEXT_BATCH.md — byte-preserved batch coordination record; Git-ignored.
 - .tmp/FOLLOW_ON_TEN.md — byte-preserved ten-command selection; Git-ignored.
 - .tmp/FOLLOW_ON_FIVE.md — byte-preserved five-command extension; Git-ignored.

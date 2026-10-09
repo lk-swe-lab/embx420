@@ -1,0 +1,899 @@
+{
+  "base": "705eee07b7b45d3f97f26f9c4e90b6cec2dc21e3",
+  "commands": [
+    {
+      "label": "independent-review-normal-apply-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "duration": 0.003967761993408203
+    },
+    {
+      "label": "independent-review-normal-apply",
+      "command": [
+        "git",
+        "apply",
+        "--whitespace=nowarn",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "duration": 0.0035636425018310547
+    },
+    {
+      "label": "independent-review-normal-full",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "duration": 37.49562931060791
+    },
+    {
+      "label": "independent-review-normal-main-cli",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "./build/main",
+        "--prefix",
+        "edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "duration": 1.8355417251586914
+    },
+    {
+      "label": "independent-review-normal-format",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_edit_replace.c",
+        "src/cmd_edit_replace.h",
+        "src/edit_replace_main.c",
+        "tests/test_edit_replace_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "duration": 0.04964399337768555
+    },
+    {
+      "label": "independent-review-sanitizer-apply-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "duration": 0.0038373470306396484
+    },
+    {
+      "label": "independent-review-sanitizer-apply",
+      "command": [
+        "git",
+        "apply",
+        "--whitespace=nowarn",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "duration": 0.003896474838256836
+    },
+    {
+      "label": "independent-review-sanitizer-full",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "duration": 37.21443963050842
+    },
+    {
+      "label": "independent-review-sanitizer-main-cli",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "./build/main",
+        "--prefix",
+        "edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "duration": 9.945634841918945
+    },
+    {
+      "label": "independent-review-sanitizer-format",
+      "command": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_edit_replace.c",
+        "src/cmd_edit_replace.h",
+        "src/edit_replace_main.c",
+        "tests/test_edit_replace_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "duration": 0.0440068244934082
+    },
+    {
+      "label": "finite-oracle-independent-review-normal-edit-replace",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal/build/edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.7042042190005304,
+      "stdout_sha256": "a93fb2ac98a6adf5ee0e83c0d215185830f4341bb58deee8da4e2645fa2908ba",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "finite-oracle-independent-review-normal-main",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal/build/main",
+        "--prefix",
+        "edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 0,
+      "expected": 0,
+      "seconds": 1.7326128530003189,
+      "stdout_sha256": "565cbaaa2cbba3ce30f26fb3f25cd878a438f593d03c2dff272c946b0dd7cb12",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "finite-oracle-independent-review-sanitizer-edit-replace",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer/build/edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 12.832935710001038,
+      "stdout_sha256": "51e4f49b46f1924beeb8c974102b3755d69a3b086692b7d14ebe72d063d35ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "finite-oracle-independent-review-sanitizer-main",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer/build/main",
+        "--prefix",
+        "edit-replace"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-sanitizer",
+      "status": 0,
+      "expected": 0,
+      "seconds": 13.091521182999713,
+      "stdout_sha256": "cc3039dbc98e9a7c93ab5567f26b4c55e2ec568455b64be2b9359b31b2acb2eb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "six-negative-controls",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative.py"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "seconds": 5.362740969998413,
+      "stdout_sha256": "059d86a797a0ef8eda42abe831e9e48ab32a95d33023ea5a9b572a10ddc25999",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "readme-wrapper-count-green",
+      "command": [
+        "python3",
+        "-c",
+        "from pathlib import Path; s=Path('/home/name/.hermes/cache/scratch/edit-replace-integration/README.md').read_text(); assert 'Fifteen commands also' in s; print('16 builtins/15 wrappers documentation consistent')"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.015718099999503465,
+      "stdout_sha256": "0a1b4d85a8577fedc78d300d2d2f4f2093d10d3d61435bb1f7588b188d288b40",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "global-format-inherited",
+      "command": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal",
+      "status": 2,
+      "expected": 2,
+      "seconds": 0.2151223620021483,
+      "stdout_sha256": "43853ba5ecfa30f4541f428bc32e20f614e68882358931981f2a04cb0640e6e3",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "independent-syscall-edit",
+      "command": [
+        "strace",
+        "-yy",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/trace-edit.log",
+        "-e",
+        "trace=openat,write,fsync,close,rename,unlink,newfstatat",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal/build/edit-replace",
+        "--json",
+        "file",
+        "old",
+        "new"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/tmpncb0adnk",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.004201308001938742,
+      "stdout_sha256": "981a872a9fdbaec669a4f1033443e0a7958b05929e33ce03831f72089d8181f5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "independent-syscall-no-match",
+      "command": [
+        "strace",
+        "-yy",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/trace-no-match.log",
+        "-e",
+        "trace=openat,write,fsync,close,rename,unlink,newfstatat",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal/build/edit-replace",
+        "file",
+        "absent",
+        "X"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/tmpncb0adnk",
+      "status": 0,
+      "expected": 0,
+      "seconds": 0.0023502749972976744,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "independent-oracle-negative-noop",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/usr/bin/true"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.040716348001296865,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d9f26815799400f85f2f6dfae554f21e6d7d691ef22be8adf61090b3a2d7755a"
+    },
+    {
+      "label": "independent-oracle-negative-zero",
+      "command": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/edit-replace-review/oracle.py",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "seconds": 0.041101281000010204,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c0c24b4a874dbef1433ed869b0ec571355cb4bfb25cac9084bc71f3be7c07554"
+    }
+  ],
+  "negative_commands": [
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/argv.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.1503887176513672
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.096498727798462
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/getopt.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.15262579917907715
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.0964465141296387
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-rename.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14724326133728027
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.095607042312622
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-recheck.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14812135696411133
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.2477247714996338
+    },
+    {
+      "label": "negative-no-op",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/usr/bin/true",
+        "--slice",
+        "literal_global"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.05120134353637695
+    },
+    {
+      "label": "negative-zero-byte-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "src/edit_replace_main.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/zero-loses-byte.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.0935206413269043
+    },
+    {
+      "label": "negative-zero-byte",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "--slice",
+        "zero_width_empty"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.04933023452758789
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/argv.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14532232284545898
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.097282886505127
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/getopt.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14978885650634766
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.1007773876190186
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-rename.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14704060554504395
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.0905086994171143
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-recheck.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14863967895507812
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.2505602836608887
+    },
+    {
+      "label": "negative-no-op",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/usr/bin/true",
+        "--slice",
+        "literal_global"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.057070016860961914
+    },
+    {
+      "label": "negative-zero-byte-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "src/edit_replace_main.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/zero-loses-byte.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.09169912338256836
+    },
+    {
+      "label": "negative-zero-byte",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "--slice",
+        "zero_width_empty"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.04765748977661133
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/argv.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14979195594787598
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.0954768657684326
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/getopt.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14795827865600586
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.0933623313903809
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-rename.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.14830303192138672
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.101611852645874
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck",
+        "tests/test_edit_replace_module.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/no-recheck.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink,--wrap=regcomp,--wrap=regexec,--wrap=newlocale,--wrap=uselocale",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.15342092514038086
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "duration": 1.2467963695526123
+    },
+    {
+      "label": "negative-no-op",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/usr/bin/true",
+        "--slice",
+        "literal_global"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.056447744369506836
+    },
+    {
+      "label": "negative-zero-byte-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "src/edit_replace_main.c",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/zero-loses-byte.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "duration": 0.09400153160095215
+    },
+    {
+      "label": "negative-zero-byte",
+      "command": [
+        "python3",
+        "tests/test_edit_replace.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte",
+        "--slice",
+        "zero_width_empty"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "duration": 0.046445369720458984
+    }
+  ],
+  "observed": {
+    "no_blocking_c_defect": true,
+    "doc_wrapper_count_corrected": true,
+    "regex_cases_per_executable": 650,
+    "literal_cases_per_executable": 777,
+    "executable_variants": 4,
+    "syscall_order_verified": true,
+    "no_match_stage_absent": true,
+    "inherited_format_head_identical": true
+  },
+  "source_sha256": "c6069c9835a80bc7b1ce780d6862d7fa190b507bfb316242bea55bbd9c2312c9",
+  "raw_log_sha256": "0633be9b52f7580862798a1cac7d9ca0810fd03ab19112fec63851360a0f7817",
+  "scripts": {
+    "oracle.py": "#!/usr/bin/env python3\n\"\"\"Independent finite-language span oracle; no regex engine or GNU reference.\"\"\"\nimport argparse, itertools, json, os, random, subprocess, tempfile\nfrom functools import lru_cache\nfrom pathlib import Path\n\ndef lit(x): return ('byte', bytes([x]))\ndef cat(*x): return ('cat', x)\ndef alt(*x): return ('alt', x)\ndef repeat(x, lo, hi): return ('repeat', x, lo, hi)\nA=lit(97); B=lit(98); DOT=('dot',); START=('start',); END=('end',)\nPATTERNS=[('a|ab',alt(A,cat(A,B))), ('ab|a',alt(cat(A,B),A)),\n ('(ab|a)*',repeat(alt(cat(A,B),A),0,None)),\n ('(a|aa)+',repeat(alt(A,cat(A,A)),1,None)),\n ('(a?)*',repeat(repeat(A,0,1),0,None)),\n ('(a|b){0,2}',repeat(alt(A,B),0,2)),\n ('a{1,3}',repeat(A,1,3)), ('a*',repeat(A,0,None)),\n ('a?',repeat(A,0,1)), ('a*b*',cat(repeat(A,0,None),repeat(B,0,None))),\n ('a.*b',cat(A,repeat(DOT,0,None),B)),\n ('^|$',alt(START,END)), ('^a|b$',alt(cat(START,A),cat(B,END))),\n ('^a*$',cat(START,repeat(A,0,None),END)),\n ('(^|a)(b|$)',cat(alt(START,A),alt(B,END))),\n ('[^a]+',repeat(('not',b'a'),1,None)),\n ('[ab]+',repeat(('byte',b'ab'),1,None)),\n ('[[:upper:]]+',repeat(('byte',b'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),1,None)),\n ('(a|)b?',cat(alt(A,('empty',)),repeat(B,0,1))),\n ('(.|a)*',repeat(alt(DOT,A),0,None)),\n ('\\n|\\r',alt(lit(10),lit(13))), ('',('empty',)),\n ('$',END), ('^',START), ('.',DOT)]\nFOLD=bytes.maketrans(b'ABCDEFGHIJKLMNOPQRSTUVWXYZ',b'abcdefghijklmnopqrstuvwxyz')\n\ndef regex_oracle(source, ast, ignore=False):\n @lru_cache(None)\n def ends(node, start):\n  kind=node[0]\n  if kind=='empty': return frozenset([start])\n  if kind=='start': return frozenset([start]) if start==0 else frozenset()\n  if kind=='end': return frozenset([start]) if start==len(source) else frozenset()\n  if kind=='dot': return frozenset([start+1]) if start<len(source) else frozenset()\n  if kind in ('byte','not'):\n   if start==len(source): return frozenset()\n   ch=source[start:start+1]; choices=node[1]\n   if ignore: ch=ch.translate(FOLD); choices=choices.translate(FOLD)\n   ok=ch[0] in choices\n   if kind=='not': ok=not ok\n   return frozenset([start+1]) if ok else frozenset()\n  if kind=='alt': return frozenset().union(*(ends(n,start) for n in node[1]))\n  if kind=='cat':\n   states=frozenset([start])\n   for n in node[1]: states=frozenset().union(*(ends(n,p) for p in states))\n   return states\n  child,lo,hi=node[1:]; states=frozenset([start]); result=set()\n  if lo==0: result.add(start)\n  for k in range(1,(len(source)+lo+1 if hi is None else hi)+1):\n   states=frozenset().union(*(ends(child,p) for p in states))\n   if k>=lo: result.update(states)\n  return frozenset(result)\n offset=0; spans=[]\n while offset<=len(source):\n  possible=[(p,max(ends(ast,p))) for p in range(offset,len(source)+1) if ends(ast,p)]\n  if not possible: break\n  left,right=possible[0]; spans.append((left,right))\n  if left==right: offset=right+1\n  else: offset=right\n return spans\n\ndef output_for(source, spans, replacement):\n result=[]; last=0\n for left,right in spans:\n  result.extend((source[last:left],replacement)); last=right\n result.append(source[last:]); return b''.join(result)\n\ndef check(program, prefix, cwd, source, pattern, replacement, expected, count, flags):\n file=cwd/'file'; file.write_bytes(source); file.chmod(0o640); before=file.stat()\n p=subprocess.run([program,*prefix,'--json',*flags,'file',os.fsdecode(pattern),os.fsdecode(replacement)],cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=4,env={**os.environ,'LC_ALL':'C.UTF-8'})\n got=(p.returncode,p.stdout,p.stderr,file.read_bytes())\n want=(0,json.dumps(dict(path='file',matches=count,replacements=count),separators=(',',':')).encode()+b'\\n',b'',expected)\n assert got==want, (source,pattern,flags,want,got)\n after=file.stat(); assert (after.st_mode,after.st_uid,after.st_gid)==(before.st_mode,before.st_uid,before.st_gid)\n assert (after.st_ino!=before.st_ino)==bool(count)\n if not count: assert (after.st_mtime_ns,after.st_ctime_ns)==(before.st_mtime_ns,before.st_ctime_ns)\n assert sorted(p.name for p in cwd.iterdir())==['file']\n\ndef run(program,prefix):\n rng=random.Random(20261009); nregex=nfixed=0\n with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as d:\n  cwd=Path(d)\n  for _ in range(650):\n   source=bytes(rng.choice(b'aAbB\\n\\r\\xff') for _ in range(rng.randrange(17)))\n   pattern,ast=rng.choice(PATTERNS); ignore=bool(rng.randrange(2)); replacement=rng.choice([b'',b'&\\\\1$\\r\\n',b'X'])\n   spans=regex_oracle(source,ast,ignore)\n   check(program,prefix,cwd,source,pattern.encode(),replacement,output_for(source,spans,replacement),len(spans),['-i'] if ignore else [])\n   nregex+=1\n  for size in range(4):\n   for tup in itertools.product([0,10,13,65,97,255],repeat=size):\n    source=bytes(tup)\n    for pattern in [b'',b'A',b'\\xff\\r']:\n     folded=source.translate(FOLD); pat=pattern.translate(FOLD)\n     spans=[]\n     if not pat: spans=[(i,i) for i in range(len(source)+1)]\n     else:\n      cursor=0\n      while True:\n       i=folded.find(pat,cursor)\n       if i<0: break\n       spans.append((i,i+len(pat))); cursor=i+len(pat)\n     check(program,prefix,cwd,source,pattern,b'&\\\\\\n',output_for(source,spans,b'&\\\\\\n'),len(spans),['--fixed-strings','-i'])\n     nfixed+=1\n print(json.dumps(dict(program=program,prefix=prefix,regex_cases=nregex,literal_cases=nfixed,passed=True)))\nif __name__=='__main__':\n parser=argparse.ArgumentParser(); parser.add_argument('program'); parser.add_argument('--prefix',default=''); a=parser.parse_args(); run(str(Path(a.program).resolve()),[a.prefix] if a.prefix else [])\n",
+    "run.py": "#!/usr/bin/env python3\nimport hashlib,json,os,subprocess,time\nfrom pathlib import Path\nD=Path('/home/name/.hermes/cache/scratch/edit-replace-review')\nROOT=Path('/home/name/Documents/420-EMBDX/A')\nLOG=D/'execution.log'; LEDGER=D/'evidence.json'\ndef digest(x): return hashlib.sha256(x).hexdigest()\ndef run(label,cmd,cwd=ROOT,env=None,expected=0,timeout=600):\n start=time.monotonic()\n try:\n  p=subprocess.run(cmd,cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout)\n except subprocess.TimeoutExpired as e:\n  p=subprocess.CompletedProcess(cmd,124,e.stdout or b'',e.stderr or b'')\n with LOG.open('ab') as f:\n  f.write(('\\n=== '+label+' ===\\nCWD '+str(cwd)+'\\nCOMMAND '+repr(cmd)+'\\n').encode()+b'STDOUT\\n'+p.stdout+b'\\nSTDERR\\n'+p.stderr+('\\nSTATUS '+str(p.returncode)+'\\n').encode())\n items=json.loads(LEDGER.read_text()) if LEDGER.exists() else []\n items.append(dict(label=label,command=cmd,cwd=str(cwd),status=p.returncode,expected=expected,seconds=time.monotonic()-start,stdout_sha256=digest(p.stdout),stderr_sha256=digest(p.stderr)))\n LEDGER.write_text(json.dumps(items,indent=2)+'\\n')\n print(label,'status',p.returncode,(p.stdout+p.stderr).decode(errors='replace')[-1400:])\n assert p.returncode==expected,(label,p.returncode,expected)\n return p\nif __name__=='__main__':\n normal=Path('/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal')\n sanitized=normal.with_name('independent-review-sanitizer')\n for target in [normal,sanitized]:\n  env={**os.environ,'ASAN_OPTIONS':'detect_leaks=1:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1:print_stacktrace=1'}\n  for program,prefix in [(target/'build/edit-replace',[]),(target/'build/main',['--prefix','edit-replace'])]:\n   run('finite-oracle-'+target.name+'-'+program.name,['python3',str(D/'oracle.py'),str(program),*prefix],cwd=target,env=env)\n run('six-negative-controls',['python3','/home/name/.hermes/cache/scratch/edit-replace-integration/negative.py'])\n run('readme-wrapper-count-green',['python3','-c',\"from pathlib import Path; s=Path('/home/name/.hermes/cache/scratch/edit-replace-integration/README.md').read_text(); assert 'Fifteen commands also' in s; print('16 builtins/15 wrappers documentation consistent')\"])\n p=run('global-format-inherited',['make','format-check'],cwd=normal,expected=2)\n import re\n paths=sorted(set(re.findall(rb'(src/[^: ]+\\.[ch]|tests/[^: ]+\\.[ch]):\\d+',p.stderr)))\n expected=sorted(x.encode() for x in ['src/cmd_spec.h','src/traverse.c','src/traverse.h','tests/test_help.c','tests/test_output.h','tests/test_recursive.c'])\n assert paths==expected,(paths,expected)\n for path in paths:\n  b=subprocess.check_output(['git','show','HEAD:'+path.decode()],cwd=ROOT)\n  assert (normal/path.decode()).read_bytes()==b\n print('six format failures proved HEAD-identical')\n",
+    "audit.py": "#!/usr/bin/env python3\nimport hashlib,json,os,re,subprocess,tempfile\nfrom pathlib import Path\nfrom run import run,D,ROOT\nN=Path('/home/name/.hermes/cache/scratch/edit-replace-integration/independent-review-normal')\ndef h(x): return hashlib.sha256(x).hexdigest()\nwith tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as d:\n target=Path(d); f=target/'file'; f.write_bytes(b'old\\r\\nold\\xff')\n trace=D/'trace-edit.log'\n p=run('independent-syscall-edit',['strace','-yy','-o',str(trace),'-e','trace=openat,write,fsync,close,rename,unlink,newfstatat',str(N/'build/edit-replace'),'--json','file','old','new'],cwd=target)\n assert f.read_bytes()==b'new\\r\\nnew\\xff'\n lines=trace.read_text().split('\\n')\n stage_open=next(i for i,x in enumerate(lines) if 'openat(' in x and '.edit-replace-' in x)\n assert all(x in lines[stage_open] for x in ['O_EXCL','O_CREAT','0600'])\n stage_writes=[i for i,x in enumerate(lines) if 'write(' in x and '.edit-replace-' in x]\n sync=next(i for i,x in enumerate(lines) if 'fsync(' in x and '.edit-replace-' in x)\n close=next(i for i,x in enumerate(lines) if 'close(' in x and '.edit-replace-' in x)\n rename=next(i for i,x in enumerate(lines) if x.startswith('rename('))\n assert stage_open<min(stage_writes)<=max(stage_writes)<sync<close<rename\n assert not any(x.startswith('write(') and '/file>' in x for x in lines)\n assert not any('O_TRUNC' in x and '\"file\"' in x for x in lines)\n assert sorted(x.name for x in target.iterdir())==['file']\n before=f.stat(); trace2=D/'trace-no-match.log'\n run('independent-syscall-no-match',['strace','-yy','-o',str(trace2),'-e','trace=openat,write,fsync,close,rename,unlink,newfstatat',str(N/'build/edit-replace'),'file','absent','X'],cwd=target)\n assert '.edit-replace-' not in trace2.read_text()\n after=f.stat(); assert (before.st_ino,before.st_mtime_ns,before.st_ctime_ns)==(after.st_ino,after.st_mtime_ns,after.st_ctime_ns)\n print('exclusive same-directory stage/write/fsync/close/rename order and no-match absence passed')\nfor name,program in [('noop','/usr/bin/true'),('zero','/home/name/.hermes/cache/scratch/edit-replace-integration/negative-zero-byte')]:\n p=run('independent-oracle-negative-'+name,['python3',str(D/'oracle.py'),program],expected=1)\n assert b'AssertionError' in p.stderr\n# Whole-source added-line scan, not a scope-expanded security scanner.\nsource=(ROOT/'src/cmd_edit_replace.c').read_text()\nassert not any(s in source for s in ['system(', 'popen(', 'execve(', 'eval(', 'http://', 'https://'])\nprint('added module has no command execution/network/credential literals')\nprint('trace hashes',h(trace.read_bytes()),h(trace2.read_bytes()))\n"
+  },
+  "negative_reproduction": "import pathlib, subprocess, os, shlex\nROOT=pathlib.Path('/home/name/Documents/420-EMBDX/A')\nSCRATCH=pathlib.Path('/home/name/.hermes/cache/scratch/edit-replace-integration')\nexec((SCRATCH/'runner.py').read_text())\n# Review re-execution must never modify the frozen delivery evidence.\nLOG=SCRATCH/'review-negative.log'\nLEDGER=SCRATCH/'review-negative.json'\nsource=(ROOT/'src/cmd_edit_replace.c').read_text()\nmake=(ROOT/'Makefile').read_text()\nline=next(x for x in make.split('\\n') if '-o $@ tests/test_edit_replace_module.c' in x)\nwrap=next(x for x in shlex.split(line) if x.startswith('-Wl,'))\nbase=['cc','-std=c17','-Wall','-Wextra','-g3','-O0','-Isrc','-Ibuild/argtable3/include']\ncontrols=[\n ('argv', 'arg_parse(argc, copy, table)', 'arg_parse(argc, argv, table)',\n  b'argv pointer preservation failed'),\n ('getopt', '    optarg = saved_optarg;\\n    optind = saved_optind;\\n    opterr = saved_opterr;\\n    optopt = saved_optopt;',\n  '    (void)saved_optarg;\\n    (void)saved_optind;\\n    (void)saved_opterr;\\n    (void)saved_optopt;', b'getopt preservation failed'),\n ('no-rename','close_result != 0 || rename(name, path) != 0','close_result != 0',\n  b'source content mismatch'),\n ('no-recheck', '!source_same(&before, &after) || !source_same(&before, &current)',\n  '!source_same(&before, &before)', b'concurrency guard failed'),\n]\nfor label,old,new,marker in controls:\n    assert old in source\n    mutant=SCRATCH/(label+'.c'); mutant.write_text(source.replace(old,new))\n    binary=SCRATCH/('negative-'+label)\n    p=run('negative-'+label+'-build',base+['-o',str(binary),\n          'tests/test_edit_replace_module.c',str(mutant),'src/cmd_lines.c',wrap,\n          '-Lbuild/argtable3/lib','-largtable3','-lm'])\n    assert p.returncode == 0\n    p=run('negative-'+label,[str(binary)])\n    assert p.returncode == -6 and marker in p.stderr, (label,p.returncode,p.stderr)\np=run('negative-no-op',['python3','tests/test_edit_replace.py','--program','/usr/bin/true',\n                       '--slice','literal_global'])\nassert p.returncode == 1 and b'AssertionError' in p.stderr\n# Wrong zero-width advancement retains no original byte; exact independent oracle.\nmutant=SCRATCH/'zero-loses-byte.c'\nold='stage_append(output, data + offset, 1) != 0'\nassert old in source\nmutant.write_text(source.replace(old,'stage_append(output, data + offset, 0) != 0'))\nbinary=SCRATCH/'negative-zero-byte'\np=run('negative-zero-byte-build',base+['-o',str(binary),'src/edit_replace_main.c',\n      str(mutant),'src/cmd_lines.c','-Lbuild/argtable3/lib','-largtable3','-lm'])\nassert p.returncode==0\np=run('negative-zero-byte',['python3','tests/test_edit_replace.py','--program',str(binary),\n                           '--slice','zero_width_empty'])\nassert p.returncode==1 and b\"b'XXX' != b'XaXbX'\" in p.stderr\nprint('six defect-specific negative controls detected')\n",
+  "trace_sha256": {
+    "trace-edit.log": "c0aee7b1caf414842a997f75038b90bdf8942c794c2c78a1b40c05cb5203f6da",
+    "trace-no-match.log": "b9e4113231e66dc3c0c76417c7e76601b8d4b1cb368b4eabb00dd38350b42022"
+  }
+}
