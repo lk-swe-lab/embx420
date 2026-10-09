@@ -14,6 +14,7 @@
 #include "../src/cmd_echo.h"              /* cmd_echo_spec. */
 #include "../src/cmd_printf.h"            /* cmd_printf_spec. */
 #include "../src/cmd_date.h"              /* cmd_date_spec. */
+#include "../src/cmd_sleep.h"             /* cmd_sleep_spec. */
 #include <assert.h>                       /* assert. */
 #include <errno.h>                        /* errno, EINTR, ENOMEM. */
 #include <fcntl.h>                        /* fcntl, F_GETFD. */
@@ -149,10 +150,11 @@ int main(void)
     assert(find_command("echo") == &cmd_echo_spec);
     assert(find_command("date") == &cmd_date_spec);
     assert(find_command("printf") == &cmd_printf_spec);
+    assert(find_command("sleep") == &cmd_sleep_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 21, registry_capacity = 32 };
+    enum { builtin_count = 22, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;

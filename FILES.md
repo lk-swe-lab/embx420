@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, twenty-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, twenty-two-builtin/21-wrapper index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -226,3 +226,14 @@
 - tests/test_printf_review.py — independent constructed numeric/byte oracle and adversarial validation.
 - docs/reports/printf-review.md — independent review verdict, execution gates and explicit exceptions.
 - logs/commands/printf-review-execution.log, logs/commands/printf-review-evidence.json — complete review streams and command/status/hash ledger.
+
+## sleep command
+- src/cmd_sleep.c, src/cmd_sleep.h — exact decimal delay and shared parser/help.
+- src/sleep_main.c — optional thin standalone wrapper.
+- tests/test_sleep.py, tests/test_sleep_module.c — reference/main/PTY, exact requests, interruption, resource/state and fault tests.
+- docs/commands/sleep.md — usage, bounds and signal policy.
+- docs/reports/sleep-implementation.md — inventory, contract, TDD and executed gates.
+- logs/commands/sleep-execution.log, logs/commands/sleep-evidence.json — compact raw streams and command/status/hash ledger.
+- tests/test_sleep_review.py, tests/test_sleep_review_module.c — independent grammar/request/clock oracle, malformed-option regression and optional mutation controls.
+- docs/reports/sleep-review.md — independent findings, correction, gates and inherited limits.
+- logs/commands/sleep-review-execution.log, logs/commands/sleep-review-evidence.json — complete review streams and command/status/hash ledger.

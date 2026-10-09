@@ -1,0 +1,1351 @@
+{
+  "base_head": "134de9868ff7f462ea301696e8a4e6ec11ac845e",
+  "executions": [
+    {
+      "label": "primary POSIX fetch",
+      "argv": [
+        "curl",
+        "-L",
+        "--max-time",
+        "20",
+        "https://pubs.opengroup.org/onlinepubs/9799919799/functions/nanosleep.html",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/posix-nanosleep.html"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c2ec37f2532b2e16c2d3352517fa4fd039a40163f37c985b0c1315589cb345bd"
+    },
+    {
+      "label": "primary GNU fetch",
+      "argv": [
+        "curl",
+        "-L",
+        "--max-time",
+        "20",
+        "https://www.gnu.org/software/coreutils/manual/html_node/sleep-invocation.html",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/gnu-sleep.html"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "05858981e04246f7fd5401398c9e0b7ab2fc7332e7e18f72f8b621f051780ec5"
+    },
+    {
+      "label": "reference manual",
+      "argv": [
+        "man",
+        "-P",
+        "cat",
+        "sleep"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "cc732a606a440ec6b4be05f7dc1d43cb37ba7f14095b45056e9291c943535b47",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference version",
+      "argv": [
+        "/usr/bin/sleep",
+        "--version"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "2e44e2ac75e3bf572069ba36fc92cc888f9671ae9e585fcc7f18e07e8ed2637e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1 baseline compile",
+      "argv": [
+        "cc",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1 zero RED",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline",
+        "--slice",
+        "1"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2b2d8a203271836e8621b925420ca97e5c7751b871f55f43b3023f2fcc40ea97"
+    },
+    {
+      "label": "GNU independent short fixtures",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "/usr/bin/sleep",
+        "--reference",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "347a966dd8589e9ea7878eae66e1742bab20f5ebf15fad6172d531e93cbc1f3f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference negative control",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "/usr/bin/true",
+        "--reference",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "4623c1a947c7162ddfc362710ff39fd222b729476efdb35bd086d20e5db390c9",
+      "stderr_sha256": "4e6d2fc7a7e29c8c0c7625c6c992a40f7ac19abfb0857b71db102872dce96a8d"
+    },
+    {
+      "label": "slice1 compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/sleep",
+        "src/sleep_main.c",
+        "src/cmd_sleep.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1 GREEN",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "./build/sleep",
+        "--slice",
+        "1"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "82c847d7a9e7355edbc857862cc470ab5fceda62849771770244caaac530ea20",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2 fractions RED",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "./build/sleep",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "5b354adc8bbc45528f176daccfeb301eacdad90978b9435a4de3caf1b8db41b2",
+      "stderr_sha256": "d44b6220cf0d940a27b40b53d05dd0b0b2b8fcd88576fcc9d7f6f7327234ba2c"
+    },
+    {
+      "label": "focused standalone build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/sleep",
+        "src/sleep_main.c",
+        "src/cmd_sleep.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "src/cmd_sleep.c",
+        "-o",
+        "build/cmd_sleep_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/test_sleep_module",
+        "tests/test_sleep_module.c",
+        "build/cmd_sleep_test.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2 fraction grammar GREEN",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "./build/sleep",
+        "--slice",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "81d46dd1ab9e728edf22f8da6f1e4f40701cbf01c1e576424ede78e8f2d1b822",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2 synthetic bounds GREEN",
+      "argv": [
+        "./build/test_sleep_module",
+        "2"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "72c132fcf7ccfd012905f137b912c7ce8a89279314325b0a2d3c40f01558eadd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice3 EINTR remainder RED",
+      "argv": [
+        "./build/test_sleep_module",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused standalone build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/sleep",
+        "src/sleep_main.c",
+        "src/cmd_sleep.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "src/cmd_sleep.c",
+        "-o",
+        "build/cmd_sleep_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/test_sleep_module",
+        "tests/test_sleep_module.c",
+        "build/cmd_sleep_test.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice3 EINTR marker RED",
+      "argv": [
+        "./build/test_sleep_module",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c944b80e92f43ae6b61049f3e90fe3fe6cdcfca91b5bd3b31b3cd957d2f93fc9"
+    },
+    {
+      "label": "focused standalone build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/sleep",
+        "src/sleep_main.c",
+        "src/cmd_sleep.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "src/cmd_sleep.c",
+        "-o",
+        "build/cmd_sleep_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused module build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "build/test_sleep_module",
+        "tests/test_sleep_module.c",
+        "build/cmd_sleep_test.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice3 EINTR and syscall errors GREEN",
+      "argv": [
+        "./build/test_sleep_module",
+        "3"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "72c132fcf7ccfd012905f137b912c7ce8a89279314325b0a2d3c40f01558eadd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice4 module state faults inherited handled signal",
+      "argv": [
+        "./build/test_sleep_module",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "72c132fcf7ccfd012905f137b912c7ce8a89279314325b0a2d3c40f01558eadd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice4 CLI faults cancellation",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "./build/sleep",
+        "--slice",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "efc7db480e09a3f7862df76594c84f62dffafed6e784cfc935866b3465493e76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "HEAD main build before integration",
+      "argv": [
+        "make",
+        "build/main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "ea35bd89ae11524cd1645abe1ad1a0f755c7a50ea2a33849d2791062fcdec676",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice4 main dispatch RED",
+      "argv": [
+        "python3",
+        "tests/test_sleep.py",
+        "./build/sleep",
+        "--slice",
+        "4",
+        "--main",
+        "./build/main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "fb4684882d743b50d531890631b62423bc5741a257c7c141d16ddb8d17eed0a4",
+      "stderr_sha256": "2d4b2683378491e4e33061327f8b3b8f0c6d7b3a749dccbadfc4f9da73efb9a7"
+    },
+    {
+      "label": "integration focused build and GREEN",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "c54d117dce03d0851198e6f2abe0641047f0daa39b94e8555d9ebae017db2514",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "format candidate scoped",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/cmd_sleep.c",
+        "src/cmd_sleep.h",
+        "src/sleep_main.c",
+        "tests/test_sleep_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "all normal build",
+      "argv": [
+        "make",
+        "all"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "901cb04f60066cae40816ca64fd97b3ab3707d9447666ae0e30f97790e9b2e0c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full normal regression",
+      "argv": [
+        "make",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 2,
+      "expected": 0,
+      "stdout_sha256": "2865c90e1161e424d210ef384d62eee31065ba900ea7f31b9abfeb7a6bc70b03",
+      "stderr_sha256": "f30383a44e3c5f3001b8ef90680a06d7dbd528c1161868c46adc340c19a9690a"
+    },
+    {
+      "label": "full lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "1bfbcb436e66077ee5d34b1c1040766e7c33bb67726cb1b69830e0b95ecc770f",
+      "stderr_sha256": "d2c765b1d44889cf9d7371c97fc00a9a1683a0e6f65725fda7605b3695b27d4d"
+    },
+    {
+      "label": "scoped formatting",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_sleep.c",
+        "src/cmd_sleep.h",
+        "src/sleep_main.c",
+        "tests/test_sleep_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "global inherited format check",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "cdf1b432b6f81b299c58d6d6e7150efc2aa507fdad51abe4d76f08785da2c04c",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "GNU invalid syntax fixtures",
+      "argv": [
+        "/usr/bin/sleep",
+        "bogus"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "0bfd0d985c32ec5634704378b0c82729d4504c93fa8159410ab72425efa91aa2"
+    },
+    {
+      "label": "full regression corrected parity",
+      "argv": [
+        "make",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "976f88662edb8c20a1ad41866be13cb55b9ec4a491e0fffb8f6f178d33db93a7",
+      "stderr_sha256": "f39149c4b5115fc30714e1fb71e024c46d73378f754dfa783767e950964f376f"
+    },
+    {
+      "label": "global format path classification",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "cdf1b432b6f81b299c58d6d6e7150efc2aa507fdad51abe4d76f08785da2c04c",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "refined module scoped format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "refined focused tests",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "477e80dbf45d5cf7d8e672ac9e0d5afbb58363107cf383e40d74f3495f7d823b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Isrc",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/borrowed-argv.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/borrowed-argv.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv harness link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/borrowed-argv",
+        "tests/test_sleep_module.c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/borrowed-argv.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "borrowed-argv rejected",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/borrowed-argv",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d1a3ae9839333f6cd5f50e41c05827c9e8cefe2f78855b11f62b8ca6d644e0f4"
+    },
+    {
+      "label": "getopt-no-restore compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Isrc",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/getopt-no-restore.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/getopt-no-restore.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "getopt-no-restore harness link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/getopt-no-restore",
+        "tests/test_sleep_module.c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/getopt-no-restore.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "getopt-no-restore rejected",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/getopt-no-restore",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "42c337923fed46d045552fbb6c591f1e475990f06e74225988e36c8a6c191582"
+    },
+    {
+      "label": "no-delay compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Isrc",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-delay.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-delay.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-delay harness link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-delay",
+        "tests/test_sleep_module.c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-delay.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-delay rejected",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-delay",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "b227958a8a8237617850d1c6f90c5f720822b66a7d10402b280b9bedb6a8a33c"
+    },
+    {
+      "label": "no-EINTR-retry compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Isrc",
+        "-Dmalloc=sleep_test_malloc",
+        "-Dfree=sleep_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-EINTR-retry.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-EINTR-retry.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-EINTR-retry harness link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-EINTR-retry",
+        "tests/test_sleep_module.c",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-EINTR-retry.o",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "no-EINTR-retry rejected",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/no-EINTR-retry",
+        "4"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": -6,
+      "expected": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4e6a4fde00acef088c5d8f3e7bb0e8853827d9f7490770a60cbf8c37b4ac3de0"
+    },
+    {
+      "label": "unchanged focused after mutants",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "4723403bc449a87e037e84f6267b56485ce0104aff6351c3319f38c88ed02088",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "module refinements format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cancellation synchronized focused tests",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "f8bc90c8cfc521c17d9096e70e6a297ccba2b132ce19b5e73db60b087acf629f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "property and output reuse scoped format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused property state output reuse",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "8e4bc5cd850d36f27071515e0810f2f65d191f4d454ce423c69ea03b58181f5b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Argtable internal OOM probe compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wconversion",
+        "-g",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/internal-oom",
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/internal-oom.c",
+        "-Wl,--wrap=malloc,--wrap=calloc",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "Argtable internal OOM characterized",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 1,
+      "expected": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+    },
+    {
+      "label": "dependency fingerprints",
+      "argv": [
+        "sha256sum",
+        "/home/name/Documents/420-EMBDX/A/build/argtable3/lib/libargtable3.a",
+        "/home/name/Documents/420-EMBDX/A/build/cunit/lib/libcunit.a",
+        "/home/name/Documents/420-EMBDX/A/build/argtable3/include/argtable3.h",
+        "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/CUnit.h"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "f3b8e38afa1dab126195cff3e8a7544f71e97c5b461d52764309134e828da410",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "pristine HEAD O0 sanitizer full regression",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline-o0",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "f1546ce03bf7af46658a640d6cb86cf5667fd3d3721f929be3c582c58ff7b802",
+      "stderr_sha256": "491d24c423ff237590aa50cd68018d4df49b56e9860ab7c1a157c67b8161ce8d"
+    },
+    {
+      "label": "pristine HEAD O1 sanitizer shell fault reproduction",
+      "argv": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline-o1",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "b3b0495fe39437a8244d9c024672f6e1721d7effa8667e3ac13faf583899190e",
+      "stderr_sha256": "623ebc1300a8c10942ece2dd7eb1540b0d1d0f06e1d213b66d1a76f0337b59cd"
+    },
+    {
+      "label": "pristine HEAD inherited format check",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/baseline-o0",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "3ec62098301d9f025aa59d9549412c5d4fccf2d8a516fa9a441bffb800e31909",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "indexed course requirement",
+      "argv": [
+        "python3",
+        "-c",
+        "import sqlite3; c=sqlite3.connect('file:/home/name/Documents/420-EMBDX/A/docs/data.sqlite?mode=ro',uri=True); print(c.execute(\"SELECT s.path,c.position,c.text FROM lecture_content c JOIN lecture_sources s ON s.id=c.source_id WHERE s.path LIKE '%CLI_Tools.docx' AND c.position BETWEEN 229 AND 231\").fetchall())"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "94a2991a856171e29aad98507bfc7c0d13099a10c7408936ca1c55d2dc37cfb8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "annotation scoped format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final code scoped format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final candidate normal all test",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "81fe22bea221f969dac087c45752acab42e034f794c084f301f547527157e1a7",
+      "stderr_sha256": "4bbde179dd135ec2cb18287172e4536abf2172864f3377b2992008f69e52d63c"
+    },
+    {
+      "label": "final candidate lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "1bfbcb436e66077ee5d34b1c1040766e7c33bb67726cb1b69830e0b95ecc770f",
+      "stderr_sha256": "d2c765b1d44889cf9d7371c97fc00a9a1683a0e6f65725fda7605b3695b27d4d"
+    },
+    {
+      "label": "final candidate scoped formatting",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_sleep.c",
+        "src/cmd_sleep.h",
+        "src/sleep_main.c",
+        "tests/test_sleep_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate O1 sanitizer sleep full scope",
+      "argv": [
+        "make",
+        "test-sleep-impl",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate-o1",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "124414d50160ec280d012d1b511346db5c6c1f50354f2a360f55865ef56badbc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate O1 inherited shell fault",
+      "argv": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate-o1",
+      "status": 2,
+      "expected": 2,
+      "stdout_sha256": "33067b08af28e5c79064ac6d076af9ab55bde6ba4f95ebcef6040cc785c97283",
+      "stderr_sha256": "d8c91fa089365ce8c6d21ce593044476dac8f45dc8e522eccd98ab2ee5c5623a"
+    },
+    {
+      "label": "candidate O0 default nonPIE sanitizer full regression",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate-o0",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "7d001e659498f468f454606f23864f24d1f394cc5e22791f0e3e673518af2bad",
+      "stderr_sha256": "08cfd7f976df297762043300b5b09e9e0d60b1b31dcc57ab8e5a333020f85969"
+    },
+    {
+      "label": "annotation final format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "annotation corrected format",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_sleep_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "80-column corrected focused",
+      "argv": [
+        "make",
+        "test-sleep-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/sleep-134de98-implementation/candidate",
+      "status": 0,
+      "expected": 0,
+      "stdout_sha256": "9a7638c2c25101ea9c41da54937074b28217d5ce7624313c2c4183d82df50a11",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_sha256": {
+    "FILES.md": "7f51357cdd4fe96245634adb1e7d813632ddb3612fd452cbd98d3f6a79852b37",
+    "Makefile": "1c0c9559bae9855fb1ef1b25ccfe3114c4323835373ba983e83172b13313a3a9",
+    "README.md": "316484d5dd470020feb3edfffb7e89a93d6f66388d16dbf8a2147a26b262fbd5",
+    "docs/commands/shell.md": "24086944bffd5b98a1d5ba439ca3e1d89577179b77e56901d8eda8280dea4e2d",
+    "docs/commands/sleep.md": "9d60a1a59fa6f1f1d3f32253cd5b20194d1cc3ff65261b641c48d8c5c94b3093",
+    "docs/reports/sleep-implementation.md": "558e866ae4a396ac938b3b9df17bd556076af6b43d05e694b757a64301b81a53",
+    "src/cmd_sleep.c": "dfd11e1d009293783a9488db973088fe861629953617900f774d657f21c9541d",
+    "src/cmd_sleep.h": "4ec8f8c3969b90d9b7f79dd878eedf79bf28af91865bf37e89e9268edff6179b",
+    "src/registry.c": "f726baf5761aebf197708c2fb4e45e06cc85d492a8fa25be7dc61d711d7377bc",
+    "src/sleep_main.c": "da36acac0c15674ba27caeb2307dbd27d597fc525400f90c09724624f25ecefc",
+    "tests/test_shell.py": "5c1f4ddb0e6f164844af43b7fdcb7212709c21069a52dd53a5bc13e3c724d401",
+    "tests/test_shell_module.c": "3fafa309b4268519950556b462b0c5bdec871bcb61765eebec33347593e6862c",
+    "tests/test_sleep.py": "7593276faf2450dd3b05a12893495407b47a740105f675dd804e6dc17f21b947",
+    "tests/test_sleep_module.c": "019b8594adee750621d167ea5b1e7c6980345eeb34e1ad68fb0407c08f0d97cf"
+  },
+  "raw_sha256": "96824768d4874cf14e937ea6a7cea321bf6c7bc0d5296a8894561b45c36e6935",
+  "dependencies": {
+    "/home/name/Documents/420-EMBDX/A/build/argtable3/include/argtable3.h": {
+      "sha256": "b80bf47ccb056229c714ce31fbad4743d97caf192231542fedfe6c05924413a4",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/argtable3/lib/libargtable3.a": {
+      "sha256": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/argtable3/share/argtable3/LICENSE": {
+      "sha256": "a97df648b7db77f9f6f5e1ef5fe44eb6b154ecb8ae26ad39c92ea44201cce45c",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/Automated.h": {
+      "sha256": "ea25636a8a7e18a7713e842e078099bb8c4bebe38ebda9507c7b1283deb1716c",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/Basic.h": {
+      "sha256": "5384652b78d38ff755ee6a38bff7aa6ca929ae437a46b999e8dc66dab27f43f0",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/CUError.h": {
+      "sha256": "9cbc1f2551ec7b8bf5397b6c2ebd956382bd2466148909d9f40c650b22d3411d",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/CUnit.h": {
+      "sha256": "27de8330fe3058361e63aedd2f2a1cad41fa9eeed45dea4221f80c807d03f912",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/CUnit_intl.h": {
+      "sha256": "aa552d85f1e45358d6ba78a012568e325b828bd15afa9853b17af0e16c44222a",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/Console.h": {
+      "sha256": "ec0ec1a8397e7f6245d4197f24dfa4652dcdfd05c103485e53303f7f886bdd30",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/MyMem.h": {
+      "sha256": "ab5bd289bb29975f400158ab59e0b9a182544a9fc7e71acb24a74ce3fa1ef61d",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/TestDB.h": {
+      "sha256": "047e3a36084314e4b43d2dd0932050d805f9d349615816512b12311a5e675911",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/TestRun.h": {
+      "sha256": "7f7bf3e54f4dd180ef9cec577584f433df77c60e7b121f76c1e56656ef3ad3f2",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/include/CUnit/Util.h": {
+      "sha256": "ed983b3004c582614bf9bb1f90ff8e29cad3f428d2f24f0ec8d8a556577409fb",
+      "mode": 33188
+    },
+    "/home/name/Documents/420-EMBDX/A/build/cunit/lib/libcunit.a": {
+      "sha256": "d106a116e4e15662bf91e44e77af80abda01ea62679a9ae91a72b60bbba19d4f",
+      "mode": 33188
+    }
+  },
+  "primary_research": {
+    "GNU": "ff60ef702b2ea7442616a7dbd03e6db8d901ce213d8ee53983a46b6ff05071bc",
+    "POSIX": "fcf25e334c9c56477a24a52d306f4b09f2ab8a79e6e8d00e1c5dc45bb0acb2b0"
+  }
+}

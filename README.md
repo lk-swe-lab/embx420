@@ -46,7 +46,7 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Twenty commands also have optional standalone tools in `build/`; `cd` is
+Twenty-one commands also have optional standalone tools in `build/`; `cd` is
 in-process only, with no standalone executable. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
@@ -73,9 +73,12 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [echo](docs/commands/echo.md) | Print literal operands separated by spaces and a newline | `./build/main help echo` |
 | [date](docs/commands/date.md) | Show numeric current local time or UTC | `./build/main help date` |
 | [printf](docs/commands/printf.md) | Bounded typed integer/string/byte formatting and escapes | `./build/main help printf` |
+| [sleep](docs/commands/sleep.md) | Delay for bounded decimal seconds; handled-signal retries | `./build/main help sleep` |
 
 printf [independent review](docs/reports/printf-review.md) passes the selected
 bounded byte-format contract; exact-index verification remains a separate gate.
+Sleep [independent review](docs/reports/sleep-review.md) records malformed-option
+hardening, exact delay/remainder oracles and executed verification.
 
 date [independent review](docs/reports/date-review.md) passes the selected contract;
 exact-index verification remains a separate delivery gate.

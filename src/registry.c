@@ -20,6 +20,7 @@
 #include "cmd_echo.h"              /* cmd_echo_spec. */
 #include "cmd_printf.h"            /* cmd_printf_spec. */
 #include "cmd_date.h"              /* cmd_date_spec. */
+#include "cmd_sleep.h"             /* cmd_sleep_spec. */
 #include <stddef.h>                /* NULL, size_t. */
 #include <string.h>                /* strcmp. */
 
@@ -86,7 +87,8 @@ int register_all_builtin_commands(void)
                                     &cmd_env_spec,
                                     &cmd_echo_spec,
                                     &cmd_date_spec,
-                                    &cmd_printf_spec};
+                                    &cmd_printf_spec,
+                                    &cmd_sleep_spec};
     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
         if (register_command(builtins[i]) != 0)
             return -1;
