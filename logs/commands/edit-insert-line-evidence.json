@@ -1,0 +1,867 @@
+{
+  "base_head": "5ef0df6b8de13cc708352de1133e0fd75181475a",
+  "runs": [
+    {
+      "label": "core-red",
+      "command": "python3 tests/test_edit_insert_line.py --program build/main --prefix edit-insert-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "time": 1791525565.6012423
+    },
+    {
+      "label": "core-green",
+      "command": "make build/main build/edit-insert-line && python3 tests/test_edit_insert_line.py --program build/main --prefix edit-insert-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525605.2537189
+    },
+    {
+      "label": "append-red",
+      "command": "python3 tests/test_edit_insert_line.py --program build/edit-insert-line InsertLineTests.test_empty_and_append",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "time": 1791525618.7234268
+    },
+    {
+      "label": "append-green",
+      "command": "make build/main build/edit-insert-line && python3 tests/test_edit_insert_line.py --program build/edit-insert-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525638.1158721
+    },
+    {
+      "label": "extended-characterization",
+      "command": "make test-edit-insert-line-impl",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 2,
+      "expected": 0,
+      "time": 1791525734.9325793
+    },
+    {
+      "label": "extended-green",
+      "command": "make test-edit-insert-line-impl",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525748.0035508
+    },
+    {
+      "label": "format-scoped",
+      "command": "clang-format -i src/cmd_edit_insert_line.c src/cmd_edit_insert_line.h src/edit_insert_line_main.c tests/test_edit_insert_line_module.c src/registry.c tests/test_shell_module.c && clang-format --dry-run --Werror src/cmd_edit_insert_line.c src/cmd_edit_insert_line.h src/edit_insert_line_main.c tests/test_edit_insert_line_module.c src/registry.c tests/test_shell_module.c",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525781.893875
+    },
+    {
+      "label": "full-regression",
+      "command": "make all test",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525790.7691038
+    },
+    {
+      "label": "cli-through-main",
+      "command": "python3 tests/test_edit_insert_line.py --program build/main --prefix edit-insert-line",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525791.8240263
+    },
+    {
+      "label": "lint",
+      "command": "make lint",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525826.7082398
+    },
+    {
+      "label": "global-format",
+      "command": "make format-check",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 2,
+      "expected": 2,
+      "time": 1791525827.1711593
+    },
+    {
+      "label": "primary-research",
+      "command": "python3 -c \"import urllib.request,hashlib; urls=[\\\"https://www.argtable.org/tutorial/\\\",\\\"https://man7.org/linux/man-pages/man2/open.2.html\\\",\\\"https://man7.org/linux/man-pages/man2/rename.2.html\\\",\\\"https://man7.org/linux/man-pages/man3/mkstemp.3.html\\\",\\\"https://man7.org/linux/man-pages/man2/fsync.2.html\\\"]; [(lambda b:print(u,len(b),hashlib.sha256(b).hexdigest(),b.decode()[:200]))(urllib.request.urlopen(u,timeout=30).read()) for u in urls]\"",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525847.8405955
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/argv",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/argv.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525885.325621
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525886.4220865
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/getopt",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/getopt.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525886.5548973
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525887.650522
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/no-rename",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/no-rename.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525887.7833562
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-8r0kkxch/no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525888.8798149
+    },
+    {
+      "label": "negative-argv-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/argv",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/argv.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525906.949698
+    },
+    {
+      "label": "negative-argv",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/argv"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525908.048401
+    },
+    {
+      "label": "negative-getopt-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/getopt",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/getopt.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525908.179572
+    },
+    {
+      "label": "negative-getopt",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/getopt"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525909.2749283
+    },
+    {
+      "label": "negative-no-rename-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-rename",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-rename.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525909.4057162
+    },
+    {
+      "label": "negative-no-rename",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-rename"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525910.5029614
+    },
+    {
+      "label": "negative-no-recheck-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-recheck",
+        "tests/test_edit_insert_line_module.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-recheck.c",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-Wl,--wrap=calloc",
+        "-Wl,--wrap=realloc",
+        "-Wl,--wrap=free",
+        "-Wl,--wrap=arg_lit0",
+        "-Wl,--wrap=arg_file0",
+        "-Wl,--wrap=arg_str0",
+        "-Wl,--wrap=arg_end",
+        "-Wl,--wrap=arg_parse",
+        "-Wl,--wrap=open",
+        "-Wl,--wrap=lstat",
+        "-Wl,--wrap=fstat",
+        "-Wl,--wrap=mkstemp",
+        "-Wl,--wrap=fcntl",
+        "-Wl,--wrap=fchown",
+        "-Wl,--wrap=fchmod",
+        "-Wl,--wrap=fsync",
+        "-Wl,--wrap=close",
+        "-Wl,--wrap=read",
+        "-Wl,--wrap=write",
+        "-Wl,--wrap=rename",
+        "-Wl,--wrap=unlink",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525910.6337116
+    },
+    {
+      "label": "negative-no-recheck",
+      "command": [
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-recheck"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": -6,
+      "expected": -6,
+      "time": 1791525911.8234708
+    },
+    {
+      "label": "negative-true",
+      "command": "python3 tests/test_edit_insert_line.py --program /usr/bin/true InsertLineTests.test_middle_line_staged",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "time": 1791525911.8744586
+    },
+    {
+      "label": "negative-no-separator-build",
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Isrc",
+        "-Ibuild/argtable3/include",
+        "-o",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-separator",
+        "src/edit_insert_line_main.c",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-separator.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791525911.9448404
+    },
+    {
+      "label": "negative-no-separator",
+      "command": [
+        "python3",
+        "tests/test_edit_insert_line.py",
+        "--program",
+        "/home/name/.hermes/cache/scratch/insert-negatives-h_ntzsdu/no-separator",
+        "InsertLineTests.test_empty_and_append"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 1,
+      "time": 1791525912.0013437
+    },
+    {
+      "label": "edit-insert-line-review-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-rh9ucdim",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526031.1063673
+    },
+    {
+      "label": "edit-insert-line-review-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-rh9ucdim",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526031.1082053
+    },
+    {
+      "label": "fresh-narrow-all-test-lint",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-rh9ucdim",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526060.8762016
+    },
+    {
+      "label": "edit-insert-line-sanitize-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-zu5ig7qs",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526060.977689
+    },
+    {
+      "label": "edit-insert-line-sanitize-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-zu5ig7qs",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526060.979856
+    },
+    {
+      "label": "fresh-O0-ASan-UBSan-all-test",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-zu5ig7qs",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526087.0190694
+    },
+    {
+      "label": "fresh-sanitized-cli-through-main",
+      "command": [
+        "python3",
+        "tests/test_edit_insert_line.py",
+        "--program",
+        "build/main",
+        "--prefix",
+        "edit-insert-line"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-zu5ig7qs",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526089.7903981
+    },
+    {
+      "label": "actual-mechanism-trace",
+      "command": "python3 /home/name/.hermes/cache/scratch/insert-trace.py trace",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526133.5854492
+    },
+    {
+      "label": "final-working-gates",
+      "command": "make all test && clang-format --dry-run --Werror src/cmd_edit_insert_line.c src/cmd_edit_insert_line.h src/edit_insert_line_main.c tests/test_edit_insert_line_module.c src/registry.c tests/test_shell_module.c && git diff --check -- Makefile src/registry.c tests/test_shell.py tests/test_shell_module.c",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526141.0491674
+    },
+    {
+      "label": "indexed-course-and-primary-api-content",
+      "command": "python3 /home/name/.hermes/cache/scratch/insert-research.py",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 1,
+      "expected": 0,
+      "time": 1791526179.4319687
+    },
+    {
+      "label": "indexed-course-and-primary-api-content-corrected",
+      "command": "python3 /home/name/.hermes/cache/scratch/insert-research.py",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526197.8502033
+    },
+    {
+      "label": "edit-insert-line-review-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-7s_ypl7f",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526276.880646
+    },
+    {
+      "label": "edit-insert-line-review-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-7s_ypl7f",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526276.8826041
+    },
+    {
+      "label": "fresh-narrow-all-test-lint",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-review-7s_ypl7f",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526306.7764068
+    },
+    {
+      "label": "edit-insert-line-sanitize-patch-check",
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-yji19h33",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526306.878025
+    },
+    {
+      "label": "edit-insert-line-sanitize-patch-apply",
+      "command": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/edit-insert-line-integration/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-yji19h33",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526306.8800302
+    },
+    {
+      "label": "fresh-O0-ASan-UBSan-all-test",
+      "command": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-yji19h33",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526332.9830227
+    },
+    {
+      "label": "fresh-sanitized-cli-through-main",
+      "command": [
+        "python3",
+        "tests/test_edit_insert_line.py",
+        "--program",
+        "build/main",
+        "--prefix",
+        "edit-insert-line"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-yji19h33",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526335.914526
+    },
+    {
+      "label": "final-audit",
+      "command": "python3 /home/name/.hermes/cache/scratch/insert-audit.py",
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "expected": 0,
+      "time": 1791526412.567337
+    }
+  ],
+  "final_audit": {
+    "head": "5ef0df6b8de13cc708352de1133e0fd75181475a",
+    "index_empty": true,
+    "allowlist": [
+      "FILES.md",
+      "Makefile",
+      "README.md",
+      "docs/commands/edit-insert-line.md",
+      "docs/reports/edit-insert-line-implementation.md",
+      "logs/commands/edit-insert-line-evidence.json",
+      "logs/commands/edit-insert-line-execution.log",
+      "src/cmd_edit_insert_line.c",
+      "src/cmd_edit_insert_line.h",
+      "src/edit_insert_line_main.c",
+      "src/registry.c",
+      "tests/test_edit_insert_line.py",
+      "tests/test_edit_insert_line_module.c",
+      "tests/test_shell.py",
+      "tests/test_shell_module.c"
+    ],
+    "source_hashes": {
+      "Makefile": "f6f90954870186c191c8e2abdfa0e131791bd28a3fe552efc4bff157a66a1b4a",
+      "src/cmd_edit_insert_line.c": "71ef3365f6f93afbfb88422caeba3068764cbb8e2d95666c4bc8df0a4ec92d94",
+      "src/cmd_edit_insert_line.h": "2c0a93a27f08c907666adccf3b0d40714d793e0de2ecfd0cb7ea0dd170d60837",
+      "src/edit_insert_line_main.c": "63ce7e48cc98a0a8f6fb832ceae7542f93effae3bccbba4584abbcde85ff85ac",
+      "src/registry.c": "65e7f7d2d3637e179c479b74382dd9845f679505fb0fc065299b9f075d2d969b",
+      "tests/test_edit_insert_line.py": "d78a627511da4b9d5945bc84b8f2099c0f2f42910c990aff8f17dce521de697e",
+      "tests/test_edit_insert_line_module.c": "a612a1337f7bd44f3c67513f2fb2a5baa3c5efa730e55d1f0c77875960585d57",
+      "tests/test_shell.py": "9ec89ed098d783d6727d7b6a29694ccc5b36e66e24816a27f309b08de9687cde",
+      "tests/test_shell_module.c": "986cea962d702ba02aa96aa89936185dd74d4b64ef41d8d49359cad8506473f0",
+      "docs/commands/edit-insert-line.md": "b684cc6761b9d44432d8469e5f4b008247dc8c89c32b722817fb462be24cf7a2",
+      "docs/reports/edit-insert-line-implementation.md": "439457c7cfcdc3508bb862665dd1b7ef3c830f030d66adcf85835ee004f99d26"
+    },
+    "anchor_hashes": {
+      "src/cmd_edit_replace_line.c": "019da87409b9556ec4aed20f77a570d92a75b7a9eca8782ea522a1e618563740",
+      "src/cmd_edit_replace_line.h": "199b5623998b6832bb6259084f485745cb18ec6f03ad276526b77fe4afbf1b80",
+      "src/edit_replace_line_main.c": "67e6343f8de77c3ce98494439cba5fcb9f690964f4afd57c30f3ab15558ddd45",
+      "tests/test_edit_replace_line.py": "3a332c683dbe6a2ec58767c986b139c02acf4ef032c1215d96458141168b002b",
+      "tests/test_edit_replace_line_module.c": "6dd849ea23281ef192bd7df0fa340c6790766da516a47c48eaf757178ab5c8c9",
+      "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+      "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+      "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+      "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+      "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+      "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+      "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+      "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+      "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+      "tests/test_help.c": "4b9b47dd3efff942a35f12f4d91a2933779bf197c82f8899ac3273c1725c522d",
+      "tests/test_output.h": "01536bf1a5c5722fb4b41c1211693943ae316d6acd5c5c98b894e5dbfa17e3de",
+      "tests/test_recursive.c": "b3e0af1afa52d946216f7307d732bc5d3563b2e49c56207f4dfa72c12952b511"
+    },
+    "candidate_hashes": {
+      "README.md": "1207e87082d2c500236ebdc1145d8313917568854400a42fc8f5cef66de91a91",
+      "FILES.md": "fc5496722ca9e28798b81b94478cd7166d58b2f570c6c6903c816fb381b82c4d",
+      "integration.patch": "04f687ef269be0b2c82d62b1443d29db39c9ed6d82d08f96fc2835673468b3ee"
+    },
+    "dependency_hashes": {
+      "build/argtable3/lib/libargtable3.a": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+      "build/cunit/lib/libcunit.a": "d106a116e4e15662bf91e44e77af80abda01ea62679a9ae91a72b60bbba19d4f"
+    },
+    "snapshots": {
+      "normal": "/home/name/.hermes/cache/scratch/edit-insert-line-review-7s_ypl7f",
+      "sanitizer": "/home/name/.hermes/cache/scratch/edit-insert-line-sanitize-yji19h33",
+      "integration": "/home/name/.hermes/cache/scratch/edit-insert-line-integration",
+      "new_files": [
+        "src/cmd_edit_insert_line.c",
+        "src/cmd_edit_insert_line.h",
+        "src/edit_insert_line_main.c",
+        "tests/test_edit_insert_line.py",
+        "tests/test_edit_insert_line_module.c",
+        "docs/commands/edit-insert-line.md",
+        "docs/reports/edit-insert-line-implementation.md"
+      ],
+      "integration_files": [
+        "Makefile",
+        "src/registry.c",
+        "tests/test_shell.py",
+        "tests/test_shell_module.c",
+        "README.md",
+        "FILES.md"
+      ]
+    },
+    "counts": {
+      "cli_groups": 14,
+      "module_invocations": 355,
+      "shell_groups": 27,
+      "builtin_inventory": 14,
+      "standalone_parity": 13,
+      "registry_capacity": 32,
+      "negative_controls": 6
+    },
+    "global_format_failures": [
+      "src/cmd_spec.h",
+      "src/traverse.c",
+      "src/traverse.h",
+      "tests/test_help.c",
+      "tests/test_output.h",
+      "tests/test_recursive.c"
+    ],
+    "uid": 1000,
+    "limitations": [
+      "fixed LF for all inserted lines; append separator on unterminated input",
+      "new inode; no ACL/xattr/timestamp/sparse preservation",
+      "trusted stable namespace; final check-to-rename race; no directory fsync",
+      "postcommit JSON/output failure does not roll back",
+      "internal argtable OOM exits host",
+      "default O0 sanitizers passed; known O1 baseline harness limitation not rerun; dependencies uninstrumented"
+    ],
+    "status": "ready for independent review; not staged/committed",
+    "raw_log_sha256": "4c3cfd438e8dec1f2819ea069e501db6365fab7828e35f5ebf0a428f7cbd9cda",
+    "raw_log_bytes": 468036,
+    "raw_log_whitespace_status": 3
+  }
+}

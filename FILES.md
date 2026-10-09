@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, thirteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, fourteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -147,5 +147,13 @@
 - tests/test_edit_replace_line.py, tests/test_edit_replace_line_module.c — independent byte/property, safety, reuse, fault, and mechanism checks.
 - docs/reports/edit-replace-line-implementation.md — course contract, TDD and verified acceptance evidence.
 - logs/commands/edit-replace-line-execution.log, logs/commands/edit-replace-line-evidence.json — complete raw streams, structured commands/statuses and final hashes.
+- docs/commands/edit-insert-line.md — staged line insertion/append usage and limits.
+- src/cmd_edit_insert_line.c, src/cmd_edit_insert_line.h — invocation-local insertion, parser, staged editing and JSON.
+- src/edit_insert_line_main.c — optional standalone insertion wrapper.
+- tests/test_edit_insert_line.py, tests/test_edit_insert_line_module.c — independent byte/property, safety, reuse, fault and mechanism checks.
+- docs/reports/edit-insert-line-implementation.md — selected course contract, TDD and executed verification.
+- logs/commands/edit-insert-line-execution.log, logs/commands/edit-insert-line-evidence.json — complete raw streams, commands/statuses and final hashes.
 - docs/reports/edit-replace-line-review.md — independent source review, adversarial verification and delivery limits.
 - logs/commands/edit-replace-line-review-execution.log, logs/commands/edit-replace-line-review-evidence.json — independent raw streams, command/status ledger, reproduction scripts and source hashes.
+- docs/reports/edit-insert-line-review.md — independent source review, byte oracle, negative controls and delivery limits.
+- logs/commands/edit-insert-line-review-execution.log, logs/commands/edit-insert-line-review-evidence.json — independent complete streams, command/status/hash ledger and reproduction scripts.

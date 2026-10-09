@@ -15,7 +15,8 @@ ARGS = PARSER.parse_args()
 PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
-                    'touch', 'clear', 'cp', 'rg', 'edit-replace-line']
+                    'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
+                    'edit-insert-line']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -31,6 +32,7 @@ SUMMARIES = [
     'Change working directory.',
     'Search explicit files and directories.',
     'Replace one existing line using staged file editing.',
+    'Insert one line using staged file editing.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -157,6 +159,87 @@ class ShellTests(unittest.TestCase):
                 proc.wait(timeout=2)
             os.close(master)
 
+    def test_edit_insert_line_integration(self):
+        expected = (b'{"path":"data","line":2,"status":"ok",'
+                    b'"message":null}\n')
+        self.check(['edit-insert-line', '--json', 'data', '2', 'one'],
+                   out=expected)
+        self.assertEqual((self.cwd / 'data').read_bytes(), b'first\none\nsecond\nthird\n')
+        failure = self.run_cli(['edit-insert-line', 'data', '9', 'bad'])
+        self.assertEqual(failure[0], 1)
+        self.assertEqual(self.run_cli(data=b'edit-insert-line data 9 bad\nexit\n'),
+                         failure)
+        self.check(data=b'edit-insert-line --json data 2 "two words"\n'
+                   b'edit-insert-line data 9 bad\n'
+                   b'help edit-insert-line\n'
+                   b'edit-insert-line --help\n'
+                   b'edit-insert-line --json data 2 "final text"\n'
+                   b'pwd\nexit\n',
+                   out=expected + self.run_cli(['help', 'edit-insert-line'])[1] * 2
+                   + expected + os.fsencode(self.cwd) + b'\n', err=failure[2])
+        self.assertEqual((self.cwd / 'data').read_bytes(),
+                         b'first\nfinal text\ntwo words\none\nsecond\nthird\n')
+        invalid = self.run_cli(['edit-insert-line', 'data', '0', 'bad'])
+        self.assertEqual(invalid[0], 2)
+        self.assertEqual(self.run_cli(data=b'edit-insert-line data 0 bad\nexit\n'),
+                         invalid)
+
+    def test_edit_insert_line_child_pty(self):
+        import errno
+        import fcntl
+        import pty
+        import select
+        import termios
+        import time
+        master, slave = pty.openpty()
+        attrs = termios.tcgetattr(slave)
+        attrs[3] &= ~termios.ECHO
+        termios.tcsetattr(slave, termios.TCSANOW, attrs)
+
+        def own_terminal():
+            os.setsid()
+            fcntl.ioctl(slave, termios.TIOCSCTTY, 0)
+
+        proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
+                                stderr=slave, cwd=self.cwd,
+                                env={**os.environ, 'LC_ALL': 'C'},
+                                preexec_fn=own_terminal)
+        os.close(slave)
+        try:
+            os.write(master, b'edit-insert-line --json data 2 first\n'
+                     b'edit-insert-line data 9 bad\n'
+                     b'edit-insert-line --json data 2 final\nexit\n')
+            captured = b''
+            deadline = time.monotonic() + 10
+            while time.monotonic() < deadline:
+                ready, _, _ = select.select([master], [], [], 0.1)
+                if ready:
+                    try:
+                        chunk = os.read(master, 65536)
+                    except OSError as error:
+                        if error.errno == errno.EIO:
+                            break
+                        raise
+                    if not chunk:
+                        break
+                    captured += chunk
+                elif proc.poll() is not None:
+                    break
+            self.assertEqual(proc.wait(timeout=2), 0)
+            result = (b'{"path":"data","line":2,"status":"ok",'
+                      b'"message":null}\r\n')
+            self.assertEqual(captured, b'main> ' + result +
+                             b'main> edit-insert-line: data: '
+                             b'Numerical result out of range\r\nmain> ' +
+                             result + b'main> ')
+            self.assertEqual((self.cwd / 'data').read_bytes(),
+                             b'first\nfinal\nfirst\nsecond\nthird\n')
+        finally:
+            if proc.poll() is None:
+                proc.kill()
+                proc.wait(timeout=2)
+            os.close(master)
+
     def test_rg_integration(self):
         expected = b'data:2:second\n'
         self.check(['rg', '-n', 'second', 'data'], out=expected)
@@ -244,7 +327,8 @@ class ShellTests(unittest.TestCase):
                  'mkdir': ['-p', 'directory'], 'touch': ['--json', 'data'],
                  'clear': [], 'cp': ['--json', 'data', 'copy'],
                  'rg': ['--json', 'second', 'data'],
-                 'edit-replace-line': ['--json', 'data', '2', 'replacement']}
+                 'edit-replace-line': ['--json', 'data', '2', 'replacement'],
+                 'edit-insert-line': ['--json', 'data', '2', 'insertion']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):

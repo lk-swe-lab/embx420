@@ -12,6 +12,7 @@
 #include "cmd_cd.h"                /* cmd_cd_spec. */
 #include "cmd_rg.h"                /* cmd_rg_spec. */
 #include "cmd_edit_replace_line.h" /* cmd_edit_replace_line_spec. */
+#include "cmd_edit_insert_line.h"  /* cmd_edit_insert_line_spec. */
 #include <stddef.h>                /* NULL, size_t. */
 #include <string.h>                /* strcmp. */
 
@@ -70,7 +71,8 @@ int register_all_builtin_commands(void)
                                     &cmd_cp_spec,
                                     &cmd_cd_spec,
                                     &cmd_rg_spec,
-                                    &cmd_edit_replace_line_spec};
+                                    &cmd_edit_replace_line_spec,
+                                    &cmd_edit_insert_line_spec};
     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
         if (register_command(builtins[i]) != 0)
             return -1;

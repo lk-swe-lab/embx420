@@ -15,7 +15,7 @@ C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
 CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
 
 .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line
+all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line
 
 build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -71,8 +71,8 @@ test-ls-impl: build/ls build/test_ls_module
 build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_lines.c
-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_lines.h
+SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c
+SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h
 
 build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -81,11 +81,11 @@ build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEAD
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
 .PHONY: test-shell
-test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line
+test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line
 	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
 	./build/test_shell_module
 
-test: test-shell test-clear test-cd test-cp-impl test-rg-impl test-edit-replace-line-impl
+test: test-shell test-clear test-cd test-cp-impl test-rg-impl test-edit-replace-line-impl test-edit-insert-line-impl
 
 build/cat: src/cat_main.c src/cmd_cat.c src/cmd_cat.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/cat_main.c src/cmd_cat.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -191,6 +191,7 @@ build:
 	mkdir -p $@
 
 clean:
+	$(RM) build/edit-insert-line build/test_edit_insert_line_module
 	$(RM) build/edit-replace-line build/test_edit_replace_line_module
 	$(RM) build/rg build/test_rg_module
 	$(RM) build/cp build/test_cp_module
@@ -262,3 +263,14 @@ test-rg:
 test-rg-impl: build/rg build/test_rg_module
 	python3 tests/test_rg.py ./build/rg
 	./build/test_rg_module
+
+.PHONY: test-edit-insert-line-impl
+build/edit-insert-line: src/edit_insert_line_main.c src/cmd_edit_insert_line.c src/cmd_edit_insert_line.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/edit_insert_line_main.c src/cmd_edit_insert_line.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_edit_insert_line_module: tests/test_edit_insert_line_module.c src/cmd_edit_insert_line.c src/cmd_edit_insert_line.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_edit_insert_line_module.c src/cmd_edit_insert_line.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=open,--wrap=lstat,--wrap=fstat,--wrap=mkstemp,--wrap=fcntl,--wrap=fchown,--wrap=fchmod,--wrap=fsync,--wrap=close,--wrap=read,--wrap=write,--wrap=rename,--wrap=unlink $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-edit-insert-line-impl: build/edit-insert-line build/test_edit_insert_line_module
+	python3 tests/test_edit_insert_line.py --program ./build/edit-insert-line
+	./build/test_edit_insert_line_module

@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs thirteen builtin commands directly; no external-command fallback.
+`main` runs fourteen builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -46,7 +46,7 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Twelve commands also have optional standalone tools in `build/`; `cd` is
+Thirteen commands also have optional standalone tools in `build/`; `cd` is
 in-process only, with no standalone executable. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
@@ -65,12 +65,15 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [cd](docs/commands/cd.md) | Change physical cwd persistently in the loop | `./build/main help cd` |
 | [rg](docs/commands/rg.md) | Search explicit files/trees; ERE, literals, context and JSON | `./build/main help rg` |
 | [edit-replace-line](docs/commands/edit-replace-line.md) | Replace one existing line through staged editing; optional JSON | `./build/main help edit-replace-line` |
+| [edit-insert-line](docs/commands/edit-insert-line.md) | Insert before a line or append through staged editing; optional JSON | `./build/main help edit-insert-line` |
 
 These are selected subsets, not full GNU replacements; also registered builtins.
 Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;
 final delivery remains conditional. See [integration evidence](docs/reports/clear-cd-integration.md).
 `cp` implementation [evidence and limits](docs/reports/cp-implementation.md);
 [independent review](docs/reports/cp-review.md) passes selected runtime gates.
+`edit-insert-line` [independent review](docs/reports/edit-insert-line-review.md)
+passes the selected contract; exact-index delivery remains a separate gate.
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 
 ## Demo
