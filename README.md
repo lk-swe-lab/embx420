@@ -1,6 +1,6 @@
 # Builtin shell and directory traversal
 
-`main` runs seventeen builtin commands directly; no external-command fallback.
+`main` runs eighteen builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md).
 
 ```sh
@@ -46,7 +46,7 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Sixteen commands also have optional standalone tools in `build/`; `cd` is
+Seventeen commands also have optional standalone tools in `build/`; `cd` is
 in-process only, with no standalone executable. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
@@ -69,6 +69,7 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [edit-delete-line](docs/commands/edit-delete-line.md) | Delete one existing line through staged editing; optional JSON | `./build/main help edit-delete-line` |
 | [edit-replace](docs/commands/edit-replace.md) | Global ERE/literal replacement through staged editing; optional JSON | `./build/main help edit-replace` |
 | [mv](docs/commands/mv.md) | Same-filesystem rename; explicit force and optional JSON | `./build/main help mv` |
+| [env](docs/commands/env.md) | Read-only sorted environment listing; optional JSON | `./build/main help env` |
 
 mv [independent review](docs/reports/mv-review.md) passes the selected contract;
 exact-index verification remains a separate delivery gate.

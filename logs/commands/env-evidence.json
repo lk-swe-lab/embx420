@@ -1,0 +1,1482 @@
+{
+  "head": "6c17b709677b67ea8e033b695a040dae4f397844",
+  "safe_environment": "All executions controlled synthetic allowlist; env CLI fixtures pass explicit empty/generated mappings. No actual host values printed.",
+  "commands": [
+    {
+      "label": "manual-env",
+      "argv": [
+        "sh",
+        "-c",
+        "man env | col -b"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "165d797da81a2a4eac4ac7e20bd50b31273be2e2f09859bbca43f2e01ea20ae2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "manual-environ",
+      "argv": [
+        "sh",
+        "-c",
+        "man 7 environ | col -b"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "f1bfb9a51fa7c9cea8ebf010ee3f4f909dd78ab066260faf7fc1f7c7c83fe6bf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "manual-write",
+      "argv": [
+        "sh",
+        "-c",
+        "man 2 write | col -b"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "de64fcd35e42c2313c62f2febbbe097d99dab8f952b33e4e66eed2a1f7c88cbf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "version",
+      "argv": [
+        "/usr/bin/env",
+        "--version"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "2bf81b20cfa9db1fb98cad9603ae6d1c9d3a2056ab1eb989b73594eaf1d70001",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference-raw",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "/usr/bin/env",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ef7159d3435120c25e44ecd47d29c7456c0fe9b310d0383c4ca6aea8a4a0371a"
+    },
+    {
+      "label": "negative-empty",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "/usr/bin/true",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "7ee28262228b46c3a4ab52c00754b82ccfc30f5d0e7e5273ff1d4859897ff205"
+    },
+    {
+      "label": "stub-build",
+      "argv": [
+        "cc",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/stub.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/stub"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1-red",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/stub"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ed709cd1be4de1cf1c2a95338871fc7fb1491736bbda02856d6ae028c98afb63"
+    },
+    {
+      "label": "slice1-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "src/env_main.c",
+        "src/cmd_env.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice1-green",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6dd04338b9b57bfc60695cfe813e20bf76707011d3c628612a7ef4b675cd80d3"
+    },
+    {
+      "label": "slice2-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "src/cmd_env.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2-red",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "02d6aab20a283fe80dac98251bd41703606dc2259706583f156de3f43bf4a30e"
+    },
+    {
+      "label": "slice2-build-green",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "src/cmd_env.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2-green",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "dcf4658379c7a85f9567f18e210fbfba41540fcaf1324da21928923a88782818",
+      "stderr_sha256": "43d0778df5ab0cf8fb8e09867f6826c7ab363a2988eb8e0aa10c23c04e09f515"
+    },
+    {
+      "label": "slice2-cli-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "src/env_main.c",
+        "src/cmd_env.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice2-cli-green",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6dd04338b9b57bfc60695cfe813e20bf76707011d3c628612a7ef4b675cd80d3"
+    },
+    {
+      "label": "slice3-json-red",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env",
+        "--slice",
+        "json"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bc026188e560e0dac32820a64a59dfb344c967f10c4fbe9bde5886c300e1056d"
+    },
+    {
+      "label": "slice4-parser-red",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env",
+        "--slice",
+        "all"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f255aeec416b76a0e568d48816d392752cb935884a66a6e7c22f539e15fc0a4d"
+    },
+    {
+      "label": "ownership-red-object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "src/cmd_env.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ownership-red-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ownership-red",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "36174ddfc051c2eff056065cca7002b47e5bb0112d5b742b04e9f57ab1c004a7"
+    },
+    {
+      "label": "slice3-4-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "src/env_main.c",
+        "src/cmd_env.c",
+        "src/cmd_lines.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "slice3-json-green",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env",
+        "--slice",
+        "json"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "4d16cb89d62d9b1a12f0cdffe80ae095f0af9b68b4825739d2ba453ddb2ec143"
+    },
+    {
+      "label": "slice4-parser-green",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env",
+        "--slice",
+        "all"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bf9b3fadb5e149006f045211ab9227d27b94b1f6cedbac6f51ac68b833602c50"
+    },
+    {
+      "label": "ownership-green-object",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "src/cmd_env.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ownership-green-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ownership-green",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "ece98bea46cca0b41762e0d44042e644c300051f050284684cf553ae8e8cf797",
+      "stderr_sha256": "1c28dc2d47339306c750fdf226953947c95d958ed7972a6b8568802966acd002"
+    },
+    {
+      "label": "baseline-main-build",
+      "argv": [
+        "make",
+        "-j4",
+        "all"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline",
+      "status": 0,
+      "stdout_sha256": "746879ae6da8d1d5f338b7689a0e8d28b6e3eaadb1c17c40b3361449039b10d1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "baseline-main-env-red",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate/tests/test_env.py",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate/build/env",
+        "--main",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline/build/main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ec5c52b04bb0af0752d0ded0467bac07cce338040fd021f8cbb7f8730df2fc79"
+    },
+    {
+      "label": "expanded-cli-green",
+      "argv": [
+        "python3",
+        "tests/test_env.py",
+        "build/env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "2f5110bf975b20e30444607a6e29188f6ec43654a0c95fc8c4774beef8218e01"
+    },
+    {
+      "label": "integration-green-build",
+      "argv": [
+        "make",
+        "-j4",
+        "all",
+        "build/test_env_module",
+        "build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "95fc153b2132fef920bbbfc701db96e13e7fc1f1198200d359d67669e097c047",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "integration-green",
+      "argv": [
+        "make",
+        "test-env-impl",
+        "test-shell"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "a3d1c998539b85134e7484243a3e7154c6700e7ed23ce1ae9bda924b081941d5",
+      "stderr_sha256": "38f7ecfe0d1e91bb58cfc2847172cbd6e6ba57ea3a56cfdbfdde6b4adfe49695"
+    },
+    {
+      "label": "baseline-global-format",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline",
+      "status": 2,
+      "stdout_sha256": "8eb1bf8d8a261ed0c1639422b83ec355693ea1cc2c8a21fb80a88935b5b6c1fb",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+    },
+    {
+      "label": "candidate-global-format",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 2,
+      "stdout_sha256": "41239254474854de010075280651d4bebc1120df9851fd81c38689d8d31ec7eb",
+      "stderr_sha256": "fabe7a966700cebeb31a01517d16490228991c379ff54bf29da077866d54c22e"
+    },
+    {
+      "label": "normal-regression",
+      "argv": [
+        "make",
+        "-j4",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "d579a8db61051399d23b955c61471051da47dab02107ea45c1053fd642b558d5",
+      "stderr_sha256": "22eb38bafb032ea213b4c61128acb85901279932f5dfd3ecd173b49cbcbcab2e"
+    },
+    {
+      "label": "normal-lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 2,
+      "stdout_sha256": "189e27174cff87f63ff5b271b380b3c9e6f2652fe6f57ec1c2da82be2881818a",
+      "stderr_sha256": "634f6ebdd68902c9bc9f07d6402de804c7e9e56bbe1fc27edd55e9573175ec2b"
+    },
+    {
+      "label": "baseline-normal-regression",
+      "argv": [
+        "make",
+        "-j4",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline",
+      "status": 0,
+      "stdout_sha256": "295c1338c1fdd1fff40fa66ab816b8c065caeb3821de50e8ec43832c98122dec",
+      "stderr_sha256": "c63acba6b29d9f99f25999057d0fa0e03e731cf165177a93732508b3cb59cd6f"
+    },
+    {
+      "label": "scoped-format-refactor",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/cmd_env.c",
+        "src/cmd_env.h",
+        "src/env_main.c",
+        "tests/test_env_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "scoped-format",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_env.c",
+        "src/cmd_env.h",
+        "src/env_main.c",
+        "tests/test_env_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-sort-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/no-sort.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9f04f143f918688be39b1bc9c7375469509c42895cc9c65a4980047ede170948"
+    },
+    {
+      "label": "negative-no-sort-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-sort",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "36174ddfc051c2eff056065cca7002b47e5bb0112d5b742b04e9f57ab1c004a7"
+    },
+    {
+      "label": "negative-last-duplicate-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/last-duplicate.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-last-duplicate-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-last-duplicate",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f2a18101773655cc0ce6b79ff7fa54f1ea4c20d046c7f25edbd19ecf04948f3f"
+    },
+    {
+      "label": "negative-caller-argv-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/caller-argv.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-caller-argv-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-caller-argv",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-getopt-state-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/getopt-state.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "150929de6be92270d8921006f4ade476269af165e1b6fcbf426ea2ab36cb8804"
+    },
+    {
+      "label": "negative-getopt-state-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-getopt-state",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-utf8-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/no-utf8.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-utf8-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-no-utf8",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "178fedd9558a15e5d5cf07d00f1beb513de343347b9c30c82b953d73bb068e19"
+    },
+    {
+      "label": "restore-owned",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "src/cmd_env.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restore-module",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "post-refactor-tests",
+      "argv": [
+        "make",
+        "test-env-impl",
+        "test-shell"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "9efd49302f626a1d46587af9a0fe48258c67f0ff510cf6763befd624e865f942",
+      "stderr_sha256": "a84172053f8184625ef3771233390445bd1b714c2174a9a384479d6b44e7d523"
+    },
+    {
+      "label": "format-module",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_env_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-marked-caller-argv-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/caller-argv.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-marked-caller-argv-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-marked-caller-argv",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ff541582a26ee1c80514397485b053f36b5de6bf72e13a474bdf8e5bde2e5b71"
+    },
+    {
+      "label": "negative-marked-getopt-state-object",
+      "argv": [
+        "cc",
+        "-Isrc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/getopt-state.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "150929de6be92270d8921006f4ade476269af165e1b6fcbf426ea2ab36cb8804"
+    },
+    {
+      "label": "negative-marked-getopt-state-build",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "negative-marked-getopt-state",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c6abf65e0569cbfb88bfb0d1e1d5e6235636658f0c054221c59bc0d0882080f5"
+    },
+    {
+      "label": "restore-marked-owned",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "-Dmalloc=env_test_malloc",
+        "-Dfree=env_test_free",
+        "-c",
+        "src/cmd_env.c",
+        "-o",
+        "build/cmd_env_test.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restore-marked-module",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "-O0",
+        "-Ibuild/argtable3/include",
+        "tests/test_env_module.c",
+        "build/cmd_env_test.o",
+        "src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "marked-green",
+      "argv": [
+        "./build/test_env_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "ece98bea46cca0b41762e0d44042e644c300051f050284684cf553ae8e8cf797",
+      "stderr_sha256": "1c28dc2d47339306c750fdf226953947c95d958ed7972a6b8568802966acd002"
+    },
+    {
+      "label": "normal-lint-local",
+      "argv": [
+        "make",
+        "lint",
+        "CLANG_TIDY=/home/name/.local/bin/clang-tidy"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 2,
+      "stdout_sha256": "968630e3c8531f6c34936928c870aa2e62853e5fac1f9de82a3ad46b88ee3fa4",
+      "stderr_sha256": "f88cabef78f0230ccb5c84fd1d51561cd5c0365c4dde28afaac58d735dd85639"
+    },
+    {
+      "label": "format-final-refactor",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/cmd_env.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "normal-lint-corrected",
+      "argv": [
+        "make",
+        "lint",
+        "CLANG_TIDY=/home/name/.local/bin/clang-tidy"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "706c8bae726ef005c9f725d42b2f6f438e60250053be1664ad516f42b14db65d",
+      "stderr_sha256": "153b792649dfc8cf8ec153f07096d2758aaf1d269870014b0b1223e714b2414c"
+    },
+    {
+      "label": "normal-regression-corrected",
+      "argv": [
+        "make",
+        "-j4",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "9193d9b7d77fa9c689486017915fb1ae0e5da54d6b750fe8a469b6f4a92c6799",
+      "stderr_sha256": "f7071f4d990b106c1ca3aa55daafbcbae25dc6b54cffeacf3447c5ababf3fcd8"
+    },
+    {
+      "label": "O0-asan-ubsan-full",
+      "argv": [
+        "make",
+        "-j4",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/asan",
+      "status": 0,
+      "stdout_sha256": "151a5b00f8602286708b7503993d0732d93c2d13e2dd36ac3951553dfc6bd2b5",
+      "stderr_sha256": "45b1a098c37e9c8182286846f23d6275eaf5a96577326719d83695dfb024c36c"
+    },
+    {
+      "label": "primary-argtable",
+      "argv": [
+        "curl",
+        "-L",
+        "--max-time",
+        "25",
+        "https://www.argtable.org/tutorial/"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "a5d3498cf6663febf0f41f80c6647c1d2fa54b6167f3e0d968027d07165da2c8",
+      "stderr_sha256": "dfc42459e9a1759a77af438dd700761cc49a7b8de0e5209c7686796f606061a4"
+    },
+    {
+      "label": "primary-posix-environ",
+      "argv": [
+        "curl",
+        "-L",
+        "--max-time",
+        "25",
+        "https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/V1_chap08.html"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "89294048dbc032eacc75804005e256eaa7eb6b5c9a2a9cf75b44d8c573d25ad7",
+      "stderr_sha256": "e45ca9fc81a61a848050587d20c091ffc587be026e084835772b3f6e1c2f45a6"
+    },
+    {
+      "label": "baseline-O1-shell-build",
+      "argv": [
+        "make",
+        "-B",
+        "build/test_shell_module",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline",
+      "status": 0,
+      "stdout_sha256": "8843282ac01f2ce15730fb1b1d26495be7364f2956123e39cde3e0335234f6b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "baseline-O1-shell-run",
+      "argv": [
+        "./build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/baseline",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c35064f3adfb180b8a50aa3c7750f57d98e795a0be1191948292c03aa4eaf20a"
+    },
+    {
+      "label": "candidate-O1-shell-build",
+      "argv": [
+        "make",
+        "-B",
+        "build/test_shell_module",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "a297c153821241fd71252dc1290f97767caea42508f46e6c0b4d116b54afdc77",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "candidate-O1-shell-run",
+      "argv": [
+        "./build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fbbbe8c1189bb64473fbc86e108606b6860e4b78ad9fb02888f881373c43d6b9"
+    },
+    {
+      "label": "internal-argtable-OOM-build",
+      "argv": [
+        "cc",
+        "-Ibuild/argtable3/include",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/argtable-internal-oom.c",
+        "-Lbuild/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-Wl,--wrap=malloc",
+        "-o",
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/argtable-internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "internal-argtable-OOM",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/argtable-internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+    },
+    {
+      "label": "format-expanded-module",
+      "argv": [
+        "clang-format",
+        "-i",
+        "tests/test_env_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "reference-final",
+      "argv": [
+        "make",
+        "test-env"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "9fa1ba961e0e5acd10355efac15d991e7788d2ed5ebf878ae2f02d0832bde2c0",
+      "stderr_sha256": "823b74056b3686651012ab8069c4284d559a6a282c2ae2151b1091011294182d"
+    },
+    {
+      "label": "expanded-module-green",
+      "argv": [
+        "make",
+        "-B",
+        "test-env-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "1d5ee4052064ba084ea06b468af7f5d99517ae33ca0c9e492f523e31cba7d127",
+      "stderr_sha256": "4fabe6ddf0860d1caf5c80ea196a5237c51c5d9690dac756f3d1f6b750699a20"
+    },
+    {
+      "label": "format-last",
+      "argv": [
+        "clang-format",
+        "-i",
+        "src/cmd_env.c",
+        "tests/test_env_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "expanded-output-green",
+      "argv": [
+        "make",
+        "test-env-impl"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "73f8f11ad0f7297cc62b899d682f2b033e94a0bea355c63b3458660afbca4ec7",
+      "stderr_sha256": "44036b26ccc8188555be2eb41d3be3b0c1989d69d25846d42f379f74e3efbd51"
+    },
+    {
+      "label": "expanded-format",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_env.c",
+        "src/cmd_env.h",
+        "src/env_main.c",
+        "tests/test_env_module.c",
+        "src/registry.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "expanded-O0-sanitizer",
+      "argv": [
+        "make",
+        "-j4",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/asan",
+      "status": 0,
+      "stdout_sha256": "0eecfedee74ccbc608ca04b1213ce95377508c46f420aba86ea8c0d82b2f6151",
+      "stderr_sha256": "37468e63d642e760bb955cb967238feec6a5571aacf3242b40fe977242248b32"
+    },
+    {
+      "label": "normal-last-full",
+      "argv": [
+        "make",
+        "-B",
+        "-j4",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "f876b2ecbc39f3537927d5218dccd4bdd87a8996e2706babfa6d9318ead19dbf",
+      "stderr_sha256": "91a82549beed3aa892181db40e6ffd5b6a448c908fbd9b5a3378fb2175c9fcaf"
+    },
+    {
+      "label": "lint-final",
+      "argv": [
+        "make",
+        "lint",
+        "CLANG_TIDY=/home/name/.local/bin/clang-tidy"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/env-delivery-569mb7te/candidate",
+      "status": 0,
+      "stdout_sha256": "706c8bae726ef005c9f725d42b2f6f438e60250053be1664ad516f42b14db65d",
+      "stderr_sha256": "153b792649dfc8cf8ec153f07096d2758aaf1d269870014b0b1223e714b2414c"
+    }
+  ],
+  "final_candidate_sources": [
+    {
+      "path": "Makefile",
+      "sha256": "47359025a91bde5c215c4887c6ecafeaf411630253770552590b8166e7d65e2e"
+    },
+    {
+      "path": "src/registry.c",
+      "sha256": "6381c33de6870377280f728d846bd481c5b8bce1a4d1d4368a5ce8950bd40dc3"
+    },
+    {
+      "path": "tests/test_shell.py",
+      "sha256": "6af1baa92c6fcdc9a15d886a6c5963ebbf5f78b8e0051cef5589cf2b40da6c45"
+    },
+    {
+      "path": "tests/test_shell_module.c",
+      "sha256": "2d593f6372e43dda4505a20172635356012c339b1b4bd50d93582f122851d368"
+    },
+    {
+      "path": "src/cmd_env.c",
+      "sha256": "f86857013d996b04830694c0bb4b011fb0471b827cd9f2bce451d404d32d4be5"
+    },
+    {
+      "path": "src/cmd_env.h",
+      "sha256": "3839faac74b5806936e19b954c1ae53226120d7a298abb0a40a16f21a43c7ece"
+    },
+    {
+      "path": "src/env_main.c",
+      "sha256": "52065c4846d052b2b3f019fffd0784cbbad2b4abe6693dab3e907587ca346205"
+    },
+    {
+      "path": "tests/test_env.py",
+      "sha256": "37e48c7e458ded48a1fdee4537755ff026841a92dd8b446e8e597ec5a0c2f99d"
+    },
+    {
+      "path": "tests/test_env_module.c",
+      "sha256": "707a0a8dc28098c0cb9d5f4998e14b1bc7c638ca15d95ff80c3cb0a7bf13e23c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "708deb6bda4aaba7fe99f43994e6cdebc62c5bf3cbf0f81c63b19274fe9df00a"
+    },
+    {
+      "path": "FILES.md",
+      "sha256": "84e257762ba20d8376a845d400eed84e1f6b94d4626131eb122404be323e34da"
+    },
+    {
+      "path": "docs/commands/shell.md",
+      "sha256": "d5c54fde5c14d25706d094d6eda03ef79ccc5bc50b12fe810c09ebf78aa28865"
+    },
+    {
+      "path": "docs/commands/env.md",
+      "sha256": "76af2a969f4e5fbc7c92c1488cf88b9b552bb29cf20dcc724674ec115fa2cf8f"
+    },
+    {
+      "path": "docs/reports/env-implementation.md",
+      "sha256": "f2a2fe338b61c2c176a162a63c4d292647f2dd0d82acb3002c0fb63a6c2c1c55"
+    }
+  ],
+  "limits": [
+    "six inherited global format files",
+    "O1 inherited shell fault harness assertion on HEAD and candidate",
+    "internal Argtable allocation can terminate host"
+  ],
+  "negative_control_visibility": "caller-argv/getopt reruns have saved-diagnostic-fd markers; earlier invisible diagnostic aborts not relied upon"
+}

@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, seventeen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, eighteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -184,3 +184,12 @@
 - tests/test_mv_review.py — independent entry-type, force, namespace and byte-path oracle.
 - docs/reports/mv-review.md — independent source review, executed gates and limits.
 - logs/commands/mv-review-execution.log, logs/commands/mv-review-evidence.json — complete review streams and command/status ledger.
+
+## env command
+- src/cmd_env.c, src/cmd_env.h — read-only sorted environment/JSON module.
+- src/env_main.c — thin standalone wrapper.
+- tests/test_env.py — synthetic byte fixtures, GNU content subset, JSON, main reuse/PTY.
+- tests/test_env_module.c — duplicates/malformed vectors, borrowed state, owned OOM and output faults.
+- docs/commands/env.md — usage, options and limits.
+- docs/reports/env-implementation.md — manual selection, contract, TDD and verification results.
+- logs/commands/env-execution.log, logs/commands/env-evidence.json — compact complete raw execution evidence and command/status/hash ledger.

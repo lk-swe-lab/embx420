@@ -16,7 +16,7 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv']
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -36,6 +36,7 @@ SUMMARIES = [
     'Delete one existing line using staged file editing.',
     'Replace all matches using staged file editing.',
     'Move files and directories.',
+    'List environment variables.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -60,7 +61,8 @@ class ShellTests(unittest.TestCase):
     def run_cli(self, args=(), data=b'', binary: str | Path = PROGRAM):
         proc = subprocess.run([str(binary), *args], input=data,
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                              cwd=self.cwd, env={**os.environ, 'LC_ALL': 'C'},
+                              cwd=self.cwd, env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
                               timeout=5)
         return proc.returncode, proc.stdout, proc.stderr
 
@@ -178,7 +180,8 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={**os.environ, 'LC_ALL': 'C'},
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -259,7 +262,8 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={**os.environ, 'LC_ALL': 'C'},
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -337,7 +341,8 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={**os.environ, 'LC_ALL': 'C'},
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -410,7 +415,8 @@ class ShellTests(unittest.TestCase):
             fcntl.ioctl(slave, termios.TIOCSCTTY, 0)
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={**os.environ, 'LC_ALL': 'C'},
+                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -536,7 +542,7 @@ class ShellTests(unittest.TestCase):
                  'edit-insert-line': ['--json', 'data', '2', 'insertion'],
                  'edit-delete-line': ['--json', 'data', '2'],
                  'edit-replace': ['--json', 'data', 'first|third', 'replacement'],
-                 'mv': ['--json', 'move-source', 'move-target']}
+                 'mv': ['--json', 'move-source', 'move-target'], 'env': ['--json']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
@@ -711,7 +717,8 @@ class ShellTests(unittest.TestCase):
         self.addCleanup(os.close, fd)
         proc = subprocess.run([PROGRAM], stdin=fd, stdout=subprocess.PIPE,
                               stderr=subprocess.PIPE,
-                              env={**os.environ, 'LC_ALL': 'C'}, timeout=5)
+                              env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
+                                     'HOME': str(self.cwd), 'TERM': 'ansi'}, timeout=5)
         self.assertEqual((proc.returncode, proc.stdout, proc.stderr),
                          (1, b'', b'main: standard input: Is a directory\n'))
 
