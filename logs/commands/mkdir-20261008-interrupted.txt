@@ -1,0 +1,331 @@
+=== Hermes subagent live transcript ===
+delegation: deleg_f3765e89   task: 0
+goal: Implement mkdir only using command-development skill and AGENTS/project procedures ADDING_COMMANDS COMMAND_ANATOMY COMMAND_API CODING DESIGN TDD VERIFY. Read docs/commands/mkdir.md, query indexed course requirement via readonly SQLite, inventory installed official manual. Select precise minimal contract including -h/--help, -p, --json, document operands/mode/umask/symlink/errors/partial parent creation. Run genuine RED-GREEN incremental TDD, independent exact fixtures/reference compatible checks …(+756 chars)
+started: 2026-10-08 16:09:19
+(append-only; streams while the subagent runs — tail -f me)
+========================================
+16:09:19 user     | kickoff: Implement mkdir only using command-development skill and AGENTS/project procedures ADDING_COMMANDS COMMAND_ANATOMY COMMAND_API CODING DESIGN TDD VERIFY. Read docs/commands/mkdir.md, query indexed course requirement via readonly SQLite, inventory installed official manual. Select precise minimal contract including -h/--help, -p, --json, document operands/mode/umask/symlink/errors/partial parent creation. Run genuine RED-GREEN incremental TDD, independent exact fixtures/reference compatible checks …(+756 chars) | context: Root /home/name/Documents/420-EMBDX/A. Main orchestrator only; all command implementations/tests/verification delegated. User full autonomous permissions override approval gates; commits per verified command (parent). stat 4698f37 and ls 18d70a9 committed. mkdir next, then touch cp (MUST mmap content copy) rg edit-replace-line edit-insert-line edit-delete-line edit-replace mv rmdir env echo date printf sleep true false rm = 20 batch. No pushes/publication/AI_LOG reads/wiki changes. Preserve unre …(+716 chars)
+16:09:19 start    | Implement mkdir only using command-development skill and AGENTS/project procedures ADDING_COMMANDS COMMAND_ANATOMY COMMAND_API CODING DESIGN TDD VERIFY. Read docs/commands/mkdir.md, query indexed course requirement via readonly SQLite, inventory installed official manual. Select precise minimal contract including -h/--help, -p, --json, document operands/mode/umask/symlink/errors/partial parent creation. Run genuine RED-GREEN incremental TDD, independent exact fixtures/reference compatible checks …(+756 chars)
+16:09:22 tool     | -> skill_view(command-development)
+16:09:22 result   | skill_view ok 0.1s: {"success": true, "name": "command-development", "description": "Use when designing and implementing command-line tools.", "tags": ["cli", "c", "systems-programming", "testing", "collaboration"], "related_skills": [], "content": "---\nname: command-development\ndescription: \"Use when designing and implementing command-line tools.\"\nversion: 0.1.0\nauthor: lk-swe-lab, Hermes Agent\nlicense: MIT\n …(+8560 chars)
+16:09:28 tool     | -> execute_code(from hermes_tools import read_file, terminal root='/home/name/Documents/420-EMBDX/A' for p in ['docs/SESSION_LOOKUP.md','docs/DATA_LOOKUP.md','docs/ADDING_COMMANDS.md','docs/COMMAND_ANATOMY.md','docs/COMMAND_API.md','doc …(+202 chars))
+16:09:28 result   | execute_code ok 0.2s: {"status": "success", "output": "\nFILE docs/SESSION_LOOKUP.md\n{'content': '1|# Current session lookup and registration\\n2|\\n3|1. Read `HERMES_SESSION_ID` and `HERMES_HOME` from the runtime environment; do not dump unrelated environment variables.\\n4|2. Call `session_search` with that exact session ID. Verify the returned ID and conversation match this session, and retrieve its title. Never su …(+48939 chars)
+16:09:35 tool     | -> execute_code(from hermes_tools import read_file, terminal for p in ['docs/COMMAND_API.md','docs/CODING.md','docs/DESIGN.md','docs/TDD.md','docs/VERIFY.md','docs/commands/mkdir.md','Makefile','FILES.md']: print('\n'+p+'\n'+read_file(r …(+507 chars))
+16:09:35 result   | execute_code ERROR 0.0s: {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n File \"/home/name/.hermes/cache/scratch/hermes_kernel_h3ighj4f/hermes_kernel_runner.py\", line 118, in run_cell\n exec(compile(request[\"code\"], \"<cell>\", \"exec\"), GLOBALS)\n ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n File \"<cell>\", line 3, in <module>\nKeyError: 'content'\n", "exit_code": …(+598 chars)
+16:09:38 tool     | -> read_file(mkdir.md)
+16:09:38 result   | read_file ok 0.0s: {"status": "unchanged", "message": "File unchanged since last read. The content from the earlier read_file result in this conversation is still current — refer to that instead of re-reading.", "path": "/home/name/Documents/420-EMBDX/A/docs/commands/mkdir.md", "dedup": true, "content_returned": false}
+16:09:43 tool     | -> read_file(stdout-f4dab39343d0.txt L1-30)
+16:09:43 result   | read_file ok 0.0s: {"content": "1|\n2|FILE docs/SESSION_LOOKUP.md\n3|{'content': '1|# Current session lookup and registration\\n2|\\n3|1. Read `HERMES_SESSION_ID` and `HERMES_HOME` from the runtime environment; do not dump unrelated environment variables.\\n4|2. Call `session_search` with that exact session ID. Verify the returned ID and conversation match this session, and retrieve its title. Never substitute the l …(+14020 chars)
+16:09:50 tool     | -> execute_code(import ast with open('/home/name/.hermes/cache/exec/stdout-f4dab39343d0.txt') as f: lines=f.read().splitlines() for idx,line in enumerate(lines): if line in ['FILE docs/commands/mkdir.md','FILE Makefile','FILE FILES.md', …(+524 chars))
+16:09:53 result   | execute_code ok 3.1s: {"status": "success", "output": "FILE docs/COMMAND_ANATOMY.md\n1|# Command anatomy specification\n2|\n3|Source: [Anatomy of a Command.docx](../data/02/Anatomy%20of%20a%20Command.docx).\n4|Markdown transcription follows the supplied [APPANATOMY.md](../data/02/APPANATOMY.md)\n5|companion, preserving the specification and examples. Examples are illustrative,\n6|not verified production implementations …(+36334 chars)
+16:10:04 tool     | -> tool_describe(Reading tool details · 1 tool)
+16:10:04 result   | tool_describe ok 0.0s: {"tools": {"session_search": {"description": "Recall past conversations: search or read old Hermes sessions (FTS5), or scroll inside one. Four shapes, picked by args: `query` = discovery (top-N matching sessions, top result fully hydrated); `session_id` + `around_message_id` = scroll (window of messages around an anchor); `session_id` alone = read a whole session — how you resolve an `@session:<pr …(+3580 chars)
+16:10:11 tool     | -> session_search(recall: "")
+16:10:11 result   | session_search ok 0.0s: {"success": true, "mode": "read", "session_id": "20261008_160919_6df3fd", "link": "@session:default/20261008_160919_6df3fd", "session_meta": {"when": "October 08, 2026 at 04:09 PM", "source": "subagent", "model": "gpt-6.1-sol", "title": "Subagent: Implement mkdir only using command-development…"}, "message_count": 16, "truncated": false, "messages": [{"id": 2648, "role": "user", "content": "Implem …(+19718 chars)
+16:10:23 tool     | -> read_file(sessions.txt)
+16:10:23 result   | read_file ok 0.0s: {"content": "1|# Read agents md\n2|20260929_233514_4006d7\n3|\n4|# Read handoff from .tmp\n5|20260930_021812_235ef6\n6|\n7|# Implement recursive directory traversal printing names\n8|20260930_234818_582d7d\n9|\n10|# Load AGENTS.md and check test failures\n11|20261002_193047_add44f\n12|\n13|# Ingest 02_anatomy_of_command_line_tool docs into SQLite FTS5\n14|20261006_072202_36eb83\n15|\n16|# Resume s …(+289 chars)
+16:10:28 tool     | -> patch(/home/name/Documents/420-EMBDX/A/docs/sessions.txt)
+16:10:28 tool     | -> skill_view(command-development → references/testing-methodology.md)
+16:10:28 tool     | -> read_file(cmd_lines.h)
+16:10:28 result   | patch ok 0.1s: {"success": true, "diff": "--- a//home/name/Documents/420-EMBDX/A/docs/sessions.txt\n+++ b//home/name/Documents/420-EMBDX/A/docs/sessions.txt\n@@ -18,3 +18,6 @@\n \n # Subagent: Independently review ls implementation, tests…\n 20261008_155953_c153f8\n+\n+# Subagent: Implement mkdir only using command-development…\n+202****1008_160919_6df3fd\n", "files_modified": ["/home/name/Documents/420-EMBDX/A/doc …(+158 chars)
+16:10:28 result   | skill_view ok 0.1s: {"success": true, "name": "command-development", "file": "references/testing-methodology.md", "content": "# Testing methodology for command modules\n\nUse this as a coverage planning checklist, not a claim that these checks already exist in a repository. Select proportional checks and obtain agreement on omissions.\n\n## 1. Contract matrix\n\nFor every selected feature, name the expected stdout, s …(+3686 chars)
+16:10:28 result   | read_file ok 0.0s: {"content": "1|#ifndef CMD_LINES_H\n2|#define CMD_LINES_H\n3|#include <stddef.h> /* size_t. */\n4|\n5|int lines_write(const unsigned char *data, size_t size);\n6|int lines_utf8(const unsigned char *data, size_t size);\n7|int lines_quote(const unsigned char *data, size_t size);\n8|#endif", "total_lines": 8, "file_size": 252, "truncated": false, "is_binary": false, "is_image": false, "not_found": fa …(+4 chars)
+16:10:38 tool     | -> execute_code(import sqlite3, pathlib from hermes_tools import write_file scratch='/home/name/.hermes/cache/scratch/mkdir-20261008' pathlib.Path(scratch).mkdir(exist_ok=True) c=sqlite3.connect('file:'+root+'/docs/data.sqlite?mode=ro', …(+574 chars))
+16:10:38 result   | execute_code ok 0.3s: {"status": "success", "output": "[('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 61, 'mkdir – create directoriesOptions:'), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 62, ''), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 63, '-h, --help'), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 64, '-p – create parent directories as needed.'), ('/ho …(+686 chars)
+16:10:45 tool     | -> read_file(mkdir-info.txt)
+16:10:45 result   | read_file ok 0.0s: {"content": "1|File: coreutils.info, Node: mkdir invocation, Next: mkfifo invocation, Prev: ln invocation, Up: Special file types\n2|\n3|12.3 ‘mkdir’: Make directories\n4|==============================\n5|\n6|‘mkdir’ creates directories with the specified names. Synopsis:\n7|\n8| mkdir [OPTION]... NAME...\n9|\n10| ‘mkdir’ creates each directory NAME in the order given. It reports\n11|an error if N …(+2766 chars)
+16:10:48 tool     | -> read_file(mkdir-api.txt)
+16:10:48 result   | read_file ok 0.0s: {"content": "1|mkdir(2)\t\t\t System Calls Manual\t\t\t\t mkdir(2)\n2|\n3|NAME\n4| mkdir, mkdirat - create a directory\n5|\n6|LIBRARY\n7| Standard C library (libc, -lc)\n8|\n9|SYNOPSIS\n10| #include <sys/stat.h>\n11|\n12| int mkdir(const char *pathname, mode_t mode);\n13|\n14| #include <fcntl.h>\t /* Definition of AT_* constants */\n15| #include <sys/stat.h>\n16|\n17| int mkdirat(int dirfd, const  …(+4973 chars)
+16:11:08 tool     | -> patch(/home/name/Documents/420-EMBDX/A/docs/commands/mkdir.md)
+16:11:08 result   | patch ok 0.0s: {"success": true, "diff": "--- a//home/name/Documents/420-EMBDX/A/docs/commands/mkdir.md\n+++ b//home/name/Documents/420-EMBDX/A/docs/commands/mkdir.md\n@@ -40,7 +40,53 @@\n output failure, module reuse/cwd/umask preservation. Native mkdir oracle checks\n side effects, modes and statuses rather than success stdout alone.\n \n+## Selected implementation plan (2026-10-08)\n+\n+Autonomous implementat …(+3377 chars)
+16:11:49 tool     | -> execute_code(from hermes_tools import write_file, patch cli='''#!/usr/bin/env python3 """Independent mkdir fixtures; select reference or project explicitly.""" import argparse import errno import json import os from pathlib import Pa …(+7003 chars))
+16:11:50 result   | execute_code ok 1.0s: {"status": "success", "output": "{'bytes_written': 6171, 'dirs_created': True, 'verified': True, 'lint': {'status': 'ok', 'output': ''}, 'resolved_path': '/home/name/Documents/420-EMBDX/A/tests/test_mkdir.py', 'files_modified': ['/home/name/Documents/420-EMBDX/A/tests/test_mkdir.py']}\n{'bytes_written': 121, 'dirs_created': True, 'verified': True, 'lint': {'status': 'skipped', 'message': 'No linte …(+2615 chars)
+16:17:19 final    | status=failed duration=479.94s summary: ChatGPT or Codex Subscription didn't respond in time on any of 3 attempts — it looks temporarily unavailable. Wait a minute and send /retry, or switch models with /model. To avoid this in future, add a backup provider with `hermes fallback add`. Provider said: Hermes can't reach the model provider. You may be offline. Check your internet connection and try again.
+16:17:19 final    | end status=failed exit_reason=error error: Hermes can't reach the model provider. You may be offline. Check your internet connection and try again.
+
+
+===== PRIOR ARTIFACT mkdir-api.txt =====
+mkdir(2)			       System Calls Manual				 mkdir(2)
+
+NAME
+       mkdir, mkdirat - create a directory
+
+LIBRARY
+       Standard C library (libc, -lc)
+
+SYNOPSIS
+       #include <sys/stat.h>
+
+       int mkdir(const char *pathname, mode_t mode);
+
+       #include <fcntl.h>	    /* Definition of AT_* constants */
+       #include <sys/stat.h>
+
+       int mkdirat(int dirfd, const char *pathname, mode_t mode);
+
+   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+
+       mkdirat():
+	   Since glibc 2.10:
+	       _POSIX_C_SOURCE >= 200809L
+	   Before glibc 2.10:
+	       _ATFILE_SOURCE
+
+DESCRIPTION
+       mkdir() attempts to create a directory named pathname.
+
+       The argument mode specifies the mode for the new directory (see inode(7)).  It is modified
+       by  the process's umask in the usual way: in the absence of a default ACL, the mode of the
+       created directory is (mode & ~umask & 0777).  Whether other mode bits are honored for  the
+       created directory depends on the operating system.  For Linux, see NOTES below.
+
+       The newly created directory will be owned by the effective user ID of the process.  If the
+       directory  containing  the  file	 has  the  set-group-ID	 bit set, or if the filesystem is
+       mounted with BSD group semantics (mount -o bsdgroups or, synonymously mount -o grpid), the
+       new directory will inherit the group ownership from its parent; otherwise it will be owned
+       by the effective group ID of the process.
+
+       If the parent directory has the set-group-ID bit set, then so will the newly  created  di‐
+       rectory.
+
+   mkdirat()
+       The mkdirat() system call operates in exactly the same way as mkdir(), except for the dif‐
+       ferences described here.
+
+       If  the pathname given in pathname is relative, then it is interpreted relative to the di‐
+       rectory referred to by the file descriptor dirfd (rather	 than  relative	 to  the  current
+       working directory of the calling process, as is done by mkdir() for a relative pathname).
+
+       If  pathname  is relative and dirfd is the special value AT_FDCWD, then pathname is inter‐
+       preted relative to the current working directory of the calling process (like mkdir()).
+
+       If pathname is absolute, then dirfd is ignored.
+
+       See openat(2) for an explanation of the need for mkdirat().
+
+RETURN VALUE
+       mkdir() and mkdirat() return zero on success.  On error, -1 is returned and errno  is  set
+       to indicate the error.
+
+ERRORS
+       EACCES The  parent directory does not allow write permission to the process, or one of the
+	      directories in pathname did not allow search permission.	 (See  also  path_resolu‐
+	      tion(7).)
+
+       EBADF  (mkdirat()) pathname is relative but dirfd is neither AT_FDCWD nor a valid file de‐
+	      scriptor.
+
+       EDQUOT The user's quota of disk blocks or inodes on the filesystem has been exhausted.
+
+       EEXIST pathname	already	 exists (not necessarily as a directory).  This includes the case
+	      where pathname is a symbolic link, dangling or not.
+
+       EFAULT pathname points outside your accessible address space.
+
+       EINVAL The final component ("basename") of the new directory's pathname is invalid  (e.g.,
+	      it contains characters not permitted by the underlying filesystem).
+
+       ELOOP  Too many symbolic links were encountered in resolving pathname.
+
+       EMLINK The number of links to the parent directory would exceed LINK_MAX.
+
+       ENAMETOOLONG
+	      pathname was too long.
+
+       ENOENT A directory component in pathname does not exist or is a dangling symbolic link.
+
+       ENOMEM Insufficient kernel memory was available.
+
+       ENOSPC The device containing pathname has no room for the new directory.
+
+       ENOSPC The new directory cannot be created because the user's disk quota is exhausted.
+
+       ENOTDIR
+	      A component used as a directory in pathname is not, in fact, a directory.
+
+       ENOTDIR
+	      (mkdirat()) pathname is relative and dirfd is a file descriptor referring to a file
+	      other than a directory.
+
+       EPERM  The filesystem containing pathname does not support the creation of directories.
+
+       EROFS  pathname refers to a file on a read-only filesystem.
+
+VERSIONS
+       Under Linux, apart from the permission bits, the S_ISVTX mode bit is also honored.
+
+   glibc notes
+       On  older kernels where mkdirat() is unavailable, the glibc wrapper function falls back to
+       the use of mkdir().  When pathname is a relative pathname,  glibc  constructs  a	 pathname
+       based on the symbolic link in /proc/self/fd that corresponds to the dirfd argument.
+
+STANDARDS
+       POSIX.1-2008.
+
+HISTORY
+       mkdir()
+	      SVr4, BSD, POSIX.1-2001.
+
+       mkdirat()
+	      Linux 2.6.16, glibc 2.4.
+
+NOTES
+       There are many infelicities in the protocol underlying NFS.  Some of these affect mkdir().
+
+SEE ALSO
+       mkdir(1),  chmod(2), chown(2), mknod(2), mount(2), rmdir(2), stat(2), umask(2), unlink(2),
+       acl(5), path_resolution(7)
+
+Linux man-pages 6.7			    2023-10-31					 mkdir(2)
+
+
+===== PRIOR ARTIFACT mkdir-info.txt =====
+File: coreutils.info,  Node: mkdir invocation,  Next: mkfifo invocation,  Prev: ln invocation,  Up: Special file types
+
+12.3 ‘mkdir’: Make directories
+==============================
+
+‘mkdir’ creates directories with the specified names.  Synopsis:
+
+     mkdir [OPTION]... NAME...
+
+   ‘mkdir’ creates each directory NAME in the order given.  It reports
+an error if NAME already exists, unless the ‘-p’ option is given and
+NAME is a directory.
+
+   The program accepts the following options.  Also see *note Common
+options::.
+
+‘-m MODE’
+‘--mode=MODE’
+     Set the file permission bits of created directories to MODE, which
+     uses the same syntax as in ‘chmod’ and uses ‘a=rwx’ (read, write
+     and execute allowed for everyone) for the point of the departure.
+     *Note File permissions::.  This option affects only directories
+     given on the command line; it does not affect any parents that may
+     be created via the ‘-p’ option.
+
+     Normally the directory has the desired file mode bits at the moment
+     it is created.  As a GNU extension, MODE may also mention special
+     mode bits, but in this case there may be a temporary window during
+     which the directory exists but its special mode bits are incorrect.
+     *Note Directory Setuid and Setgid::, for how the set-user-ID and
+     set-group-ID bits of directories are inherited unless overridden in
+     this way.
+
+‘-p’
+‘--parents’
+     Make any missing parent directories for each argument, setting
+     their file permission bits to ‘=rwx,u+wx’, that is, with the umask
+     modified by ‘u+wx’.  Ignore existing parent directories, and do not
+     change their file permission bits.
+
+     If the ‘-m’ option is also given, it does not affect file
+     permission bits of any newly-created parent directories.  To
+     control these bits, set the umask before invoking ‘mkdir’.  For
+     example, if the shell command ‘(umask u=rwx,go=rx; mkdir -p P/Q)’
+     creates the parent ‘P’ it sets the parent’s file permission bits to
+     ‘u=rwx,go=rx’.  (The umask must include ‘u=wx’ for this method to
+     work.)  To set a parent’s special mode bits as well, you can invoke
+     ‘chmod’ after ‘mkdir’.  *Note Directory Setuid and Setgid::, for
+     how the set-user-ID and set-group-ID bits of newly-created parent
+     directories are inherited.
+
+‘-v’
+‘--verbose’
+     Print a message for each created directory.  This is most useful
+     with ‘--parents’.
+
+‘-Z’
+‘--context[=CONTEXT]’
+     Without a specified CONTEXT, adjust the SELinux security context
+     according to the system default type for destination files,
+     similarly to the ‘restorecon’ command.  The long form of this
+     option with a specific context specified, will set the context for
+     newly created files only.  With a specified context, if both
+     SELinux and SMACK are disabled, a warning is issued.
+
+   An exit status of zero indicates success, and a nonzero value
+indicates failure.
+
+
+
+===== PRIOR ARTIFACT mkdir-man.txt =====
+MKDIR(1)				  User Commands					 MKDIR(1)
+
+NAME
+       mkdir - make directories
+
+SYNOPSIS
+       mkdir [OPTION]... DIRECTORY...
+
+DESCRIPTION
+       Create the DIRECTORY(ies), if they do not already exist.
+
+       Mandatory arguments to long options are mandatory for short options too.
+
+       -m, --mode=MODE
+	      set file mode (as in chmod), not a=rwx - umask
+
+       -p, --parents
+	      no  error if existing, make parent directories as needed, with their file modes un‐
+	      affected by any -m option.
+
+       -v, --verbose
+	      print a message for each created directory
+
+       -Z     set SELinux security context of each created directory to the default type
+
+       --context[=CTX]
+	      like -Z, or if CTX is specified then set the SELinux or SMACK security  context  to
+	      CTX
+
+       --help display this help and exit
+
+       --version
+	      output version information and exit
+
+AUTHOR
+       Written by David MacKenzie.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright  ©  2023  Free	 Software  Foundation, Inc.  License GPLv3+: GNU GPL version 3 or
+       later <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.  There is NO	WARRANTY,
+       to the extent permitted by law.
+
+SEE ALSO
+       mkdir(2)
+
+       Full documentation <https://www.gnu.org/software/coreutils/mkdir>
+       or available locally via: info '(coreutils) mkdir invocation'
+
+GNU coreutils 9.4			   August 2026					 MKDIR(1)
+
+
+===== PRIOR ARTIFACT negative.log =====
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_mkdir.py", line 39, in <module>
+    assert (root / name).is_dir()
+           ~~~~~~~~~~~~~~~~~~~~^^
+AssertionError
+
+
+===== PRIOR ARTIFACT red-basic.log =====
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_mkdir.py", line 39, in <module>
+    assert (root / name).is_dir()
+           ~~~~~~~~~~~~~~~~~~~~^^
+AssertionError
+
+
+===== PRIOR ARTIFACT reference-basic.log =====
+mkdir reference: 6 exact fixtures passed (basic)
+
+
+===== PRIOR ARTIFACT research.txt =====
+[('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 61, 'mkdir – create directoriesOptions:'), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 62, ''), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 63, '-h, --help'), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 64, '-p – create parent directories as needed.'), ('/home/name/Documents/420-EMBDX/A/data/02/CLI_Tools.docx', 65, '--json.')]

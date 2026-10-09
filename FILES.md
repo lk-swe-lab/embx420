@@ -45,3 +45,13 @@
 - docs/export_md.py — export selected Hermes history to Markdown.
 - docs/AI_LOG.md — generated prompt history for publication.
 - docs/CHANGES.md — brief decisions, changes, and test results.
+
+## mkdir command
+- docs/commands/mkdir.md — mkdir inventory, implemented contract, interruption/TDD evidence, and verification limits.
+- docs/commands/mkdir-review.md — independent mkdir review, executed checks, readiness, and isolated-commit integration scope.
+- logs/commands/mkdir-20261008-execution.txt — exact mkdir resume commands, observed outputs/statuses, and tested-source hashes.
+- logs/commands/mkdir-20261008-interrupted.txt — preserved prior worker transcript, reference/negative/RED logs, and manual research.
+- src/cmd_mkdir.c, src/cmd_mkdir.h — invocation-local directory creation, parents, and JSON specification.
+- src/mkdir_main.c — thin standalone mkdir entry point.
+- tests/test_mkdir.py — independent reference/project CLI, filesystem/mode, and forbidden-effect fixtures.
+- tests/test_mkdir_module.c — mkdir reuse, borrowed-state, allocation cleanup, and injected fault tests.
