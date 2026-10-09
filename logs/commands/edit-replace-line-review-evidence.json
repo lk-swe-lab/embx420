@@ -1,0 +1,299 @@
+{
+  "verdict": "PASS selected documented contract; exact-index verification remains",
+  "head": "8c5f12bbe43fe467de80055fd0723284d02b93b9",
+  "index_empty": true,
+  "uid": 1000,
+  "allowlist": [
+    "FILES.md",
+    "Makefile",
+    "README.md",
+    "docs/commands/edit-replace-line.md",
+    "docs/reports/edit-replace-line-implementation.md",
+    "docs/reports/edit-replace-line-review.md",
+    "logs/commands/edit-replace-line-evidence.json",
+    "logs/commands/edit-replace-line-execution.log",
+    "logs/commands/edit-replace-line-review-evidence.json",
+    "logs/commands/edit-replace-line-review-execution.log",
+    "src/cmd_edit_replace_line.c",
+    "src/cmd_edit_replace_line.h",
+    "src/edit_replace_line_main.c",
+    "src/registry.c",
+    "tests/test_edit_replace_line.py",
+    "tests/test_edit_replace_line_module.c",
+    "tests/test_shell.py",
+    "tests/test_shell_module.c"
+  ],
+  "allowlist_count": 18,
+  "source_hashes": {
+    "FILES.md": "817c61115ba70e0c93b2a93d5fd09a97427af7eaea473904e99a0e06ebbff6c5",
+    "Makefile": "54452856c32718f5bf509e1a8e35b3ad83137088ba7ce4f38485908ae492fedb",
+    "README.md": "95a538fe1e963f43bded9a40752b0a99c233f701e5a8c8b41dcc46755439f8e9",
+    "docs/commands/edit-replace-line.md": "fd3f64be06f7379a1b1808ce2c43f576f8273101ec6f227be922181d09734a2f",
+    "docs/reports/edit-replace-line-implementation.md": "49685a81338956a48fa5586832592ae3045965f304b666aa0131ab6e89c41ab7",
+    "docs/reports/edit-replace-line-review.md": "5d421606fd4b1b0de50a36d2898bf3d886110aff16ca4e501122188d6a7073fe",
+    "logs/commands/edit-replace-line-evidence.json": "621153151d00dda9f6d2c977e9297c5f317fd611e022e326b85f44fd8a122fc4",
+    "logs/commands/edit-replace-line-execution.log": "3f61ece910a78bee469bd09fe542bf30a06cbb0fd10564f97609593bc1ea7f04",
+    "src/cmd_edit_replace_line.c": "019da87409b9556ec4aed20f77a570d92a75b7a9eca8782ea522a1e618563740",
+    "src/cmd_edit_replace_line.h": "199b5623998b6832bb6259084f485745cb18ec6f03ad276526b77fe4afbf1b80",
+    "src/edit_replace_line_main.c": "67e6343f8de77c3ce98494439cba5fcb9f690964f4afd57c30f3ab15558ddd45",
+    "src/registry.c": "36176148b2aacb27eae0bc33a24972f3c5243cc558565465b9c5fd80f16705a0",
+    "tests/test_edit_replace_line.py": "3a332c683dbe6a2ec58767c986b139c02acf4ef032c1215d96458141168b002b",
+    "tests/test_edit_replace_line_module.c": "6dd849ea23281ef192bd7df0fa340c6790766da516a47c48eaf757178ab5c8c9",
+    "tests/test_shell.py": "34f59e507ca9605de93b7497fc0f2e8af7a5d9f391373c0bc0ea2418d70b3e75",
+    "tests/test_shell_module.c": "d74f437c9c613fbba31cc92d85379345f4cc10d8d3c016749574291fb8975867"
+  },
+  "anchor_hashes": {
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "build/argtable3/lib/libargtable3.a": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+    "build/argtable3/include/argtable3.h": "b80bf47ccb056229c714ce31fbad4743d97caf192231542fedfe6c05924413a4"
+  },
+  "integration_patch": "/home/name/.hermes/cache/scratch/edit-replace-line-review-integration/integration.patch",
+  "integration_patch_sha256": "809d96a1c19b4a1a3f7cb71e3bb3a05ebcd46fc430a4b420cb61a7d5be716963",
+  "working_mixed_docs_hashes": {
+    "README.md": "5cc255fdd3287677c7f277f57845543bf0888a4977009adcb0a234f74563a863",
+    "FILES.md": "b5809ce497bb15e54083b429e294477262abccaa847b25233b10b5ae554f2da8"
+  },
+  "snapshots": {
+    "baseline": "/home/name/.hermes/cache/scratch/edit-independent-baseline-w7l_vdii",
+    "normal": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+    "sanitize": "/home/name/.hermes/cache/scratch/edit-independent-sanitize-e8hu2x7r",
+    "final": "/home/name/.hermes/cache/scratch/edit-independent-final-rqpr6cl2"
+  },
+  "commands": {
+    "baseline": [
+      {
+        "command": [
+          "make",
+          "all",
+          "test",
+          "lint"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-baseline-w7l_vdii",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "make",
+          "format-check"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-baseline-w7l_vdii",
+        "status": 2,
+        "expected": 2
+      }
+    ],
+    "normal": [
+      {
+        "command": [
+          "git",
+          "apply",
+          "--check",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "git",
+          "apply",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "make",
+          "all",
+          "test",
+          "lint"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "clang-format",
+          "--dry-run",
+          "--Werror",
+          "src/cmd_edit_replace_line.c",
+          "src/cmd_edit_replace_line.h",
+          "src/edit_replace_line_main.c",
+          "src/registry.c",
+          "tests/test_edit_replace_line_module.c",
+          "tests/test_shell_module.c"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tests/test_edit_replace_line.py",
+          "--program",
+          "build/main",
+          "--prefix",
+          "edit-replace-line"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "make",
+          "format-check"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 2,
+        "expected": 2
+      }
+    ],
+    "sanitize": [
+      {
+        "command": [
+          "git",
+          "apply",
+          "--check",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-sanitize-e8hu2x7r",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "git",
+          "apply",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-sanitize-e8hu2x7r",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "make",
+          "all",
+          "test",
+          "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+          "LDFLAGS=-fsanitize=address,undefined -no-pie"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-sanitize-e8hu2x7r",
+        "status": 0,
+        "expected": 0
+      }
+    ],
+    "adversarial": [
+      {
+        "command": [
+          "python3",
+          "/home/name/.hermes/cache/scratch/edit-independent-negative.py",
+          "negative"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "python3",
+          "/home/name/.hermes/cache/scratch/edit-independent-trace.py",
+          "trace"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-normal-e0gx_rhc",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "exhaustive_random_invocations": 5166,
+        "fixtures": 501,
+        "extra_checks": [
+          "old open inode/no-op replacement",
+          "setgid/sticky rejection",
+          "dangling symlink",
+          "JSON control path/binary text"
+        ]
+      }
+    ],
+    "final": [
+      {
+        "command": [
+          "git",
+          "apply",
+          "--check",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-review-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-final-rqpr6cl2",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "git",
+          "apply",
+          "/home/name/.hermes/cache/scratch/edit-replace-line-review-integration/integration.patch"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-final-rqpr6cl2",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "make",
+          "all",
+          "test",
+          "lint"
+        ],
+        "cwd": "/home/name/.hermes/cache/scratch/edit-independent-final-rqpr6cl2",
+        "status": 0,
+        "expected": 0
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check",
+          "HEAD",
+          "--",
+          "Makefile",
+          "src/registry.c",
+          "tests/test_shell.py",
+          "tests/test_shell_module.c"
+        ],
+        "cwd": "/home/name/Documents/420-EMBDX/A",
+        "status": 0,
+        "expected": 0
+      }
+    ]
+  },
+  "format_baseline_unchanged": [
+    "src/cmd_spec.h",
+    "src/traverse.c",
+    "src/traverse.h",
+    "tests/test_help.c",
+    "tests/test_output.h",
+    "tests/test_recursive.c"
+  ],
+  "source_corrections": [],
+  "incidental_excluded_edit": "docs/sessions.txt current-session registration",
+  "reproduction_scripts": {
+    "independent_review.py": "import pathlib, subprocess, os, json, hashlib, tempfile, tarfile, io, shutil, shlex, sys, random, itertools, resource\nR=pathlib.Path('/home/name/Documents/420-EMBDX/A')\nS=pathlib.Path('/home/name/.hermes/cache/scratch')\nE=R/'logs/commands/edit-replace-line-review'\nE.mkdir(exist_ok=True)\nmode=sys.argv[1]\ncore=['Makefile','src/registry.c','src/cmd_edit_replace_line.c','src/cmd_edit_replace_line.h','src/edit_replace_line_main.c','tests/test_edit_replace_line.py','tests/test_edit_replace_line_module.c','tests/test_shell.py','tests/test_shell_module.c']\nnew=['src/cmd_edit_replace_line.c','src/cmd_edit_replace_line.h','src/edit_replace_line_main.c','tests/test_edit_replace_line.py','tests/test_edit_replace_line_module.c','docs/commands/edit-replace-line.md','docs/reports/edit-replace-line-implementation.md','logs/commands/edit-replace-line-evidence.json','logs/commands/edit-replace-line-execution.log']\nrecords=[]\nlog=E/(mode+'-execution.log')\nlog.write_bytes(b'')\ndef run(cmd,cwd,expected=0,env=None,timeout=600):\n p=subprocess.run(cmd,cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout)\n with log.open('ab') as f:\n  f.write(('\\nCWD: '+str(cwd)+'\\nCOMMAND: '+shlex.join(cmd)+'\\nSTATUS: '+str(p.returncode)+'\\nSTDOUT:\\n').encode()+p.stdout+b'\\nSTDERR:\\n'+p.stderr)\n records.append({'command':cmd,'cwd':str(cwd),'status':p.returncode,'expected':expected})\n (E/(mode+'-evidence.json')).write_text(json.dumps(records,indent=2)+'\\n')\n print(mode,shlex.join(cmd),'=>',p.returncode,flush=True)\n if expected is not None: assert p.returncode==expected, (cmd,p.returncode,p.stderr[-2000:])\n return p\nif mode in ('normal','sanitize','baseline'):\n d=pathlib.Path(tempfile.mkdtemp(prefix='edit-independent-'+mode+'-',dir=S))\n with tarfile.open(fileobj=io.BytesIO(subprocess.check_output(['git','archive','HEAD'],cwd=R))) as t: t.extractall(d,filter='data')\n if mode!='baseline':\n  patch=S/'edit-replace-line-integration/integration.patch'\n  run(['git','apply','--check',str(patch)],d)\n  run(['git','apply',str(patch)],d)\n  for n in new:\n   (d/n).parent.mkdir(parents=True,exist_ok=True); shutil.copy2(R/n,d/n)\n  for n in core: assert (d/n).read_bytes()==(R/n).read_bytes(),n\n (d/'build').mkdir(exist_ok=True)\n for dep in ('argtable3','cunit'): (d/'build'/dep).symlink_to(R/'build'/dep,target_is_directory=True)\n (E/(mode+'-snapshot.txt')).write_text(str(d)+'\\n')\n env={**os.environ,'LC_ALL':'C'}\n if mode=='sanitize':\n  env.update(ASAN_OPTIONS='detect_leaks=1:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')\n  flags='-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie'\n  run(['make','all','test','CFLAGS='+flags,'LDFLAGS=-fsanitize=address,undefined -no-pie'],d,env=env)\n else:\n  run(['make','all','test','lint'],d,env=env)\n  scoped=['src/cmd_edit_replace_line.c','src/cmd_edit_replace_line.h','src/edit_replace_line_main.c','src/registry.c','tests/test_edit_replace_line_module.c','tests/test_shell_module.c']\n  if mode=='normal':\n   run(['clang-format','--dry-run','--Werror',*scoped],d)\n   run(['python3','tests/test_edit_replace_line.py','--program','build/main','--prefix','edit-replace-line'],d,env=env)\n   assert not [(n,i,len(line)) for n in scoped for i,line in enumerate((d/n).read_text().splitlines(),1) if len(line)>80]\n  p=run(['make','format-check'],d,expected=2)\n  import re\n  bad=sorted(set(re.findall(r'^([^:\\n]+):\\d+:\\d+: error:',p.stderr.decode(),re.M)))\n  expected=['src/cmd_spec.h','src/traverse.c','src/traverse.h','tests/test_help.c','tests/test_output.h','tests/test_recursive.c']\n  assert bad==expected,(bad,expected)\n  for n in bad: assert (d/n).read_bytes()==subprocess.check_output(['git','show','HEAD:'+n],cwd=R)\n  print('Inherited format failures verified:',bad,flush=True)\n print('SNAPSHOT',d,flush=True)\nelif mode=='adversarial':\n d=pathlib.Path((E/'normal-snapshot.txt').read_text().strip())\n # Re-exercise the reviewed sensitivity/trace drivers against this fresh build.\n for m in ('negative','trace'):\n  script=(S/'edit-extra.py').read_text().replace(\"root = pathlib.Path('/home/name/Documents/420-EMBDX/A')\",'root = pathlib.Path('+repr(str(d))+')')\n  f=S/('edit-independent-'+m+'.py'); f.write_text(script)\n  run(['python3',str(f),m],d)\n # Exhaustive tiny binary fixtures plus independent random split-point oracle.\n with tempfile.TemporaryDirectory(dir=S) as td:\n  cwd=pathlib.Path(td); p=cwd/'f'; rng=random.Random(907)\n  fixtures=[bytes(x) for length in range(5) for x in itertools.product([0,10,13,255],repeat=length)]\n  fixtures += [bytes(rng.choice([0,1,10,13,127,255]) for _ in range(rng.randrange(1,300))) for _ in range(160)]\n  count=0\n  for source in fixtures:\n   starts=[0]+[i+1 for i,b in enumerate(source) if b==10 and i+1<len(source)] if source else []\n   for n in range(1,len(starts)+2):\n    p.write_bytes(source); before=p.stat(); replacement=b'\\xfeX'\n    if n<=len(starts):\n     start=starts[n-1]; lf=source.find(b'\\n',start)\n     end=len(source) if lf<0 else lf-(lf>start and source[lf-1]==13)\n     expected=source[:start]+replacement+source[end:]; status=0\n    else: expected=source; status=1\n    result=subprocess.run([str(d/'build/edit-replace-line'),'f',str(n),os.fsdecode(replacement)],cwd=cwd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=5)\n    assert result.returncode==status and result.stdout==b'' and bool(result.stderr)==bool(status)\n    assert p.read_bytes()==expected and not list(cwd.glob('.edit-replace-line-*'))\n    if status: assert p.stat().st_ino==before.st_ino and p.stat().st_mtime_ns==before.st_mtime_ns\n    count+=1\n  # Open handles retain old inode while path is replaced, even for a no-op.\n  p.write_bytes(b'old\\r\\nkeep'); fd=os.open(p,os.O_RDONLY); st=p.stat()\n  r=subprocess.run([str(d/'build/main'),'edit-replace-line','f','1','old'],cwd=cwd,capture_output=True)\n  assert (r.returncode,r.stdout,r.stderr)==(0,b'',b'')\n  assert os.read(fd,100)==b'old\\r\\nkeep' and os.fstat(fd).st_ino==st.st_ino and p.stat().st_ino!=st.st_ino\n  os.close(fd)\n  # Sticky/setgid target rejection and dangling final symlink rejection.\n  for modebits in (0o2640,0o1640):\n   p.chmod(modebits); r=subprocess.run([str(d/'build/main'),'edit-replace-line','f','1','bad'],cwd=cwd,capture_output=True)\n   assert r.returncode==1 and p.read_bytes()==b'old\\r\\nkeep'; p.chmod(0o640)\n  (cwd/'dangling').symlink_to('absent')\n  r=subprocess.run([str(d/'build/edit-replace-line'),'dangling','1','x'],cwd=cwd,capture_output=True)\n  assert r.returncode==1 and (cwd/'dangling').is_symlink() and not (cwd/'absent').exists()\n  # JSON control-character path is exact and valid, arbitrary TEXT remains binary.\n  name='\\x01\\t\\r\\n\"\\\\\u96ea'; (cwd/name).write_bytes(b'old\\n')\n  r=subprocess.run([str(d/'build/main'),'edit-replace-line','--json',name,'1',os.fsdecode(b'\\xff')],cwd=cwd,capture_output=True)\n  assert (r.returncode,r.stderr)==(0,b'') and json.loads(r.stdout)=={'path':name,'line':1,'status':'ok','message':None}\n  assert (cwd/name).read_bytes()==b'\\xff\\n'\n  result={'exhaustive_random_invocations':count,'fixtures':len(fixtures),'extra_checks':['old open inode/no-op replacement','setgid/sticky rejection','dangling symlink','JSON control path/binary text']}\n  records.append(result); (E/(mode+'-evidence.json')).write_text(json.dumps(records,indent=2)+'\\n')\n  with log.open('a') as f: f.write('\\nINDEPENDENT ORACLE RESULTS: '+json.dumps(result)+'\\n')\n  print(json.dumps(result),flush=True)\nelse: raise ValueError(mode)\n",
+    "sensitivity_trace_helper.py": "import pathlib, tempfile, subprocess, os, re, hashlib, json, sys, shlex\nroot = pathlib.Path('/home/name/Documents/420-EMBDX/A')\nscratch = pathlib.Path(os.environ['TMPDIR'])\nmode = sys.argv[1]\nif mode == 'trace':\n    with tempfile.TemporaryDirectory(dir=scratch) as directory:\n        d = pathlib.Path(directory)\n        (d/'file').write_bytes(b'old\\r\\nkeep\\n')\n        trace = d/'trace'\n        cmd = ['strace','-yy','-o',str(trace),'-e',\n               'trace=openat,read,write,fcntl,fchmod,fchown,fsync,close,rename,unlink,newfstatat',\n               str(root/'build/edit-replace-line'),'file','1','new']\n        r = subprocess.run(cmd,cwd=d,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)\n        print('COMMAND:',shlex.join(cmd),'STATUS:',r.returncode)\n        assert (r.returncode,r.stdout,r.stderr)==(0,b'',b'')\n        text = trace.read_text()\n        print('RAW TRACE:\\n'+text)\n        assert (d/'file').read_bytes()==b'new\\r\\nkeep\\n'\n        lines=text.splitlines()\n        opens=[line for line in lines if 'openat(' in line and '\"file\"' in line]\n        assert len(opens)==1 and 'O_RDWR' in opens[0] and 'O_NOFOLLOW' in opens[0]\n        assert 'O_CREAT' not in opens[0] and 'O_TRUNC' not in opens[0]\n        stage_writes=[i for i,line in enumerate(lines) if line.startswith('write(') and '.edit-replace-line-' in line]\n        assert stage_writes\n        assert not any(line.startswith('write(') and re.search(r'<[^>]+/file>',line) for line in lines)\n        sync=[i for i,line in enumerate(lines) if line.startswith('fsync(')]\n        renames=[i for i,line in enumerate(lines) if line.startswith('rename(')]\n        closed=[i for i,line in enumerate(lines) if line.startswith('close(') and '.edit-replace-line-' in line]\n        assert len(sync)==len(renames)==len(closed)==1\n        assert max(stage_writes)<sync[0]<closed[0]<renames[0]\n        assert not list(d.glob('.edit-replace-line-*'))\n        print('mechanism: original never written/truncated; complete exclusive stage synced/closed before rename PASS')\nelif mode == 'negative':\n    with tempfile.TemporaryDirectory(dir=scratch,prefix='edit-negative-') as directory:\n        d=pathlib.Path(directory)\n        original=(root/'src/cmd_edit_replace_line.c').read_text()\n        dry=subprocess.check_output(['make','-B','-n','build/test_edit_replace_line_module'],cwd=root,text=True)\n        compile_line=next(line for line in dry.splitlines() if ' -o build/test_edit_replace_line_module ' in line)\n        cases = {\n            'argv': ('arg_parse(argc, copy, table)', 'arg_parse(argc, argv, table)', 'argv pointer preservation failed'),\n            'getopt': ('optind = saved_optind;', '(void)saved_optind;', 'getopt preservation failed'),\n            'no-commit': ('rename(name, path) != 0', '0 != 0', 'source content mismatch'),\n            'no-recheck': ('if (!source_same(&before, &after) || !source_same(&before, &current)) {',\n                           'if (0) {', 'fault 22 result 0'),\n        }\n        for label,(old,new,marker) in cases.items():\n            assert original.count(old)==1\n            mutant=d/(label+'.c'); mutant.write_text(original.replace(old,new))\n            executable=d/label\n            argv=shlex.split(compile_line)\n            argv[argv.index('-o')+1]=str(executable)\n            argv[argv.index('src/cmd_edit_replace_line.c')]=str(mutant)\n            argv.insert(1,'-Isrc')\n            r=subprocess.run(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=30)\n            print('BUILD:',shlex.join(argv),'STATUS:',r.returncode)\n            print(r.stdout.decode()+r.stderr.decode())\n            assert r.returncode==0\n            r=subprocess.run([str(executable)],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)\n            print('RUN:',str(executable),'STATUS:',r.returncode)\n            print(r.stdout.decode()+r.stderr.decode())\n            assert r.returncode == -6 and marker in r.stderr.decode()\n        r=subprocess.run(['python3','tests/test_edit_replace_line.py','--program','/usr/bin/true',\n                          'ReplaceLineTests.test_middle_line_staged'],cwd=root,\n                         stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=10)\n        print('CLI no-op negative:',r.returncode,r.stdout.decode()+r.stderr.decode())\n        assert r.returncode==1 and 'AssertionError' in r.stderr.decode() and 'first\\\\nsecond' in r.stderr.decode()\n        print('negative controls: argv/getopt/commit/recheck and independent byte oracle rejected defects PASS')\nelse:\n    raise ValueError(mode)\n"
+  },
+  "remaining_gates": [
+    "independent exact-index staging verification",
+    "authorized parent commit"
+  ],
+  "accepted_limits": "See docs/reports/edit-replace-line-review.md and command usage."
+}

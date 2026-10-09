@@ -1,16 +1,17 @@
 #define _POSIX_C_SOURCE 200809L
-#include "../src/shell.h"     /* shell_loop, shell_dispatch. */
-#include "../src/registry.h"  /* Registry API, cmd_spec_t. */
-#include "../src/cmd_cat.h"   /* cmd_cat_spec. */
-#include "../src/cmd_clear.h" /* cmd_clear_spec. */
-#include "../src/cmd_cd.h"    /* cmd_cd_spec. */
-#include "../src/cmd_rg.h"    /* cmd_rg_spec. */
-#include <assert.h>           /* assert. */
-#include <errno.h>            /* errno, EINTR, ENOMEM. */
-#include <fcntl.h>            /* fcntl, F_GETFD. */
-#include <stdio.h>            /* FILE, puts, snprintf. */
-#include <stdlib.h>           /* malloc, realloc, free. */
-#include <string.h>           /* strcmp, strlen. */
+#include "../src/shell.h"                 /* shell_loop, shell_dispatch. */
+#include "../src/registry.h"              /* Registry API, cmd_spec_t. */
+#include "../src/cmd_cat.h"               /* cmd_cat_spec. */
+#include "../src/cmd_clear.h"             /* cmd_clear_spec. */
+#include "../src/cmd_cd.h"                /* cmd_cd_spec. */
+#include "../src/cmd_rg.h"                /* cmd_rg_spec. */
+#include "../src/cmd_edit_replace_line.h" /* cmd_edit_replace_line_spec. */
+#include <assert.h>                       /* assert. */
+#include <errno.h>                        /* errno, EINTR, ENOMEM. */
+#include <fcntl.h>                        /* fcntl, F_GETFD. */
+#include <stdio.h>                        /* FILE, puts, snprintf. */
+#include <stdlib.h>                       /* malloc, realloc, free. */
+#include <string.h>                       /* strcmp, strlen. */
 #include <unistd.h> /* read, write, pipe, dup, dup2, close, STDIN_FILENO. */
 
 void *__real_malloc(size_t size);
@@ -131,10 +132,11 @@ int main(void)
     assert(find_command("clear") == &cmd_clear_spec);
     assert(find_command("cd") == &cmd_cd_spec);
     assert(find_command("rg") == &cmd_rg_spec);
+    assert(find_command("edit-replace-line") == &cmd_edit_replace_line_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 12, registry_capacity = 32 };
+    enum { builtin_count = 13, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;

@@ -1,18 +1,19 @@
-#include "registry.h"  /* Registry API, cmd_spec_t. */
-#include "cmd_cat.h"   /* cmd_cat_spec. */
-#include "cmd_head.h"  /* cmd_head_spec. */
-#include "cmd_tail.h"  /* cmd_tail_spec. */
-#include "cmd_pwd.h"   /* cmd_pwd_spec. */
-#include "cmd_stat.h"  /* cmd_stat_spec. */
-#include "cmd_ls.h"    /* cmd_ls_spec. */
-#include "cmd_mkdir.h" /* cmd_mkdir_spec. */
-#include "cmd_touch.h" /* cmd_touch_spec. */
-#include "cmd_clear.h" /* cmd_clear_spec. */
-#include "cmd_cp.h"    /* cmd_cp_spec. */
-#include "cmd_cd.h"    /* cmd_cd_spec. */
-#include "cmd_rg.h"    /* cmd_rg_spec. */
-#include <stddef.h>    /* NULL, size_t. */
-#include <string.h>    /* strcmp. */
+#include "registry.h"              /* Registry API, cmd_spec_t. */
+#include "cmd_cat.h"               /* cmd_cat_spec. */
+#include "cmd_head.h"              /* cmd_head_spec. */
+#include "cmd_tail.h"              /* cmd_tail_spec. */
+#include "cmd_pwd.h"               /* cmd_pwd_spec. */
+#include "cmd_stat.h"              /* cmd_stat_spec. */
+#include "cmd_ls.h"                /* cmd_ls_spec. */
+#include "cmd_mkdir.h"             /* cmd_mkdir_spec. */
+#include "cmd_touch.h"             /* cmd_touch_spec. */
+#include "cmd_clear.h"             /* cmd_clear_spec. */
+#include "cmd_cp.h"                /* cmd_cp_spec. */
+#include "cmd_cd.h"                /* cmd_cd_spec. */
+#include "cmd_rg.h"                /* cmd_rg_spec. */
+#include "cmd_edit_replace_line.h" /* cmd_edit_replace_line_spec. */
+#include <stddef.h>                /* NULL, size_t. */
+#include <string.h>                /* strcmp. */
 
 static const cmd_spec_t *commands[32];
 static size_t command_count;
@@ -57,10 +58,19 @@ int register_command(const cmd_spec_t *spec)
  */
 int register_all_builtin_commands(void)
 {
-    const cmd_spec_t *builtins[] = {
-        &cmd_cat_spec,   &cmd_head_spec, &cmd_tail_spec,  &cmd_pwd_spec,
-        &cmd_stat_spec,  &cmd_ls_spec,   &cmd_mkdir_spec, &cmd_touch_spec,
-        &cmd_clear_spec, &cmd_cp_spec,   &cmd_cd_spec,    &cmd_rg_spec};
+    const cmd_spec_t *builtins[] = {&cmd_cat_spec,
+                                    &cmd_head_spec,
+                                    &cmd_tail_spec,
+                                    &cmd_pwd_spec,
+                                    &cmd_stat_spec,
+                                    &cmd_ls_spec,
+                                    &cmd_mkdir_spec,
+                                    &cmd_touch_spec,
+                                    &cmd_clear_spec,
+                                    &cmd_cp_spec,
+                                    &cmd_cd_spec,
+                                    &cmd_rg_spec,
+                                    &cmd_edit_replace_line_spec};
     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
         if (register_command(builtins[i]) != 0)
             return -1;

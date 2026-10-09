@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, twelve-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, thirteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -141,3 +141,11 @@
 - tests/test_rg.py, tests/test_rg_module.c — exact/reference/property and fault/reuse checks.
 - docs/reports/rg-implementation.md — selected contract, TDD and verification.
 - logs/commands/rg-evidence.json — raw commands, stdout/stderr and exit statuses.
+- docs/commands/edit-replace-line.md — staged single-line editing usage and limits.
+- src/cmd_edit_replace_line.c, src/cmd_edit_replace_line.h — invocation-local edit specification, parser, staged replacement and JSON.
+- src/edit_replace_line_main.c — optional standalone editing wrapper.
+- tests/test_edit_replace_line.py, tests/test_edit_replace_line_module.c — independent byte/property, safety, reuse, fault, and mechanism checks.
+- docs/reports/edit-replace-line-implementation.md — course contract, TDD and verified acceptance evidence.
+- logs/commands/edit-replace-line-execution.log, logs/commands/edit-replace-line-evidence.json — complete raw streams, structured commands/statuses and final hashes.
+- docs/reports/edit-replace-line-review.md — independent source review, adversarial verification and delivery limits.
+- logs/commands/edit-replace-line-review-execution.log, logs/commands/edit-replace-line-review-evidence.json — independent raw streams, command/status ledger, reproduction scripts and source hashes.
