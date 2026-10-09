@@ -1,0 +1,1116 @@
+{
+  "reviewed_input_patch_sha256": "7873ebc8e3bb2eecaace3dbe8a1ca28581cdad8d97f7c31de47bc70f5db78b5c",
+  "records": [
+    {
+      "label": "normal-full",
+      "argv": [
+        "make",
+        "all",
+        "test"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "540d3d42dcd9eb13f875351832255447710da99c6792b34df5f64eb7de176d26",
+      "stderr_sha256": "d067e643fe3be7fe7c76c2a69601c3cd134d48d93487c61ab1cbdd997ba238b2",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "sanitizer-full",
+      "argv": [
+        "make",
+        "all",
+        "test",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/sanitizer",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "status": 0,
+      "stdout_sha256": "6ea8d92f0f42bb3b7fc9fbd35daaa1e0dc68283660e42dd53183107085026512",
+      "stderr_sha256": "98694c77d9337f4e87e9467dc1c4428476ba4022f55b74adaf4fcb5b1d692429",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "baseline-format",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/baseline",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 2,
+      "stdout_sha256": "41239254474854de010075280651d4bebc1120df9851fd81c38689d8d31ec7eb",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "gnu-subset",
+      "argv": [
+        "python3",
+        "tests/test_echo.py",
+        "/usr/bin/echo",
+        "--reference"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "1916d18636a24eb60ebff42dea5e2c5df77d5c0a770460bf4188771ccd256635",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 2,
+      "stdout_sha256": "30f726756c8921a7ccbcad45bfbcb77140e67acdf801a20b5272bfa829e7c0ca",
+      "stderr_sha256": "634f6ebdd68902c9bc9f07d6402de804c7e9e56bbe1fc27edd55e9573175ec2b",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "scoped-format",
+      "argv": [
+        "clang-format",
+        "--dry-run",
+        "--Werror",
+        "src/cmd_echo.c",
+        "src/cmd_echo.h",
+        "src/echo_main.c",
+        "src/registry.c",
+        "tests/test_echo_module.c",
+        "tests/test_shell_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "candidate-format",
+      "argv": [
+        "make",
+        "format-check"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 2,
+      "stdout_sha256": "afc0b000ae394b7ba9d1650bb9f0eebbfe6089d795d848d0587fc9dcf5442b18",
+      "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d",
+      "stream_batch": "gates"
+    },
+    {
+      "label": "lint-explicit-path",
+      "argv": [
+        "make",
+        "lint"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/home/name/.local/bin:/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "30f726756c8921a7ccbcad45bfbcb77140e67acdf801a20b5272bfa829e7c0ca",
+      "stderr_sha256": "9308de30b4b722b9f79dd88cb001b4a9183aa034711d23eabf6a68480e89db1d",
+      "stream_batch": "extra"
+    },
+    {
+      "label": "independent-oracle-normal",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e43b0e13cd138993ee96ec1202ab5f39aaea804cbd6dd50990bc6aa99480ac0a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "extra"
+    },
+    {
+      "label": "independent-oracle-sanitizer",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/sanitizer"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/sanitizer",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "status": 0,
+      "stdout_sha256": "e43b0e13cd138993ee96ec1202ab5f39aaea804cbd6dd50990bc6aa99480ac0a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "extra"
+    },
+    {
+      "label": "source-whitespace",
+      "argv": [
+        "git",
+        "apply",
+        "--check",
+        "--whitespace=error-all",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/source-only.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/baseline",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "whitespace"
+    },
+    {
+      "label": "mutant-argv-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-argv-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-argv-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "949d54d9597c50b15ef9ecfc460510290f56c328a2d23fca329c2aa4eb2c6ee0",
+      "expected": -6,
+      "required_marker": "ECHO_ARGV_POINTER",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-getopt-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-getopt-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-getopt-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "669a05cbb623f691d45e1222b673ff581733110e05dec4e7eb0fa8e90b7a0866",
+      "expected": -6,
+      "required_marker": "ECHO_GETOPT",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-help-reuse-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-help-reuse-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-help-reuse-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "31c8fe28c4b8af65ab1e6522e0495b1ec44f486a04cd2752b931f22c5ca11864",
+      "expected": -6,
+      "required_marker": "ECHO_HELP_ERROR_REUSE",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-newline-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-newline-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-newline-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a24d92138aa7ce0fca1b3a342d2e930644cf2d107949cf7bf0c80617f2e83616",
+      "expected": -6,
+      "required_marker": "ECHO_OUTPUT_LENGTH",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "independent-reference-negative",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+        "--reference",
+        "/usr/bin/true"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f0d9e1d265bd9dbb1112384b421af661e6f6a7172e83f962e68fe194daacd278",
+      "expected": 1,
+      "required_marker": "GNU_REFERENCE_BYTES",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "dependency-oom-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_echo.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault"
+    },
+    {
+      "label": "dependency-internal-oom",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec",
+      "expected": 1,
+      "required_marker": "Out of memory!",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "baseline-O1-sanitizer-shell",
+      "argv": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/baseline",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "status": 2,
+      "stdout_sha256": "e2b4ec3efb40f1b08cc0ae86d600d88e30d5a0686850e04eea82fb2932c87791",
+      "stderr_sha256": "3b5df6b6dcbb8b424d32293df1d590242688d313ec594d8f0e11f35cb9bce4d8",
+      "expected": 2,
+      "required_marker": "status == 1",
+      "stream_batch": "fault"
+    },
+    {
+      "label": "mutant-argv-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-argv-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-argv-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-argv"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "949d54d9597c50b15ef9ecfc460510290f56c328a2d23fca329c2aa4eb2c6ee0",
+      "expected": -6,
+      "required_marker": "ECHO_ARGV_POINTER",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-getopt-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-getopt-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-getopt-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-getopt"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "669a05cbb623f691d45e1222b673ff581733110e05dec4e7eb0fa8e90b7a0866",
+      "expected": -6,
+      "required_marker": "ECHO_GETOPT",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-help-reuse-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-help-reuse-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-help-reuse-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-help-reuse"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "31c8fe28c4b8af65ab1e6522e0495b1ec44f486a04cd2752b931f22c5ca11864",
+      "expected": -6,
+      "required_marker": "ECHO_HELP_ERROR_REUSE",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-newline-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "-Dmalloc=echo_test_malloc",
+        "-Dfree=echo_test_free",
+        "-c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.c",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.o"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-newline-link",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/tests/test_echo_module.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline.o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "mutant-newline-assert",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/review-mutant-newline"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": -6,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a24d92138aa7ce0fca1b3a342d2e930644cf2d107949cf7bf0c80617f2e83616",
+      "expected": -6,
+      "required_marker": "ECHO_OUTPUT_LENGTH",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "independent-reference-negative",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+        "--reference",
+        "/usr/bin/true"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f0d9e1d265bd9dbb1112384b421af661e6f6a7172e83f962e68fe194daacd278",
+      "expected": 1,
+      "required_marker": "GNU_REFERENCE_BYTES",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "dependency-oom-compile",
+      "argv": [
+        "cc",
+        "-std=c17",
+        "-g3",
+        "-O0",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/include",
+        "-I/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_echo.c",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/src/cmd_lines.c",
+        "-Wl,--wrap=malloc",
+        "-L/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": 0,
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "dependency-internal-oom",
+      "argv": [
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/dependency-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec",
+      "expected": 1,
+      "required_marker": "Out of memory!",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "baseline-O1-sanitizer-shell",
+      "argv": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+        "LDFLAGS=-fsanitize=address,undefined -no-pie"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/baseline",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "status": 2,
+      "stdout_sha256": "b61a04bb0dc29258ff2e2eec41105b8f76744793f3d37af1927e265da11dd120",
+      "stderr_sha256": "4ede849a62ecf1046211a222a6e64a1d24b9a8340867bb0c35966b2a9fcfdbb9",
+      "expected": 2,
+      "required_marker": "calls == 1 && interrupt_read == 0",
+      "stream_batch": "fault-v2"
+    },
+    {
+      "label": "independent-final-oracle-normal",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/normal",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644"
+      },
+      "status": 0,
+      "stdout_sha256": "7e3741840b93acecfea707282ab7b9c8970c3d805e1d7f4ee8bb81620a747df1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "oracle"
+    },
+    {
+      "label": "independent-final-oracle-sanitizer",
+      "argv": [
+        "python3",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/independent_oracle.py",
+        "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/sanitizer"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644/sanitizer",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C",
+        "HOME": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/echo-independent-review-20261009-114644",
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "status": 0,
+      "stdout_sha256": "7e3741840b93acecfea707282ab7b9c8970c3d805e1d7f4ee8bb81620a747df1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stream_batch": "oracle"
+    }
+  ],
+  "streams": {
+    "path": "logs/commands/echo-review-execution.log",
+    "sha256": "58e3d3aac68808b68f49472bc2f61872c2a3edcb2e0da04ce084e5789d90cfbc",
+    "size": 250303
+  },
+  "runner_hashes": {
+    "run_gates.py": "1a5b27be67b7a93e716d892c5e4b3217a637f9519cc2f501643b1cfc52bbd5f1",
+    "review_faults.py": "4d90446e6e5ca08084f446e1351f1c3ee85e35654529339d4f2c50ae93abf428",
+    "independent_oracle.py": "f948ad54bf454cfb6e7b75b3bf9dd6dadbe4829380c96d75539f2f1fd67945d2"
+  },
+  "notes": [
+    "Initial restricted-PATH lint status 2 was a missing executable, resolved by explicit installed path.",
+    "First baseline O1 assertion marker expectation was wrong; actual inherited calls/interrupt_read assertion is preserved and confirmed in the v2 repeat.",
+    "Expected negative statuses are observations, not production failures."
+  ]
+}

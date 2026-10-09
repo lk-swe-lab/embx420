@@ -11,6 +11,7 @@
 #include "../src/cmd_edit_replace.h"      /* cmd_edit_replace_spec. */
 #include "../src/cmd_mv.h"                /* cmd_mv_spec. */
 #include "../src/cmd_env.h"               /* cmd_env_spec. */
+#include "../src/cmd_echo.h"              /* cmd_echo_spec. */
 #include <assert.h>                       /* assert. */
 #include <errno.h>                        /* errno, EINTR, ENOMEM. */
 #include <fcntl.h>                        /* fcntl, F_GETFD. */
@@ -143,10 +144,11 @@ int main(void)
     assert(find_command("edit-replace") == &cmd_edit_replace_spec);
     assert(find_command("mv") == &cmd_mv_spec);
     assert(find_command("env") == &cmd_env_spec);
+    assert(find_command("echo") == &cmd_echo_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 18, registry_capacity = 32 };
+    enum { builtin_count = 19, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;

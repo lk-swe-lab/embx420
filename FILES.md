@@ -1,7 +1,7 @@
 # File registry
 
 ## Existing
-- README.md — builtin-shell/traversal usage, eighteen-command index, build/run and tests.
+- README.md — builtin-shell/traversal usage, nineteen-command index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -193,3 +193,14 @@
 - docs/commands/env.md — usage, options and limits.
 - docs/reports/env-implementation.md — manual selection, contract, TDD and verification results.
 - logs/commands/env-execution.log, logs/commands/env-evidence.json — compact complete raw execution evidence and command/status/hash ledger.
+
+## echo command
+- src/cmd_echo.c, src/cmd_echo.h — invocation-local literal output and shared parser/help.
+- src/echo_main.c — thin standalone wrapper.
+- tests/test_echo.py, tests/test_echo_module.c — independent bytes, GNU subset, main/PTY, reuse, state and faults.
+- docs/commands/echo.md — usage and deliberate GNU differences.
+- docs/reports/echo-implementation.md — manual inventory, selected contract, TDD and verification.
+- logs/commands/echo-execution.log, logs/commands/echo-evidence.json — compact complete streams and command/status/hash ledger.
+- tests/test_echo_review.py — reviewer-owned independent grammar/byte oracle and GNU-compatible fixtures.
+- docs/reports/echo-review.md — independent verdict, executed gates and inherited limits.
+- logs/commands/echo-review-execution.log, logs/commands/echo-review-evidence.json — compact complete reviewer execution streams and command/status/hash ledger.

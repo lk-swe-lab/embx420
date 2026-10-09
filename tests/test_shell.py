@@ -16,7 +16,7 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env']
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env', 'echo']
 BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
 SUMMARIES = [
     'Concatenate files to standard output.',
@@ -37,6 +37,7 @@ SUMMARIES = [
     'Replace all matches using staged file editing.',
     'Move files and directories.',
     'List environment variables.',
+    'Print literal text.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
@@ -542,7 +543,8 @@ class ShellTests(unittest.TestCase):
                  'edit-insert-line': ['--json', 'data', '2', 'insertion'],
                  'edit-delete-line': ['--json', 'data', '2'],
                  'edit-replace': ['--json', 'data', 'first|third', 'replacement'],
-                 'mv': ['--json', 'move-source', 'move-target'], 'env': ['--json']}
+                 'mv': ['--json', 'move-source', 'move-target'], 'env': ['--json'],
+                 'echo': ['', 'two words', '--', '-n', '--help']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
@@ -698,8 +700,8 @@ class ShellTests(unittest.TestCase):
         self.assertEqual((self.cwd / 'data').read_bytes(), before)
 
     def test_no_external_fallback_or_expansion(self):
-        self.check(['echo', 'unexpected'], status=127,
-                   err=b'main: echo: unknown command\n')
+        self.check(['not-a-builtin', 'unexpected'], status=127,
+                   err=b'main: not-a-builtin: unknown command\n')
         self.check(data=b'/usr/bin/printf external\n', status=127,
                    err=b'main: /usr/bin/printf: unknown command\n')
         self.check(data=b'# comment\n', status=127,
