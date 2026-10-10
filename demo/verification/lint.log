@@ -1,0 +1,100 @@
+clang-tidy --checks='-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling' --warnings-as-errors='*' src/cat_main.c src/clear_main.c src/cmd_cat.c src/cmd_cd.c src/cmd_clear.c src/cmd_cp.c src/cmd_date.c src/cmd_echo.c src/cmd_edit_delete_line.c src/cmd_edit_insert_line.c src/cmd_edit_replace.c src/cmd_edit_replace_line.c src/cmd_env.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_mv.c src/cmd_printf.c src/cmd_pwd.c src/cmd_rg.c src/cmd_sleep.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/cp_main.c src/date_main.c src/echo_main.c src/edit_delete_line_main.c src/edit_insert_line_main.c src/edit_replace_line_main.c src/edit_replace_main.c src/env_main.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/mv_main.c src/printf_main.c src/pwd_main.c src/registry.c src/rg_main.c src/shell.c src/sleep_main.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_cd_module.c tests/test_clear_module.c tests/test_cp_module.c tests/test_date_module.c tests/test_echo_module.c tests/test_edit_delete_line_module.c tests/test_edit_insert_line_module.c tests/test_edit_replace_line_module.c tests/test_edit_replace_module.c tests/test_env_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_mv_module.c tests/test_printf_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_rg_module.c tests/test_shell_module.c tests/test_sleep_module.c tests/test_sleep_review_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c --  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
+[1/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cat_main.c.
+[2/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/clear_main.c.
+[3/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_cat.c.
+[4/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_cd.c.
+[5/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_clear.c.
+[6/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_cp.c.
+[7/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_date.c.
+[8/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_echo.c.
+[9/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_edit_delete_line.c.
+[10/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_edit_insert_line.c.
+[11/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_edit_replace.c.
+[12/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_edit_replace_line.c.
+[13/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_env.c.
+[14/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_head.c.
+[15/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_lines.c.
+[16/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_ls.c.
+[17/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_mkdir.c.
+[18/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_mv.c.
+[19/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_printf.c.
+[20/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_pwd.c.
+[21/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_rg.c.
+[22/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_sleep.c.
+[23/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_stat.c.
+[24/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_tail.c.
+[25/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cmd_touch.c.
+[26/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/cp_main.c.
+[27/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/date_main.c.
+[28/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/echo_main.c.
+[29/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/edit_delete_line_main.c.
+[30/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/edit_insert_line_main.c.
+[31/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/edit_replace_line_main.c.
+[32/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/edit_replace_main.c.
+[33/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/env_main.c.
+[34/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/head_main.c.
+[35/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/ls_main.c.
+[36/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/main.c.
+[37/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/mkdir_main.c.
+[38/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/mv_main.c.
+[39/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/printf_main.c.
+[40/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/pwd_main.c.
+[41/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/registry.c.
+[42/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/rg_main.c.
+[43/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/shell.c.
+[44/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/sleep_main.c.
+[45/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/stat_main.c.
+[46/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/tail_main.c.
+[47/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/touch_main.c.
+[48/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/src/traverse.c.
+[49/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_cat.c.
+[50/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_cat_module.c.
+[51/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_cd_module.c.
+[52/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_clear_module.c.
+[53/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_cp_module.c.
+[54/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_date_module.c.
+1 warning generated.
+[55/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_echo_module.c.
+1 warning generated.
+[56/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_edit_delete_line_module.c.
+1 warning generated.
+[57/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_edit_insert_line_module.c.
+1 warning generated.
+[58/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_edit_replace_line_module.c.
+1 warning generated.
+[59/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_edit_replace_module.c.
+1 warning generated.
+[60/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_env_module.c.
+1 warning generated.
+[61/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_head_module.c.
+1 warning generated.
+[62/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_help.c.
+1 warning generated.
+[63/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_ls_module.c.
+1 warning generated.
+[64/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_mkdir_module.c.
+1 warning generated.
+[65/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_mv_module.c.
+1 warning generated.
+[66/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_printf_module.c.
+1 warning generated.
+[67/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_pwd_module.c.
+1 warning generated.
+[68/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_recursive.c.
+1 warning generated.
+[69/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_rg_module.c.
+1 warning generated.
+[70/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_shell_module.c.
+1 warning generated.
+[71/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_sleep_module.c.
+1 warning generated.
+[72/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_sleep_review_module.c.
+1 warning generated.
+[73/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_stat_module.c.
+1 warning generated.
+[74/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_tail_module.c.
+1 warning generated.
+[75/75] Processing file /home/name/.hermes/cache/scratch/head-demo-delivery/head/tests/test_touch_module.c.
+2 warnings generated.
+Suppressed 4 warnings (1 in non-user code, 2 NOLINT, 1 with check filters).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

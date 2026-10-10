@@ -1,0 +1,52 @@
+{
+  "head": "e1c3ac9fa74a9ef4fd1abd98258df5e0208fbdbb",
+  "root": "/home/name/.hermes/cache/scratch/head-demo-delivery/head",
+  "tmpdir": "/home/name/.hermes/cache/scratch/head-demo-delivery/tmp",
+  "steps": [
+    {
+      "name": "clean-before",
+      "command": [
+        "make",
+        "clean"
+      ],
+      "exit_status": 0,
+      "seconds": 0.01
+    },
+    {
+      "name": "test",
+      "command": [
+        "make",
+        "test"
+      ],
+      "exit_status": 0,
+      "seconds": 17.469
+    },
+    {
+      "name": "clean-after",
+      "command": [
+        "make",
+        "clean"
+      ],
+      "exit_status": 0,
+      "seconds": 0.011
+    },
+    {
+      "name": "build",
+      "command": [
+        "make",
+        "all"
+      ],
+      "exit_status": 0,
+      "seconds": 2.556
+    },
+    {
+      "name": "lint",
+      "command": [
+        "make",
+        "lint"
+      ],
+      "exit_status": 0,
+      "seconds": 32.343
+    }
+  ]
+}

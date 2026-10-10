@@ -1,6 +1,7 @@
 # Adding a command
 
 Reusable procedure for a requested command, not an implemented automation runner.
+Read the current [anatomy](COMMAND_ANATOMY.md) and [API](COMMAND_API.md).
 Inspect the shared [command specification](../src/cmd_spec.h) and
 [registry API](../src/registry.h). Use
 [design](DESIGN.md), [coding](CODING.md), [TDD](TDD.md), and
@@ -12,7 +13,12 @@ Inspect the shared [command specification](../src/cmd_spec.h) and
   writes tests and code; the AI explains, reviews, and suggests. Code examples
   require a request. The student executes commands unless execution is authorized.
 - **Autonomous (explicit opt-in):** approve the contract, editable files,
-  permitted execution, and acceptance gates before the AI implements.
+  permitted execution, and acceptance gates before the AI implements. Explicit
+  delegation may authorize routine scope decisions within those boundaries.
+- **Orchestrator-only batches:** delegate implementation/tests, obtain independent
+  review, then verify the exact proposed index before each authorized commit.
+  Finish one command before dispatching the next; commit and push permissions
+  remain separate. A denied gate is not permission to reroute its execution.
 - File-edit and execution permissions are separate. Neither mode grants blanket
   authority. Stop for scope changes, destructive actions, or unresolved behavior.
 - Creating a command wiki entry requires a separate user request and approved
@@ -137,7 +143,7 @@ Lessons from the implemented `cat` and `head`:
   selection/parsing separate from reusable byte output and JSON encoding.
 - In delegated work, distinguish saved artifacts and executed checks from a
   worker's running status. Escalation waits are blockers, not implementation
-  progress; report them immediately and route execution to the coordinator.
+  progress; report them immediately. Do not reroute a denied operation.
 
 ### Implementation cycle
 
@@ -188,6 +194,12 @@ locale/environment, bounded waits, and cleanup; never rely on arbitrary sleeps.
   from test execution. Report baseline failures distinctly from new regressions.
 - Keep exact commands/results, failures, skips, and limitations. Documentation,
   demo, logging, and publication changes require their own approved scope.
+- In a dirty repository, construct HEAD-based patches from an explicit allowlist;
+  inspect shared-file hunks, not just names. Verify the exact extracted index
+  before commit and preserve unrelated working bytes. After cached-only delivery,
+  start subsequent work from fresh committed HEAD, not stale shared files.
+- Historical reports retain their original gates; update [current status](STATUS.md)
+  separately. Stop at blocked/skipped work rather than treating it as delivered.
 
 Done means every agreed requirement has passing evidence and every applicable
 acceptance gate is satisfied. A skipped check or blocker is not a pass. Report

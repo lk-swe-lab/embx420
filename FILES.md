@@ -1,6 +1,11 @@
 # File registry
 
 ## Existing
+- AI_LOG.md — approved curated pivotal decisions; not a prompt archive.
+- docs/STATUS.md — committed commands, paused/skipped work and current limits.
+- docs/COMMAND_ANATOMY.md — current module/integration anatomy, not course transcription.
+- docs/COMMAND_API.md — actual command specification and registry signatures/ownership.
+- docs/ai_log.py, docs/test_ai_log.py — existing optional log utility and tests.
 - README.md — builtin-shell/traversal usage, twenty-two-builtin/21-wrapper index, build/run and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
@@ -20,12 +25,10 @@
 - docs/AI_LOGGING.md — registry, logging, and publication rules.
 - .gitignore — excludes local environment, caches, and generated database.
 - Makefile — builds CLI/tests; test, lint, format-check, format, and clean.
-- demo.sh — recorded demo: clean, tests, clean, build, CLI options, lint.
-- demo/2026-10-01-demo.mp4 — silent MP4 demonstration.
-- demo/Screencast from 2026-10-01 22-27-29.webm — original recording.
+- demo.sh — executable five-command runbook with real five-second holds.
 - .clang-format — C formatting with an 80-column limit.
 - src/main.c — builtin-shell entry point and legacy traversal routing.
-- tests/test_help.c — failing CUnit CLI test for -h usage and exit status.
+- tests/test_help.c — CUnit CLI test for -h usage and exit status.
 - docs/TESTING.md — CUnit setup and test commands.
 - wiki/SCHEMA.md — wiki format and approval-first chat workflow.
 - wiki/index.md — approved entries and drafts.
@@ -41,10 +44,22 @@
 - tests/test_ls.py — independent ls CLI expectations, GNU adapter, and boundaries/failures.
 - tests/test_ls_module.c — repeated ls calls, borrowed resources, unchanged argv, and injected failures.
 
-## Planned
-- docs/export_md.py — export selected Hermes history to Markdown.
-- docs/AI_LOG.md — generated prompt history for publication.
-- docs/CHANGES.md — brief decisions, changes, and test results.
+## Demo and verification
+- demo/README.md — run instructions, recording provenance and verification limits.
+- demo/commands-demo.mpg — verified 25.08-second MPEG-2/program-stream recording.
+- demo/commands-demo.cast, demo/commands-demo.log — real PTY timestamps/bytes and readable transcript.
+- demo/recording.json — five command starts, display intervals and successful statuses.
+- demo/verification/results.json, demo/verification/commands.txt — executed build/test/lint sequence, statuses and commands.
+- demo/verification/clean-before.log, demo/verification/test.log, demo/verification/clean-after.log, demo/verification/build.log, demo/verification/lint.log — preserved complete verification streams.
+- demo/verification/encode.log, demo/verification/mpg-decode.log — encoder and full-decoder diagnostics.
+- demo/verification/mpg-ffprobe.json, demo/verification/media-results.json — actual media metadata and validation.
+
+## Optional future outputs (not this delivery)
+- docs/AI_LOG.md — generated prompt archive only if separately requested.
+- docs/CHANGES.md — separate change ledger only if requested.
+
+The root AI_LOG.md is the approved decisions-only record. No new prompt export
+is authorized by this update; existing history and evidence remain unchanged.
 
 ## mkdir command
 - docs/commands/mkdir.md — implemented mkdir usage, options and limits.
@@ -56,7 +71,7 @@
 - tests/test_mkdir.py — independent reference/project CLI, filesystem/mode, and forbidden-effect fixtures.
 - tests/test_mkdir_module.c — mkdir reuse, borrowed-state, allocation cleanup, and injected fault tests.
 
-## Eight-command shell and approved documentation cleanup
+## Shell, commands and historical delivery evidence
 - docs/commands/cat.md — implemented cat usage, options and limits.
 - docs/commands/head.md — implemented head usage, options and limits.
 - docs/commands/tail.md — implemented tail usage, options and limits.

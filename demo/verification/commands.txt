@@ -1,0 +1,28 @@
+All commands were executed against HEAD e1c3ac9fa74a9ef4fd1abd98258df5e0208fbdbb in the isolated head directory.
+
+Build/test sequence (TMPDIR=/home/name/.hermes/cache/scratch/head-demo-delivery/tmp):
+make clean
+make test
+make clean
+make all
+make lint
+Each returned exit status 0. Complete combined output is in the corresponding logs; timings/statuses are in results.json.
+
+Script validation:
+bash -n /home/name/.hermes/cache/scratch/head-demo-delivery/delivery/demo.sh
+Exit status 0.
+
+Actual PTY script invocation from outside the project:
+bash /home/name/.hermes/cache/scratch/head-demo-delivery/delivery/demo.sh /home/name/.hermes/cache/scratch/head-demo-delivery/head
+Exit status 0; five [exit 0] markers; completion marker verified; five real command starts/holds in recording.json.
+
+Video conversion after rendering exact cast output with pyte/Pillow:
+ffmpeg -y -v warning -i INTERMEDIATE.mp4 -an -r 25 -c:v mpeg2video -q:v 2 -f mpeg demo/commands-demo.mpg
+Exit status 0. Encoder noted a default VBV buffer; no DVD/VCD compatibility claim is made. Intermediate MP4 remains outside delivery.
+
+Final media checks:
+ffprobe -v error -show_format -show_streams -of json demo/commands-demo.mpg
+ffmpeg -v error -i demo/commands-demo.mpg -f null -
+Both exited 0. format=mpeg, codec=mpeg2video, 1280x720, 25/1 fps, duration=25.08s. Full decode log is empty (no decode errors).
+
+Decoded MPEG frames at 1, 6, 11, 16, 21 seconds were inspected: all five commands, real outputs, and success statuses are readable and unclipped. Privacy pattern review found no API-key/private-key assignments or session-id dumps in verification logs. Lint exited 0, retaining existing suppression messages in its full log.

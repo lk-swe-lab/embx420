@@ -1,7 +1,8 @@
 # Builtin shell and directory traversal
 
-`main` runs twenty builtin commands directly; no external-command fallback.
-See [shell usage and limits](docs/commands/shell.md).
+`main` runs 22 registered builtin commands directly; no external-command fallback.
+See [shell usage and limits](docs/commands/shell.md),
+[current status](docs/STATUS.md) and [decision log](AI_LOG.md).
 
 ```sh
 make
@@ -75,37 +76,16 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [printf](docs/commands/printf.md) | Bounded typed integer/string/byte formatting and escapes | `./build/main help printf` |
 | [sleep](docs/commands/sleep.md) | Delay for bounded decimal seconds; handled-signal retries | `./build/main help sleep` |
 
-printf [independent review](docs/reports/printf-review.md) passes the selected
-bounded byte-format contract; exact-index verification remains a separate gate.
-Sleep [independent review](docs/reports/sleep-review.md) records malformed-option
-hardening, exact delay/remainder oracles and executed verification.
-
-date [independent review](docs/reports/date-review.md) passes the selected contract;
-exact-index verification remains a separate delivery gate.
-
-mv [independent review](docs/reports/mv-review.md) passes the selected contract;
-exact-index verification remains a separate delivery gate.
-Echo [independent review](docs/reports/echo-review.md) passes its selected contract;
-exact-index verification remains separate.
-
-These are selected subsets, not full GNU replacements; also registered builtins.
-Clear/cd [combined review](docs/reports/clear-cd-review.md) passes runtime gates;
-final delivery remains conditional. See [integration evidence](docs/reports/clear-cd-integration.md).
-`cp` implementation [evidence and limits](docs/reports/cp-implementation.md);
-[independent review](docs/reports/cp-review.md) passes selected runtime gates.
-`edit-insert-line` [independent review](docs/reports/edit-insert-line-review.md)
-passes the selected contract; exact-index delivery remains a separate gate.
-`edit-delete-line` [independent review](docs/reports/edit-delete-line-review.md)
-passes the selected contract; exact-index delivery remains a separate gate.
-`edit-replace` [independent review](docs/reports/edit-replace-review.md)
-passes the selected contract; exact-index delivery remains a separate gate.
+These are selected subsets, not full GNU replacements. The commands above are
+committed and registered at the [current checkpoint](docs/STATUS.md).
+Individual reviews retain their original gate status and explicit limitations;
+they are evidence snapshots, not live pending-commit instructions.
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 
 ## Demo
 
-Run `./demo.sh`: clean, all tests, clean, build, CLI demos, then lint.
-Each command is printed before execution, with five-second pauses between.
-The script stops if a command fails; it does not format source files.
-
-Video: [2026-10-01-demo.mp4](demo/2026-10-01-demo.mp4) (no audio).
-The original WebM recording is also in `demo/`.
+Run `./demo.sh` after `make all`. The [verified recording](demo/commands-demo.mpg)
+shows five real commands with five-second holds: `pwd`, `ls`, `rg`, `printf`,
+`date -u`. It is a 25.08-second MPEG program stream with MPEG-2 video.
+See [execution and media evidence](demo/README.md). Historical recordings remain
+unchanged; commit and publication are separate gates.

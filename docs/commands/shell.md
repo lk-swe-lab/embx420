@@ -1,10 +1,12 @@
 # Builtin shell (`main`)
 
+See [current status](../STATUS.md) for the committed checkpoint and paused work.
+
 ```sh
 ./build/main                 # Interactive when stdin is a terminal
 ./build/main pwd             # One-shot; arguments from the calling shell
 ./build/main head -n 2 FILE
-./build/main --help          # Twenty-two builtins; see the README command index
+./build/main --help          # 22 registered commands; see the README command index
 ./build/main help touch      # Usage; also: main touch --help
 ```
 
