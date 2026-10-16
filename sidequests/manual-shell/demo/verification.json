@@ -1,0 +1,67 @@
+{
+  "tests": {
+    "manual": {
+      "passed": 16,
+      "skipped": 0
+    },
+    "strtok": {
+      "passed": 16,
+      "skipped": 0
+    }
+  },
+  "scripted_shell_inputs": 11,
+  "inputs": [
+    "pwd --help",
+    "cat --help",
+    "head --help",
+    "pwd",
+    "cd fixtures",
+    "pwd",
+    "cat lines.txt",
+    "head -n 2 lines.txt",
+    "cat missing.txt",
+    "pwd",
+    "exit"
+  ],
+  "trace_child_pid": 75995,
+  "decode_exit_status": 0,
+  "decode_stderr_bytes": 0,
+  "decode_command": [
+    "/home/name/.hermes/tools/ffmpeg-9.0.1-linux-x64/bin/ffmpeg",
+    "-v",
+    "error",
+    "-i",
+    "A/sidequests/manual-shell/demo/manual-shell.mp4",
+    "-f",
+    "null",
+    "-"
+  ],
+  "probe_command": [
+    "/home/name/.hermes/tools/ffmpeg-9.0.1-linux-x64/bin/ffprobe",
+    "-v",
+    "error",
+    "-count_frames",
+    "-show_entries",
+    "format=format_name,duration,size:stream=codec_name,profile,pix_fmt,width,height,r_frame_rate,nb_read_frames",
+    "-of",
+    "json",
+    "A/sidequests/manual-shell/demo/manual-shell.mp4"
+  ],
+  "faststart_moov_before_mdat": true,
+  "unchanged_c_source_files": [
+    "Unix_Shell.c",
+    "token.c",
+    "token.h",
+    "command.c",
+    "command.h",
+    "builtin.c",
+    "builtin.h"
+  ],
+  "baseline_other_changes": [
+    "03/ShellAssignment/AI_LOG.md"
+  ],
+  "notes": [
+    "AI_LOG.md is owned by the parent agent, not edited by this worker.",
+    "No registry added; no original coursework source or build definitions edited."
+  ]
+}

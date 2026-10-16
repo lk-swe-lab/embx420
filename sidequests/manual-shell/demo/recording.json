@@ -1,0 +1,30 @@
+{
+  "runbook": "../demo.sh",
+  "exit_status": 0,
+  "capture_seconds": 96.57716510099999,
+  "fps": 2,
+  "frame_count": 194,
+  "video_seconds": 97.0,
+  "width": 1624,
+  "height": 900,
+  "pty_output_events": 43,
+  "terminal_columns": 144,
+  "terminal_rows": 36,
+  "test_suites": {
+    "manual": 16,
+    "strtok": 16
+  },
+  "frames": [
+    "frame-build.png",
+    "frame-help.png",
+    "frame-happy.png",
+    "frame-error.png",
+    "frame-trace.png",
+    "frame-complete.png"
+  ],
+  "sha256": {
+    "manual-shell.mp4": "e888eed7861ed3cff82136a170b1250b73ac6edb7d70b3a018ab3ccfc1c6f969",
+    "recording.cast": "64cb9803ea0966913acb49872467b02da8e4ffac6b0bc9929e34e38040debcfa",
+    "recording.log": "dd6616df8e33ae1cec1675170b9ab9ed6c23894315ae6b865c840f1902a0e764"
+  }
+}

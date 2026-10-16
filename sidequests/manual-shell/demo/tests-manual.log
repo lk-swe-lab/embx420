@@ -1,0 +1,27 @@
+cc -DCOMMAND_DIR='"/home/name/Documents/420-EMBDX/A/build"' -std=c17 -Wall -Wextra -Wpedantic -g -c Unix_Shell.c -o Unix_Shell.o
+cc -DCOMMAND_DIR='"/home/name/Documents/420-EMBDX/A/build"' -DUSE_STRTOK=0 -std=c17 -Wall -Wextra -Wpedantic -g -c token.c -o token.o
+cc -DCOMMAND_DIR='"/home/name/Documents/420-EMBDX/A/build"' -std=c17 -Wall -Wextra -Wpedantic -g -c command.c -o command.o
+cc -DCOMMAND_DIR='"/home/name/Documents/420-EMBDX/A/build"' -std=c17 -Wall -Wextra -Wpedantic -g -c builtin.c -o builtin.o
+cc -std=c17 -Wall -Wextra -Wpedantic -g  Unix_Shell.o token.o command.o builtin.o  -o Unix_Shell
+python3 tests/test_shell.py -v
+test_builtin_errors_do_not_exit_or_change_directory (__main__.ShellTests.test_builtin_errors_do_not_exit_or_change_directory) ... ok
+test_embedded_nul_rejected_as_whole_line (__main__.ShellTests.test_embedded_nul_rejected_as_whole_line) ... ok
+test_empty_eof_blank_and_exit_without_newline (__main__.ShellTests.test_empty_eof_blank_and_exit_without_newline) ... ok
+test_external_commands_arguments_cd_and_failure_recovery (__main__.ShellTests.test_external_commands_arguments_cd_and_failure_recovery) ... ok
+test_failed_exec_exits_child_and_parent_continues (__main__.ShellTests.test_failed_exec_exits_child_and_parent_continues) ... ok
+test_foreground_wait_blocks_next_command_until_child_finishes (__main__.ShellTests.test_foreground_wait_blocks_next_command_until_child_finishes) ... ok
+test_fork_exec_wait_trace_pins_existing_programs (__main__.ShellTests.test_fork_exec_wait_trace_pins_existing_programs) ... ok
+test_input_allocation_failure_is_not_successful_eof (__main__.ShellTests.test_input_allocation_failure_is_not_successful_eof) ... ok
+test_interactive_prompt_on_real_pty (__main__.ShellTests.test_interactive_prompt_on_real_pty) ... ok
+test_long_prompt_owned_across_input_reads (__main__.ShellTests.test_long_prompt_owned_across_input_reads) ... ok
+test_repetition_and_eof_status_are_not_shell_control (__main__.ShellTests.test_repetition_and_eof_status_are_not_shell_control) ... ok
+test_signal_killed_child_status_at_eof (__main__.ShellTests.test_signal_killed_child_status_at_eof) ... ok
+test_token_capacity_whitespace_and_unterminated_command (__main__.ShellTests.test_token_capacity_whitespace_and_unterminated_command) ... ok
+test_tokenizer_build_modes_have_matching_behavior (__main__.ShellTests.test_tokenizer_build_modes_have_matching_behavior) ... ok
+test_tokenizer_scans_manually_without_library_tokenizers (__main__.ShellTests.test_tokenizer_scans_manually_without_library_tokenizers) ... ok
+test_unsupported_syntax_rejected_without_execution (__main__.ShellTests.test_unsupported_syntax_rejected_without_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.557s
+
+OK

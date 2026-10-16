@@ -1,7 +1,12 @@
 # File registry
 
 ## Existing
-- AI_LOG.md — approved curated pivotal decisions; not a prompt archive.
+- sidequests/manual-shell/ — separate Week 03 fork/exec/wait learning shell, selectable tokenizers, tests, and short explanations.
+- sidequests/manual-shell/demo/manual-shell.mp4 — real terminal recording; demo/README.md and captured evidence document verification.
+- ai_log/README.md — index of date-prefixed AI logs.
+- ai_log/2026-10-09-AI_LOG.md — preserved curated command-development decisions; relocated links only.
+- ai_log/2026-10-01-AI_LOG.md — byte-preserved historical prompt-selection report.
+- ai_log/2026-10-16-AI_LOG-week03.md — Week 03 side-project decisions and verification; no prompt transcript.
 - docs/STATUS.md — committed commands, paused/skipped work and current limits.
 - docs/COMMAND_ANATOMY.md — current module/integration anatomy, not course transcription.
 - docs/COMMAND_API.md — actual command specification and registry signatures/ownership.
@@ -58,7 +63,7 @@
 - docs/AI_LOG.md — generated prompt archive only if separately requested.
 - docs/CHANGES.md — separate change ledger only if requested.
 
-The root AI_LOG.md is the approved decisions-only record. No new prompt export
+The dated decision logs in ai_log/ are the approved curated records. No new prompt export
 is authorized by this update; existing history and evidence remain unchanged.
 
 ## mkdir command

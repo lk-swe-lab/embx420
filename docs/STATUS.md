@@ -26,7 +26,7 @@ command tests as part of this documentation task.
 [Reports](reports/README.md) are historical snapshots; their pending-gate text is
 not current commit status. Implementation, independent review, exact-index
 verification and commit are separate gates in the [workflow](ADDING_COMMANDS.md).
-The [decision log](../AI_LOG.md) explains the scope and delivery choices.
+The [decision log](../ai_log/2026-10-09-AI_LOG.md) explains the scope and delivery choices.
 
 These are selected subsets, not full GNU replacements. JSON is supported only
 where the command guide says so: `echo`, `date`, `printf` and `sleep` have no JSON

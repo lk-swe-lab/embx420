@@ -2,7 +2,10 @@
 
 `main` runs 22 registered builtin commands directly; no external-command fallback.
 See [shell usage and limits](docs/commands/shell.md),
-[current status](docs/STATUS.md) and [decision log](AI_LOG.md).
+[current status](docs/STATUS.md) and [decision logs](ai_log/README.md).
+
+Separate Week 03 learning project: [manual shell](sidequests/manual-shell/README.md)
+and its [MP4 demo](sidequests/manual-shell/demo/manual-shell.mp4).
 
 ```sh
 make
