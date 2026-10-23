@@ -662,5 +662,9 @@ static void rg_usage(FILE *out)
 }
 
 cmd_spec_t cmd_rg_spec = {
-    "rg", "Search explicit files and directories.",
-    "Search read-only inputs using POSIX ERE or literals.", rg_run, rg_usage};
+    "rg",
+    "Search explicit files and directories.",
+    "Search read-only inputs using POSIX ERE or literals.",
+    rg_run,
+    rg_usage,
+    NULL};

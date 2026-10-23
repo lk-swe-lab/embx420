@@ -597,6 +597,9 @@ static void replace_usage(FILE *out)
 }
 
 cmd_spec_t cmd_edit_replace_spec = {
-    "edit-replace", "Replace all matches using staged file editing.",
+    "edit-replace",
+    "Replace all matches using staged file editing.",
     "Replace nonoverlapping whole-file ERE or literal matches in FILE.",
-    replace_run, replace_usage};
+    replace_run,
+    replace_usage,
+    NULL};

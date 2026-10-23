@@ -131,6 +131,9 @@ static void cd_usage(FILE *out)
 }
 
 cmd_spec_t cmd_cd_spec = {
-    "cd", "Change working directory.",
+    "cd",
+    "Change working directory.",
     "Change physical cwd in the shell process; leave PWD/OLDPWD unchanged.",
-    cd_run, cd_usage};
+    cd_run,
+    cd_usage,
+    NULL};

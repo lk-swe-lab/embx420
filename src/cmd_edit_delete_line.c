@@ -406,6 +406,9 @@ static void delete_usage(FILE *out)
 }
 
 cmd_spec_t cmd_edit_delete_line_spec = {
-    "edit-delete-line", "Delete one existing line using staged file editing.",
+    "edit-delete-line",
+    "Delete one existing line using staged file editing.",
     "Delete FILE line N including its terminator; preserve other bytes.",
-    delete_run, delete_usage};
+    delete_run,
+    delete_usage,
+    NULL};

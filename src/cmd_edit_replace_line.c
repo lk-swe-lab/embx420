@@ -419,6 +419,9 @@ static void replace_usage(FILE *out)
 }
 
 cmd_spec_t cmd_edit_replace_line_spec = {
-    "edit-replace-line", "Replace one existing line using staged file editing.",
+    "edit-replace-line",
+    "Replace one existing line using staged file editing.",
     "Replace FILE line N with TEXT, preserving other bytes and its terminator.",
-    replace_run, replace_usage};
+    replace_run,
+    replace_usage,
+    NULL};

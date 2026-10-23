@@ -374,6 +374,9 @@ static void ls_usage(FILE *out)
     arg_freetable(table, ARG_COUNT);
 }
 
-cmd_spec_t cmd_ls_spec = {"ls", "List directory contents.",
-                          "List one directory or file in byte order.", ls_run,
-                          ls_usage};
+cmd_spec_t cmd_ls_spec = {"ls",
+                          "List directory contents.",
+                          "List one directory or file in byte order.",
+                          ls_run,
+                          ls_usage,
+                          NULL};

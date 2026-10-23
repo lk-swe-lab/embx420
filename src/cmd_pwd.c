@@ -153,6 +153,9 @@ static void pwd_usage(FILE *out)
     arg_freetable(table, ARG_COUNT);
 }
 
-cmd_spec_t cmd_pwd_spec = {"pwd", "Print physical working directory.",
+cmd_spec_t cmd_pwd_spec = {"pwd",
+                           "Print physical working directory.",
                            "Print physical working directory; ignore PWD.",
-                           pwd_run, pwd_usage};
+                           pwd_run,
+                           pwd_usage,
+                           NULL};

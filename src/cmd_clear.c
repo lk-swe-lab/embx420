@@ -141,6 +141,9 @@ static void clear_usage(FILE *out)
 }
 
 cmd_spec_t cmd_clear_spec = {
-    "clear", "Clear an ANSI-compatible terminal screen.",
-    "Home the cursor and erase the visible screen, not scrollback.", clear_run,
-    clear_usage};
+    "clear",
+    "Clear an ANSI-compatible terminal screen.",
+    "Home the cursor and erase the visible screen, not scrollback.",
+    clear_run,
+    clear_usage,
+    NULL};

@@ -10,11 +10,8 @@
 #include "../src/cmd_edit_delete_line.h"  /* cmd_edit_delete_line_spec. */
 #include "../src/cmd_edit_replace.h"      /* cmd_edit_replace_spec. */
 #include "../src/cmd_mv.h"                /* cmd_mv_spec. */
-#include "../src/cmd_env.h"               /* cmd_env_spec. */
-#include "../src/cmd_echo.h"              /* cmd_echo_spec. */
-#include "../src/cmd_printf.h"            /* cmd_printf_spec. */
-#include "../src/cmd_date.h"              /* cmd_date_spec. */
-#include "../src/cmd_sleep.h"             /* cmd_sleep_spec. */
+#include "../src/cmd_rmdir.h"             /* cmd_rmdir_spec. */
+#include "../src/cmd_pkg.h"               /* cmd_pkg_spec. */
 #include <assert.h>                       /* assert. */
 #include <errno.h>                        /* errno, EINTR, ENOMEM. */
 #include <fcntl.h>                        /* fcntl, F_GETFD. */
@@ -146,23 +143,20 @@ int main(void)
     assert(find_command("edit-delete-line") == &cmd_edit_delete_line_spec);
     assert(find_command("edit-replace") == &cmd_edit_replace_spec);
     assert(find_command("mv") == &cmd_mv_spec);
-    assert(find_command("env") == &cmd_env_spec);
-    assert(find_command("echo") == &cmd_echo_spec);
-    assert(find_command("date") == &cmd_date_spec);
-    assert(find_command("printf") == &cmd_printf_spec);
-    assert(find_command("sleep") == &cmd_sleep_spec);
+    assert(find_command("rmdir") == &cmd_rmdir_spec);
+    assert(find_command("pkg") == &cmd_pkg_spec);
     assert(find_command("CAT") == NULL);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 22, registry_capacity = 32 };
+    enum { builtin_count = 19, registry_capacity = 32 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
     cmd_spec_t duplicate = cmd_cat_spec;
     assert(register_command(&duplicate) == -1);
     cmd_spec_t invalid = {0};
     assert(register_command(&invalid) == -1);
-    static const cmd_spec_t probe = {"probe", "Test argv lifetime.", NULL,
-                                     probe_run, probe_usage};
+    static const cmd_spec_t probe = {"probe",   "Test argv lifetime.", NULL,
+                                     probe_run, probe_usage,           NULL};
     assert(register_command(&probe) == 0);
     const char *expected[] = {"probe", "", "ab cd", "a'b", "a\\b", "|"};
     expected_argv = expected;
