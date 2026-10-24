@@ -1,68 +1,65 @@
 # Current status
 
-## Current packaging implementation
+## Shared-module working tree
 
-The registry has 19 builtins: 18 adopted baseline commands plus `pkg`.
-Seventeen baseline builtins have standalone wrappers; `cd` and `pkg` do not.
-`rmdir` is adopted baseline work, not a new packaging command. The separate
-`build/hello` is package-only and becomes available in main only after install.
-The current baseline intentionally retires `env`, `echo`, `date`, `printf`
-and `sleep`; packaging does not restore them.
+The current host is `build/aishell` (`build/main` alias), with 22 standard `.so`
+commands and no statically linked command fallback. Seventeen retain standalone
+wrappers. Help, exit, cd, pkg and traverse are modules too; hello is package-only.
+Standard modules load eagerly at startup, intentionally not lazily. All callbacks
+run sequentially in the parent; no threads or process sandbox.
+`env`, `echo`, `date`, `printf` and `sleep` remain retired.
 
-See [current commands](../README.md#supported-commands), the brief
-[package guide](commands/pkg.md), [release guide](reports/shell-release.md)
-and [plan](reports/packaging-plan.md). Local install/list/info/remove, refreshed
-installed help/catalog, and recorded-path fork/exec are implemented. No general
-PATH fallback, remote download, dependency solving or shell self-update is added.
+Native hello 0.2.0 builds at `build/native-candidates/hello-0.2.0`; the complete
+release is `build/so-reviewed-releases/aishell-0.2.0`. Live pkg accepts schema 2
+shared modules, not executable schema-1 fixtures. Install selects immutable versions;
+`pkg use NAME VERSION` selects retained versions; remove deactivates, retaining
+payloads. Replacing an already published version requires restart. See
+[packages](commands/pkg.md), [shell](commands/shell.md), and
+[approved design/current implementation](reports/so-redesign.md).
 
-## Evidence and open delivery gates
+Native install/use compare stored metadata with the actual spec exporter before
+selection, through the appended size-gated ABI-v1 `inspect_command` callback.
+Builders refuse stale/unknown/unsafe module outputs before compiling; releases
+require the exact standard inventory derived from source specs. A post-commit
+close error reports `selection committed; close failed`, returns 1 and emits no
+success; inspect pkg info before retry. Earlier native-packages/so-releases
+outputs remain immutable historical artifacts, not the current demo inputs.
 
-- Backend follow-up reports 44 normal and 44 ASan/UBSan tests and six sensitive
-  safety mutants. Source/root overlap and command-name bounds were fixed.
-- Test review fixed isolated shell HOME handling and builder test sensitivity.
-  The Make openat-driver prerequisite gap was then fixed; its owner reports
-  full strict `make test all` and `make lint` passing. See
-  [backend evidence](reports/pkg-implementation.md) and
-  [integration evidence](reports/package-shell.md).
-- Release review found a provenance blocker: an unrelated generator could supply
-  help/catalog for another shipped binary. Repair was assigned. The release
-  owner now reports removal of that override, exact-byte snapshot generation,
-  a passing regression and a current-artifact independent rerun. See
-  [release evidence](reports/shell-release.md); this does not finalize delivery.
-- The [lifecycle demo](../demo/PACKAGING.md) records 17 commands and 21 checks,
-  including the relocated release. This is not a full regression claim.
-- Parent reports the private wiki article `_drafts/aishell-packaging.md`
-  delivered as DRAFT, revision 1; exact readback and validation passed.
-  Human review is pending. Wiki data remains excluded from Git and push.
-- Parent verified the exact runtime/build index and pushed commit
-  `6f579356abd67ceb1f7123db53f55896c247b967` to `feat/aishell-packaging`;
-  parent reports the remote hash matches. Local Git confirms tree
-  `9b457a89b41217ad1dd8572dad968bf6734ca555` and 92 source/build/test paths.
-  This includes the retired-command and adopted-rmdir baseline closure.
-- Parent exact-tree checks: strict `make test all`, release tests/build,
-  `make lint` and changed-C formatting returned 0. Global formatting returned 2
-  on unchanged files. Evidence: `$TMPDIR/packaging-code-index-checks`.
-- Docs, demo and the present dependency-bootstrap candidate are not yet committed.
-  Their final checks/publication and remaining acceptance dispositions are open.
-  No task completion or merge is claimed; the user merges later.
+## Verified working-tree evidence
 
-## Final acceptance
+The [demo](../demo/PACKAGING.md) ran against existing real build outputs:
+**11 processes, 22 loop inputs, 27 checks**, exit 0. It proves live install/run/
+remove/reselect in one shell, fresh-session selection, and a relocated complete
+release. All **80 input SHA-256 entries** (23 host/modules, 4 package, 53 release)
+were unchanged; release bytes matched the current build/package. The runner
+itself launched from unrelated cwd with isolated HOME and PATH=/nonexistent;
+inner/outer cleanup passed. This is not a full regression, ABI audit,
+distinct-version replacement test or final review.
 
-The parent accepted the milestone and extra shell release. See
-[verification and limits](reports/packaging-verification.md). Independent
-bootstrap, documentation, and demo review passed after the checkpoint above.
-Fresh pinned dependency builds and strict full-project tests passed in isolated
-snapshots. The brief guide and private wiki draft are delivered. Final scoped
-documentation publication is separate; the user will merge the feature branch.
-Global formatting failures in unchanged files remain disclosed.
+Parent execution of `make -j1 all test lint release-shell` passed after the
+review repairs. Independent review reran module/build/release and native fault
+checks; its remaining numeric-equivalence finding was reproduced and repaired
+with failing-then-passing install/use tests. Native metadata accepts schema-valid
+`-0` counts as equivalent to `0`, without relaxing string/type/grammar checks.
+The native transaction suite exercises 8 tests and 212 measured project
+allocation failure points. Focused ASan+UBSan passes are retained in scratch
+evidence. Global formatting still fails on five unchanged baseline files;
+changed C formatting and `git diff --check` pass.
 
-## Historical checkpoints
+Verification logs and source-snapshot results are recorded in
+[the implementation report](reports/so-redesign.md). No commit, push or merge
+has been performed for this redesign.
 
-October 9, 2026 checkpoint `e1c3ac9` described 22 builtins and 21 wrappers,
-with `rmdir` skipped. That is history, not the present working tree or a final
-packaging commit. Old reports retain their original findings and gate text.
-Some old guide/report links refer to intentionally retired files and can be
-stale. Do not use them as current usage instructions.
+## Limits and history
 
-These selected command subsets are not full GNU replacements, a POSIX shell
-or a sandbox.
+Trusted native constructors may run during install validation. Native callbacks
+can terminate/corrupt the shell. Linux `/proc/self/exe`, `renameat2`, compatible
+ELF/libc and dependency libraries are required. Active selection is atomic, not a
+full crash-durable journal/repair facility. There is no purge, remote repository,
+dependency solver, signature verification or self-update. Retained versions
+accumulate; never alter mapped payload bytes in place.
+
+Old reports are historical snapshots of executable packages/static registries,
+not current usage or pending-commit instructions. No historical report was
+rewritten for this migration. These command subsets are not full GNU tools or
+a POSIX shell.

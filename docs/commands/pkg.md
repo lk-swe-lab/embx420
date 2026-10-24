@@ -1,61 +1,85 @@
-# pkg — local directory packages
+# pkg — trusted local shared-module packages
 
-Use `./build/main pkg ...`, or `pkg ...` in the shell loop:
+Use `./build/aishell pkg ...`, or enter these in its loop:
 
 ```text
 pkg -h | --help
 pkg list
 pkg info NAME
 pkg install [--] DIRECTORY
+pkg use NAME VERSION
 pkg remove [--] NAME
 ```
 
-Build the sample with `make package-hello`, then run:
+## Example and lifecycle
 
-```sh
-./build/main pkg install build/packages/hello-0.1.0
-./build/main hello --name learner
-./build/main help hello
-./build/main --commands-json
-./build/main pkg remove hello
+Prepare `make package-hello` before the demo, then start `./build/aishell`.
+Within that **same running shell**, enter:
+
+```text
+hello
+pkg install build/native-candidates/hello-0.2.0
+hello --name learner
+help hello
+help --json
+pkg remove hello
+hello
+pkg use hello 0.2.0
+hello --name restored
+exit
 ```
 
-## Design and update
+The first and post-removal hello are unknown (127). Install publishes the new
+command without rebuilding/restarting. Remove hides it, but keeps immutable
+versions. Use reactivates that retained same version. For isolated HOME and
+actual captured output, use the [demo](../../demo/PACKAGING.md).
 
-- `packages/hello/pkg.json` is the source record. The build generates a separate
-  directory with a binary, structured metadata and generated help. Do not edit it.
-- Install validates that directory and copies it to `$HOME/.mysh/pkgs`. It does
-  not build or run payloads. HOME must be absolute. Builtin names cannot be replaced.
-- Installed help/catalog use stored metadata. Execution uses the recorded
-  absolute binary path, not PATH. Each lookup refreshes installed state.
-- To update a command package: build a new version, remove the old package by
-  name, then install the new directory. There is a gap; failed installation does
-  not restore the old version. Reads and writes use a nonblocking package lock.
-- Builds do not increase versions. Change the source version for a new release.
-  Existing output is immutable; changed or unlisted files cause a build failure.
-  Use a new output root for experiments. Never delete someone else's output.
+- `packages/hello-so/pkg.json` owns identity/version/inventory; schema 2 bundles
+  contain `lib/COMMAND.so`, generated docs and `metadata/commands.json`.
+  Source command specs own actual callbacks/help/catalog. Before install/use
+  selection, stored command metadata must semantically match the loaded spec's
+  `cmd_metadata_write` output, including summary/help/usage and ordered grammar.
+  Whitespace/object key order do not matter; drift/missing visitors reject.
+  Executable-only schema-1 packages are explicitly rejected by the live shell.
+- Store: `$HOME/.mysh/pkgs/NAME-VERSION`; `.active/NAME` is a regular file with
+  the exact version bytes (no newline). HOME must be absolute for pkg operations.
+  Writes use the package lock and atomic selection rename. No standard-command
+  replacement or overwriting an installed version directory.
+- Install selects the new version and retains older ones. List/info mark every
+  retained version `active` or `retained`; active means persisted selection.
+  `pkg use NAME VERSION` selects an installed retained version for rollback.
+- If another version was already published in this process, selection persists
+  but the old callbacks stay until restart; a diagnostic says restart required.
+  Removal always hides commands. There is no hot unload or purge command.
+- Builders do not increment versions. Existing generated outputs are immutable:
+  identical bytes are a no-op; changed bytes require a new version/output root.
 
-## Shell release
+## Full-shell release
 
-`make release-shell` creates `build/releases/aishell-0.1.0/` with the complete
-shell, current builtin help/catalog, and an explicitly optional hello demo.
-`packages/aishell/release.json` alone defines the shell release identity/version.
-Copy the complete release to a user-owned versioned directory and run
-`bin/aishell`. Read its `README.md` and `SYSTEM.md`. No source is needed at runtime.
-To update the shell, copy a separate new release, test it, then change your
-launcher; retain the old directory for rollback. This release is not a `pkg`
-payload. There is no shell self-update or automatic sudo installation.
+`make release-shell` creates `build/so-reviewed-releases/aishell-0.2.0/`, defined by
+`packages/aishell/release.json`. Copy the **complete** release, including
+`bin/modules/`, to a user-owned versioned directory and launch `bin/aishell`.
+It includes generated docs/catalog and `examples/hello-0.2.0`. Keep the old
+release and explicitly switch launchers for rollback. It is not a `pkg install`
+payload; there is no self-update or automatic sudo installation. Standard modules
+load eagerly at startup, not lazily. The builder requires exactly the standard
+module set derived from source specs; module builds refuse stale/unknown/unsafe
+outputs before compiling, never delete them. Historical native-packages and
+so-releases directories remain immutable, not current release inputs.
 
-## Limits and status
+## Trust and limits
 
-Only trusted local packages: no download, dependency resolution, archive import,
-signature check or sandbox. Symlinks, hardlinks, unsafe types and unlisted files
-are rejected. Do not repair corrupt state by guessing records. A failed removal
-can leave partial state; inspect the diagnostic. Output failure cannot undo a
-committed change. `0` is success, `1` is state/validation/I/O failure, and `2` is
-syntax error. Unknown shell commands return `127`; launch failure is `126`.
+All callbacks run sequentially in the parent. Install validation uses dlopen:
+**native constructors may execute before ABI validation**. Only trusted local
+code; no sandbox, signatures, downloads or dependency solver. Exact inventories
+reject symlinks, hardlinks, special files and unlisted entries, but do not make
+native code safe. Never modify mapped versions while sessions run.
 
-Evidence: [backend](../reports/pkg-implementation.md),
-[shell integration](../reports/package-shell.md), and
-[release](../reports/shell-release.md). Builtin help is generated from existing
-callbacks; it is not a fabricated structured argument schema.
+A post-commit close failure returns 1 with `selection committed; close failed;
+inspect pkg info before retry`, never a success line. Removal still hides
+deactivated commands. If only payload publication committed, failure instead
+reports `release retained; selection failed`. Inspect list/info before retrying.
+Atomic visibility is not a crash-durable journal or repair facility.
+Pkg statuses: 0 success, 1 state/validation/I/O failure, 2 syntax. Unknown shell
+commands return 127. See [current redesign](../reports/so-redesign.md);
+older packaging reports describe the superseded executable backend.

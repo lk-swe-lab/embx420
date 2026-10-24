@@ -1,38 +1,43 @@
 # Current command anatomy
 
-This describes the current C project, not course slide text. See the
-[API](COMMAND_API.md) and approved
-[add-command workflow](ADDING_COMMANDS.md) before changing a command.
+Source authority: [`cmd_spec.h`](../src/cmd_spec.h),
+[`module_abi.h`](../src/module_abi.h), and `src/cmd_*.c` specifications.
+Follow the [workflow](ADDING_COMMANDS.md) before changing commands.
 
-- `src/cmd_<name>.c` owns one command's implementation and specification;
-  its header declares that specification using the shared
-  [`cmd_spec_t`](../src/cmd_spec.h), rather than defining another type.
-- The specification supplies name, summary, optional long help, run callback
-  and usage callback, plus an optional metadata visitor. The provider owns its
-  terminated Argtable and strings only through the visitor call; visitors must
-  not change or retain them. Argtable definitions belong to each invocation; parser
-  storage is not kept in the registry between calls.
-- [`registry.c`](../src/registry.c) explicitly registers completed specifications.
-  [`main`](../src/main.c) and the [shell](commands/shell.md) use the actual
-  registry for builtin discovery/help/dispatch. Installed packages use separate,
-  invocation-owned snapshots; their pointers never enter the static registry.
-  Installed help uses stored metadata; execution uses fork/execv of the recorded
-  absolute path. Unknown commands do not fall back to PATH.
-- Optional `src/<name>_main.c` wrappers call the same module. `cd` deliberately
-  has no standalone wrapper because cwd changes must persist in the host loop.
-  `pkg` also has no wrapper. There are 19 builtins and 17 builtin wrappers.
-  `hello_main.c` builds a separate package-only example, not a builtin.
-- CLI tests cover selected output/status/side-effect contracts; module tests
-  cover repeated calls, borrowed state and fault cleanup. Integration tests
-  must exercise real main, not merely the standalone executable.
-- `docs/commands/` contains concise usage and limits; `docs/reports/` and
-  `logs/commands/` preserve historical evidence. [STATUS](STATUS.md) tracks the
-  live working-tree/delivery distinction; old reports retain their checkpoints.
+- `build/aishell` hosts input/tokenization, discovery, registry and dispatch;
+  `build/main` is its compatibility alias. No command implementation is linked
+  into the host. All 22 standard commands, including help, exit, cd, pkg and
+  traverse, are `.so` modules. Hello is a separate optional package.
+- `scripts/build_modules.py` derives names/spec symbols from command sources and
+  wraps them with `src/module_entry.c`. Its regex recognizes the first matching
+  `cmd_spec_t` initializer per `cmd_*.c`, not arbitrary C syntax. Dependency
+  exceptions and hello's package-only selection remain explicit in the builder.
+  Adding a source does not prove correct dependencies or integration. Before
+  compiling, the builder refuses stale/unknown/unsafe output entries; it never
+  prunes them. Releases require exactly the source-derived standard module set.
+- The host eagerly loads all standard `modules/*.so` at startup (not lazy),
+  beside its actual executable, resolved through
+  Linux `/proc/self/exe`; not cwd or PATH. `RTLD_NOW | RTLD_LOCAL`, hidden
+  implementation symbols and the ABI entry replace the deleted static registry.
+- Specifications supply name, summary, optional long help, run/usage callbacks
+  and optional metadata visitor. Parser allocations belong to each invocation;
+  borrowed argv lasts only through the callback. All callbacks execute
+  sequentially in the parent process; no worker threads or fork/exec isolation.
+- `help`, `help --json` and `--commands-json` use live descriptors. Package
+  metadata generates packaging docs and must match actual loaded specs before
+  install/use selection; it is not runtime callback storage.
+  Catalog `builtin`/`control` labels survive for compatibility, not static linkage.
+- `pkg.so` uses the host API to inspect unpublished specs, validate/publish
+  batches and hide commands. `inspect_command` is size-gated in ABI v1.
+  Immutable versions and active selections live under `$HOME/.mysh/pkgs`.
+  New packages appear live; replacing a previously published version requires
+  restart. Removal hides commands, retaining versions and mapped handles.
+- Seventeen standard commands retain standalone wrappers; cd, pkg, help, exit
+  and traverse do not. `hello_main.c` is a separate example/legacy test tool.
+- Tests must cover real host discovery, same-session changes, stateful cd/exit,
+  standalone parity, ABI rejection, relocation and borrowed-resource cleanup.
 
-Adding files alone does not deliver a command: complete registry/build/test
-integration, independent review and exact-index verification within the approved
-scope. The implemented [package builder](reports/package-build.md) uses the
-optional shared exporter for hello metadata and generated docs. Existing builtin
-release pages use actual usage callbacks, not invented argument schemas. See
-[package usage](commands/pkg.md), [integration](reports/package-shell.md) and
-[release evidence](reports/shell-release.md). This is not full GNU compatibility.
+Native modules are trusted code, not a sandbox; constructors may run during
+install validation. See [API](COMMAND_API.md), [package usage](commands/pkg.md),
+[current status](STATUS.md) and [redesign](reports/so-redesign.md).
+Historical reports retain their original architecture and gate status.

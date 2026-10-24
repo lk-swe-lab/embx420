@@ -1,7 +1,9 @@
-# Builtin shell and directory traversal
+# Shared-module shell and directory traversal
 
-`main` runs 19 registered builtins and installed package commands. It does not
-search PATH for unknown commands.
+`build/aishell` (`build/main` compatibility alias) loads 22 standard `.so`
+commands eagerly at startup (intentionally not lazy), plus optional native
+packages. No command implementation is statically
+linked into the host; unknown commands never fall back to PATH.
 See [shell usage and limits](docs/commands/shell.md),
 [current status](docs/STATUS.md) and [decision logs](ai_log/README.md).
 
@@ -11,10 +13,10 @@ and its [MP4 demo](sidequests/manual-shell/demo/manual-shell.mp4).
 ```sh
 make
 ./build/main                   # Interactive: help, pwd, exit
-./build/main --help             # Builtin shell help
+./build/main --help             # Runtime module help
 ./build/main pwd                # One-shot command
 ./build/main head -n 2 FILE
-./build/main help touch         # Builtin usage
+./build/main help touch         # Module usage
 ```
 
 Use quotes/backslash for filenames in the loop. No expansion, pipes or
@@ -29,7 +31,7 @@ From the project root:
 
 ```sh
 make                            # Build
-./build/main -h                  # Legacy help; --help lists builtins
+./build/main -h                  # Legacy help; --help lists modules
 ./build/main -r DIR              # Traverse DIR
 ./build/main -r DIR --mtime      # Add file/directory modification dates
 ./build/main -r DIR --mtime --utc   # UTC dates
@@ -51,10 +53,10 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Seventeen builtins also have optional standalone tools in `build/`; `cd` and
-`pkg` have no standalone wrapper. The separate `build/hello` is package-only,
-not a builtin. Existing standalone help
-examples below remain valid; every command also supports `main help COMMAND`.
+Seventeen standard modules also have optional standalone tools in `build/`.
+`cd`, `pkg`, `help`, `exit` and `traverse` have no standalone wrapper. The separate
+`build/hello` is an example/legacy test tool, not a standard shell command.
+Every command also supports `aishell help COMMAND`.
 
 | Command | Purpose | Help |
 | --- | --- | --- |
@@ -76,7 +78,10 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [edit-replace](docs/commands/edit-replace.md) | Global ERE/literal replacement through staged editing; optional JSON | `./build/main help edit-replace` |
 | [mv](docs/commands/mv.md) | Same-filesystem rename; explicit force and optional JSON | `./build/main help mv` |
 | [rmdir](docs/commands/rmdir.md) | Remove empty directories; adopted baseline command | `./build/main help rmdir` |
-| [pkg](docs/commands/pkg.md) | List, inspect, install and remove local packages | `./build/main help pkg` |
+| [pkg](docs/commands/pkg.md) | Install/select/deactivate local native versions | `./build/main help pkg` |
+| help | Live command help/catalog | `./build/main help help` |
+| exit | Leave with previous status | `./build/main help exit` |
+| traverse | Directory traversal and histograms | `./build/main help traverse` |
 
 These are selected subsets, not full GNU replacements. The commands above are
 registered in the current working tree; see [delivery status](docs/STATUS.md).
@@ -86,27 +91,48 @@ Historical evidence is preserved in [command reports](docs/reports/README.md).
 
 ## Packages and shell release
 
-See the brief [package guide](docs/commands/pkg.md) and separate
-[shell release guide and evidence](docs/reports/shell-release.md).
+See the [package guide](docs/commands/pkg.md), [build setup](docs/TESTING.md)
+and [redesign/current boundary](docs/reports/so-redesign.md).
 
 ```sh
-make package-hello
-./build/main pkg install build/packages/hello-0.1.0
-./build/main hello --name learner
-./build/main --commands-json
-./build/main pkg remove hello
-make release-shell              # build/releases/aishell-0.1.0/
+make package-hello release-shell # prepare before starting the demo
+./build/aishell
 ```
 
-The shell release is not a `pkg install` payload. Install it in a user-owned,
-versioned directory and select its `bin/aishell` launcher explicitly. Keep the
-old release and installed packages when switching launchers. Package updates
-use remove then install; no automatic rollback or shell self-update is provided.
-Generated targets are immutable: identical builds are no-ops; changed content
-needs another output root or an explicit manual move of the known old artifact.
+Inside that same running shell:
+
+```text
+hello
+pkg install build/native-candidates/hello-0.2.0
+hello --name learner
+help hello
+pkg remove hello
+hello
+pkg use hello 0.2.0
+hello --name restored
+exit
+```
+
+The first and post-removal hello are unknown (127). Install adds the module live;
+remove hides it but retains immutable versions. Use selects a retained version.
+Replacing an already published version requires restart; mapped bytes are never
+replaced/unloaded. All callbacks run sequentially in the parent with no threads.
+Native code is trusted, not sandboxed; constructors may run during install checks.
+Install/use bind stored metadata to the actual module spec before selection.
+A post-commit close failure returns 1, not success; inspect `pkg info` before retry.
+
+The full release is `build/so-reviewed-releases/aishell-0.2.0/`, not a pkg payload.
+Copy it completely, including `bin/modules/`, to a user-owned versioned directory
+and explicitly select `bin/aishell`. Retain the old release for launcher rollback.
+No download, dependency solving, signatures or shell self-update. Generated
+outputs are immutable: identical bytes are a no-op; changed bytes need a new
+version/output root. Earlier executable-package reports remain historical.
 
 ## Demo
 
-The current [package lifecycle demo](demo/PACKAGING.md) records 17 real commands
-and 21 checks in [JSON](demo/packaging-demo.json) and a
-[transcript](demo/packaging-demo.log), including a relocated release.
+The [package lifecycle demo](demo/PACKAGING.md) captures **11 real processes,
+22 loop inputs and 27 checks** in [JSON](demo/packaging-demo.json) and a
+[transcript](demo/packaging-demo.log), including a relocated complete release.
+It never builds/cleans and uses isolated HOME with PATH=/nonexistent; 80 input
+SHA-256 entries and fixture cleanup are recorded. Final independent review and
+exact-tree acceptance remain pending.

@@ -1,7 +1,7 @@
 # File registry
 
-Runtime/build code is committed at `6f579356abd67ceb1f7123db53f55896c247b967`.
-The documentation/demo/bootstrap follow-up is not yet committed here.
+This registry describes current paths, not publication or final acceptance.
+Shared-module implementation/review status is in docs/STATUS.md.
 Historical entries are retained. Paths for retired commands can be absent or
 stale; they do not assert current usage, integration or delivery.
 
@@ -16,7 +16,7 @@ stale; they do not assert current usage, integration or delivery.
 - docs/COMMAND_ANATOMY.md — current module/integration anatomy, not course transcription.
 - docs/COMMAND_API.md — actual command specification and registry signatures/ownership.
 - docs/ai_log.py, docs/test_ai_log.py — historical utility paths; current helpers are under scripts/.
-- README.md — shell/traversal usage, current 19-builtin/17-wrapper index, package/release links and tests.
+- README.md — shell/traversal usage, current 22-module/17-standard-wrapper index, package/release links and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -36,7 +36,7 @@ stale; they do not assert current usage, integration or delivery.
 - .gitignore — excludes local environment, caches, and generated database.
 - Makefile — builds CLI/tests; test, lint, format-check, format, and clean.
 - .clang-format — C formatting with an 80-column limit.
-- src/main.c — builtin-shell entry point and legacy traversal routing.
+- src/main.c — thin module-host entry point and legacy traversal routing.
 - tests/test_help.c — CUnit CLI test for -h usage and exit status.
 - docs/TESTING.md — CUnit setup and test commands.
 - wiki/SCHEMA.md — wiki format and approval-first chat workflow.
@@ -67,20 +67,48 @@ stale; they do not assert current usage, integration or delivery.
 - Private wiki DB `_drafts/aishell-packaging.md` — parent-delivered DRAFT revision 1; human review pending; excluded from Git/push.
 
 ## Packaging definitions and build helpers
-- packages/hello/pkg.json — authoritative hello command-package identity, version and payload inventory.
+- packages/hello/pkg.json — legacy executable schema-1 test fixture; rejected by live pkg.
 - packages/aishell/release.json — authoritative full-shell release identity/version; not a pkg payload.
 - scripts/build_package.py — bounded package generation, validation and immutable publication.
-- scripts/build_shell_release.py — exact-byte shell snapshot, help/catalog generation and immutable release publication.
-- scripts/bootstrap_dependencies.py — verified pinned, SHA-256-checked static Argtable/CUnit bootstrap into new local prefixes.
-- build/packages/hello-0.1.0/, build/releases/aishell-0.1.0/ — generated outputs, not source or Git deliverables.
+- scripts/build_shell_release.py — source-derived exact standard module membership, exact-byte snapshot, generated help/catalog and immutable publication.
+- scripts/bootstrap_dependencies.py — pinned checksum-checked bootstrap; PIC Argtable via cc/ar and static CUnit via Autotools.
+- build/packages/hello-0.1.0/, build/releases/aishell-0.1.0/ — preserved historical generated outputs; not current demo inputs.
+
+## Native module implementation and generated outputs
+- docs/reports/so-redesign.md — approved design, separately labeled observed implementation and limits; not final acceptance.
+- src/module_abi.h — ABI v1 descriptors, size-gated host table including unpublished inspect_command, ownership and trust boundary.
+- src/module_entry.c — shared default-visible entry wrapper around authoritative command specs.
+- src/module_runtime.c, src/module_runtime.h — executable-relative discovery, validated registry, activation/hiding and sequential lifecycle.
+- src/module_pkg.c, src/module_pkg.h — native schema-2 selection/refresh, actual-spec metadata binding, retained versions, restart and post-commit diagnostics.
+- src/pkg_record.h — internal package-record representation shared by native/backend validation.
+- src/shell_input.c — borrowed-token lexer and bytewise shared-stdin reader, without read-ahead.
+- src/cmd_help.c, src/cmd_help.h — live descriptor help/catalog module.
+- src/cmd_exit.c, src/cmd_exit.h — previous-status/exit-request module.
+- src/cmd_traverse.c, src/cmd_traverse.h — legacy traversal command module with borrowed-argv preservation.
+- scripts/build_modules.py — source-derived spec wrappers/build selection; refuses stale/unknown/unsafe outputs before compiling, never prunes; not a C parser.
+- packages/hello-so/pkg.json — current schema-2 hello 0.2.0 identity/inventory.
+- build/aishell, build/main — actual host and compatibility alias; generated, not Git deliverables.
+- build/modules/*.so — 22 generated standard command modules.
+- build/example-modules/hello.so — generated optional hello module, not part of standard inventory.
+- build/native-candidates/hello-0.2.0/ — current generated native command package.
+- build/so-reviewed-releases/aishell-0.2.0/ — complete generated release, bin/modules, docs/catalog/example.
+- build/native-packages/, build/so-releases/, build/so-candidates/ — preserved outdated immutable outputs; not final demo inputs.
+- build/legacy-packages/ — schema-1 executable test fixtures only.
+- build/module-deps/argtable3/, build/cunit/ — default PIC Argtable and CUnit dependency prefixes.
+- tests/test_modules.py — standard module inventory/linkage, host behavior and borrowed-state integration.
+- tests/test_loader.py, tests/module_fixture.c, tests/loader_faults.c — ABI/entry/conflict rejection and loader fault fixtures.
+- tests/test_shared_package.py — native version selection, retained payload and restart/rollback scenarios.
+- tests/test_module_build.py — stale/unknown inventory refusal and Make dependency sensitivity.
+- tests/test_native_transactions.py, tests/native_pkg_faults.c — real native pkg allocation/I/O/post-commit fault checks.
+- tests/export_module_fixture.c — fixture metadata exported from its actual structured visitor.
 
 ## Packaging C modules
 - src/cmd_hello.c, src/cmd_hello.h — package-only hello specification and shared argument builder/metadata visitor.
-- src/hello_main.c — separate hello executable; not a builtin wrapper.
+- src/hello_main.c — separate hello executable/example and legacy fixture, not a standard module wrapper.
 - src/export_hello.c — build-time exporter for hello structured metadata.
 - src/cmd_metadata.c, src/cmd_metadata.h — shared command JSON writer; borrowed stream/spec, staged failure output.
-- src/cmd_pkg.c, src/cmd_pkg.h — builtin package CLI specification and exact grammar.
-- src/pkg_store.c, src/pkg_store.h — owned snapshots and local install/remove lifecycle.
+- src/cmd_pkg.c, src/cmd_pkg.h — package command specification; native/legacy backend selection.
+- src/pkg_store.c, src/pkg_store.h — retained executable-backend fixtures and shared store support.
 - src/pkg_fs.c, src/pkg_fs.h — no-follow filesystem access, persistent exclusive lock and bounded copying.
 - src/pkg_json.c, src/pkg_json.h — bounded strict JSON reader.
 - src/pkg_schema.c, src/pkg_schema.h — manifest and command-metadata validation.
@@ -101,7 +129,7 @@ stale; they do not assert current usage, integration or delivery.
 ## Packaging lifecycle demo
 - demo/PACKAGING.md — current run instructions, isolation, exact checks and limits.
 - demo/packaging-demo.py — actual-command runner; isolated HOME/TMPDIR, no PATH fallback.
-- demo/packaging-demo.json, demo/packaging-demo.log — captured execution of 17 commands and 21 checks, including relocated release.
+- demo/packaging-demo.json, demo/packaging-demo.log — actual native capture: 11 processes, 22 loop inputs, 27 checks, 80 input hashes and verified cleanup, including relocated complete release.
 
 ## Adopted rmdir baseline (not new packaging work)
 - src/cmd_rmdir.c, src/cmd_rmdir.h, src/rmdir_main.c — existing baseline command module and standalone wrapper.
@@ -134,11 +162,11 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/commands/stat.md — implemented stat usage, options and limits.
 - docs/commands/touch.md — implemented timestamp-update usage and limits.
 - docs/commands/clear.md — integrated ANSI terminal-screen clearing and redirect limits.
-- docs/commands/cd.md — integrated physical cwd/HOME builtin, without standalone cd.
+- docs/commands/cd.md — integrated physical cwd/HOME module, without standalone cd.
 - src/cmd_clear.c, src/cmd_clear.h — shared ANSI terminal clear module.
 - src/clear_main.c — optional standalone clear entry point.
 - tests/test_clear.py, tests/test_clear_module.c — byte/PTY/main parity, reuse and fault tests.
-- src/cmd_cd.c, src/cmd_cd.h — physical cwd-only builtin and shared help.
+- src/cmd_cd.c, src/cmd_cd.h — physical cwd-only module and shared help.
 - tests/test_cd.py, tests/test_cd_module.c — persistent main/cwd, borrowed-state and fault tests.
 - docs/reports/clear.md, docs/reports/clear-review.md — preserved implementation and independent clear review.
 - docs/reports/cd.md, docs/reports/cd-review.md, docs/reports/cd-fix-review.md — preserved cd implementation, original review and fix re-review.
@@ -147,7 +175,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - logs/commands/clear-cd-integration/ — exact commands, raw stdout/stderr, fresh manifests and edge gates.
 - docs/reports/clear-cd-review.md — independent actual-main review and narrow delivery audit.
 - logs/commands/clear-cd-review/ — fresh gate outputs, hashes, audit and explicit final delivery allowlist.
-- docs/commands/shell.md — builtin-shell usage, quoting/stdin semantics and limits.
+- docs/commands/shell.md — shared-module shell usage, quoting/stdin semantics and limits.
 - docs/reports/shell-integration.md — implementation evidence and preserved selection plan.
 - docs/reports/shell-review.md — independent verification and dependency scope.
 - docs/reports/shell-disposition.md — accepted differences, final checks and readiness.
@@ -188,8 +216,8 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/mkdir.md — byte-preserved inventory, contract and implementation evidence.
 - docs/reports/cp.md — byte-preserved planned inventory and mmap design snapshot.
 - docs/ADDING_COMMANDS.md — guided/autonomous command workflow, reusable plan template, and testing/verification gates.
-- src/shell.c, src/shell.h — builtin dispatch, lexer, shared-stdin loop and API.
-- src/registry.c, src/registry.h — checked builtin registration, lookup and discovery.
+- src/shell.c, src/shell.h — module dispatch and shared-stdin loop API; lexer/input is in shell_input.c.
+- src/registry.h — private compatibility facade for direct tests; registry.c static inventory was deleted.
 - tests/test_shell.py — exact CLI/parity/quoting/stdin and accepted legacy diagnostics.
 - tests/test_shell_module.c — registry, borrowed-state, EINTR and allocation-fault checks.
 - src/cmd_touch.c, src/cmd_touch.h — shared timestamp-update/create/JSON module.

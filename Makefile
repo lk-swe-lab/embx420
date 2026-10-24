@@ -3,8 +3,8 @@ CC = cc
 CFLAGS ?= -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
 CUNIT_CPPFLAGS ?= -Ibuild/cunit/include
 CUNIT_LDLIBS ?= -Lbuild/cunit/lib -lcunit
-ARGTABLE3_CPPFLAGS ?= -Ibuild/argtable3/include
-ARGTABLE3_LDLIBS ?= -Lbuild/argtable3/lib -largtable3 -lm
+ARGTABLE3_CPPFLAGS ?= -Ibuild/module-deps/argtable3/include
+ARGTABLE3_LDLIBS ?= -Lbuild/module-deps/argtable3/lib -largtable3 -lm
 CAT_UNDER_TEST ?= /usr/bin/cat
 CAT_TEST_ARGS ?=
 CLANG_TIDY ?= clang-tidy
@@ -71,19 +71,26 @@ test-ls-impl: build/ls build/test_ls_module
 build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c src/cmd_edit_delete_line.c src/cmd_edit_replace.c src/cmd_mv.c src/cmd_rmdir.c
-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h src/cmd_edit_delete_line.h src/cmd_edit_replace.h src/cmd_mv.h src/cmd_rmdir.h
 
 PKG_SOURCES = src/cmd_pkg.c src/pkg_store.c src/pkg_fs.c src/pkg_json.c src/pkg_schema.c
 PKG_HEADERS = src/cmd_pkg.h src/pkg_store.h src/pkg_fs.h src/pkg_json.h src/pkg_schema.h
-SHELL_SOURCES += $(PKG_SOURCES)
-SHELL_HEADERS += $(PKG_HEADERS)
 
-build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
+HOST_SOURCES = src/shell.c src/shell_input.c src/module_runtime.c
+HOST_HEADERS = src/shell.h src/registry.h src/module_abi.h src/module_runtime.h src/cmd_spec.h
+
+build/modules/.stamp: $(wildcard src/*.c src/*.h) scripts/build_modules.py scripts/build_package.py Makefile | build
+	CC='$(CC)' CPPFLAGS='$(CPPFLAGS)' CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' ARGTABLE3_CPPFLAGS='$(ARGTABLE3_CPPFLAGS)' ARGTABLE3_LDLIBS='$(ARGTABLE3_LDLIBS)' python3 scripts/build_modules.py
+	touch $@
+
+build/aishell: src/main.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) -fvisibility=hidden $(LDFLAGS) -o $@ src/main.c $(HOST_SOURCES) -ldl $(LDLIBS)
+
+build/main: build/aishell
+	ln -sf aishell $@
+
+build/test_shell_module: tests/test_shell_module.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(HOST_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -ldl $(LDLIBS)
 
 .PHONY: test-shell
 test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/rmdir
@@ -196,11 +203,14 @@ format:
 
 test: test-package-shell test-pkg
 
-build/test_package_shell_module: tests/test_package_shell_module.c $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_package_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=fork,--wrap=execv,--wrap=waitpid,--wrap=malloc $(ARGTABLE3_LDLIBS) $(LDLIBS)
+build/test_package_shell_module: tests/test_package_shell_module.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_package_shell_module.c $(HOST_SOURCES) -ldl $(LDLIBS)
 
-test-package-shell: build/main build/test_package_shell_module package-hello
+test-package-shell: build/main build/test_package_shell_module package-hello package-hello-legacy
 	python3 tests/test_package_shell.py ./build/main
+	python3 tests/test_modules.py
+	python3 tests/test_loader.py
+	python3 tests/test_native_transactions.py
 
 PKG_TEST_WRAPS = -Wl,--wrap=openat,--wrap=close,--wrap=read,--wrap=__read_chk,--wrap=write,--wrap=renameat2,--wrap=unlinkat,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=arg_lit0,--wrap=arg_parse
 
@@ -224,12 +234,12 @@ build/pkg-tests/json-sanitize: tests/pkg_json_driver.c src/pkg_json.c src/pkg_js
 	mkdir -p build/pkg-tests
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/pkg_json_driver.c src/pkg_json.c $(LDLIBS)
 
-test-pkg: package-hello build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
+test-pkg: package-hello-legacy build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
 	python3 tests/test_pkg.py ./build/pkg-tests/pkg
 
 # Package-only hello; it is not linked into the shell builtin registry.
 all: build/hello
-test: test-hello test-package
+test: test-hello test-package test-shell-release
 .PHONY: package-hello test-package test-hello
 build/hello: src/hello_main.c src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/hello_main.c src/cmd_hello.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -243,14 +253,22 @@ build/test_metadata: tests/test_metadata.c src/cmd_metadata.c src/cmd_metadata.h
 build/test_hello_module: tests/test_hello_module.c src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_hello_module.c src/cmd_hello.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-package-hello: build/hello build/export-hello
+build/example-modules/hello.so: src/module_entry.c src/module_abi.h src/cmd_spec.h src/cmd_hello.c src/cmd_hello.h src/cmd_lines.c src/cmd_lines.h scripts/build_modules.py scripts/build_package.py Makefile | build
+	CC='$(CC)' CPPFLAGS='$(CPPFLAGS)' CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' ARGTABLE3_CPPFLAGS='$(ARGTABLE3_CPPFLAGS)' ARGTABLE3_LDLIBS='$(ARGTABLE3_LDLIBS)' python3 scripts/build_modules.py --hello --output build/example-modules
+
+package-hello: build/example-modules/hello.so build/export-hello
 	python3 scripts/build_package.py
+
+# Explicit executable-only fixture, never loaded by the live module shell.
+.PHONY: package-hello-legacy
+package-hello-legacy: build/hello build/export-hello
+	python3 scripts/build_package.py --manifest packages/hello/pkg.json --binary build/hello --output-root build/legacy-packages
 
 test-hello: build/hello build/test_hello_module
 	python3 tests/test_hello.py ./build/hello
 	@for mode in usage metadata metadata-null metadata-stop state; do ./build/test_hello_module $$mode || exit $$?; done
 
-test-package: package-hello build/test_metadata
+test-package: package-hello package-hello-legacy build/test_metadata
 	./build/test_metadata
 	python3 tests/test_package_build.py
 
@@ -261,11 +279,13 @@ release-shell: build/main package-hello
 
 test-shell-release: build/main package-hello
 	python3 tests/test_shell_release.py
+	python3 tests/test_module_build.py
 
 build:
 	mkdir -p $@
 
 clean:
+	$(RM) build/aishell build/modules/.stamp build/example-modules/hello.so
 	$(RM) build/test_package_shell_module build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
 	$(RM) build/hello build/export-hello build/test_metadata build/test_hello_module
 	$(RM) build/mv build/test_mv_module build/cmd_mv_test.o

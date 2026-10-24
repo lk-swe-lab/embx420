@@ -117,7 +117,7 @@ class PackageTests(unittest.TestCase):
     def package(self, name='hello'):
         source = self.home / ('source-' + name)
         shutil.copytree(Path(__file__).resolve().parents[1] /
-                        'build/packages/hello-0.1.0', source)
+                        'build/legacy-packages/hello-0.1.0', source)
         if name != 'hello':
             manifest = json.loads((source / 'pkg.json').read_text())
             manifest['name'] = name

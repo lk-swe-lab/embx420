@@ -1,79 +1,110 @@
-# Package lifecycle demo
+# Native package demo
 
-Run from any working directory (Python standard library only):
+## Prepare outside the demo
+
+Build trusted outputs separately: `make all package-hello release-shell`.
+Expected inputs: `build/aishell` (`build/main` alias), 22 `build/modules/*.so`,
+`build/native-candidates/hello-0.2.0`, and `build/so-reviewed-releases/aishell-0.2.0`.
+Earlier native-packages/so-releases outputs are preserved outdated artifacts.
+The runner reads versions from `packages/hello-so/pkg.json` and
+`packages/aishell/release.json`; it never builds, cleans or replaces artifacts.
+
+## Simple live walkthrough
+
+Use a fresh absolute, user-owned temporary HOME. From the repository root,
+prepare a Bash subshell before launching aishell (TMPDIR must already exist):
+
+```sh
+bash
+DEMO_HOME=$(mktemp -d "$TMPDIR/aishell-live.XXXXXX")
+printf 'Temporary HOME: %s\n' "$DEMO_HOME"
+HOME="$DEMO_HOME" PATH=/nonexistent ./build/aishell
+```
+
+Enter one line at a time **inside aishell**, without restarting:
+
+1. `hello` — unknown command before install (expected 127).
+2. `pkg install build/native-candidates/hello-0.2.0` — select the new module.
+3. `hello --name learner` — greeting from the newly loaded command.
+4. `help hello`, then `help --json` — live help and catalog identity.
+5. `pkg remove hello` — hide it, retain immutable version bytes.
+6. `hello` — unknown again (expected 127).
+7. `pkg list` — hello 0.2.0 is retained, not active.
+8. `pkg use hello 0.2.0`, then `hello --name restored` — same-version reactivation.
+9. `exit` — return to Bash. Inspect `$DEMO_HOME` before removing your fixture;
+   `exit` again leaves the subshell and restores the original environment.
+
+A different version previously published in this process cannot be hot-swapped:
+install/use persists its selection, but old callbacks remain until restart.
+That distinct-version boundary is not exercised by this single-version demo.
+All callbacks run sequentially in the parent, no threads. Only trusted native
+code: constructors may execute during install validation; there is no sandbox.
+All standard modules eagerly load at startup, intentionally not lazily. Native
+install/use bind stored metadata to the actual spec exporter before selection.
+A post-commit close error reports `selection committed; close failed`, returns 1
+and prints no success; inspect pkg info before retry. Release membership is the
+exact source-derived standard set; stale/unknown module outputs are refused
+before compilation, never automatically pruned.
+
+## Automated actual-output capture
+
+From any cwd:
 
 ```sh
 python3 /home/name/Documents/420-EMBDX/A/demo/packaging-demo.py
 ```
 
-`TMPDIR` must name an existing absolute scratch directory. This environment
-already configures it. Else set it explicitly to your own scratch directory.
-The script overwrites **only** its sibling `packaging-demo.log` and
-`packaging-demo.json`; those files are actual execution evidence, not templates.
+Requires an existing absolute TMPDIR and Python standard library only. It
+prints a final summary, **not** a live streamed command walkthrough. It overwrites
+only its sibling `packaging-demo.json` and `packaging-demo.log` evidence.
+Children get only HOME, TMPDIR, LC_ALL=C and PATH=/nonexistent, with fresh
+mode-0700 fixture homes; no host package state or credential environment is used.
+The fixture is removed on success/handled failure and its absence checked.
 
-## Prerequisites and scope
+The source-host session receives 16 literal input lines in one process:
+absent hello → install → list/info/help/run/catalog → remove/list/catalog →
+unknown → use/run → remove → unknown → exit. The final process status is 127;
+three exact unknown diagnostics and actual stdout/catalogs are checked. Separate
+one-shot invocations verify inactive payload retention, persisted selection,
+fresh-session greeting and final deactivation. Intermediate loop command statuses
+are **not individually exposed**; only actual process statuses are recorded.
 
-Use trusted, already built `build/main` and `build/packages/hello-0.1.0`.
-If absent, prepare them separately with `make build/main package-hello`.
-The capture never builds, cleans, changes versions, or replaces immutable output.
-It reads the current version from `packages/hello/pkg.json`.
+A second fresh HOME and a copied complete release prove relocation outside the
+repository: pwd, pkg help, and a six-input same-shell lifecycle with the included
+example. Relocation is required, not silently skipped. No OS/libc portability
+claim. All stdout/stderr is captured from subprocesses; none is synthesized.
 
-## Exact source-build demonstration
+JSON records actual argv, stdin, environment, cwd, 10-second timeout, stdout,
+stderr and observed/expected process status. Host, all standard modules, full
+bundle and release SHA-256 inventories are recorded and rechecked; copied and
+installed bytes are compared. Before running, the release's host, all modules and
+example must match the current build/package bytes. The capture records its
+unrelated launch cwd and **80 SHA-256 entries** (23 host/modules, 4 package,
+53 release). Catalog `builtin`/`control` values are compatibility
+labels; all standard commands are physically shared objects.
 
-Each line below is a separate invocation of the real `build/main` binary,
-from a fresh temporary directory outside the repository:
+## Observed migration checks
 
-1. `pkg list`, then `--commands-json`: assert empty package state and baseline catalog.
-2. `pkg install <absolute generated hello directory>`: verify installed directory,
-   manifest, and every payload file against the generated bundle.
-3. `pkg list`: require the exact installed name/version.
-4. `pkg info hello`: require actual textual name, version, description, and commands.
-5. `help hello`: check installed usage and `--name` option.
-6. `hello --name 'Week 4'`: require `Hello, Week 4!`.
-7. `--commands-json`: parse JSON; check schema, sorted unique names, builtin/control
-   origins, and exact hello package identity/version.
-8. `pkg remove hello`, then `pkg list`: require absent directory and empty list.
-9. `--commands-json`: require exact restoration of the baseline catalog.
-10. `hello`: require empty stdout, unknown-command diagnostic, and exit **127**.
+Before editing, the unchanged runner failed (exit 1) against the new host: its
+schema-1 hello install was explicitly rejected. The migration RED capture is in
+`$TMPDIR/packaging-demo-migration-red.json` for this development session. An
+intermediate new-runner check caught the incorrect assumption of a newline in
+`.active/hello`; source inspection confirmed exact version bytes, and it was
+corrected. Final capture: **PASS: 11 processes; 22 loop inputs; 27 checks**,
+exit **0**, cleanup verified and all expected statuses matched:
+`0, 0, 127, 0, 127, 0, 0, 0, 0, 0, 127`. The refreshed runner itself was launched
+from an unrelated scratch cwd with a fresh HOME and PATH=/nonexistent; that
+outer fixture was also removed. No source/build/script/package/test bytes changed
+during capture (590 hash entries compared). Python AST parsing passed without
+bytecode generation.
 
-All other commands must return **0** with empty stderr. The JSON records exact
-argv, stdout, stderr, status, expected status, cwd, allowlisted environment, and
-10-second timeout per subprocess. The readable log retains the same command
-outputs and checks. No shell expansion or host PATH fallback is involved.
+Current host SHA-256:
+`ae1b8dcb050ed78e2e13825ff90d7518a2ce23d79b014502249b6b087536c864`.
+Native hello module SHA-256:
+`7e749f3ef2b6de7470ec5d71b678d0642951ddab17526c24a42d864c77dcba38`.
+The complete per-file inventories are in the JSON; these hashes identify the
+captured bytes, not a completed independent review.
 
-## Optional relocated full shell
-
-If the current `build/releases/aishell-<version>/bin/aishell` exists, copy the
-complete release into the private fixture. Run its real `pwd`, `help pkg`,
-`pkg install <relocated included example>`, `hello --name relocated`, and
-`pkg remove hello`. Verify the copied shell executes outside the repository and
-the installed example is removed. Otherwise record an explicit optional SKIP;
-never invent release output. `make release-shell` can prepare it separately.
-This copy demonstration does not prove compatibility with another OS/libc.
-
-## Isolation and cleanup
-
-A mode-0700 fixture under `TMPDIR` contains a fresh HOME, private TMPDIR, and any
-relocated release. Children receive **only** HOME, TMPDIR, LC_ALL=C, and
-PATH=/nonexistent: no inherited credentials or host environment dump. HOME state
-lives exclusively in `<fixture>/home/.mysh/pkgs`; real user state is untouched.
-The fixture is removed on success or handled failure and its absence verified.
-Inputs' binary SHA-256 values are recorded and rechecked. Paths and captured
-output remain literal; temporary paths naturally differ between runs.
-
-## Verified capture and limits
-
-The recorded successful run returned **PASS: 17 commands; 21 checks**, including
-the optional real relocated release. Exit status was **0**, cleanup was verified,
-and the intended unknown-command invocation returned **127**. Syntax was checked
-with Python's AST parser without creating repository bytecode files.
-An initial development run exposed that `pkg info` emits text, not JSON; the
-runner was corrected and the complete real demonstration rerun successfully.
-These compact artifacts demonstrate the lifecycle, not the full regression suite.
-
-Package updates require a separately built new version: remove the old name,
-then install the new directory. There is an availability gap; failed installation
-does not restore the old version. No update or release-version change is faked
-here. Full-shell updates use a separate versioned release and launcher switch;
-the shell release is not a `pkg install` payload. Install only trusted binaries:
-this is not a sandbox, download service, or signature system.
+This is narrow lifecycle evidence, not final review, full regression,
+publication or distinct-version rollback certification. Older reports describe
+the executable-package predecessor. See [current pkg guide](../docs/commands/pkg.md).

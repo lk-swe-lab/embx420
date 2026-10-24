@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from build_modules import specifications
 
 from build_package import (
     ROOT,
@@ -62,19 +63,26 @@ From this release directory run:
 ./bin/aishell pkg remove hello
 ```
 
-To update a command package, remove its old name, then install a separately
-built new package directory. There is a gap with no installed command; a failed
-install does not restore the old package. No build or payload execution occurs
-at install. Installed copies live in `$HOME/.mysh/pkgs`; moving this release does
-not move or erase them. HOME must be absolute and user-owned state must be safe.
-Only install trusted binaries: packages are not a sandbox or signature system.
+Install a separately built schema-2 shared-module package for a new version.
+Install selects it atomically and retains earlier immutable versions. Use
+`pkg use hello VERSION` for rollback. A version already loaded in this session
+stays loaded until restart; the diagnostic states this boundary. `pkg remove`
+deactivates commands while retaining version payloads. Do not overwrite libraries.
+Installed copies live in `$HOME/.mysh/pkgs`; active selections are regular files
+under its `.active` directory. Moving this release does not move those copies.
+HOME must be absolute and user-owned state must be safe. Only install trusted
+native code: validation loads modules and can execute constructors; callbacks
+run sequentially in the shell process. There are no worker threads, sandbox,
+signatures or remote downloads. Executable-only schema-1 packages are rejected.
 
 ## Limits and system requirements
 
 Read SYSTEM.md for the actual linked ELF requirements. This is NOT a fully
 static or cross-platform distribution. No external PATH lookup, pipelines,
 redirection, background jobs, dependency solver or automatic repair is provided.
-Builtin help preserves the existing `main` name in some text. Use `bin/aishell`
+Standard `.so` modules must remain in `bin/modules` beside the executable.
+If `pkg.so` is missing, restore the complete matching release externally.
+Module help preserves the existing `main` name in some text. Use `bin/aishell`
 as the executable. Debug information can contain build paths; they are not
 runtime dependencies. This directory has no hidden source-tree runtime paths.
 """
@@ -113,7 +121,7 @@ def inventory(root):
     return result
 
 
-def requirements(binary):
+def requirements(binary, shared=False):
     """Verify loader resolution and record ELF ABI requirements without paths."""
     dynamic = run("/usr/bin/readelf", "-d", str(binary)).decode()
     require(
@@ -131,7 +139,7 @@ def requirements(binary):
     machine = machine_match.group(1)
     program = run("/usr/bin/readelf", "-l", str(binary)).decode()
     loader = re.search(r"Requesting program interpreter: (.*?)\]", program)
-    if loader is None:
+    if loader is None and not shared:
         raise ValueError("dynamic ELF interpreter missing")
     versions = sorted(
         set(
@@ -147,7 +155,7 @@ def requirements(binary):
         "Machine: "
         + machine
         + "\nLoader: "
-        + loader.group(1)
+        + (loader.group(1) if loader else "host dynamic linker")
         + "\nShared libraries: "
         + ", ".join(needed)
         + "\nRequired symbol versions: "
@@ -198,6 +206,21 @@ def build(args):
     )
     binary = regular_read(args.binary, 16777216, executable=True)
     payload = {"release.json": raw, "bin/aishell": binary}
+    modules = args.binary.parent / "modules"
+    no_links(modules)
+    module_payload = {}
+    for path in sorted(modules.iterdir()):
+        if path.name == ".stamp":
+            continue
+        require(re.fullmatch(r"[a-z][a-z0-9-]{0,59}\.so", path.name),
+                "unexpected standard module entry")
+        module_payload[path.name] = regular_read(path, 16777216)
+    expected = {name + ".so" for _, _, name in specifications()
+                if name != "hello"}
+    require(set(module_payload) == expected,
+            "standard module inventory differs from source specifications")
+    for name, data in module_payload.items():
+        payload["bin/modules/" + name] = data
     demo_record = json_read(regular_read(args.demo_package / "pkg.json", 65536), 65536)
     manifest_check(demo_record)
     require(demo_record["commands"] == ["hello"], "expected hello demonstration")
@@ -222,6 +245,9 @@ def build(args):
         generator = Path(home) / "aishell"
         generator.write_bytes(binary)
         generator.chmod(0o755)
+        (Path(home) / "modules").mkdir()
+        for name, data in module_payload.items():
+            (Path(home) / "modules" / name).write_bytes(data)
         shell_requirements = requirements(generator)
         env = {"HOME": home, "LC_ALL": "C", "PATH": "/nonexistent"}
         catalog_raw = run(generator, "--commands-json", env=env)
@@ -232,6 +258,8 @@ def build(args):
         )
         names = [entry["name"] for entry in catalog["commands"]]
         require(names == sorted(set(names)), "invalid catalog names")
+        require(set(name + ".so" for name in names) == set(module_payload),
+                "standard module/catalog inventory mismatch")
         payload["metadata/commands.json"] = catalog_raw
         for entry in catalog["commands"]:
             require(
@@ -239,8 +267,7 @@ def build(args):
                 and entry["origin"] in ("builtin", "control"),
                 "invalid catalog",
             )
-            if entry["origin"] == "control":
-                continue
+
             help_text = run(generator, "help", entry["name"], env=env).decode()
             require(help_text.strip(), "empty builtin help: " + entry["name"])
             payload["docs/" + entry["name"] + ".md"] = (
@@ -258,7 +285,10 @@ def build(args):
         "ELF architecture, loader and libc.\n\n"
         + shell_requirements
         + "\nDemo hello requirements:\n"
-        + requirements((args.demo_package / "bin/hello").absolute())
+        + requirements((args.demo_package / "lib/hello.so").absolute(), shared=True)
+        + "\nStandard command module requirements:\n"
+        + "\n".join(name + "\n" + requirements(modules / name, shared=True)
+                     for name in module_payload)
         + "\nPackage operations require Linux renameat2 "
         "RENAME_NOREPLACE support (Linux 3.15+), a local "
         "filesystem with this operation and POSIX locks.\n"
@@ -275,7 +305,7 @@ def build(args):
             target = stage / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
-            target.chmod(0o755 if "/bin/" in "/" + name else 0o644)
+            target.chmod(0o755 if name == "bin/aishell" else 0o644)
         for path in [stage, *stage.rglob("*")]:
             if path.is_dir():
                 path.chmod(0o755)
@@ -307,18 +337,18 @@ def main():
     parser.add_argument(
         "--manifest", type=Path, default=ROOT / "packages/aishell/release.json"
     )
-    parser.add_argument("--binary", type=Path, default=ROOT / "build/main")
+    parser.add_argument("--binary", type=Path, default=ROOT / "build/aishell")
     demo_identity = json_read(
-        regular_read(ROOT / "packages/hello/pkg.json", 65536), 65536
+        regular_read(ROOT / "packages/hello-so/pkg.json", 65536), 65536
     )
     parser.add_argument(
         "--demo-package",
         type=Path,
         default=ROOT
-        / "build/packages"
+        / "build/native-candidates"
         / (demo_identity["name"] + "-" + demo_identity["version"]),
     )
-    parser.add_argument("--output-root", type=Path, default=ROOT / "build/releases")
+    parser.add_argument("--output-root", type=Path, default=ROOT / "build/so-reviewed-releases")
     try:
         print(build(parser.parse_args()))
     except (

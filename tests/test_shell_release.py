@@ -29,8 +29,8 @@ class ReleaseTests(unittest.TestCase):
         return SimpleNamespace(
             output_root=self.output,
             manifest=ROOT / "packages/aishell/release.json",
-            demo_package=ROOT / "build/packages/hello-0.1.0",
-            binary=ROOT / "build/main",
+            demo_package=ROOT / "build/native-candidates/hello-0.2.0",
+            binary=ROOT / "build/aishell",
         )
 
     def build(self, *args, status=0):
@@ -45,7 +45,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_complete_relocatable_release(self):
         self.build()
-        release = self.output / "aishell-0.1.0"
+        release = self.output / "aishell-0.2.0"
         identity = json.loads((ROOT / "packages/aishell/release.json").read_text())
         self.assertEqual(json.loads((release / "release.json").read_text()), identity)
         catalog = json.loads((release / "metadata/commands.json").read_text())
@@ -59,8 +59,9 @@ class ReleaseTests(unittest.TestCase):
         expected.update(
             "docs/" + e["name"] + ".md"
             for e in catalog["commands"]
-            if e["origin"] == "builtin"
         )
+        expected.update("bin/modules/" + e["name"] + ".so"
+                        for e in catalog["commands"])
         packaged_demo = next((release / "examples").iterdir())
         demo_record = json.loads((packaged_demo / "pkg.json").read_text())
         demo_prefix = packaged_demo.relative_to(release).as_posix() + "/"
@@ -81,9 +82,9 @@ class ReleaseTests(unittest.TestCase):
             self.assertFalse(path.is_symlink())
             self.assertEqual(
                 path.stat().st_mode & 0o777,
-                0o755 if "/bin/" in "/" + relative else 0o644,
+                0o755 if relative == "bin/aishell" else 0o644,
             )
-            if "/bin/" not in "/" + relative:
+            if not path.read_bytes().startswith(b'\x7fELF'):
                 self.assertNotIn(str(ROOT).encode(), path.read_bytes())
         home = self.base / "home"
         home.mkdir(mode=0o700)
@@ -133,22 +134,24 @@ class ReleaseTests(unittest.TestCase):
         # executable bytes remain the real bundled hello, not a fake runtime.
         updated = self.base / "hello-update"
         shutil.copytree(demo, updated)
-        manifest["version"] = "0.1.1"
+        manifest["version"] = "0.3.0"
         (updated / "pkg.json").write_text(json.dumps(manifest))
         metadata = json.loads((updated / "metadata/commands.json").read_text())
         metadata["version"] = manifest["version"]
         (updated / "metadata/commands.json").write_text(json.dumps(metadata))
         cli("pkg", "install", str(updated))
-        self.assertEqual(cli("pkg", "list"), b"hello 0.1.1\n")
+        retained = {b"hello 0.2.0 retained", b"hello 0.3.0 active"}
+        self.assertEqual(set(cli("pkg", "list").splitlines()), retained)
         # Manual shell update: copy a new tree, select its binary.
         newer = self.base / "next-release"
         shutil.copytree(installed, newer)
         binary = newer / "bin/aishell"
         shutil.rmtree(installed)
-        self.assertEqual(cli("pkg", "list"), b"hello 0.1.1\n")
+        self.assertEqual(set(cli("pkg", "list").splitlines()), retained)
         self.assertEqual(cli("hello"), b"Hello, world!\n")
         cli("pkg", "remove", "hello")
-        self.assertEqual(cli("pkg", "list"), b"")
+        self.assertEqual(set(cli("pkg", "list").splitlines()),
+                         {b"hello 0.2.0 retained", b"hello 0.3.0 retained"})
         self.assertEqual(cli(data=b"pwd\nexit\n"), os.fsencode(home) + b"\n")
         requirements = (newer / "SYSTEM.md").read_text()
         self.assertIn("GLIBC_", requirements)
@@ -157,7 +160,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_immutable_exact_repeat_and_unlisted_preservation(self):
         self.build()
-        release = self.output / "aishell-0.1.0"
+        release = self.output / "aishell-0.2.0"
         inode = release.stat().st_ino
         self.build()
         self.assertEqual(release.stat().st_ino, inode)
@@ -221,7 +224,7 @@ class ReleaseTests(unittest.TestCase):
             with self.subTest(kind=kind):
                 self.output = self.base / kind
                 self.build()
-                release = self.output / "aishell-0.1.0"
+                release = self.output / "aishell-0.2.0"
                 target = release / "docs/pkg.md"
                 if kind == "bytes":
                     target.write_text("human change")
@@ -288,12 +291,14 @@ class ReleaseTests(unittest.TestCase):
 
     def test_changed_binary_cannot_replace_same_version(self):
         self.build()
-        released = self.output / "aishell-0.1.0/bin/aishell"
+        released = self.output / "aishell-0.2.0/bin/aishell"
         original = released.read_bytes()
         changed = self.base / "changed-shell"
         changed.write_bytes(original + b"release-test-trailer")
         changed.chmod(0o755)
-        self.build("--binary", str(changed), status=1)
+        shutil.copytree(ROOT / "build/modules", self.base / "modules")
+        result = self.build("--binary", str(changed), status=1)
+        self.assertIn(b"existing output differs", result.stderr)
         self.assertEqual(released.read_bytes(), original)
 
     def test_source_contained_in_output_is_rejected_before_generation(self):

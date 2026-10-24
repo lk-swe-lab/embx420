@@ -151,7 +151,9 @@ int pkg_manifest_valid(const pj_value *m)
     static const char *const keys[] = {
         "schema_version", "name",  "version", "description",
         "commands",       "files", "docs",    "dependencies"};
-    if (!pj_fields(m, keys, 8) || !schema(pj_get(m, "schema_version")) ||
+    const pj_value *sv = pj_get(m, "schema_version");
+    int shared = sv && sv->type == PJ_NUMBER && !strcmp(sv->text, "2");
+    if (!pj_fields(m, keys, 8) || (!schema(sv) && !shared) ||
         !pkg_name_valid(pkg_text(m, "name")) ||
         !version(pkg_text(m, "version")) ||
         !text(pkg_text(m, "description"), 256, 0, 1))
@@ -168,7 +170,7 @@ int pkg_manifest_valid(const pj_value *m)
         return 0;
     for (const pj_value *p = commands->child; p != NULL; p = p->next) {
         char path[80];
-        snprintf(path, sizeof(path), "bin/%s", p->text);
+        snprintf(path, sizeof(path), shared ? "lib/%s.so" : "bin/%s", p->text);
         if (!pkg_array_has(files, path))
             return 0;
         snprintf(path, sizeof(path), "docs/%s.md", p->text);
