@@ -1,7 +1,8 @@
 ## Session startup
 - Follow [session lookup and registration](docs/SESSION_LOOKUP.md) on assignment-session startup; this authorizes its lookup and registration.
 - Keep AGENTS.md small; put additional procedures in separate files and reference them here.
-- For assignment questions, follow [local data lookup](docs/DATA_LOOKUP.md); query data.sqlite for relevant excerpts before rereading whole sources.
+- Do not read AI_LOG unless the user explicitly requests it.
+- For assignment questions, follow [local data lookup](docs/DATA_LOOKUP.md); query docs/data.sqlite before rereading sources. See [source catalog](data/CATALOG.md) for chapters 01/02; the curated wiki is separate.
 
 ## Project identity
 - Use GitHub account lk-swe-lab for this project.
@@ -18,6 +19,9 @@
 - MUST NOT make things up; MUST specify if inferred or speculating.
 
 ## Procedures — read when relevant
+- Before adding or refactoring a command: [add-command workflow](docs/ADDING_COMMANDS.md) — research/discuss/keep/plan, approval gates, TDD, and verification.
+- Before designing commands: [command anatomy](docs/COMMAND_ANATOMY.md) — module specification and shared parsing/help.
+- Before using command APIs: [command API](docs/COMMAND_API.md) — cmd_spec_t/registry, argtable3, and POSIX file I/O with official references.
 - Before editing C source or headers: [coding rules](docs/CODING.md).
 - Before planning or design: [design](docs/DESIGN.md).
 - Before implementation or test development: [TDD](docs/TDD.md).

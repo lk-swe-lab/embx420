@@ -32,3 +32,4 @@ int separateCommands(char *token[], Command command[])
     buildCommandArgumentArray(token, &command[0]);
     return 1;
 }
+

@@ -1,0 +1,6 @@
+COMMAND: make build/touch && python3 tests/test_touch.py ./build/touch
+{
+  "output": "cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm \ntest_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok\ntest_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok\ntest_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok\ntest_existing (__main__.TouchTests.test_existing) ... ok\ntest_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok\ntest_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok\ntest_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.019s\n\nOK",
+  "exit_code": 0,
+  "error": null
+}

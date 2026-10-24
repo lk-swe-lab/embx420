@@ -1,0 +1,12 @@
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -Isrc -o build/test_shell_module tests/test_shell_module.c src/cmd_cd.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/cat src/cat_main.c src/cmd_cat.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/head src/head_main.c src/cmd_head.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/tail src/tail_main.c src/cmd_tail.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/pwd src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+./build/test_shell_module
+shell module: registry, argv lifetime, EINTR/OOM ownership passed

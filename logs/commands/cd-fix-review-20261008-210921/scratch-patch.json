@@ -1,0 +1,10 @@
+{
+  "args": [
+    "git",
+    "apply",
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {}
+}

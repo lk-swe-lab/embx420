@@ -1,0 +1,247 @@
+[
+  {
+    "label": "parser-copy-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wformat=2",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-g3",
+      "-O0",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/src",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/include",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/tests/clear_review_mutating_parser.c",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/src/parser-copy.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse",
+      "-L/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/clear-review/parser-copy"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "parser-copy",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/clear-review/parser-copy"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "parser-copy-negative-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wformat=2",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-g3",
+      "-O0",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/src",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/include",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/tests/clear_review_mutating_parser.c",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/src/parser-copy-negative.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse",
+      "-L/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/clear-review/parser-copy-negative"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "parser-copy-negative",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/clear-review/parser-copy-negative"
+    ],
+    "status": -6,
+    "expected": -6
+  },
+  {
+    "label": "getopt-negative-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wformat=2",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-g3",
+      "-O0",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/src",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/include",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/tests/clear_review_mutating_parser.c",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/src/getopt-negative.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse",
+      "-L/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/clear-review/getopt-negative"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "getopt-negative",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/clear-review/getopt-negative"
+    ],
+    "status": -6,
+    "expected": -6
+  },
+  {
+    "label": "regular-file-0",
+    "term": null,
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "regular-file-1",
+    "term": "",
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "regular-file-2",
+    "term": "dumb",
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "regular-file-3",
+    "term": "xterm",
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "regular-file-4",
+    "term": "DUMB",
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "regular-file-5",
+    "term": "unknown-terminal",
+    "status": 0,
+    "stdout_hex": "",
+    "stderr_hex": "",
+    "stdin": "closed"
+  },
+  {
+    "label": "byte-negative-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wformat=2",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-g3",
+      "-O0",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/src",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/include",
+      "src/clear_main.c",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/src/clear_review_byte_negative.c",
+      "src/cmd_lines.c",
+      "-L/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/clear-review/byte-negative"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "byte-negative",
+    "argv": [
+      "/home/name/.hermes/tools/python-3.14.7+20260901-linux-x64/bin/python3",
+      "tests/test_clear.py",
+      "--program",
+      "/home/name/.hermes/cache/scratch/clear-review/byte-negative",
+      "ClearTests.test_terminal_bytes"
+    ],
+    "status": 1,
+    "expected": 1
+  },
+  {
+    "label": "reuse-sanitize-build",
+    "argv": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wformat=2",
+      "-Wshadow",
+      "-Wconversion",
+      "-Wstrict-prototypes",
+      "-Werror",
+      "-g3",
+      "-O0",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-fno-pie",
+      "-no-pie",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/src",
+      "-I/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/include",
+      "/home/name/.hermes/cache/scratch/clear-review/tree/tests/clear_review_repeat.c",
+      "src/cmd_clear.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=write,--wrap=isatty,--wrap=malloc,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse",
+      "-L/home/name/.hermes/cache/scratch/clear-review/tree/build/argtable3/lib",
+      "-largtable3",
+      "-lm",
+      "-o",
+      "/home/name/.hermes/cache/scratch/clear-review/reuse-sanitize"
+    ],
+    "status": 0,
+    "expected": 0
+  },
+  {
+    "label": "reuse-sanitize",
+    "argv": [
+      "/home/name/.hermes/cache/scratch/clear-review/reuse-sanitize"
+    ],
+    "status": 0,
+    "expected": 0
+  }
+]

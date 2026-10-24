@@ -1,0 +1,27 @@
+{
+  "args": [
+    "cc",
+    "-std=c17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wformat=2",
+    "-Wshadow",
+    "-Wconversion",
+    "-Wstrict-prototypes",
+    "-Werror",
+    "-g3",
+    "-O0",
+    "-Isrc",
+    "-Ibuild/argtable3/include",
+    "-o",
+    "/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/review-probe",
+    "logs/commands/cd-review-20261008-205019/global_probe.c",
+    "src/cmd_cd.c",
+    "-Lbuild/argtable3/lib",
+    "-largtable3",
+    "-lm"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

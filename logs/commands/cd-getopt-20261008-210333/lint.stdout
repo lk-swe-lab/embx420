@@ -1,0 +1,3 @@
+make: Entering directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'
+clang-tidy --checks='-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling' --warnings-as-errors='*' src/cmd_cd.c tests/test_cd_module.c --  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0
+make: Leaving directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'

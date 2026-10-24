@@ -1,0 +1,6 @@
+COMMAND: python3 tests/test_touch.py /usr/bin/touch --reference; python3 tests/test_touch.py /usr/bin/true --reference
+{
+  "output": "test_existing (__main__.TouchTests.test_existing) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.003s\n\nOK\ntest_existing (__main__.TouchTests.test_existing) ... FAIL\n\n======================================================================\nFAIL: test_existing (__main__.TouchTests.test_existing)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/name/Documents/420-EMBDX/A/tests/test_touch.py\", line 56, in test_existing\n    info = self.recent(target, before, after)\n  File \"/home/name/Documents/420-EMBDX/A/tests/test_touch.py\", line 42, in recent\n    self.assertGreaterEqual(timestamp, before - 1000000000)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 946684800000000000 not greater than or equal to 1791507560775675754\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (failures=1)",
+  "exit_code": 1,
+  "error": null
+}

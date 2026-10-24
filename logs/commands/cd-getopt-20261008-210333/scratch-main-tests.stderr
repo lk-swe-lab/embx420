@@ -1,0 +1,13 @@
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... ok
+test_home_default (__main__.CdTests.test_home_default) ... ok
+test_home_literal_dash (__main__.CdTests.test_home_literal_dash) ... ok
+test_permission_and_path_length_errors (__main__.CdTests.test_permission_and_path_length_errors) ... ok
+test_physical_and_failure_preservation (__main__.CdTests.test_physical_and_failure_preservation) ... ok
+test_registry_discovery_and_last_status (__main__.CdTests.test_registry_discovery_and_last_status) ... ok
+test_syntax_help_no_effects (__main__.CdTests.test_syntax_help_no_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.029s
+
+OK
+cd: help output failed

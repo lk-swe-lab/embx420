@@ -1,0 +1,3 @@
+make: Entering directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'
+clang-format --dry-run --Werror src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c
+make: Leaving directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'

@@ -1,0 +1,7 @@
+COMMAND: ./build/test_touch_module
+{
+  "output": "/usr/bin/bash: line 5: 30798 Aborted                 (core dumped) ./build/test_touch_module",
+  "exit_code": 134,
+  "error": null,
+  "exit_code_meaning": "Exit code 134 usually means the command was terminated by signal 6: SIGABRT (abort \u2014 assertion failure, fatal runtime error, or glibc abort)"
+}

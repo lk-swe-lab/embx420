@@ -1,0 +1,7 @@
+COMMAND: make build/test_touch_module && ./build/test_touch_module
+{
+  "output": "cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm \n/usr/bin/bash: line 5: 29165 Aborted                 (core dumped) ./build/test_touch_module",
+  "exit_code": 134,
+  "error": null,
+  "exit_code_meaning": "Exit code 134 usually means the command was terminated by signal 6: SIGABRT (abort \u2014 assertion failure, fatal runtime error, or glibc abort)"
+}

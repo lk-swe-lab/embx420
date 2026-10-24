@@ -1,0 +1,8 @@
+{
+  "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+  "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+  "tests/test_cd_module.c": "57159dba1462bd0e56cebdf13f65c99cae364a0e04e1d23bdace6c240461de69",
+  "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+  "docs/commands/cd.md": "7046ca7b951c4e2c006c3ef4feb7fec9ea361111065ceaa7f735192eed0db458",
+  "docs/reports/cd.md": "cb045ab475827c41a0991665fcf73c01bcb1ff50adae01726855d61ad7ada4f6"
+}

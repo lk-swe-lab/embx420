@@ -1,0 +1,8 @@
+{
+  "command": [
+    "python3",
+    "tests/test_cd.py",
+    "/home/name/.hermes/cache/scratch/cd-20261008-193837/main"
+  ],
+  "status": 1
+}

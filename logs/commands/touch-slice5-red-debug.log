@@ -1,0 +1,6 @@
+COMMAND: gdb -batch -ex "set debuginfod enabled off" -ex run -ex bt -ex "frame 5" -ex "print kind" --args ./build/test_touch_module
+{
+  "output": "[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/lib/x86_64-linux-gnu/libthread_db.so.1\".\n\nProgram received signal SIGABRT, Aborted.\n0x00007ffff7c9ec0c in pthread_kill () from /lib/x86_64-linux-gnu/libc.so.6\n#0  0x00007ffff7c9ec0c in pthread_kill () from /lib/x86_64-linux-gnu/libc.so.6\n#1  0x00007ffff7c4527e in raise () from /lib/x86_64-linux-gnu/libc.so.6\n#2  0x00007ffff7c288ff in abort () from /lib/x86_64-linux-gnu/libc.so.6\n#3  0x00007ffff7c2881b in ?? () from /lib/x86_64-linux-gnu/libc.so.6\n#4  0x00007ffff7c3b517 in __assert_fail () from /lib/x86_64-linux-gnu/libc.so.6\n#5  0x000055555555855c in main () at tests/test_touch_module.c:420\n#5  0x000055555555855c in main () at tests/test_touch_module.c:420\n420\t        assert(invoke(2, argv) == 0 && fault == 0);\n$1 = 8",
+  "exit_code": 0,
+  "error": null
+}

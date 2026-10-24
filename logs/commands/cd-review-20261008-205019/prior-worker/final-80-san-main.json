@@ -1,0 +1,8 @@
+{
+  "command": [
+    "python3",
+    "tests/test_cd.py",
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+  ],
+  "status": 0
+}

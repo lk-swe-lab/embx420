@@ -1,0 +1,85 @@
+--- before/docs/reports/cd.md
++++ current/docs/reports/cd.md
+@@ -14,6 +14,82 @@
+ Session lookup verified `20261008_203032_ade341`, title
+ “Subagent: Resume and finish cd-owned module/tests/docs…”. Registration is
+ left to the parent because this delegation explicitly excludes shared writes.
++
++## Exported getopt ownership correction
++
++**Ready for independent re-review; not integrated or committed.** The original
++[review](cd-review.md) is unchanged. Its exported-global finding is fixed in
++`src/cmd_cd.c`; sentinel regressions are in `tests/test_cd_module.c`.
++
++Inspected the actual clear implementation/tests first. As in clear, cd saves
++`optarg`, `optind`, `opterr`, and `optopt` immediately before `arg_parse`, then
++restores them immediately after it returns, before any parse-error/help/syscall
++branch. Earlier validation/allocation paths never invoke parsing. The usage
++callback does not parse and needed no code change; its preservation is tested.
++Cwd changes remain intentional on success; HOME/PWD/OLDPWD/CDPATH behavior is
++unchanged. No private interrupted getopt scan-state or concurrency guarantee
++is made, and no synchronization is introduced.
++
++### Fresh regression and checks
++
++Evidence: `logs/commands/cd-getopt-20261008-210333/`. Each check has complete
++`.stdout`, `.stderr`, and `.json` command/status records; `manifest.json` has
++source/dependency hashes, sanitizer environment, euid and limits. `before/`
++contains pre-fix owned files; `snapshot/` freezes tested sources and the
++scratch-only patched build/registry. No recorded output is fabricated.
++
++| Check | Actual result |
++| --- | --- |
++| Test-first direct regression | Strict build 0; original source aborts (-6), reporting optind=3, opterr=0, optopt=89, optarg-preserved=0 on the first parsed help call. Malformed-argument sentinel calls had already passed. |
++| Minimal fix / expanded harness | Builds and executions 0; all four sentinels preserved across 400 repeated success/HOME/error/help calls, malformed API inputs, three constructor-NULL seams, owned-copy malloc failure, chdir EACCES/EIO and real /dev/full help failure/recovery. |
++| Additional returning paths | Empty operand, explicit dash, excess operands, unset/empty HOME pass preservation/status/cwd checks. Normal usage, each constructor-NULL usage callback and /dev/full usage callback preserve exported values and release tracked parser allocations. |
++| Original independent-review probe | Rebuilt unchanged probe against fixed source: 0; success/error/help statuses 0/2/0, all four values preserved in each case. |
++| Scratch real-main integration | `make test-cd`: 0; all 7 Python tests and direct module harness pass. euid 1000; real mode-000 permission test exercised, not skipped. |
++| Scoped strict build / lint / format | 0; project C17 warnings plus `-Werror`, clang-tidy analyzer, clang-format dry-run. Owned C/header maximum line length 80. |
++| Python syntax | 0; py_compile cache confined to scratch. |
++| ASan/UBSan | Fresh direct harness and main instrumented builds 0; direct harness and all 7 main tests pass, no sanitizer finding. |
++| Four missing-restore negative controls | Each strict mutant build 0; independently omitting optarg, optind, opterr or optopt restoration aborts (-6) with the corresponding changed sentinel. |
++| Existing ownership/effect controls | No-chdir and borrowed-argv mutants build 0 and abort (-6) at intended cwd and pointer-identity assertions. |
++| Real dependency-internal OOM | Exit 1, `Out of memory!`, inside argtable; unchanged unrecoverable dependency limit. |
++
++The initial optarg negative-control build failed only because deleting its
++restoration left an unused variable under `-Werror`. That setup output is kept
++as `negative-optarg-build.*`; corrected mutants retain the saved variable via
++`(void)` and actually execute. This compiler rejection is not claimed as a
++behavioral negative-control result. Additional already-correct failure/callback
++paths are characterization checks, not invented pre-fix RED cycles.
++
++Exact main/scoped reruns for this frozen scratch tree:
++
++```sh
++S=/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333
++F='-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0'
++make -C "$S/tree" test-cd CFLAGS="$F"
++make -C "$S/tree" lint C_SOURCES='src/cmd_cd.c tests/test_cd_module.c' CFLAGS="$F"
++make -C "$S/tree" format-check C_FILES='src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c'
++"$S/san-module"
++python3 "$S/tree/tests/test_cd.py" "$S/tree/build/main"
++```
++
++Sanitizer build flags add `-fsanitize=address,undefined
++-fno-omit-frame-pointer`; runtime `ASAN_OPTIONS=detect_leaks=1:halt_on_error=1`
++and `UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1`. The static argtable
++archive is not instrumented. Intentional `cd: help output failed` is fault-test
++output, not a sanitizer finding. Exact direct build commands are in the JSON
++records. The preservation guarantee applies to returning calls only: real
++library OOM may exit before restoration. The void usage API still cannot report
++constructor-NULL help failure, and callback output failure remains stream state.
++
++Repository registry/Makefile/README/FILES/shell tests and original review hashes
++are unchanged by this correction. No full-project regression or final registry
++integration is claimed. Parent-owned shell inventory changes, final combined
++verification and independent re-review remain outstanding. No AI_LOG/wiki,
++staging, commit or push operation was performed.
++
++Session lookup verified `20261008_210333_4bc4e6`, title
++“Subagent: Fix cd exported getopt-global preservation with…”. Registration was
++deferred to the parent because shared writes are excluded; sessions.txt was
++not edited.
+ 
+ ## Exact interruption recovery
+ 

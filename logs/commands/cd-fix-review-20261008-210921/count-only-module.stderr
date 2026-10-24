@@ -1,0 +1,6 @@
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command
+test_shell_module: tests/test_shell_module.c:167: main: Assertion `register_command(&extras[i]) == (i < 23 ? 0 : -1)' failed.

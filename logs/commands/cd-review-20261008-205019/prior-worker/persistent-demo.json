@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/build/main"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi",
+  "stdin": "cd 'with space'\npwd\ncd ..\npwd\ncd absent\npwd\n",
+  "expected_stdout": "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi/with space\n/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi\n/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi\n",
+  "stdout": "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi/with space\n/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi\n/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-demo-a8bpvyyi\n",
+  "stderr": "cd: absent: No such file or directory\n",
+  "status": 0
+}

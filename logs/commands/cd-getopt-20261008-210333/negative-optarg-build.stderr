@@ -1,0 +1,5 @@
+/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/missing-optarg.c: In function 'cd_run':
+/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/missing-optarg.c:74:11: error: unused variable 'saved_optarg' [-Werror=unused-variable]
+   74 |     char *saved_optarg = optarg;
+      |           ^~~~~~~~~~~~
+cc1: all warnings being treated as errors

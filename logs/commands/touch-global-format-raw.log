@@ -1,0 +1,251 @@
+clang-format --dry-run --Werror src/cat_main.c src/cmd_cat.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_pwd.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/pwd_main.c src/registry.c src/shell.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_shell_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c src/cmd_cat.h src/cmd_head.h src/cmd_lines.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_pwd.h src/cmd_spec.h src/cmd_stat.h src/cmd_tail.h src/cmd_touch.h src/registry.h src/shell.h src/traverse.h tests/test_output.h
+src/traverse.c:6:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* fprintf, perror, snprintf, puts, printf. */
+                  ^
+src/traverse.c:36:27: error: code should be clang-formatted [-Wclang-format-violations]
+    return date != NULL &&
+                          ^
+src/traverse.c:37:63: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                              ^
+src/traverse.c:37:67: error: code should be clang-formatted [-Wclang-format-violations]
+        strftime(buffer, size, "%Y-%m-%d %H:%M:%S", date) != 0 ? 0 : 1;
+                                                                  ^
+src/traverse.c:48:65: error: code should be clang-formatted [-Wclang-format-violations]
+    if (options->hour_counts == NULL || !S_ISREG(info->st_mode)) return 0;
+                                                                ^
+src/traverse.c:108:36: error: code should be clang-formatted [-Wclang-format-violations]
+        if (counts[hour] > maximum) maximum = counts[hour];
+                                   ^
+src/traverse.c:112:44: error: code should be clang-formatted [-Wclang-format-violations]
+    if (maximum % HISTOGRAM_BAR_WIDTH != 0) ++scale;
+                                           ^
+src/traverse.c:113:20: error: code should be clang-formatted [-Wclang-format-violations]
+    if (scale == 0) scale = 1;
+                   ^
+src/traverse.c:116:59: error: code should be clang-formatted [-Wclang-format-violations]
+    for (size_t value = maximum; value >= 10; value /= 10) ++count_width;
+                                                          ^
+src/traverse.c:122:51: error: code should be clang-formatted [-Wclang-format-violations]
+               zone == TIME_UTC ? "UTC" : "LOCAL",
+                                                  ^
+src/traverse.c:123:45: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                            ^
+src/traverse.c:123:59: error: code should be clang-formatted [-Wclang-format-violations]
+               "Hour", count_width, "Count", "Files") < 0) goto output_error;
+                                                          ^
+src/traverse.c:130:37: error: code should be clang-formatted [-Wclang-format-violations]
+            if (putchar('#') == EOF) goto output_error;
+                                    ^
+src/traverse.c:132:34: error: code should be clang-formatted [-Wclang-format-violations]
+        if (putchar('\n') == EOF) goto output_error;
+                                 ^
+src/traverse.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+    if (fflush(stdout) == EOF) goto output_error;
+                              ^
+src/traverse.c:180:47: error: code should be clang-formatted [-Wclang-format-violations]
+        if (strcmp(entry->d_name, ".") == 0 ||
+                                              ^
+src/traverse.c:181:46: error: code should be clang-formatted [-Wclang-format-violations]
+            strcmp(entry->d_name, "..") == 0) continue;
+                                             ^
+src/traverse.c:212:25: error: code should be clang-formatted [-Wclang-format-violations]
+        if (result != 0) break;
+                        ^
+tests/test_help.c:49:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+tests/test_help.c:51:25: error: code should be clang-formatted [-Wclang-format-violations]
+    if (suite == NULL ||
+                        ^
+tests/test_help.c:52:21: error: code should be clang-formatted [-Wclang-format-violations]
+        CU_add_test(
+                    ^
+tests/test_help.c:53:54: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                     ^
+tests/test_help.c:53:70: error: code should be clang-formatted [-Wclang-format-violations]
+            suite, "-h prints all usage and options", test_short_help
+                                                                     ^
+tests/test_help.c:54:18: error: code should be clang-formatted [-Wclang-format-violations]
+        ) == NULL
+                 ^
+tests/test_recursive.c:5:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h> /* FILE, fopen, fgets, ferror, fclose, snprintf, perror. */
+                  ^
+tests/test_recursive.c:6:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdlib.h>      /* system, setenv, EXIT_SUCCESS, EXIT_FAILURE. */
+                   ^
+tests/test_recursive.c:7:20: error: code should be clang-formatted [-Wclang-format-violations]
+#include <string.h>      /* strcmp, strncmp, strstr, strchr, strlen. */
+                   ^
+tests/test_recursive.c:8:22: error: code should be clang-formatted [-Wclang-format-violations]
+#include <sys/stat.h>    /* stat, struct stat, st_mtime. */
+                     ^
+tests/test_recursive.c:9:18: error: code should be clang-formatted [-Wclang-format-violations]
+#include <time.h>        /* localtime, gmtime, strftime, tzset, struct tm. */
+                 ^
+tests/test_recursive.c:37:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:55:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:56:31: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree",
+                              ^
+tests/test_recursive.c:57:37: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child",
+                                    ^
+tests/test_recursive.c:58:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:59:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:69:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:69:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:72:28: error: code should be clang-formatted [-Wclang-format-violations]
+        if (date == NULL ||
+                           ^
+tests/test_recursive.c:73:51: error: code should be clang-formatted [-Wclang-format-violations]
+            strftime(formatted, sizeof(formatted),
+                                                  ^
+tests/test_recursive.c:78:57: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected[i], sizeof(expected[i]),
+                                                        ^
+tests/test_recursive.c:79:44: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                           ^
+tests/test_recursive.c:79:65: error: code should be clang-formatted [-Wclang-format-violations]
+                       "%-30.30s  %s %s\n", names[i], formatted,
+                                                                ^
+tests/test_recursive.c:98:48: error: code should be clang-formatted [-Wclang-format-violations]
+            if (strcmp(line, expected[i]) == 0) ++counts[i];
+                                               ^
+tests/test_recursive.c:129:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:132:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:135:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", false);
+                              ^
+tests/test_recursive.c:138:31: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/mtime.stdout", true);
+                              ^
+tests/test_recursive.c:148:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *names[] = {
+                           ^
+tests/test_recursive.c:149:22: error: code should be clang-formatted [-Wclang-format-violations]
+        "long_names",
+                     ^
+tests/test_recursive.c:150:56: error: code should be clang-formatted [-Wclang-format-violations]
+        "directory_name_longer_than_thirty_characters",
+                                                       ^
+tests/test_recursive.c:151:54: error: code should be clang-formatted [-Wclang-format-violations]
+        "file_name_longer_than_thirty_characters.txt"
+                                                     ^
+tests/test_recursive.c:195:28: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *paths[] = {
+                           ^
+tests/test_recursive.c:196:39: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/top.txt",
+                                      ^
+tests/test_recursive.c:197:45: error: code should be clang-formatted [-Wclang-format-violations]
+        "tests/fixtures/tree/child/leaf.txt"
+                                            ^
+tests/test_recursive.c:206:26: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                         ^
+tests/test_recursive.c:206:55: error: code should be clang-formatted [-Wclang-format-violations]
+        struct tm *date = utc ? gmtime(&info.st_mtime)
+                                                      ^
+tests/test_recursive.c:259:72: error: code should be clang-formatted [-Wclang-format-violations]
+        (void)snprintf(expected, sizeof(expected), "%02u  %6zu   %s\n",
+                                                                       ^
+tests/test_recursive.c:260:29: error: code should be clang-formatted [-Wclang-format-violations]
+                       hour, counts[hour], bars[counts[hour]]);
+                            ^
+tests/test_recursive.c:282:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:283:65: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --utc "
+                                                                ^
+tests/test_recursive.c:284:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:285:21: error: code should be clang-formatted [-Wclang-format-violations]
+    check_histogram(
+                    ^
+tests/test_recursive.c:286:67: error: code should be clang-formatted [-Wclang-format-violations]
+        "./build/main -r tests/fixtures/tree --histogram --local "
+                                                                  ^
+tests/test_recursive.c:287:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", false);
+                                  ^
+tests/test_recursive.c:290:35: error: code should be clang-formatted [-Wclang-format-violations]
+        ">build/histogram.stdout", true);
+                                  ^
+tests/test_recursive.c:305:49: error: code should be clang-formatted [-Wclang-format-violations]
+    if (CU_initialize_registry() != CUE_SUCCESS) return EXIT_FAILURE;
+                                                ^
+src/cmd_spec.h:4:19: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                  ^
+src/cmd_spec.h:4:30: error: code should be clang-formatted [-Wclang-format-violations]
+#include <stdio.h>  // FILE *
+                             ^
+src/cmd_spec.h:8:30: error: code should be clang-formatted [-Wclang-format-violations]
+ * Single source of truth for 
+                             ^
+src/cmd_spec.h:15:22: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *name;       // command name, e.g., "ls"
+                     ^
+src/cmd_spec.h:16:25: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *summary;    // one-line description
+                        ^
+src/cmd_spec.h:17:27: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *long_help;  // longer description / Markdown (may be NULL)
+                          ^
+src/cmd_spec.h:26:7: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+      ^
+src/cmd_spec.h:26:22: error: code should be clang-formatted [-Wclang-format-violations]
+#endif  // CMD_SPEC_H
+                     ^
+src/traverse.h:11:17: error: code should be clang-formatted [-Wclang-format-violations]
+enum time_zone {
+                ^
+src/traverse.h:12:16: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_LOCAL,
+               ^
+src/traverse.h:13:13: error: code should be clang-formatted [-Wclang-format-violations]
+    TIME_UTC
+            ^
+tests/test_output.h:19:24: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                       ^
+tests/test_output.h:19:76: error: code should be clang-formatted [-Wclang-format-violations]
+    const char *start = color ? (failure == NULL ? "\033[32m" : "\033[31m")
+                                                                           ^
+tests/test_output.h:23:43: error: code should be clang-formatted [-Wclang-format-violations]
+    for (CU_pFailureRecord item = failure;
+                                          ^
+tests/test_output.h:24:46: error: code should be clang-formatted [-Wclang-format-violations]
+         item != NULL && item->pTest == test; item = item->pNext) {
+                                             ^
+tests/test_output.h:41:68: error: code should be clang-formatted [-Wclang-format-violations]
+    return error == CUE_SUCCESS && CU_get_number_of_failures() == 0
+                                                                   ^
+tests/test_output.h:42:23: error: code should be clang-formatted [-Wclang-format-violations]
+        ? EXIT_SUCCESS : EXIT_FAILURE;
+                      ^
+make: *** [Makefile:172: format-check] Error 1

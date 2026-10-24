@@ -1,0 +1,12 @@
+case=0 status=0 optind=41 opterr=73 optopt=89 optarg_preserved=1 all_preserved=1
+case=1 status=2 optind=41 opterr=73 optopt=89 optarg_preserved=1 all_preserved=1
+Usage: cd [-h] [DIRECTORY]
+
+  -h, --help           Show help without changing cwd.
+  DIRECTORY            Directory to enter (default: HOME).
+
+Change physical cwd in this shell process.
+Use -- before a dash-prefixed path.
+Leave PWD/OLDPWD unchanged. '-' is unsupported; use ./- literally.
+Exit status: 0 success, 1 operational failure, 2 argument error.
+case=2 status=0 optind=41 opterr=73 optopt=89 optarg_preserved=1 all_preserved=1

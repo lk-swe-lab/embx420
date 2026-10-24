@@ -1,0 +1,11 @@
+{
+  "args": [
+    "git",
+    "-C",
+    "/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree",
+    "apply",
+    "/home/name/Documents/420-EMBDX/A/logs/commands/cd-review-20261008-205019/integration.patch"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

@@ -1,0 +1,11 @@
+{
+  "args": [
+    "make",
+    "-B",
+    "build/main",
+    "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {}
+}

@@ -1,0 +1,384 @@
+clang-tidy --checks='-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling' --warnings-as-errors='*' src/cat_main.c src/cmd_cat.c src/cmd_head.c src/cmd_lines.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_pwd.c src/cmd_stat.c src/cmd_tail.c src/cmd_touch.c src/head_main.c src/ls_main.c src/main.c src/mkdir_main.c src/pwd_main.c src/registry.c src/shell.c src/stat_main.c src/tail_main.c src/touch_main.c src/traverse.c tests/test_cat.c tests/test_cat_module.c tests/test_head_module.c tests/test_help.c tests/test_ls_module.c tests/test_mkdir_module.c tests/test_pwd_module.c tests/test_recursive.c tests/test_shell_module.c tests/test_stat_module.c tests/test_tail_module.c tests/test_touch_module.c --  -Ibuild/cunit/include -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
+[1/33] Processing file /home/name/Documents/420-EMBDX/A/src/cat_main.c.
+[2/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_cat.c.
+[3/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_head.c.
+[4/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_lines.c.
+[5/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_ls.c.
+[6/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_mkdir.c.
+[7/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_pwd.c.
+[8/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_stat.c.
+[9/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_tail.c.
+[10/33] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_touch.c.
+[11/33] Processing file /home/name/Documents/420-EMBDX/A/src/head_main.c.
+[12/33] Processing file /home/name/Documents/420-EMBDX/A/src/ls_main.c.
+[13/33] Processing file /home/name/Documents/420-EMBDX/A/src/main.c.
+[14/33] Processing file /home/name/Documents/420-EMBDX/A/src/mkdir_main.c.
+[15/33] Processing file /home/name/Documents/420-EMBDX/A/src/pwd_main.c.
+[16/33] Processing file /home/name/Documents/420-EMBDX/A/src/registry.c.
+[17/33] Processing file /home/name/Documents/420-EMBDX/A/src/shell.c.
+2 warnings generated.
+[18/33] Processing file /home/name/Documents/420-EMBDX/A/src/stat_main.c.
+2 warnings generated.
+[19/33] Processing file /home/name/Documents/420-EMBDX/A/src/tail_main.c.
+2 warnings generated.
+[20/33] Processing file /home/name/Documents/420-EMBDX/A/src/touch_main.c.
+2 warnings generated.
+[21/33] Processing file /home/name/Documents/420-EMBDX/A/src/traverse.c.
+2 warnings generated.
+[22/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat.c.
+2 warnings generated.
+[23/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_cat_module.c.
+2 warnings generated.
+[24/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_head_module.c.
+2 warnings generated.
+[25/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_help.c.
+2 warnings generated.
+[26/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_ls_module.c.
+2 warnings generated.
+[27/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_mkdir_module.c.
+2 warnings generated.
+[28/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_pwd_module.c.
+2 warnings generated.
+[29/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_recursive.c.
+2 warnings generated.
+[30/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_shell_module.c.
+2 warnings and 1 error generated.
+Error while processing /home/name/Documents/420-EMBDX/A/tests/test_shell_module.c.
+[31/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_stat_module.c.
+2 warnings and 1 error generated.
+Error while processing /home/name/Documents/420-EMBDX/A/tests/test_stat_module.c.
+[32/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_tail_module.c.
+2 warnings and 1 error generated.
+Error while processing /home/name/Documents/420-EMBDX/A/tests/test_tail_module.c.
+[33/33] Processing file /home/name/Documents/420-EMBDX/A/tests/test_touch_module.c.
+3 warnings and 1 error generated.
+Error while processing /home/name/Documents/420-EMBDX/A/tests/test_touch_module.c.
+/home/name/Documents/420-EMBDX/A/src/shell.c:158:16: error: Array subscript is undefined [clang-analyzer-core.uninitialized.ArraySubscript,-warnings-as-errors]
+  158 |         while (isspace((unsigned char)*cursor))
+      |                ^
+/usr/include/ctype.h:197:21: note: expanded from macro 'isspace'
+  197 | # define isspace(c)     __isctype((c), _ISspace)
+      |                         ^
+/usr/include/ctype.h:89:4: note: expanded from macro '__isctype'
+   89 |   ((*__ctype_b_loc ())[(int) (c)] & (unsigned short int) type)
+      |    ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:210:5: note: Loop condition is true.  Entering loop body
+  210 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:211:13: note: Assuming 'interactive' is 0
+  211 |         if (interactive &&
+      |             ^~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:211:25: note: Left side of '&&' is false
+  211 |         if (interactive &&
+      |                         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:215:22: note: Calling 'read_line'
+  215 |         int result = read_line(&line);
+      |                      ^~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:96:5: note: Loop condition is true.  Entering loop body
+   96 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:13: note: Assuming 'got' is >= 0
+   99 |         if (got < 0) {
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:9: note: Taking false branch
+   99 |         if (got < 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Assuming 'got' is not equal to 0
+  104 |         if (got == 0 || byte == '\n') {
+      |             ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Left side of '||' is false
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:25: note: Assuming the condition is false
+  104 |         if (got == 0 || byte == '\n') {
+      |                         ^~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:9: note: Taking false branch
+  104 |         if (got == 0 || byte == '\n') {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:117:13: note: Assuming the condition is false
+  117 |         if (byte == '\0')
+      |             ^~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:117:9: note: Taking false branch
+  117 |         if (byte == '\0')
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:119:13: note: 'invalid' is 0
+  119 |         if (invalid)
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:119:9: note: Taking false branch
+  119 |         if (invalid)
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:121:9: note: Taking true branch
+  121 |         if (size + 1 >= capacity) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:122:13: note: Taking false branch
+  122 |             if (capacity > SIZE_MAX / 2) {
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:126:27: note: 'capacity' is equal to 0
+  126 |             size_t next = capacity == 0 ? 256 : capacity * 2;
+      |                           ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:126:27: note: '?' condition is true
+/home/name/Documents/420-EMBDX/A/src/shell.c:127:27: note: Storing uninitialized value
+  127 |             char *grown = realloc(*line, next);
+      |                           ^~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:128:17: note: Assuming 'grown' is not equal to NULL
+  128 |             if (grown == NULL)
+      |                 ^~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:128:13: note: Taking false branch
+  128 |             if (grown == NULL)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:96:5: note: Loop condition is true.  Entering loop body
+   96 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:13: note: Assuming 'got' is >= 0
+   99 |         if (got < 0) {
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:9: note: Taking false branch
+   99 |         if (got < 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Assuming 'got' is equal to 0
+  104 |         if (got == 0 || byte == '\n') {
+      |             ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:22: note: Left side of '||' is true
+  104 |         if (got == 0 || byte == '\n') {
+      |                      ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:105:17: note: 'invalid' is 0
+  105 |             if (invalid)
+      |                 ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:105:13: note: Taking false branch
+  105 |             if (invalid)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:17: note: 'got' is equal to 0
+  107 |             if (got == 0 && size == 0)
+      |                 ^~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:17: note: Left side of '&&' is true
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:29: note: 'size' is not equal to 0
+  107 |             if (got == 0 && size == 0)
+      |                             ^~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:13: note: Taking false branch
+  107 |             if (got == 0 && size == 0)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:109:13: note: Taking false branch
+  109 |             if (*line == NULL) {
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:215:22: note: Returning from 'read_line'
+  215 |         int result = read_line(&line);
+      |                      ^~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:216:13: note: 'result' is > 0
+  216 |         if (result <= 0) {
+      |             ^~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:216:9: note: Taking false branch
+  216 |         if (result <= 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:230:18: note: Calling 'split_line'
+  230 |         result = split_line(line, &argc, &argv);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:9: note: Assuming 'length' is < INT_MAX
+  145 |     if (length >= INT_MAX || length + 1 > SIZE_MAX / sizeof(**argv)) {
+      |         ^~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:9: note: Left side of '||' is false
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:5: note: Taking false branch
+  145 |     if (length >= INT_MAX || length + 1 > SIZE_MAX / sizeof(**argv)) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:150:9: note: Assuming the condition is false
+  150 |     if (*argv == NULL) {
+      |         ^~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:150:5: note: Taking false branch
+  150 |     if (*argv == NULL) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:157:5: note: Loop condition is true.  Entering loop body
+  157 |     while (*cursor != '\0') {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:158:9: note: Loop condition is true.  Entering loop body
+  158 |         while (isspace((unsigned char)*cursor))
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:158:9: note: Loop condition is true.  Entering loop body
+/home/name/Documents/420-EMBDX/A/src/shell.c:158:16: note: Array subscript is undefined
+  158 |         while (isspace((unsigned char)*cursor))
+      |                ^
+/usr/include/ctype.h:197:21: note: expanded from macro 'isspace'
+  197 | # define isspace(c)     __isctype((c), _ISspace)
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctype.h:89:4: note: expanded from macro '__isctype'
+   89 |   ((*__ctype_b_loc ())[(int) (c)] & (unsigned short int) type)
+      |    ^                   ~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:193:16: error: Array subscript is undefined [clang-analyzer-core.uninitialized.ArraySubscript,-warnings-as-errors]
+  193 |         while (isspace((unsigned char)*cursor))
+      |                ^
+/usr/include/ctype.h:197:21: note: expanded from macro 'isspace'
+  197 | # define isspace(c)     __isctype((c), _ISspace)
+      |                         ^
+/usr/include/ctype.h:89:4: note: expanded from macro '__isctype'
+   89 |   ((*__ctype_b_loc ())[(int) (c)] & (unsigned short int) type)
+      |    ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:210:5: note: Loop condition is true.  Entering loop body
+  210 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:211:13: note: Assuming 'interactive' is 0
+  211 |         if (interactive &&
+      |             ^~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:211:25: note: Left side of '&&' is false
+  211 |         if (interactive &&
+      |                         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:215:22: note: Calling 'read_line'
+  215 |         int result = read_line(&line);
+      |                      ^~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:96:5: note: Loop condition is true.  Entering loop body
+   96 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:13: note: Assuming 'got' is >= 0
+   99 |         if (got < 0) {
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:9: note: Taking false branch
+   99 |         if (got < 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Assuming 'got' is not equal to 0
+  104 |         if (got == 0 || byte == '\n') {
+      |             ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Left side of '||' is false
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:25: note: Assuming the condition is false
+  104 |         if (got == 0 || byte == '\n') {
+      |                         ^~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:9: note: Taking false branch
+  104 |         if (got == 0 || byte == '\n') {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:117:13: note: Assuming the condition is false
+  117 |         if (byte == '\0')
+      |             ^~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:117:9: note: Taking false branch
+  117 |         if (byte == '\0')
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:119:13: note: 'invalid' is 0
+  119 |         if (invalid)
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:119:9: note: Taking false branch
+  119 |         if (invalid)
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:121:9: note: Taking true branch
+  121 |         if (size + 1 >= capacity) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:122:13: note: Taking false branch
+  122 |             if (capacity > SIZE_MAX / 2) {
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:126:27: note: 'capacity' is equal to 0
+  126 |             size_t next = capacity == 0 ? 256 : capacity * 2;
+      |                           ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:126:27: note: '?' condition is true
+/home/name/Documents/420-EMBDX/A/src/shell.c:127:27: note: Storing uninitialized value
+  127 |             char *grown = realloc(*line, next);
+      |                           ^~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:128:17: note: Assuming 'grown' is not equal to NULL
+  128 |             if (grown == NULL)
+      |                 ^~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:128:13: note: Taking false branch
+  128 |             if (grown == NULL)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:96:5: note: Loop condition is true.  Entering loop body
+   96 |     for (;;) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:13: note: Assuming 'got' is >= 0
+   99 |         if (got < 0) {
+      |             ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:99:9: note: Taking false branch
+   99 |         if (got < 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:13: note: Assuming 'got' is equal to 0
+  104 |         if (got == 0 || byte == '\n') {
+      |             ^~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:104:22: note: Left side of '||' is true
+  104 |         if (got == 0 || byte == '\n') {
+      |                      ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:105:17: note: 'invalid' is 0
+  105 |             if (invalid)
+      |                 ^~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:105:13: note: Taking false branch
+  105 |             if (invalid)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:17: note: 'got' is equal to 0
+  107 |             if (got == 0 && size == 0)
+      |                 ^~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:17: note: Left side of '&&' is true
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:29: note: 'size' is not equal to 0
+  107 |             if (got == 0 && size == 0)
+      |                             ^~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:107:13: note: Taking false branch
+  107 |             if (got == 0 && size == 0)
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:109:13: note: Taking false branch
+  109 |             if (*line == NULL) {
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:215:22: note: Returning from 'read_line'
+  215 |         int result = read_line(&line);
+      |                      ^~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:216:13: note: 'result' is > 0
+  216 |         if (result <= 0) {
+      |             ^~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:216:9: note: Taking false branch
+  216 |         if (result <= 0) {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:230:18: note: Calling 'split_line'
+  230 |         result = split_line(line, &argc, &argv);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:9: note: Assuming 'length' is < INT_MAX
+  145 |     if (length >= INT_MAX || length + 1 > SIZE_MAX / sizeof(**argv)) {
+      |         ^~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:9: note: Left side of '||' is false
+/home/name/Documents/420-EMBDX/A/src/shell.c:145:5: note: Taking false branch
+  145 |     if (length >= INT_MAX || length + 1 > SIZE_MAX / sizeof(**argv)) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:150:9: note: Assuming the condition is false
+  150 |     if (*argv == NULL) {
+      |         ^~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:150:5: note: Taking false branch
+  150 |     if (*argv == NULL) {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:157:5: note: Loop condition is true.  Entering loop body
+  157 |     while (*cursor != '\0') {
+      |     ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:158:9: note: Loop condition is false. Execution continues on line 160
+  158 |         while (isspace((unsigned char)*cursor))
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:160:9: note: Taking false branch
+  160 |         if (*cursor == '\0')
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:164:9: note: Loop condition is true.  Entering loop body
+  164 |         while (*cursor != '\0') {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:166:17: note: Left side of '&&' is true
+  166 |             if (quote == '\0' && isspace((unsigned char)byte))
+      |                 ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:166:34: note: Assuming the condition is true
+  166 |             if (quote == '\0' && isspace((unsigned char)byte))
+      |                                  ^
+/usr/include/ctype.h:197:21: note: expanded from macro 'isspace'
+  197 | # define isspace(c)     __isctype((c), _ISspace)
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctype.h:89:4: note: expanded from macro '__isctype'
+   89 |   ((*__ctype_b_loc ())[(int) (c)] & (unsigned short int) type)
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/src/shell.c:166:13: note: Taking true branch
+  166 |             if (quote == '\0' && isspace((unsigned char)byte))
+      |             ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:167:17: note:  Execution continues on line 188
+  167 |                 break;
+      |                 ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:188:9: note: Taking false branch
+  188 |         if (quote != '\0') {
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:193:9: note: Loop condition is true.  Entering loop body
+  193 |         while (isspace((unsigned char)*cursor))
+      |         ^
+/home/name/Documents/420-EMBDX/A/src/shell.c:193:9: note: Loop condition is true.  Entering loop body
+/home/name/Documents/420-EMBDX/A/src/shell.c:193:16: note: Array subscript is undefined
+  193 |         while (isspace((unsigned char)*cursor))
+      |                ^
+/usr/include/ctype.h:197:21: note: expanded from macro 'isspace'
+  197 | # define isspace(c)     __isctype((c), _ISspace)
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctype.h:89:4: note: expanded from macro '__isctype'
+   89 |   ((*__ctype_b_loc ())[(int) (c)] & (unsigned short int) type)
+      |    ^                   ~~~~~~~~~
+/home/name/Documents/420-EMBDX/A/tests/test_shell_module.c:2:10: error: 'shell.h' file not found [clang-diagnostic-error]
+    2 | #include "shell.h"    /* shell_loop, shell_dispatch. */
+      |          ^~~~~~~~~
+Suppressed 1 warnings (1 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+2 warnings treated as errors
+make: *** [Makefile:169: lint] Error 1

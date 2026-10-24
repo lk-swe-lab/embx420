@@ -1,0 +1,6 @@
+COMMAND: clang-tidy --checks="-*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling" --warnings-as-errors="*" src/cmd_touch.c src/touch_main.c tests/test_touch_module.c -- -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0; clang-format --dry-run --Werror src/cmd_touch.c src/cmd_touch.h src/touch_main.c tests/test_touch_module.c; git diff --check -- Makefile docs/sessions.txt
+{
+  "output": "[1/3] Processing file /home/name/Documents/420-EMBDX/A/src/cmd_touch.c.\n[2/3] Processing file /home/name/Documents/420-EMBDX/A/src/touch_main.c.\n[3/3] Processing file /home/name/Documents/420-EMBDX/A/tests/test_touch_module.c.\n1 warning generated.\nSuppressed 1 warnings (1 in non-user code).\nUse -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.",
+  "exit_code": 0,
+  "error": null
+}

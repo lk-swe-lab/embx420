@@ -1,0 +1,12 @@
+{
+  "args": [
+    "make",
+    "-C",
+    "/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree",
+    "-B",
+    "build/main",
+    "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

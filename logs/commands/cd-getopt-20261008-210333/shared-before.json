@@ -1,0 +1,9 @@
+{
+  "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+  "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+  "README.md": "d2ba0ea01e6c05d6714027bfa2c902070928685e9e4f0ea9e1fd98d2da824490",
+  "FILES.md": "0ffa11f709431b192bb67a480bcc47373c34ce019ab6db96bf5618735e6ee67f",
+  "tests/test_shell.py": "9894d1d99c6c48e96043d9a7f0143cebc0098a7ccfc6b59ec00d2d35143de283",
+  "tests/test_shell_module.c": "d46097a7ce9080ec0a55813c17d8edfcdd5359c112445c26737a52e2d4a42a46",
+  "docs/reports/cd-review.md": "eb564e067329951b6a831c88f0455dc49848c4e9cea7fdfd703192c5b417cea1"
+}

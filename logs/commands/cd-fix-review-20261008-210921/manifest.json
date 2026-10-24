@@ -1,0 +1,464 @@
+{
+  "session_id": "20261008_210921_5beab2",
+  "session_title": "Subagent: Independently re-review cd getopt-global fix\u2026",
+  "registration": "deferred: shared writes excluded",
+  "euid": 1000,
+  "repo": "/home/name/Documents/420-EMBDX/A",
+  "scratch": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921",
+  "reviewed_source_sha256": {
+    "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "tests/test_cd_module.c": "57159dba1462bd0e56cebdf13f65c99cae364a0e04e1d23bdace6c240461de69",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "docs/commands/cd.md": "7046ca7b951c4e2c006c3ef4feb7fec9ea361111065ceaa7f735192eed0db458",
+    "docs/reports/cd.md": "cb045ab475827c41a0991665fcf73c01bcb1ff50adae01726855d61ad7ada4f6"
+  },
+  "source_unchanged": true,
+  "argtable_sha256": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+  "frozen_snapshot_sha256": {
+    "Makefile": "1f3251ba7889814ea359a2a18b4ff19a861b2339e4e2ff88e4c16f362e1bbc39",
+    ".clang-format": "05b8c7d43e3263c840b9e6a693e342f4bf9cead959202bbd29bc7f4bb45d3989",
+    "tests/test_ls.py": "3adf255e39d3f41c4c245e5cfaae7fa91669548251ced75b9734c6eb2bde19d4",
+    "tests/test_help.c": "4b9b47dd3efff942a35f12f4d91a2933779bf197c82f8899ac3273c1725c522d",
+    "tests/test_ls_module.c": "7b4ddf6f860801345ee77ebead7fdf3efbedcbc7cfb376cdd07e5a0d26e24327",
+    "tests/test_shell.py": "9894d1d99c6c48e96043d9a7f0143cebc0098a7ccfc6b59ec00d2d35143de283",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_clear.py": "88af200f59aa8d15ea4e16f3c61a8b9fce0aece3a35a6f54e10c8cd681fe03a9",
+    "tests/test_lines_random.py": "d8e8a3bee7cefe382d8ba71b6493903fb577c45ad477bbf3ee4748dbd35a81c6",
+    "tests/test_cat.c": "495f20dd2831450bb13ded897e3a66cee3e2b61aa938d9499c196fbacf3ad22f",
+    "tests/test_output.h": "01536bf1a5c5722fb4b41c1211693943ae316d6acd5c5c98b894e5dbfa17e3de",
+    "tests/test_cat_module.c": "80b3f99c2b48e3d88a53ddac6498e43edb8a87ee5dd0387444a3b8cb6305c3d9",
+    "tests/test_tail.py": "c03cbb2874da1a104e54d7c80858b07acab6b765864ec7112d30d06516f86f09",
+    "tests/test_clear_module.c": "8e5d9c3ba17738b3810deda9af008b0dadecc598e89f9e7190ea820196f915e3",
+    "tests/test_pwd.py": "6bd580e46b426a2bde8c1d79b016da3275f4af2831d7aceff9bcf53351c1b81d",
+    "tests/test_touch_module.c": "c26b1a55b9af082505f298e973bc17b300c4460036949e2188fabf5bfc61f579",
+    "tests/test_mkdir_module.c": "c4ef49bc2fa760c57e5febff03e559d1676f197072ab8b92645e21bd79a0d945",
+    "tests/test_tail_module.c": "7c5d1c994668f061d4629624f8e62d38ab1d1546156d0f96993c521af1ac256c",
+    "tests/test_pwd_module.c": "afa67d1dd3ef614090611d6d9ae5725bd260c6fcad63b892a777fbd201f16f38",
+    "tests/test_recursive.c": "b3e0af1afa52d946216f7307d732bc5d3563b2e49c56207f4dfa72c12952b511",
+    "tests/test_touch.py": "20d502d6b3b667c3336df7c81335fa79517e08d0c99e0726ce60ac7cefc9f2db",
+    "tests/test_head_module.c": "b56c018c9ab445422fcd1c162116e07ec33becf9c5f6dcdbcd717c4258a9211d",
+    "tests/test_cd_module.c": "57159dba1462bd0e56cebdf13f65c99cae364a0e04e1d23bdace6c240461de69",
+    "tests/test_mkdir.py": "ee2b7ceec8fc30ca6f82d27771f794d773071d22dde5744d43a7aec2708c6296",
+    "tests/test_shell_module.c": "5dbe3f023a8e2991488a0b5e5120f7f4682b5525c81356486ac8717b9cb6baea",
+    "tests/test_stat.py": "d8986a5d632c4f845dc5e4e4baa02dbd7563527bda558e87bfc473e002396273",
+    "tests/test_stat_module.c": "e32bceec3b92eca0a972c48136bad65c23ac3f3e85c5641460f6472f6cfd742e",
+    "tests/test_head.py": "7a845604d698a929500d10a018703fa0b11bc0c68f59116b8d4228fffc1b7a97",
+    "src/cmd_ls.c": "9667df4da45db8aa57921facb7aa014b6da63cf096a1950323200099271e04a6",
+    "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+    "src/cmd_stat.h": "74a191853ac383685600d624789fe9a2fb2f7ec6120ab6c8b405a0c394e40978",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/ls_main.c": "e5eef04dea8119af393f7c468746ddfbc1ac16ffbb519015e5cd45595bfa46bc",
+    "src/cmd_mkdir.c": "a0847d5184bbe9f4a6f0f692ecd61f8b7c22381e1dabe39890a527c3ecdd67c2",
+    "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/stat_main.c": "5258c7cc45a026df55f0268865a5e8efcb68c22594962abda697f8ccb0963222",
+    "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+    "src/mkdir_main.c": "75af3a58255981f899e8cecf369506a7458ba2d2101eb6d2be6ea60217903d1e",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+    "src/registry.c": "5aaf3ed6f5b9bd55fb5b8cac341f95ef09e0a206f37b1f9ce88eda5c8355202b",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/cmd_stat.c": "eef1255bcaefef7e147e3adf6a6f210379113f87655cbc7e52db160a37e20c8d",
+    "src/cmd_mkdir.h": "b6d3aa68cd0647095b75756cb8c0993482b2bbad35cc164aa4a33f8ece70ae66",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+    "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_ls.h": "5d0441de65fd0e6115c01d32fec54d2d4756f24e9fc5cbcc4bbf520fdf1d4ed2",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+    "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed",
+    "tests/fixtures/tree/top.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/fixtures/long_names/directory_name_longer_than_thirty_characters/file_name_longer_than_thirty_characters.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/fixtures/tree/child/leaf.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "snapshot_note": "count-only C shell test (9 builtins, old capacity threshold); final scratch maintenance preserved as separate diffs",
+  "checks": [
+    {
+      "label": "module-build",
+      "args": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/tests/test_cd_module.c",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "module",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "probe-build",
+      "args": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "/home/name/Documents/420-EMBDX/A/logs/commands/cd-review-20261008-205019/global_probe.c",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/probe"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "probe",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/probe"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "baseline-shell",
+      "args": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "patch-check",
+      "args": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "cwd": "/home/name/Documents/420-EMBDX/A",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "scratch-patch",
+      "args": [
+        "git",
+        "apply",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "scratch-cd",
+      "args": [
+        "make",
+        "test-cd",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "added-shell-build",
+      "args": [
+        "make",
+        "build/test_shell_module",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "added-shell-python",
+      "args": [
+        "python3",
+        "tests/test_shell.py",
+        "--program",
+        "build/main",
+        "--standalone-dir",
+        "build"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 1,
+      "env": {}
+    },
+    {
+      "label": "added-shell-module",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": -6,
+      "env": {}
+    },
+    {
+      "label": "count-only-build",
+      "args": [
+        "make",
+        "build/test_shell_module",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "count-only-module",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/build/test_shell_module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": -6,
+      "env": {}
+    },
+    {
+      "label": "lint",
+      "args": [
+        "make",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "format",
+      "args": [
+        "make",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "python-syntax",
+      "args": [
+        "python3",
+        "-m",
+        "py_compile",
+        "tests/test_cd.py"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {
+        "PYTHONPYCACHEPREFIX": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/pycache"
+      }
+    },
+    {
+      "label": "san-module-build",
+      "args": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/tests/test_cd_module.c",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/san-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "san-module",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/san-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    },
+    {
+      "label": "san-main-build",
+      "args": [
+        "make",
+        "-B",
+        "build/main",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "san-cd-python",
+      "args": [
+        "python3",
+        "tests/test_cd.py",
+        "build/main"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {
+        "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      }
+    },
+    {
+      "label": "internal-oom",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/module",
+        "--internal-oom"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 1,
+      "env": {}
+    },
+    {
+      "label": "maintained-shell",
+      "args": [
+        "make",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "pre-fix-build",
+      "args": [
+        "cc",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-Werror",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree/tests/test_cd_module.c",
+        "/home/name/Documents/420-EMBDX/A/logs/commands/cd-getopt-20261008-210333/before/src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/pre-fix-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "pre-fix-module",
+      "args": [
+        "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/pre-fix-module"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": -6,
+      "env": {}
+    },
+    {
+      "label": "maintained-shell-fresh",
+      "args": [
+        "make",
+        "-B",
+        "test-shell",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    },
+    {
+      "label": "maintained-cd-fresh",
+      "args": [
+        "make",
+        "test-cd",
+        "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+      "status": 0,
+      "env": {}
+    }
+  ],
+  "limits": [
+    "exported getopt values on returning calls only",
+    "no private interrupted scan state or concurrency guarantee",
+    "argtable archive not instrumented",
+    "fatal internal parser OOM; void usage callback no allocation-status channel",
+    "scratch integration only; final combined repository regression required"
+  ]
+}

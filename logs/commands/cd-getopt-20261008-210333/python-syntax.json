@@ -1,0 +1,10 @@
+{
+  "args": [
+    "python3",
+    "-m",
+    "py_compile",
+    "tests/test_cd.py"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

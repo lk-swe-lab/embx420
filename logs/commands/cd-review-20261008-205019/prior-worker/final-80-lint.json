@@ -1,0 +1,10 @@
+{
+  "command": [
+    "make",
+    "-C",
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+    "lint",
+    "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+  ],
+  "status": 0
+}

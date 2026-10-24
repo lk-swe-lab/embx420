@@ -1,0 +1,73 @@
+{
+  "session_id": "20261008_210333_4bc4e6",
+  "session_title": "Subagent: Fix cd exported getopt-global preservation with\u2026",
+  "registration": "deferred to parent; shared file excluded",
+  "euid": 1000,
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "sanitizer_environment": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "limits": [
+    "exported getopt values only; not private scan state or concurrency",
+    "argtable static archive not sanitizer instrumented",
+    "real parser-internal OOM exits inside dependency",
+    "void usage callback lacks allocation-failure status",
+    "scratch-only main integration; no full suite claim"
+  ],
+  "source_sha256": {
+    "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "tests/test_cd_module.c": "57159dba1462bd0e56cebdf13f65c99cae364a0e04e1d23bdace6c240461de69",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d"
+  },
+  "scratch_source_sha256": {
+    "src/cmd_ls.c": "9667df4da45db8aa57921facb7aa014b6da63cf096a1950323200099271e04a6",
+    "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+    "src/cmd_stat.h": "74a191853ac383685600d624789fe9a2fb2f7ec6120ab6c8b405a0c394e40978",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/tail_main.c": "3c210345707b2cc5154f8568c19bb785a13ccfb80b2ca7b6fc9c13231f122547",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/ls_main.c": "e5eef04dea8119af393f7c468746ddfbc1ac16ffbb519015e5cd45595bfa46bc",
+    "src/cmd_mkdir.c": "a0847d5184bbe9f4a6f0f692ecd61f8b7c22381e1dabe39890a527c3ecdd67c2",
+    "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/stat_main.c": "5258c7cc45a026df55f0268865a5e8efcb68c22594962abda697f8ccb0963222",
+    "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+    "src/mkdir_main.c": "75af3a58255981f899e8cecf369506a7458ba2d2101eb6d2be6ea60217903d1e",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/head_main.c": "6452fd1eafab993b894f29771130d48193f293e0048f95dd98268a7adf151663",
+    "src/registry.c": "5aaf3ed6f5b9bd55fb5b8cac341f95ef09e0a206f37b1f9ce88eda5c8355202b",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/cmd_stat.c": "eef1255bcaefef7e147e3adf6a6f210379113f87655cbc7e52db160a37e20c8d",
+    "src/cmd_mkdir.h": "b6d3aa68cd0647095b75756cb8c0993482b2bbad35cc164aa4a33f8ece70ae66",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cat_main.c": "4381cbb698757a99a441e3fc64d57b58f6a184922eced7735b39a367c845127e",
+    "src/cmd_cd.c": "e4275aa327ae661a060ce3edb18c2c4455e63c1d11eb2ed2a84496b47970ebcb",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_ls.h": "5d0441de65fd0e6115c01d32fec54d2d4756f24e9fc5cbcc4bbf520fdf1d4ed2",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/touch_main.c": "7dbca82c34def3a0bf8abb7ae07ce498625ca78f19521799c030b8c7f57b224e",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d",
+    "src/pwd_main.c": "530061040c12a9b37d997ab86241c9f787d88660e12824558d52ea6e6705e3ed"
+  },
+  "argtable_sha256": "ccc6ea8ec13d0053be353ace37ee7918327001a98b0beb4f701be56ba3f52f35",
+  "line_limits": {
+    "src/cmd_cd.c": 80,
+    "src/cmd_cd.h": 39,
+    "tests/test_cd_module.c": 80
+  },
+  "shared_unchanged": true,
+  "report_sha256": "cb045ab475827c41a0991665fcf73c01bcb1ff50adae01726855d61ad7ada4f6"
+}

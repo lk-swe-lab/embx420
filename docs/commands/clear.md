@@ -1,7 +1,7 @@
 # clear
 
 **Status:** integrated and tested in actual `main`, with an optional standalone
-wrapper. Combined independent runtime review passes; final delivery is conditional.
+wrapper. Combined independent review and final commit are pending.
 
 ```text
 main clear
@@ -26,5 +26,3 @@ reset. The command borrows stdin/stdout/stderr and does not read stdin.
 
 [Implementation, tests and evidence](../reports/clear.md).
 [Actual combined integration](../reports/clear-cd-integration.md).
-
-[Combined review and delivery conditions](../reports/clear-cd-review.md).

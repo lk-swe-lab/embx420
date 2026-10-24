@@ -1,7 +1,7 @@
 # cd
 
-Status: integrated and tested in actual `main`; combined independent runtime review passes;
-final delivery is conditional. No standalone cd is built.
+Status: integrated and tested in actual `main`; combined independent review
+and final commit are pending. No standalone cd is built.
 
 ```text
 cd [-h|--help] [--] [DIRECTORY]
@@ -29,5 +29,3 @@ Status: **0** success/help, **1** operational failure, **2** argument error.
 Errors go to stderr. Dependency OOM limits and evidence are in
 [the implementation report](../reports/cd.md).
 [Actual combined integration](../reports/clear-cd-integration.md).
-
-[Combined review and delivery conditions](../reports/clear-cd-review.md).

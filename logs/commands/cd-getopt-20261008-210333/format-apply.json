@@ -1,0 +1,10 @@
+{
+  "args": [
+    "clang-format",
+    "-i",
+    "src/cmd_cd.c",
+    "tests/test_cd_module.c"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

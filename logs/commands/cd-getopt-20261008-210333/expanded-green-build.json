@@ -1,0 +1,27 @@
+{
+  "args": [
+    "cc",
+    "-std=c17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wformat=2",
+    "-Wshadow",
+    "-Wconversion",
+    "-Wstrict-prototypes",
+    "-Werror",
+    "-g3",
+    "-O0",
+    "-Ibuild/argtable3/include",
+    "-o",
+    "/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/green-module",
+    "tests/test_cd_module.c",
+    "src/cmd_cd.c",
+    "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir",
+    "-Lbuild/argtable3/lib",
+    "-largtable3",
+    "-lm"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0
+}

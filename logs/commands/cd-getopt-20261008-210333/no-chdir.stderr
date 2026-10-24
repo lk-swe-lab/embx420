@@ -1,0 +1,1 @@
+no-chdir: tests/test_cd_module.c:186: expect_cwd: Assertion `strcmp(actual, expected) == 0' failed.
