@@ -64,7 +64,5 @@ packaging commit. Old reports retain their original findings and gate text.
 Some old guide/report links refer to intentionally retired files and can be
 stale. Do not use them as current usage instructions.
 
-The [older five-command recording](../demo/README.md) includes retired commands.
-Its recorded execution/media evidence remains historical. The old `demo.sh`
-runbook is not the current lifecycle demo. These selected command subsets are
-not full GNU replacements, a POSIX shell or a sandbox.
+These selected command subsets are not full GNU replacements, a POSIX shell
+or a sandbox.

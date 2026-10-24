@@ -110,12 +110,3 @@ needs another output root or an explicit manual move of the known old artifact.
 The current [package lifecycle demo](demo/PACKAGING.md) records 17 real commands
 and 21 checks in [JSON](demo/packaging-demo.json) and a
 [transcript](demo/packaging-demo.log), including a relocated release.
-
-### Historical command recording
-
-The old `./demo.sh` runbook uses retired commands; do not use it for the current
-command set. The historical [verified recording](demo/commands-demo.mpg)
-shows five real commands with five-second holds: `pwd`, `ls`, `rg`, `printf`,
-`date -u`. It is a 25.08-second MPEG program stream with MPEG-2 video.
-See [execution and media evidence](demo/README.md). Historical recordings remain
-unchanged; commit and publication are separate gates.

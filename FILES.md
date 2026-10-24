@@ -7,7 +7,7 @@ stale; they do not assert current usage, integration or delivery.
 
 ## Existing
 - sidequests/manual-shell/ — separate Week 03 fork/exec/wait learning shell, selectable tokenizers, tests, and short explanations.
-- sidequests/manual-shell/demo/manual-shell.mp4 — real terminal recording; demo/README.md and captured evidence document verification.
+- sidequests/manual-shell/demo/manual-shell.mp4 — real terminal recording; sidequests/manual-shell/demo/README.md and captured evidence document verification.
 - ai_log/README.md — index of date-prefixed AI logs.
 - ai_log/2026-10-09-AI_LOG.md — preserved curated command-development decisions; relocated links only.
 - ai_log/2026-10-01-AI_LOG.md — byte-preserved historical prompt-selection report.
@@ -35,7 +35,6 @@ stale; they do not assert current usage, integration or delivery.
 - docs/AI_LOGGING.md — registry, logging, and publication rules.
 - .gitignore — excludes local environment, caches, and generated database.
 - Makefile — builds CLI/tests; test, lint, format-check, format, and clean.
-- demo.sh — historical five-command runbook; includes retired commands, not current lifecycle usage.
 - .clang-format — C formatting with an 80-column limit.
 - src/main.c — builtin-shell entry point and legacy traversal routing.
 - tests/test_help.c — CUnit CLI test for -h usage and exit status.
@@ -53,16 +52,6 @@ stale; they do not assert current usage, integration or delivery.
 - src/ls_main.c — thin standalone ls entry point.
 - tests/test_ls.py — independent ls CLI expectations, GNU adapter, and boundaries/failures.
 - tests/test_ls_module.c — repeated ls calls, borrowed resources, unchanged argv, and injected failures.
-
-## Demo and verification
-- demo/README.md — run instructions, recording provenance and verification limits.
-- demo/commands-demo.mpg — verified 25.08-second MPEG-2/program-stream recording.
-- demo/commands-demo.cast, demo/commands-demo.log — real PTY timestamps/bytes and readable transcript.
-- demo/recording.json — five command starts, display intervals and successful statuses.
-- demo/verification/results.json, demo/verification/commands.txt — executed build/test/lint sequence, statuses and commands.
-- demo/verification/clean-before.log, demo/verification/test.log, demo/verification/clean-after.log, demo/verification/build.log, demo/verification/lint.log — preserved complete verification streams.
-- demo/verification/encode.log, demo/verification/mpg-decode.log — encoder and full-decoder diagnostics.
-- demo/verification/mpg-ffprobe.json, demo/verification/media-results.json — actual media metadata and validation.
 
 ## Packaging coordination and guides
 - docs/reports/packaging-plan.md — accepted milestone and extra release checklist, with explicit verification limits.
