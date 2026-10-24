@@ -1,0 +1,20 @@
+test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence) ... FAIL
+
+======================================================================
+FAIL: test_absolute_relative_persistence (__main__.CdTests.test_absolute_relative_persistence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cd.py", line 39, in test_absolute_relative_persistence
+    self.check(self.shell(f"cd {shlex.quote(str(child))}\npwd\n"
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                          "cd ..\npwd\n"), [child, self.root])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/name/Documents/420-EMBDX/A/tests/test_cd.py", line 34, in check
+    self.assertEqual(result.stdout, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'/ho[41 chars]dztwm\n/home/name/.hermes/cache/scratch/cd-test-szgdztwm\n' != b'/ho[41 chars]dztwm/child\n/home/name/.hermes/cache/scratch/[14 chars]wm\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=1)

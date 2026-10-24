@@ -1,0 +1,13 @@
+{
+  "args": [
+    "python3",
+    "tests/test_cd.py",
+    "build/main"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  }
+}

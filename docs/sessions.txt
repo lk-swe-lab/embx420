@@ -6,3 +6,96 @@
 
 # Implement recursive directory traversal printing names
 20260930_234818_582d7d
+
+# Load AGENTS.md and check test failures
+20261002_193047_add44f
+
+# Ingest 02_anatomy_of_command_line_tool docs into SQLite FTS5
+20261006_072202_36eb83
+
+# Resume sequential command implementation and verification
+20261008_153220_552666
+
+# Subagent: Independently review ls implementation, tests…
+20261008_155953_c153f8
+
+# Subagent: Implement mkdir only using command-development…
+20261008_160919_6df3fd
+
+# Subagent: Resume and finish mkdir only after interrupted…
+20261008_170155_26cc44
+
+# Continue implementing commands after interrupted session
+20261008_172814_75c895
+
+# Subagent: Retry independent mkdir review after provider…
+20261008_184129_607d91
+
+# Subagent: Implement touch only in /home/name/Documents/420…
+20261008_185718_50ccff
+
+# Subagent: Perform approved documentation cleanup…
+20261008_185737_00238a
+
+# Subagent: Independently review and verify main shell…
+20261008_192134_00b5e0
+
+# Subagent: Finish shell review dispositions and…
+20261008_193146_7c6fd3
+
+# Subagent: Implement clear module and its owned tests/docs…
+20261008_193806_3b09e3
+
+# Subagent: Implement cp with mmap-based content copying…
+20261008_213938_a4a22b
+
+# Subagent: Independently review cp source/tests/docs/runtim…
+20261008_220140_c10e27
+
+# Subagent: Implement rg next using command-development/proj…
+20261008_221258_b377a4
+
+# Find restart file and resume after rg
+20261008_230804_254b18
+
+# Subagent: Independently review and execute verification…
+20261008_234345_3fdf8d
+
+# Subagent: Stage only the reviewed edit-replace-line…
+20261008_235209_2b0a98
+
+# Subagent: Implement and execute complete verification for…
+20261008_235653_0b3cc9
+
+# Subagent: Implement and execute full verification for…
+20261009_002936_653a03
+
+# Subagent: Independently review and execute verification… #3
+20261009_005043_950a30
+
+# Subagent: Implement and execute full verification for… #2
+20261009_010901_1860b4
+
+# Subagent: Independently review and execute verification… #4
+20261009_014655_0ef41a
+
+# Subagent: Implement and execute full verification for… #3
+20261009_030917_c9b29a
+
+# Subagent: Implement and execute verification for env…
+20261009_092715_9711e1
+
+# Implement manual shell with fork processes
+20261016_070013_87a151
+
+# Demo current shell
+20261016_190512_624741
+
+# Check weekly packaging assignment
+20261022_212354_434509
+
+# Subagent: Implement item5 shell/registry/Makefile…
+20261023_004738_6af94f
+
+# Clear conversation context
+20261023_185353_6199ee

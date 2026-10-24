@@ -1,48 +1,70 @@
-# Command status
+# Current status
 
-Checkpoint: October 9, 2026, committed HEAD `e1c3ac9` (sleep).
-Implementation is paused; this documentation update adds no commands.
+## Current packaging implementation
 
-## Committed and integrated
+The registry has 19 builtins: 18 adopted baseline commands plus `pkg`.
+Seventeen baseline builtins have standalone wrappers; `cd` and `pkg` do not.
+`rmdir` is adopted baseline work, not a new packaging command. The separate
+`build/hello` is package-only and becomes available in main only after install.
+The current baseline intentionally retires `env`, `echo`, `date`, `printf`
+and `sleep`; packaging does not restore them.
 
-The committed registry contains 22 commands, with 21 optional standalone wrappers;
-`cd` is in-process only. [README](../README.md#supported-commands) lists every
-command and links its supported syntax, output format and limitations.
-Committed integration can differ from preserved shared working files after
-cached-only delivery; a dirty working tree is not the current committed checkout.
+See [current commands](../README.md#supported-commands), the brief
+[package guide](commands/pkg.md), [release guide](reports/shell-release.md)
+and [plan](reports/packaging-plan.md). Local install/list/info/remove, refreshed
+installed help/catalog, and recorded-path fork/exec are implemented. No general
+PATH fallback, remote download, dependency solving or shell self-update is added.
 
-## Not delivered
+## Evidence and open delivery gates
 
-- `true`: blocked before code; no implementation claimed.
-- `false`, `rm`: not started.
-- `rmdir`: skipped; uncommitted artifacts remain excluded from this delivery.
+- Backend follow-up reports 44 normal and 44 ASan/UBSan tests and six sensitive
+  safety mutants. Source/root overlap and command-name bounds were fixed.
+- Test review fixed isolated shell HOME handling and builder test sensitivity.
+  The Make openat-driver prerequisite gap was then fixed; its owner reports
+  full strict `make test all` and `make lint` passing. See
+  [backend evidence](reports/pkg-implementation.md) and
+  [integration evidence](reports/package-shell.md).
+- Release review found a provenance blocker: an unrelated generator could supply
+  help/catalog for another shipped binary. Repair was assigned. The release
+  owner now reports removal of that override, exact-byte snapshot generation,
+  a passing regression and a current-artifact independent rerun. See
+  [release evidence](reports/shell-release.md); this does not finalize delivery.
+- The [lifecycle demo](../demo/PACKAGING.md) records 17 commands and 21 checks,
+  including the relocated release. This is not a full regression claim.
+- Parent reports the private wiki article `_drafts/aishell-packaging.md`
+  delivered as DRAFT, revision 1; exact readback and validation passed.
+  Human review is pending. Wiki data remains excluded from Git and push.
+- Parent verified the exact runtime/build index and pushed commit
+  `6f579356abd67ceb1f7123db53f55896c247b967` to `feat/aishell-packaging`;
+  parent reports the remote hash matches. Local Git confirms tree
+  `9b457a89b41217ad1dd8572dad968bf6734ca555` and 92 source/build/test paths.
+  This includes the retired-command and adopted-rmdir baseline closure.
+- Parent exact-tree checks: strict `make test all`, release tests/build,
+  `make lint` and changed-C formatting returned 0. Global formatting returned 2
+  on unchanged files. Evidence: `$TMPDIR/packaging-code-index-checks`.
+- Docs, demo and the present dependency-bootstrap candidate are not yet committed.
+  Their final checks/publication and remaining acceptance dispositions are open.
+  No task completion or merge is claimed; the user merges later.
 
-Resumption needs explicit authorization and fresh discovery of the first unfinished
-gate. Do not retry a denied operation through another worker or execute skipped
-command tests as part of this documentation task.
+## Final acceptance
 
-## Evidence and limits
+The parent accepted the milestone and extra shell release. See
+[verification and limits](reports/packaging-verification.md). Independent
+bootstrap, documentation, and demo review passed after the checkpoint above.
+Fresh pinned dependency builds and strict full-project tests passed in isolated
+snapshots. The brief guide and private wiki draft are delivered. Final scoped
+documentation publication is separate; the user will merge the feature branch.
+Global formatting failures in unchanged files remain disclosed.
 
-[Reports](reports/README.md) are historical snapshots; their pending-gate text is
-not current commit status. Implementation, independent review, exact-index
-verification and commit are separate gates in the [workflow](ADDING_COMMANDS.md).
-The [decision log](../ai_log/2026-10-09-AI_LOG.md) explains the scope and delivery choices.
+## Historical checkpoints
 
-These are selected subsets, not full GNU replacements. JSON is supported only
-where the command guide says so: `echo`, `date`, `printf` and `sleep` have no JSON
-mode. See [date](commands/date.md) for numeric local/UTC output,
-[printf](commands/printf.md) for bounded byte formatting, and
-[sleep](commands/sleep.md) for decimal seconds and inherited-signal behavior.
-Existing limits include dependency-internal parser OOM, inherited formatting
-failures and the optimized sanitizer shell fault-test issue recorded in
-[sleep review](reports/sleep-review.md); these are not new fixes.
+October 9, 2026 checkpoint `e1c3ac9` described 22 builtins and 21 wrappers,
+with `rmdir` skipped. That is history, not the present working tree or a final
+packaging commit. Old reports retain their original findings and gate text.
+Some old guide/report links refer to intentionally retired files and can be
+stale. Do not use them as current usage instructions.
 
-## Documentation and demo checkpoint
-
-The approved decisions-only log and current documentation accompany the
-[five-command recording](../demo/README.md). Its real PTY execution has five
-successful statuses and approximately five-second holds; FFprobe confirms a
-25.08-second MPEG program stream with MPEG-2 video, and full decoding succeeds.
-The demo evidence records clean/test/clean/build/lint passing on committed HEAD.
-Final exact-index verification is a separate delivery gate; commit and push
-remain the parent's responsibility, not completed publication claims.
+The [older five-command recording](../demo/README.md) includes retired commands.
+Its recorded execution/media evidence remains historical. The old `demo.sh`
+runbook is not the current lifecycle demo. These selected command subsets are
+not full GNU replacements, a POSIX shell or a sandbox.

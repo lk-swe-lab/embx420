@@ -1,0 +1,3 @@
+python3 tests/test_cd.py ./build/main
+./build/test_cd_module
+cd module: malformed argv, 400 repeated calls, ownership/faults and exported getopt preservation passed

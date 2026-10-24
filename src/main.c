@@ -1,5 +1,5 @@
 #define _POSIX_C_SOURCE 200809L
-#include "shell.h"    /* shell_loop, shell_dispatch, shell_help. */
+#include "shell.h"    /* shell_loop/dispatch/help, shell_commands_json. */
 #include "registry.h" /* register_all_builtin_commands. */
 #include "traverse.h" /* Traversal/output APIs, options, HOURS_PER_DAY. */
 #include <getopt.h>   /* getopt_long, struct option, optarg, argument modes. */
@@ -120,7 +120,8 @@ static int legacy_main(int argc, char **argv)
  */
 int main(int argc, char **argv)
 {
-    if (argc > 1 && argv[1][0] == '-' && strcmp(argv[1], "--help") != 0)
+    if (argc > 1 && argv[1][0] == '-' && strcmp(argv[1], "--help") != 0 &&
+        strcmp(argv[1], "--commands-json") != 0)
         return legacy_main(argc, argv);
     if (register_all_builtin_commands() != 0) {
         fputs("main: cannot initialize command registry\n", stderr);
@@ -128,6 +129,13 @@ int main(int argc, char **argv)
     }
     if (argc == 1)
         return shell_loop();
+    if (strcmp(argv[1], "--commands-json") == 0) {
+        if (argc != 2) {
+            fputs("main: usage: main --commands-json\n", stderr);
+            return 2;
+        }
+        return shell_commands_json();
+    }
     if (strcmp(argv[1], "--help") == 0) {
         if (argc != 2) {
             fputs("main: usage: main --help\n", stderr);

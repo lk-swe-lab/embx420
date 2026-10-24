@@ -1,0 +1,4 @@
+make: Entering directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'
+mkdir -p build
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer  -o build/main src/main.c src/traverse.c src/cmd_cd.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+make: Leaving directory '/home/name/.hermes/cache/scratch/cd-getopt-20261008-210333/tree'

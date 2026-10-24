@@ -1,0 +1,6 @@
+COMMAND: python3 tests/test_touch.py ./build/touch && python3 tests/test_touch.py /usr/bin/touch --reference
+{
+  "output": "test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok\ntest_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok\ntest_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok\ntest_existing (__main__.TouchTests.test_existing) ... ok\ntest_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.017s\n\nOK\ntest_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... skipped 'project parsing contract'\ntest_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok\ntest_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... skipped 'dangling link deliberate difference'\ntest_existing (__main__.TouchTests.test_existing) ... ok\ntest_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.010s\n\nOK (skipped=2)",
+  "exit_code": 0,
+  "error": null
+}

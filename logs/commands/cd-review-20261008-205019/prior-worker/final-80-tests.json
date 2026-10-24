@@ -1,0 +1,9 @@
+{
+  "command": [
+    "make",
+    "-C",
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+    "test-cd"
+  ],
+  "status": 0
+}

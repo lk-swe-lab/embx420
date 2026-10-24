@@ -15,12 +15,9 @@
 #include "cmd_edit_insert_line.h"  /* cmd_edit_insert_line_spec. */
 #include "cmd_edit_delete_line.h"  /* cmd_edit_delete_line_spec. */
 #include "cmd_mv.h"                /* cmd_mv_spec. */
+#include "cmd_rmdir.h"             /* cmd_rmdir_spec. */
+#include "cmd_pkg.h"               /* cmd_pkg_spec. */
 #include "cmd_edit_replace.h"      /* cmd_edit_replace_spec. */
-#include "cmd_env.h"               /* cmd_env_spec. */
-#include "cmd_echo.h"              /* cmd_echo_spec. */
-#include "cmd_printf.h"            /* cmd_printf_spec. */
-#include "cmd_date.h"              /* cmd_date_spec. */
-#include "cmd_sleep.h"             /* cmd_sleep_spec. */
 #include <stddef.h>                /* NULL, size_t. */
 #include <string.h>                /* strcmp. */
 
@@ -84,11 +81,8 @@ int register_all_builtin_commands(void)
                                     &cmd_edit_delete_line_spec,
                                     &cmd_edit_replace_spec,
                                     &cmd_mv_spec,
-                                    &cmd_env_spec,
-                                    &cmd_echo_spec,
-                                    &cmd_date_spec,
-                                    &cmd_printf_spec,
-                                    &cmd_sleep_spec};
+                                    &cmd_rmdir_spec,
+                                    &cmd_pkg_spec};
     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
         if (register_command(builtins[i]) != 0)
             return -1;

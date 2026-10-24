@@ -22,6 +22,6 @@ test_tokenizer_scans_manually_without_library_tokenizers (__main__.ShellTests.te
 test_unsupported_syntax_rejected_without_execution (__main__.ShellTests.test_unsupported_syntax_rejected_without_execution) ... ok
 
 ----------------------------------------------------------------------
-Ran 16 tests in 0.557s
+Ran 16 tests in 0.494s
 
 OK

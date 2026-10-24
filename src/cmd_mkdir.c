@@ -252,6 +252,9 @@ static void mkdir_usage(FILE *out)
 }
 
 cmd_spec_t cmd_mkdir_spec = {
-    "mkdir", "Create directories.",
-    "Create directories with optional parents and JSON.", mkdir_run,
-    mkdir_usage};
+    "mkdir",
+    "Create directories.",
+    "Create directories with optional parents and JSON.",
+    mkdir_run,
+    mkdir_usage,
+    NULL};

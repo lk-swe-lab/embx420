@@ -1,0 +1,38 @@
+--- before/src/cmd_cd.c
++++ src/cmd_cd.c
+@@ -1,6 +1,7 @@
+ #include "cmd_cd.h"    /* cmd_spec_t, FILE. */
+ #include <argtable3.h> /* Argument definitions, parsing, help, cleanup. */
+ #include <errno.h>     /* errno. */
++#include <getopt.h>    /* optarg, optind, opterr, optopt. */
+ #include <stdio.h>     /* fprintf, fputs, fflush, ferror, clearerr,
+                    * stdout, stderr. */
+ #include <stdlib.h>    /* getenv, malloc, free. */
+@@ -41,7 +42,8 @@
+ /* Purpose: Parse syntax and change cwd in the calling shell process.
+  * Args: argc/argv are borrowed command arguments.
+  * Rets: 0 success, 1 operational failure, 2 argument error.
+- * Notes: Leave argv, environment and inherited descriptors unchanged.
++ * Notes: Preserve argv, environment, descriptors and exported getopt values,
++ * not private interrupted-scan state; cwd intentionally changes on success.
+  */
+ static int cd_run(int argc, char **argv)
+ {
+@@ -69,7 +71,16 @@
+     }
+     memcpy(copy, argv, (size_t)argc * sizeof(*copy));
+     copy[argc] = NULL;
+-    if (arg_parse(argc, copy, table) != 0) {
++    char *saved_optarg = optarg;
++    int saved_optind = optind;
++    int saved_opterr = opterr;
++    int saved_optopt = optopt;
++    int errors = arg_parse(argc, copy, table);
++    optarg = saved_optarg;
++    optind = saved_optind;
++    opterr = saved_opterr;
++    optopt = saved_optopt;
++    if (errors != 0) {
+         arg_print_errors(stderr, table[END], "cd");
+         status = 2;
+         goto done;

@@ -546,6 +546,9 @@ static void cp_usage(FILE *out)
         help_print(out, table);
     arg_freetable(table, ARG_COUNT);
 }
-cmd_spec_t cmd_cp_spec = {"cp", "Copy files and directories.",
+cmd_spec_t cmd_cp_spec = {"cp",
+                          "Copy files and directories.",
                           "Copy regular files with mmap; -r copies trees.",
-                          cp_run, cp_usage};
+                          cp_run,
+                          cp_usage,
+                          NULL};

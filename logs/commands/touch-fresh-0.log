@@ -1,0 +1,39 @@
+COMMAND: make test-touch test-touch-impl
+python3 tests/test_touch.py /usr/bin/touch --reference
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... skipped 'project parsing contract'
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... skipped 'dangling link deliberate difference'
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... skipped 'project JSON contract'
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... skipped 'project UTF-8 preflight'
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... skipped 'project output status'
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.042s
+
+OK (skipped=5)
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_touch_module tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror -Lbuild/argtable3/lib -largtable3 -lm 
+python3 tests/test_touch.py ./build/touch
+test_arguments_help_dash (__main__.TouchTests.test_arguments_help_dash) ... ok
+test_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok
+test_dangling_loop_and_trailing_slash (__main__.TouchTests.test_dangling_loop_and_trailing_slash) ... ok
+test_existing (__main__.TouchTests.test_existing) ... ok
+test_json_order_escaping_errors (__main__.TouchTests.test_json_order_escaping_errors) ... ok
+test_json_utf8_before_effects (__main__.TouchTests.test_json_utf8_before_effects) ... ok
+test_many_independent_seeded_fixtures (__main__.TouchTests.test_many_independent_seeded_fixtures) ... ok
+test_metadata_targets (__main__.TouchTests.test_metadata_targets) ... ok
+test_output_failure_retains_effects (__main__.TouchTests.test_output_failure_retains_effects) ... ok
+test_permission_denied_continue (__main__.TouchTests.test_permission_denied_continue) ... ok
+test_permissions_umask (__main__.TouchTests.test_permissions_umask) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.062s
+
+OK
+./build/test_touch_module
+touch module: reuse, borrowed state, allocation/syscall/output faults and resource cleanup passed

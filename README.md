@@ -1,6 +1,7 @@
 # Builtin shell and directory traversal
 
-`main` runs 22 registered builtin commands directly; no external-command fallback.
+`main` runs 19 registered builtins and installed package commands. It does not
+search PATH for unknown commands.
 See [shell usage and limits](docs/commands/shell.md),
 [current status](docs/STATUS.md) and [decision logs](ai_log/README.md).
 
@@ -50,8 +51,9 @@ Tests require CUnit; checks require clang-tidy and clang-format.
 ## Supported commands
 
 Run `./build/main COMMAND ARGS...` or enter the command in the loop.
-Twenty-one commands also have optional standalone tools in `build/`; `cd` is
-in-process only, with no standalone executable. Existing standalone help
+Seventeen builtins also have optional standalone tools in `build/`; `cd` and
+`pkg` have no standalone wrapper. The separate `build/hello` is package-only,
+not a builtin. Existing standalone help
 examples below remain valid; every command also supports `main help COMMAND`.
 
 | Command | Purpose | Help |
@@ -73,21 +75,46 @@ examples below remain valid; every command also supports `main help COMMAND`.
 | [edit-delete-line](docs/commands/edit-delete-line.md) | Delete one existing line through staged editing; optional JSON | `./build/main help edit-delete-line` |
 | [edit-replace](docs/commands/edit-replace.md) | Global ERE/literal replacement through staged editing; optional JSON | `./build/main help edit-replace` |
 | [mv](docs/commands/mv.md) | Same-filesystem rename; explicit force and optional JSON | `./build/main help mv` |
-| [env](docs/commands/env.md) | Read-only sorted environment listing; optional JSON | `./build/main help env` |
-| [echo](docs/commands/echo.md) | Print literal operands separated by spaces and a newline | `./build/main help echo` |
-| [date](docs/commands/date.md) | Show numeric current local time or UTC | `./build/main help date` |
-| [printf](docs/commands/printf.md) | Bounded typed integer/string/byte formatting and escapes | `./build/main help printf` |
-| [sleep](docs/commands/sleep.md) | Delay for bounded decimal seconds; handled-signal retries | `./build/main help sleep` |
+| [rmdir](docs/commands/rmdir.md) | Remove empty directories; adopted baseline command | `./build/main help rmdir` |
+| [pkg](docs/commands/pkg.md) | List, inspect, install and remove local packages | `./build/main help pkg` |
 
 These are selected subsets, not full GNU replacements. The commands above are
-committed and registered at the [current checkpoint](docs/STATUS.md).
+registered in the current working tree; see [delivery status](docs/STATUS.md).
 Individual reviews retain their original gate status and explicit limitations;
 they are evidence snapshots, not live pending-commit instructions.
 Historical evidence is preserved in [command reports](docs/reports/README.md).
 
+## Packages and shell release
+
+See the brief [package guide](docs/commands/pkg.md) and separate
+[shell release guide and evidence](docs/reports/shell-release.md).
+
+```sh
+make package-hello
+./build/main pkg install build/packages/hello-0.1.0
+./build/main hello --name learner
+./build/main --commands-json
+./build/main pkg remove hello
+make release-shell              # build/releases/aishell-0.1.0/
+```
+
+The shell release is not a `pkg install` payload. Install it in a user-owned,
+versioned directory and select its `bin/aishell` launcher explicitly. Keep the
+old release and installed packages when switching launchers. Package updates
+use remove then install; no automatic rollback or shell self-update is provided.
+Generated targets are immutable: identical builds are no-ops; changed content
+needs another output root or an explicit manual move of the known old artifact.
+
 ## Demo
 
-Run `./demo.sh` after `make all`. The [verified recording](demo/commands-demo.mpg)
+The current [package lifecycle demo](demo/PACKAGING.md) records 17 real commands
+and 21 checks in [JSON](demo/packaging-demo.json) and a
+[transcript](demo/packaging-demo.log), including a relocated release.
+
+### Historical command recording
+
+The old `./demo.sh` runbook uses retired commands; do not use it for the current
+command set. The historical [verified recording](demo/commands-demo.mpg)
 shows five real commands with five-second holds: `pwd`, `ls`, `rg`, `printf`,
 `date -u`. It is a 25.08-second MPEG program stream with MPEG-2 video.
 See [execution and media evidence](demo/README.md). Historical recordings remain

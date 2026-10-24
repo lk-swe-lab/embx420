@@ -260,6 +260,9 @@ static void mv_usage(FILE *out)
     arg_freetable(table, ARG_COUNT);
 }
 cmd_spec_t cmd_mv_spec = {
-    "mv", "Move files and directories.",
+    "mv",
+    "Move files and directories.",
     "Rename one entry; -f permits replacement, --json reports the result.",
-    mv_run, mv_usage};
+    mv_run,
+    mv_usage,
+    NULL};

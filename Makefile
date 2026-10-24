@@ -15,7 +15,7 @@ C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
 CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
 
 .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo build/date build/printf build/sleep
+all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/rmdir
 
 build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -71,8 +71,13 @@ test-ls-impl: build/ls build/test_ls_module
 build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
-SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c src/cmd_edit_delete_line.c src/cmd_edit_replace.c src/cmd_mv.c src/cmd_env.c src/cmd_echo.c src/cmd_date.c src/cmd_printf.c src/cmd_sleep.c
-SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h src/cmd_edit_delete_line.h src/cmd_edit_replace.h src/cmd_mv.h src/cmd_env.h src/cmd_echo.h src/cmd_date.h src/cmd_printf.h src/cmd_sleep.h
+SHELL_SOURCES = src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_clear.c src/cmd_cd.c src/cmd_cp.c src/cmd_rg.c src/cmd_edit_replace_line.c src/cmd_edit_insert_line.c src/cmd_lines.c src/cmd_edit_delete_line.c src/cmd_edit_replace.c src/cmd_mv.c src/cmd_rmdir.c
+SHELL_HEADERS = src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_clear.h src/cmd_cd.h src/cmd_cp.h src/cmd_rg.h src/cmd_edit_replace_line.h src/cmd_edit_insert_line.h src/cmd_lines.h src/cmd_edit_delete_line.h src/cmd_edit_replace.h src/cmd_mv.h src/cmd_rmdir.h
+
+PKG_SOURCES = src/cmd_pkg.c src/pkg_store.c src/pkg_fs.c src/pkg_json.c src/pkg_schema.c
+PKG_HEADERS = src/cmd_pkg.h src/pkg_store.h src/pkg_fs.h src/pkg_json.h src/pkg_schema.h
+SHELL_SOURCES += $(PKG_SOURCES)
+SHELL_HEADERS += $(PKG_HEADERS)
 
 build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -81,7 +86,7 @@ build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEAD
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
 
 .PHONY: test-shell
-test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/env build/echo build/date build/printf build/sleep
+test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/rmdir
 	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
 	./build/test_shell_module
 
@@ -179,7 +184,7 @@ test: build/touch build/test_touch_module build/mkdir build/test_mkdir_module bu
 	./build/test_touch_module
 
 lint:
-	$(CLANG_TIDY) --checks='$(CLANG_TIDY_CHECKS)' --warnings-as-errors='*' $(C_SOURCES) -- $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS)
+	$(CLANG_TIDY) --checks='$(CLANG_TIDY_CHECKS)' --warnings-as-errors='*' $(C_SOURCES) -- -Isrc $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS)
 
 format-check:
 	$(CLANG_FORMAT) --dry-run --Werror $(C_FILES)
@@ -187,15 +192,82 @@ format-check:
 format:
 	$(CLANG_FORMAT) -i $(C_FILES)
 
+.PHONY: test-package-shell test-pkg
+
+test: test-package-shell test-pkg
+
+build/test_package_shell_module: tests/test_package_shell_module.c $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_package_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=fork,--wrap=execv,--wrap=waitpid,--wrap=malloc $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-package-shell: build/main build/test_package_shell_module package-hello
+	python3 tests/test_package_shell.py ./build/main
+
+PKG_TEST_WRAPS = -Wl,--wrap=openat,--wrap=close,--wrap=read,--wrap=__read_chk,--wrap=write,--wrap=renameat2,--wrap=unlinkat,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=arg_lit0,--wrap=arg_parse
+
+build/pkg-tests/pkg: tests/pkg_driver.c tests/pkg_faults.c $(PKG_SOURCES) $(PKG_HEADERS) src/registry.h src/cmd_spec.h Makefile | build
+	mkdir -p build/pkg-tests
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/pkg_driver.c tests/pkg_faults.c $(PKG_SOURCES) $(PKG_TEST_WRAPS) $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/pkg-tests/openat: tests/pkg_openat_driver.c tests/pkg_faults.c Makefile | build
+	mkdir -p build/pkg-tests
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/pkg_openat_driver.c tests/pkg_faults.c $(PKG_TEST_WRAPS) $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/pkg-tests/module: tests/test_pkg_module.c $(PKG_SOURCES) $(PKG_HEADERS) src/registry.h src/cmd_spec.h Makefile | build
+	mkdir -p build/pkg-tests
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_pkg_module.c $(PKG_SOURCES) -Wl,--wrap=arg_parse $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/pkg-tests/json: tests/pkg_json_driver.c src/pkg_json.c src/pkg_json.h Makefile | build
+	mkdir -p build/pkg-tests
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/pkg_json_driver.c src/pkg_json.c $(LDLIBS)
+
+build/pkg-tests/json-sanitize: tests/pkg_json_driver.c src/pkg_json.c src/pkg_json.h Makefile | build
+	mkdir -p build/pkg-tests
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/pkg_json_driver.c src/pkg_json.c $(LDLIBS)
+
+test-pkg: package-hello build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
+	python3 tests/test_pkg.py ./build/pkg-tests/pkg
+
+# Package-only hello; it is not linked into the shell builtin registry.
+all: build/hello
+test: test-hello test-package
+.PHONY: package-hello test-package test-hello
+build/hello: src/hello_main.c src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/hello_main.c src/cmd_hello.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/export-hello: src/export_hello.c src/cmd_metadata.c src/cmd_metadata.h src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/export_hello.c src/cmd_metadata.c src/cmd_hello.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_metadata: tests/test_metadata.c src/cmd_metadata.c src/cmd_metadata.h src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_metadata.c src/cmd_metadata.c src/cmd_hello.c -Wl,--wrap=arg_str0,--wrap=open_memstream,--wrap=fclose $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_hello_module: tests/test_hello_module.c src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_hello_module.c src/cmd_hello.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+package-hello: build/hello build/export-hello
+	python3 scripts/build_package.py
+
+test-hello: build/hello build/test_hello_module
+	python3 tests/test_hello.py ./build/hello
+	@for mode in usage metadata metadata-null metadata-stop state; do ./build/test_hello_module $$mode || exit $$?; done
+
+test-package: package-hello build/test_metadata
+	./build/test_metadata
+	python3 tests/test_package_build.py
+
+# Full-shell directory release; not an installable pkg payload.
+.PHONY: release-shell test-shell-release
+release-shell: build/main package-hello
+	python3 scripts/build_shell_release.py
+
+test-shell-release: build/main package-hello
+	python3 tests/test_shell_release.py
+
 build:
 	mkdir -p $@
 
 clean:
-	$(RM) build/sleep build/test_sleep_module build/cmd_sleep_test.o build/test_sleep_review_module
-	$(RM) build/printf build/test_printf_module build/cmd_printf_test.o
-	$(RM) build/date build/test_date_module build/cmd_date_test.o
-	$(RM) build/echo build/test_echo_module build/cmd_echo_test.o
-	$(RM) build/env build/test_env_module build/cmd_env_test.o
+	$(RM) build/test_package_shell_module build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
+	$(RM) build/hello build/export-hello build/test_metadata build/test_hello_module
 	$(RM) build/mv build/test_mv_module build/cmd_mv_test.o
 	$(RM) build/edit-replace build/test_edit_replace_module
 	$(RM) build/edit-delete-line build/test_edit_delete_line_module
@@ -301,7 +373,7 @@ test-edit-replace-impl: build/edit-replace build/test_edit_replace_module
 	python3 tests/test_edit_replace.py --program ./build/edit-replace
 	./build/test_edit_replace_module
 
-test: test-edit-replace-impl test-mv-impl
+test: test-edit-replace-impl test-mv-impl test-rmdir-impl
 
 .PHONY: test-mv test-mv-impl
 build/mv: src/mv_main.c src/cmd_mv.c src/cmd_mv.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
@@ -320,108 +392,23 @@ test-mv-impl: build/mv build/test_mv_module
 	python3 tests/test_mv.py ./build/mv
 	./build/test_mv_module
 
+.PHONY: test-rmdir test-rmdir-impl
+build/rmdir: src/rmdir_main.c src/cmd_rmdir.c src/cmd_rmdir.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/rmdir_main.c src/cmd_rmdir.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/cmd_rmdir_test.o: src/cmd_rmdir.c src/cmd_rmdir.h src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=rmdir_test_malloc -Dcalloc=rmdir_test_calloc -Dfree=rmdir_test_free -c -o $@ src/cmd_rmdir.c
+
+build/test_rmdir_module: tests/test_rmdir_module.c build/cmd_rmdir_test.o src/cmd_lines.c src/cmd_lines.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_rmdir_module.c build/cmd_rmdir_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-rmdir:
+	python3 tests/test_rmdir.py /usr/bin/rmdir --reference
+
+test-rmdir-impl: build/rmdir build/test_rmdir_module
+	python3 tests/test_rmdir.py ./build/rmdir
+	./build/test_rmdir_module
+
 .PHONY: test-edit-replace-impl
 build/edit-replace: src/edit_replace_main.c src/cmd_edit_replace.c src/cmd_edit_replace.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/edit_replace_main.c src/cmd_edit_replace.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-.PHONY: test-env test-env-impl
-build/env: src/env_main.c src/cmd_env.c src/cmd_env.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/env_main.c src/cmd_env.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-build/cmd_env_test.o: src/cmd_env.c src/cmd_env.h src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=env_test_malloc -Dfree=env_test_free -c -o $@ src/cmd_env.c
-
-build/test_env_module: tests/test_env_module.c build/cmd_env_test.o src/cmd_lines.c src/cmd_lines.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_env_module.c build/cmd_env_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-env:
-	python3 tests/test_env.py /usr/bin/env --reference
-
-test-env-impl: build/env build/main build/test_env_module
-	python3 tests/test_env.py ./build/env --main ./build/main
-	./build/test_env_module
-
-test: test-env-impl
-
-.PHONY: test-echo test-echo-impl
-build/echo: src/echo_main.c src/cmd_echo.c src/cmd_echo.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/echo_main.c src/cmd_echo.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-build/cmd_echo_test.o: src/cmd_echo.c src/cmd_echo.h src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=echo_test_malloc -Dfree=echo_test_free -c -o $@ src/cmd_echo.c
-
-build/test_echo_module: tests/test_echo_module.c build/cmd_echo_test.o src/cmd_lines.c src/cmd_lines.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_echo_module.c build/cmd_echo_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-echo:
-	python3 tests/test_echo.py /usr/bin/echo --reference
-
-test-echo-impl: build/echo build/main build/test_echo_module
-	python3 tests/test_echo.py ./build/echo --main ./build/main
-	./build/test_echo_module
-
-test: test-echo-impl
-
-.PHONY: test-date test-date-impl
-build/date: src/date_main.c src/cmd_date.c src/cmd_date.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/date_main.c src/cmd_date.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-date:
-	python3 tests/test_date.py /usr/bin/date --reference
-
-build/cmd_date_test.o: src/cmd_date.c src/cmd_date.h src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=date_test_malloc -Dfree=date_test_free -c -o $@ src/cmd_date.c
-
-build/test_date_module: tests/test_date_module.c build/cmd_date_test.o src/cmd_lines.c src/cmd_lines.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_date_module.c build/cmd_date_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_end,--wrap=arg_parse,--wrap=write,--wrap=clock_gettime,--wrap=gmtime_r,--wrap=localtime_r,--wrap=snprintf $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-date-impl: build/date build/main build/test_date_module
-	python3 tests/test_date.py ./build/date --main ./build/main
-	./build/test_date_module
-
-test: test-date-impl
-
-.PHONY: test-printf test-printf-impl
-build/printf: src/printf_main.c src/cmd_printf.c src/cmd_printf.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/printf_main.c src/cmd_printf.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-printf:
-	python3 tests/test_printf.py /usr/bin/printf --reference --slice 4
-
-build/cmd_printf_test.o: src/cmd_printf.c src/cmd_printf.h src/cmd_lines.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=printf_test_malloc -Dfree=printf_test_free -c -o $@ src/cmd_printf.c
-
-build/test_printf_module: tests/test_printf_module.c build/cmd_printf_test.o src/cmd_lines.c src/cmd_lines.h src/cmd_printf.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_printf_module.c build/cmd_printf_test.o src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_strn,--wrap=arg_end,--wrap=arg_parse,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-printf-impl: build/printf build/main build/test_printf_module
-	python3 tests/test_printf.py ./build/printf --slice 4 --main ./build/main
-	./build/test_printf_module
-
-test: test-printf-impl
-
-.PHONY: test-sleep test-sleep-impl
-build/sleep: src/sleep_main.c src/cmd_sleep.c src/cmd_sleep.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/sleep_main.c src/cmd_sleep.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-build/cmd_sleep_test.o: src/cmd_sleep.c src/cmd_sleep.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) -Dmalloc=sleep_test_malloc -Dfree=sleep_test_free -c -o $@ src/cmd_sleep.c
-
-build/test_sleep_module: tests/test_sleep_module.c build/cmd_sleep_test.o src/cmd_sleep.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_sleep_module.c build/cmd_sleep_test.o -Wl,--wrap=arg_lit0,--wrap=arg_str0,--wrap=arg_end,--wrap=arg_parse,--wrap=nanosleep $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-sleep:
-	python3 tests/test_sleep.py /usr/bin/sleep --reference --slice 2
-
-test-sleep-impl: build/sleep build/main build/test_sleep_module
-	python3 tests/test_sleep.py ./build/sleep --main ./build/main
-	./build/test_sleep_module
-
-test: test-sleep-impl test-sleep-review
-
-.PHONY: test-sleep-review
-build/test_sleep_review_module: tests/test_sleep_review_module.c src/cmd_sleep.c src/cmd_sleep.h src/cmd_spec.h Makefile | build
-	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_sleep_review_module.c src/cmd_sleep.c -Wl,--wrap=arg_parse,--wrap=nanosleep $(ARGTABLE3_LDLIBS) $(LDLIBS)
-
-test-sleep-review: build/sleep build/main build/test_sleep_review_module
-	python3 tests/test_sleep_review.py .

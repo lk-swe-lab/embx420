@@ -1,0 +1,25 @@
+F
+======================================================================
+FAIL: test_terminal_bytes (__main__.ClearTests.test_terminal_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/name/.hermes/cache/scratch/clear-review/tree/tests/test_clear.py", line 61, in test_terminal_bytes
+    self.assertEqual(invoke(terminal=True), (0, b"\x1b[H\x1b[2J", b""))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (0, b'\x1b[H\x1b[3J', b'') != (0, b'\x1b[H\x1b[2J', b'')
+
+First differing element 1:
+b'\x1b[H\x1b[3J'
+b'\x1b[H\x1b[2J'
+
+- (0, b'\x1b[H\x1b[3J', b'')
+?                  ^
+
++ (0, b'\x1b[H\x1b[2J', b'')
+?                  ^
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)

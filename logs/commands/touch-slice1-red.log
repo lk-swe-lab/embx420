@@ -1,0 +1,6 @@
+COMMAND: make build/touch && python3 tests/test_touch.py ./build/touch
+{
+  "output": "cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm \ntest_existing (__main__.TouchTests.test_existing) ... FAIL\n\n======================================================================\nFAIL: test_existing (__main__.TouchTests.test_existing)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/name/Documents/420-EMBDX/A/tests/test_touch.py\", line 56, in test_existing\n    info = self.recent(target, before, after)\n  File \"/home/name/Documents/420-EMBDX/A/tests/test_touch.py\", line 42, in recent\n    self.assertGreaterEqual(timestamp, before - 1000000000)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 946684800000000000 not greater than or equal to 1791507561349605348\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nFAILED (failures=1)",
+  "exit_code": 1,
+  "error": null
+}

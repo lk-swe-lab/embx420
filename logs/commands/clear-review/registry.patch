@@ -1,0 +1,19 @@
+--- a/src/registry.c
++++ b/src/registry.c
+@@ -1,3 +1,4 @@
++#include "cmd_clear.h" /* cmd_clear_spec. */
+ #include "registry.h"  /* Registry API, cmd_spec_t. */
+ #include "cmd_cat.h"   /* cmd_cat_spec. */
+ #include "cmd_head.h"  /* cmd_head_spec. */
+@@ -54,8 +55,9 @@
+ int register_all_builtin_commands(void)
+ {
+     const cmd_spec_t *builtins[] = {
+-        &cmd_cat_spec,  &cmd_head_spec, &cmd_tail_spec,  &cmd_pwd_spec,
+-        &cmd_stat_spec, &cmd_ls_spec,   &cmd_mkdir_spec, &cmd_touch_spec};
++        &cmd_cat_spec,   &cmd_head_spec,  &cmd_tail_spec,
++        &cmd_pwd_spec,   &cmd_stat_spec,  &cmd_ls_spec,
++        &cmd_mkdir_spec, &cmd_touch_spec, &cmd_clear_spec};
+     for (size_t i = 0; i < sizeof(builtins) / sizeof(builtins[0]); ++i)
+         if (register_command(builtins[i]) != 0)
+             return -1;

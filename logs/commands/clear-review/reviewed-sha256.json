@@ -1,0 +1,9 @@
+{
+  "src/cmd_clear.c": "1ff275114561fc1e6ac4a7411709e61c71be729dc674f1c24958c6b48f758302",
+  "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+  "src/clear_main.c": "a4dca45ad0759c88301446a7dcc63575f04d62737d35da6eef3cbb8b3de837f5",
+  "tests/test_clear.py": "88af200f59aa8d15ea4e16f3c61a8b9fce0aece3a35a6f54e10c8cd681fe03a9",
+  "tests/test_clear_module.c": "8e5d9c3ba17738b3810deda9af008b0dadecc598e89f9e7190ea820196f915e3",
+  "docs/commands/clear.md": "ac47bc0eaeb709fb046bf5a93e67c26195e1b88ed729bf3a76651132387e1345",
+  "docs/reports/clear.md": "76856eedcaa0769d61d60741ed25305a3d1f2cb1e15041492d198c1aa7722dca"
+}

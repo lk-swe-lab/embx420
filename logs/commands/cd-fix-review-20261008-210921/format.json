@@ -1,0 +1,10 @@
+{
+  "args": [
+    "make",
+    "format-check",
+    "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {}
+}

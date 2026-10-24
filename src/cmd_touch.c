@@ -238,4 +238,6 @@ cmd_spec_t cmd_touch_spec = {
     "Create empty files or update timestamps without changing contents.",
     "Create missing files empty. Set atime and mtime to now; "
     "existing contents remain unchanged.",
-    touch_run, touch_usage};
+    touch_run,
+    touch_usage,
+    NULL};

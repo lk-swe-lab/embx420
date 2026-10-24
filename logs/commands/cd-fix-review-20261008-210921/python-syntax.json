@@ -1,0 +1,13 @@
+{
+  "args": [
+    "python3",
+    "-m",
+    "py_compile",
+    "tests/test_cd.py"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {
+    "PYTHONPYCACHEPREFIX": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/pycache"
+  }
+}

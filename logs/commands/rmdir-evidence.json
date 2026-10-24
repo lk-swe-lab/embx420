@@ -1,0 +1,1322 @@
+[
+  {
+    "label": "reference-slice1",
+    "command": "python3 tests/test_rmdir.py /usr/bin/rmdir --reference --slice 1",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.055509115998575,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "0f8479080998f94733ab4655769bd8ea38e20d737ef823842e422dde7e08f139"
+  },
+  {
+    "label": "slice1-red",
+    "command": "python3 tests/test_rmdir.py /home/name/.hermes/cache/scratch/rmdir-state/red --slice 1",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.04538276299717836,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "2aea42e32dfdeee00883cdcd578224b940147d7897a803bf7d92f5a43ded614c"
+  },
+  {
+    "label": "reference-negative",
+    "command": "python3 tests/test_rmdir.py /usr/bin/true --reference --slice 1",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.04605478499433957,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "52c8d72d79d657719adcc871b0e1fc84fc2fcfc4c95587c93ee8dee7545c7c50"
+  },
+  {
+    "label": "slice1-green",
+    "command": "python3 tests/test_rmdir.py ./build/rmdir --slice 1",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.04685194099874934,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a05cd4900ac3287a57605493fc19ac54ba4662911f95f420f2fc590d2524a298"
+  },
+  {
+    "label": "slice2-red",
+    "command": "python3 tests/test_rmdir.py ./build/rmdir --slice 2",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.05030345600243891,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "c5c2ebce9f8d081320be53ed6e13792cd21ef0090c08bbf4c4233d2491f1c3ab"
+  },
+  {
+    "label": "slice2-build",
+    "command": "cc -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -Ibuild/argtable3/include -o build/rmdir src/rmdir_main.c src/cmd_rmdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.07600339000055101,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "slice2-green",
+    "command": "python3 tests/test_rmdir.py ./build/rmdir --slice 2",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.05774288599786814,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "36f4fed5b570e2aa412d9eeb64d697ad7c74fb4f038c8f6617fc553ab241d961"
+  },
+  {
+    "label": "slice3-reference",
+    "command": "python3 tests/test_rmdir.py /usr/bin/rmdir --reference --slice 3",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.09329090800019912,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "58c969b1b209584e382dbafd602ba47d2f0fe2e723f864dd64dbc93e4faefded"
+  },
+  {
+    "label": "slice3-red",
+    "command": "python3 tests/test_rmdir.py ./build/rmdir --slice 3",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.07038479699986055,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "2bea9bf17729b967a33002e67529d76f5cf912b3364d6c35fe49a669e741c410"
+  },
+  {
+    "label": "slice3-build",
+    "command": "cc -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -Ibuild/argtable3/include -o build/rmdir src/rmdir_main.c src/cmd_rmdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0802905649979948,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "slice3-green",
+    "command": "python3 tests/test_rmdir.py ./build/rmdir --slice 3",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.06972813900210895,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "5d8eba42bc402a19aec5603fff18f2d06060363f14c1f84164e6e86057ac136e"
+  },
+  {
+    "label": "module-characterization",
+    "command": "make test-rmdir-impl",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.2833177720021922,
+    "stdout_sha256": "a1d636a4f0ffd913e740f2d6656e7b4f45ef9cbad3a27b8cb7d2921b8873d257",
+    "stderr_sha256": "acfe8bedfbf60b26024cc2e29683064f4a55c19c055d57d8c51f140cf3874308"
+  },
+  {
+    "label": "registry-red",
+    "command": "python3 tests/test_shell.py --program ./build/main --standalone-dir ./build",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.2740959729999304,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "b25321dc380630369f41ec030ea22218e28ce4ab11335720488e448486884493"
+  },
+  {
+    "label": "registry-build",
+    "command": "make all build/test_shell_module",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 2.7811512550033513,
+    "stdout_sha256": "13bce8daa1dfad2b50e4dea411e8ccee1834ad5b2bc8433e46454beb7fa56a80",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "registry-green",
+    "command": "make test-shell",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 2,
+    "expected": 0,
+    "elapsed": 0.26187682400632184,
+    "stdout_sha256": "4cfa281213e5b0ead8e107d76db34eb09d970e80fd6793a515929061e440f502",
+    "stderr_sha256": "1862d69ba8922fe1c0db487612713ae14fba36bb6a38fb6599a5750723bdff7a"
+  },
+  {
+    "label": "full-regression",
+    "command": "make all test",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 2,
+    "expected": 0,
+    "elapsed": 2.6650429380024434,
+    "stdout_sha256": "9cb1fbab71e26223dfa75a54145edcc11db2c3a9a8e6b8889a3c8ed077133be9",
+    "stderr_sha256": "886eb40721dfd88d0087b47b5934c5131ebc2f34b7d1edf0830df96b84582086"
+  },
+  {
+    "label": "full-lint",
+    "command": "make lint",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 2,
+    "expected": 0,
+    "elapsed": 27.517453893000493,
+    "stdout_sha256": "0606150913930dc9372ae407326043146ad543b346db55ee286e3a1ecdbf01f3",
+    "stderr_sha256": "c98282497a01b4df4fad7f41cba332b4cea00335cb8cd20a1dd2d667fca47112"
+  },
+  {
+    "label": "scoped-format",
+    "command": "clang-format --dry-run --Werror src/cmd_rmdir.c src/cmd_rmdir.h src/rmdir_main.c tests/test_rmdir_module.c src/registry.c tests/test_shell_module.c",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.02620590599690331,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "global-format",
+    "command": "make format-check",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 2,
+    "expected": 2,
+    "elapsed": 0.2407114460002049,
+    "stdout_sha256": "a1758204277a631f3f401c04f91a9d2ebec8bb97c873e7cbc3cc2defcb2dd74d",
+    "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+  },
+  {
+    "label": "integration-corrected-green",
+    "command": "make test-shell",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.2916187759983586,
+    "stdout_sha256": "ab6b64068eef754ac3b14cc967fb1eca1e508b74c75a1a2b79b6c2f2973041c2",
+    "stderr_sha256": "36a42af42b9b3610bfc1fc9933c841005d2eaee33144faed13ba8d26a46e2a42"
+  },
+  {
+    "label": "full-regression-corrected",
+    "command": "make all test",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 7.782488214994373,
+    "stdout_sha256": "c2429718adea1589a44804ffb540a350ab97a34a8339a462fba32ed167da1885",
+    "stderr_sha256": "fb54a07905722dd632fe9cf3a7cd9e111be9a77fe7e36b475f5112d1045e4e57"
+  },
+  {
+    "label": "full-lint-corrected",
+    "command": "make lint",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 28.605704718000197,
+    "stdout_sha256": "2a28686c6ca6ad4c6e6702610c79d477aebc552b8c44182aac5845ce606ef3e3",
+    "stderr_sha256": "3dd645dc40edd731c6edb8a8476645e6cd7899ab03547b2d50e8005592203b14"
+  },
+  {
+    "label": "expanded-reference",
+    "command": "make test-rmdir",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.5382342509983573,
+    "stdout_sha256": "c7f8388ca6ef6f1165a729e70e8c2a524e89377978fea5578a07ee0bfe33075d",
+    "stderr_sha256": "b255ff05cae955df35827229b1ceb1e7f8aea2239285b8aaabd3be27a23f356b"
+  },
+  {
+    "label": "no-rmdir-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir",
+      "src/rmdir_main.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir.c",
+      "src/cmd_lines.c",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08115471200289903,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "no-rmdir-negative",
+    "command": [
+      "python3",
+      "tests/test_rmdir.py",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir",
+      "--slice",
+      "1"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.04743534600129351,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "6cfae705cffad5136962ecdb978e0f386335bd45d0c4f1b5c676ea292672c640"
+  },
+  {
+    "label": "borrowed-argv-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.031694062003225554,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "borrowed-argv-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.07852810699841939,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "borrowed-argv-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.0957535600027768,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "eb670b4f3e8b21e9d5efe18abdd749a35b2dc7033c60fdcf59e1f73c9eef91ea"
+  },
+  {
+    "label": "getopt-state-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.033526063001772854,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "getopt-state-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0799810320022516,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "getopt-state-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.094461886001227,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "df6e8ea4b66b6e5576190b03503fa64cee1edfe23218846f60bdad2bfb046ffd"
+  },
+  {
+    "label": "wrong-json-errno-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.03144018400053028,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "wrong-json-errno-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08140116000140551,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "wrong-json-errno-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.0961916710002697,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "571d21ec04f916d5c910fb277949675454625b644792cf8c75cd05b8ca78e32e"
+  },
+  {
+    "label": "internal-library-oom-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal-oom",
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal_oom.c",
+      "src/cmd_rmdir.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=malloc,--wrap=arg_parse",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08415654200507561,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "internal-library-oom-characterization",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal-oom"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": null,
+    "elapsed": 0.0006411630020011216,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+  },
+  {
+    "label": "negative-controls-production-green",
+    "command": [
+      "make",
+      "test-rmdir-impl"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.44106207699951483,
+    "stdout_sha256": "973fb52b9497a34761f2e9d08765d22869a56e3da8354a418e56b1ef855a3b9d",
+    "stderr_sha256": "3689dc8bbaa6402424b055b7aa7a06691f817d54c137422e97e6c5f220dfe37e"
+  },
+  {
+    "label": "final-expanded-focused",
+    "command": "make test-rmdir-impl",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.4478299769980367,
+    "stdout_sha256": "973fb52b9497a34761f2e9d08765d22869a56e3da8354a418e56b1ef855a3b9d",
+    "stderr_sha256": "e219f68059a2d3170e2c6c8bc56c39dd847a20558401f6543fe52e47a2a72d43"
+  },
+  {
+    "label": "fresh-default-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-esnu3few",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0027645910013234243,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-default-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-esnu3few",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.002793248997477349,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8a6c80748510764a21e452ff8c3d303d199cdda025d40a52bf3d1e7a5bb9ddbe"
+  },
+  {
+    "label": "fresh-default-all-test",
+    "command": [
+      "make",
+      "all",
+      "test"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-esnu3few",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 11.506600193002669,
+    "stdout_sha256": "3b3971564c7fc69d8968d78572d66cce54cc9dc2d726f706ccedc7b053181ca4",
+    "stderr_sha256": "f8583b9c5742e86d6a266c5b7dd5c5e14d243cc794f70260e8c276b396c69aff"
+  },
+  {
+    "label": "fresh-default-lint",
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-esnu3few",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 27.496459147994756,
+    "stdout_sha256": "2a28686c6ca6ad4c6e6702610c79d477aebc552b8c44182aac5845ce606ef3e3",
+    "stderr_sha256": "90156b77965e4a75a7b21a248563784d16362e37cac5e02ee9c15890b47c93f5"
+  },
+  {
+    "label": "fresh-default-scoped-format",
+    "command": [
+      "clang-format",
+      "--dry-run",
+      "--Werror",
+      "src/cmd_rmdir.c",
+      "src/cmd_rmdir.h",
+      "src/rmdir_main.c",
+      "tests/test_rmdir_module.c",
+      "src/registry.c",
+      "tests/test_shell_module.c"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-esnu3few",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.032152517000213265,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-sanitizer-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-cuujn5o9",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.003596689995902125,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-sanitizer-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-cuujn5o9",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0037101459965924732,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "26367de70b1299bf502323ee6fad8a64aa13183fa16ba4565f8bc76eded9fcef"
+  },
+  {
+    "label": "fresh-O0-ASanUBSan-full",
+    "command": [
+      "make",
+      "all",
+      "test",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-cuujn5o9",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 45.82218589900003,
+    "stdout_sha256": "bfe5e04cd93957aa67aa861dbca40f6ce88265f5ce38a21733a376ee4e5bfc8f",
+    "stderr_sha256": "5f9f2d341160c6d7c6ecaf80e6d37da3768bc777474aceafa551f06114b1ad4b"
+  },
+  {
+    "label": "HEAD-O1-sanitizer-build",
+    "command": [
+      "make",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-jqkwrw8d",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 3.051806472001772,
+    "stdout_sha256": "8ee924b4bfce061cd03b91e9b306ca6414269922b14f9dd7fe494f2930229837",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "HEAD-O1-inherited-fault",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-jqkwrw8d/build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-jqkwrw8d",
+    "status": -6,
+    "expected": null,
+    "elapsed": 1.1150302019959781,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "c35064f3adfb180b8a50aa3c7750f57d98e795a0be1191948292c03aa4eaf20a"
+  },
+  {
+    "label": "candidate-O1-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-ncbe_kj2",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0029860450013075024,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "candidate-O1-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-ncbe_kj2",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.003007485000125598,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "26367de70b1299bf502323ee6fad8a64aa13183fa16ba4565f8bc76eded9fcef"
+  },
+  {
+    "label": "candidate-O1-sanitizer-build",
+    "command": [
+      "make",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-ncbe_kj2",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 3.1343014649974066,
+    "stdout_sha256": "57cf6fbb5059d824b066c94cc8b1c86929226c9564c466ff6d1a9ff86a7c6720",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "candidate-O1-inherited-fault",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-ncbe_kj2/build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-ncbe_kj2",
+    "status": -6,
+    "expected": null,
+    "elapsed": 1.1192773840011796,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "fbbbe8c1189bb64473fbc86e108606b6860e4b78ad9fb02888f881373c43d6b9"
+  },
+  {
+    "label": "fresh-default-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0034111900022253394,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-default-source-doc-whitespace",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--whitespace=error-all",
+      "--exclude=logs/commands/rmdir-execution.log",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0020618499984266236,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-default-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0032148329992196523,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "c050114da0eb5ff6972cf32d8b3ad18927ce9ef90b74090288aebe425a4f81a2"
+  },
+  {
+    "label": "fresh-default-all-test",
+    "command": [
+      "make",
+      "all",
+      "test"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 11.472652578006091,
+    "stdout_sha256": "26ff5451cf80ff25aec693d5f2d7a750c9888da5ef055c8b7787e5d515d6def7",
+    "stderr_sha256": "1a36b125bbf3d163f97183f192fcd9ba37a94f4fcbe4c304c8dbab28da5f70b7"
+  },
+  {
+    "label": "fresh-default-lint",
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 29.367507345996273,
+    "stdout_sha256": "2a28686c6ca6ad4c6e6702610c79d477aebc552b8c44182aac5845ce606ef3e3",
+    "stderr_sha256": "db3592c155c0cfb044ba5a439ace7eda864b785818dd33fd177e54c48f211dc6"
+  },
+  {
+    "label": "fresh-default-scoped-format",
+    "command": [
+      "clang-format",
+      "--dry-run",
+      "--Werror",
+      "src/cmd_rmdir.c",
+      "src/cmd_rmdir.h",
+      "src/rmdir_main.c",
+      "tests/test_rmdir_module.c",
+      "src/registry.c",
+      "tests/test_shell_module.c"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-default-433zf7bf",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.03063696100434754,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-sanitizer-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-punv1hxp",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.004315860001952387,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-sanitizer-source-doc-whitespace",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--whitespace=error-all",
+      "--exclude=logs/commands/rmdir-execution.log",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-punv1hxp",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0028157600027043372,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "fresh-sanitizer-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-punv1hxp",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.00447440700372681,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8ba13a069b1105497a79cfcf94468fb8aab38a0e3b17cf77656c22be85e0f507"
+  },
+  {
+    "label": "fresh-O0-ASanUBSan-full",
+    "command": [
+      "make",
+      "all",
+      "test",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-fresh-sanitizer-punv1hxp",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 45.00134042499849,
+    "stdout_sha256": "30e37a9011270bda0483b70cbbfd1920b323b3810c2cff96fe4ecfa4e210e0c9",
+    "stderr_sha256": "c5e82394988860b27509458579b57d7a31ada547e873b775a1557873b27a6f2c"
+  },
+  {
+    "label": "HEAD-O1-sanitizer-build",
+    "command": [
+      "make",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-1d2zgg0s",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 2.674451452003268,
+    "stdout_sha256": "8ee924b4bfce061cd03b91e9b306ca6414269922b14f9dd7fe494f2930229837",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "HEAD-O1-inherited-fault",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-1d2zgg0s/build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-1d2zgg0s",
+    "status": -6,
+    "expected": null,
+    "elapsed": 1.1152274550040602,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "c35064f3adfb180b8a50aa3c7750f57d98e795a0be1191948292c03aa4eaf20a"
+  },
+  {
+    "label": "candidate-O1-patch-check",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.003393063998373691,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "candidate-O1-source-doc-whitespace",
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "--whitespace=error-all",
+      "--exclude=logs/commands/rmdir-execution.log",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.0023641369989491068,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "candidate-O1-patch-apply",
+    "command": [
+      "git",
+      "apply",
+      "/home/name/.hermes/cache/scratch/rmdir-state/integration.patch"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.003508512003463693,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8ba13a069b1105497a79cfcf94468fb8aab38a0e3b17cf77656c22be85e0f507"
+  },
+  {
+    "label": "candidate-O1-sanitizer-build",
+    "command": [
+      "make",
+      "build/test_shell_module",
+      "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie",
+      "LDFLAGS=-fsanitize=address,undefined -no-pie"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 3.2251009780011373,
+    "stdout_sha256": "57cf6fbb5059d824b066c94cc8b1c86929226c9564c466ff6d1a9ff86a7c6720",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "candidate-O1-inherited-fault",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183/build/test_shell_module"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-candidate-O1-9ote6183",
+    "status": -6,
+    "expected": null,
+    "elapsed": 1.1190059520013165,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "fbbbe8c1189bb64473fbc86e108606b6860e4b78ad9fb02888f881373c43d6b9"
+  },
+  {
+    "label": "HEAD-global-format-baseline",
+    "command": [
+      "make",
+      "format-check"
+    ],
+    "cwd": "/home/name/.hermes/cache/scratch/rmdir-state/rmdir-HEAD-O1-baseline-1d2zgg0s",
+    "status": 2,
+    "expected": 2,
+    "elapsed": 0.23027907600044273,
+    "stdout_sha256": "8eb1bf8d8a261ed0c1639422b83ec355693ea1cc2c8a21fb80a88935b5b6c1fb",
+    "stderr_sha256": "b5a55ece247fd8efae87a97e3d648c2486fb3019f8526afab37c25bca8c5756d"
+  },
+  {
+    "label": "no-rmdir-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir",
+      "src/rmdir_main.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir.c",
+      "src/cmd_lines.c",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08628641999530373,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "no-rmdir-negative",
+    "command": [
+      "python3",
+      "tests/test_rmdir.py",
+      "/home/name/.hermes/cache/scratch/rmdir-state/no-rmdir",
+      "--slice",
+      "1"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": 1,
+    "elapsed": 0.047610907997295726,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "bb187193bdc8112a4c8b4b165456d9e97828fd36da34621bab39a2c046faf58b"
+  },
+  {
+    "label": "borrowed-argv-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.03406789400469279,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "borrowed-argv-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08094692200393183,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "borrowed-argv-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/borrowed-argv"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.095097215998976,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "eb670b4f3e8b21e9d5efe18abdd749a35b2dc7033c60fdcf59e1f73c9eef91ea"
+  },
+  {
+    "label": "getopt-state-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.035170145994925406,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "getopt-state-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08013763000053586,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "getopt-state-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/getopt-state"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.0948203049993026,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "df6e8ea4b66b6e5576190b03503fa64cee1edfe23218846f60bdad2bfb046ffd"
+  },
+  {
+    "label": "wrong-json-errno-build-object",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-Dmalloc=rmdir_test_malloc",
+      "-Dcalloc=rmdir_test_calloc",
+      "-Dfree=rmdir_test_free",
+      "-c",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.c"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.03349156199692516,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "wrong-json-errno-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno",
+      "tests/test_rmdir_module.c",
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno.o",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=rmdir,--wrap=stat,--wrap=lstat,--wrap=fcntl,--wrap=write",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08050186200125609,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "wrong-json-errno-negative",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/wrong-json-errno"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": -6,
+    "expected": -6,
+    "elapsed": 1.0971275769989006,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "571d21ec04f916d5c910fb277949675454625b644792cf8c75cd05b8ca78e32e"
+  },
+  {
+    "label": "internal-library-oom-build",
+    "command": [
+      "cc",
+      "-std=c17",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-O0",
+      "-Isrc",
+      "-Ibuild/argtable3/include",
+      "-o",
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal-oom",
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal_oom.c",
+      "src/cmd_rmdir.c",
+      "src/cmd_lines.c",
+      "-Wl,--wrap=malloc,--wrap=arg_parse",
+      "-Lbuild/argtable3/lib",
+      "-largtable3",
+      "-lm"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.08164524899621028,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "internal-library-oom-characterization",
+    "command": [
+      "/home/name/.hermes/cache/scratch/rmdir-state/internal-oom"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 1,
+    "expected": null,
+    "elapsed": 0.0008115430027828552,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a48a322751b4f427aeb08395682f6ffbe3139e9a48fa1148f1fbfdf24ff6b0ec"
+  },
+  {
+    "label": "negative-controls-production-green",
+    "command": [
+      "make",
+      "test-rmdir-impl"
+    ],
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.25660078700457234,
+    "stdout_sha256": "93889bd5a4ca7d136129f4a237d090d6a863aa10ba2123c9a96c186a6a809c7b",
+    "stderr_sha256": "cfc98d094c0e20920ca6c8925030c1f92b41f47074711c6ade4894b2ca31a9c5"
+  },
+  {
+    "label": "final-reference",
+    "command": "make test-rmdir",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.5172087609971641,
+    "stdout_sha256": "c7f8388ca6ef6f1165a729e70e8c2a524e89377978fea5578a07ee0bfe33075d",
+    "stderr_sha256": "12b3db07d37235799d0fc66cc4b297da9553c0c26610bd644aa75a26dff03f02"
+  },
+  {
+    "label": "toolchain-dependency-context",
+    "command": "cc --version; clang-format --version; clang-tidy --version; ldd build/rmdir; MANWIDTH=80 man 1 rmdir; info \"(coreutils) rmdir invocation\"",
+    "cwd": "/home/name/Documents/420-EMBDX/A",
+    "status": 0,
+    "expected": 0,
+    "elapsed": 0.05970159300341038,
+    "stdout_sha256": "53c77d00956506e232bf2ec307f81d450595bfeba4795d745e5ab0c23fcdbd1a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

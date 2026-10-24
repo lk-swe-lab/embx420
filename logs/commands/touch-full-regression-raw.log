@@ -1,0 +1,14 @@
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/mkdir src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_mkdir_module tests/test_mkdir_module.c src/cmd_mkdir.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=free,--wrap=mkdir,--wrap=stat,--wrap=chmod,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/ls src/ls_main.c src/cmd_ls.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_ls_module tests/test_ls_module.c src/cmd_ls.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=realloc,--wrap=strdup,--wrap=opendir,--wrap=readdir,--wrap=fstatat,--wrap=closedir,--wrap=write -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/stat src/stat_main.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/test_stat_module tests/test_stat_module.c src/cmd_stat.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm 
+cc  -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/main src/main.c src/traverse.c 
+/usr/bin/ld: /home/name/.hermes/cache/scratch/cc7hR3IP.o: in function `main':
+/home/name/Documents/420-EMBDX/A/src/main.c:125:(.text+0x4e1): undefined reference to `register_all_builtin_commands'
+/usr/bin/ld: /home/name/Documents/420-EMBDX/A/src/main.c:130:(.text+0x51d): undefined reference to `shell_loop'
+/usr/bin/ld: /home/name/Documents/420-EMBDX/A/src/main.c:136:(.text+0x575): undefined reference to `shell_help'
+/usr/bin/ld: /home/name/Documents/420-EMBDX/A/src/main.c:139:(.text+0x596): undefined reference to `shell_dispatch'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:75: build/main] Error 1

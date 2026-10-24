@@ -425,6 +425,9 @@ static void insert_usage(FILE *out)
 }
 
 cmd_spec_t cmd_edit_insert_line_spec = {
-    "edit-insert-line", "Insert one line using staged file editing.",
-    "Insert TEXT plus LF before FILE line N; count+1 appends.", insert_run,
-    insert_usage};
+    "edit-insert-line",
+    "Insert one line using staged file editing.",
+    "Insert TEXT plus LF before FILE line N; count+1 appends.",
+    insert_run,
+    insert_usage,
+    NULL};

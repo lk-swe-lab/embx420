@@ -1,0 +1,11 @@
+{
+  "args": [
+    "git",
+    "apply",
+    "--check",
+    "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+  ],
+  "cwd": "/home/name/Documents/420-EMBDX/A",
+  "status": 0,
+  "env": {}
+}

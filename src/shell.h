@@ -7,4 +7,5 @@
 int shell_dispatch(int argc, char **argv, int *stop, int previous_status);
 int shell_loop(void);
 int shell_help(void);
+int shell_commands_json(void);
 #endif

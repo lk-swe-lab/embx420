@@ -16,8 +16,9 @@ PROGRAM = str(Path(ARGS.program).resolve())
 STANDALONE = Path(ARGS.standalone_dir).resolve()
 STANDALONE_NAMES = ['cat', 'head', 'tail', 'pwd', 'stat', 'ls', 'mkdir',
                     'touch', 'clear', 'cp', 'rg', 'edit-replace-line',
-                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv', 'env', 'echo', 'date', 'printf', 'sleep']
-BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:]
+                    'edit-insert-line', 'edit-delete-line', 'edit-replace', 'mv',
+                    'rmdir']
+BUILTIN_NAMES = STANDALONE_NAMES[:10] + ['cd'] + STANDALONE_NAMES[10:] + ['pkg']
 SUMMARIES = [
     'Concatenate files to standard output.',
     'Show the first lines of a file or stream.',
@@ -36,16 +37,14 @@ SUMMARIES = [
     'Delete one existing line using staged file editing.',
     'Replace all matches using staged file editing.',
     'Move files and directories.',
-    'List environment variables.',
-    'Print literal text.',
-    'Show system time.',
-    'Print formatted bytes.',
-    'Delay for a specified duration.',
+    'Remove empty directories.',
+    'Manage local packages.',
 ]
 HELP = (
     'Usage: main COMMAND [ARGS...]\n'
     '       main                 # read commands from stdin\n'
     '       main --help\n'
+    '       main --commands-json\n'
     '       main -r DIR [--mtime] [--local|--utc] [--histogram]\n'
     '\nCommands:\n'
     + ''.join(f'  {n:<8} {s}\n' for n, s in zip(BUILTIN_NAMES, SUMMARIES))
@@ -60,18 +59,109 @@ class ShellTests(unittest.TestCase):
             dir=os.environ.get('TMPDIR', '/home/name/.hermes/cache/scratch'))
         self.addCleanup(self.temp.cleanup)
         self.cwd = Path(self.temp.name)
+        self.home_temp = tempfile.TemporaryDirectory(dir=self.cwd.parent)
+        self.addCleanup(self.home_temp.cleanup)
+        self.home = Path(self.home_temp.name)
+        self.env = {**os.environ, 'HOME': str(self.home), 'LC_ALL': 'C'}
         (self.cwd / 'data').write_bytes(b'first\nsecond\nthird\n')
 
     def run_cli(self, args=(), data=b'', binary: str | Path = PROGRAM):
         proc = subprocess.run([str(binary), *args], input=data,
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                              cwd=self.cwd, env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
+                              cwd=self.cwd, env=self.env,
                               timeout=5)
         return proc.returncode, proc.stdout, proc.stderr
 
     def check(self, args=(), data=b'', status=0, out=b'', err=b''):
         self.assertEqual(self.run_cli(args, data), (status, out, err))
+
+    def test_all_launch_paths_use_private_home(self):
+        from unittest.mock import patch
+        real_popen = subprocess.Popen
+        launches = []
+
+        def checked_popen(*args, **kwargs):
+            env = kwargs.get('env', {})
+            self.assertNotEqual(env.get('HOME'), str(self.cwd / 'caller-home'))
+            self.assertEqual(env.get('HOME'), str(self.home))
+            self.assertEqual(env.get('LC_ALL'), 'C')
+            self.assertFalse((Path(env['HOME']) / '.mysh').exists())
+            launches.append(args[0])
+            return real_popen(*args, **kwargs)
+
+        with patch.dict(os.environ, HOME=str(self.cwd / 'caller-home')):
+            with patch.object(subprocess, 'Popen', checked_popen):
+                self.check(['pwd'], out=os.fsencode(self.cwd) + b'\n')
+                for method in (self.test_interactive_prompt,
+                               self.test_rmdir_registry_loop_and_pty,
+                               self.test_mv_registry_loop_and_pty,
+                               self.test_edit_replace_line_child_pty,
+                               self.test_edit_insert_line_child_pty,
+                               self.test_edit_delete_line_child_pty,
+                               self.test_edit_replace_child_pty):
+                    with self.subTest(launch=method.__name__):
+                        (self.cwd / 'data').write_bytes(b'first\nsecond\nthird\n')
+                        method()
+                self.test_output_and_input_failure()
+        self.assertGreaterEqual(len(launches), 10)
+
+    def test_rmdir_registry_loop_and_pty(self):
+        (self.cwd / 'empty').mkdir()
+        expected = b'[{"path":"empty","status":"ok","errno":0}]\n'
+        self.check(['rmdir', '--json', 'empty'], out=expected)
+        self.assertFalse((self.cwd / 'empty').exists())
+        self.check(data=b'mkdir one two\nrmdir one\nrmdir two\npwd\n',
+                   out=os.fsencode(self.cwd) + b'\n')
+        self.assertFalse((self.cwd / 'one').exists())
+        self.assertFalse((self.cwd / 'two').exists())
+        failure = self.run_cli(['missing'], binary=STANDALONE / 'rmdir')
+        self.assertEqual(failure[0], 1)
+        self.assertEqual(self.run_cli(['rmdir', 'missing']), failure)
+        self.assertEqual(self.run_cli(data=b'rmdir missing\nexit\n'), failure)
+        self.assertEqual(self.run_cli(['help', 'rmdir']),
+                         self.run_cli(['--help'], binary=STANDALONE / 'rmdir'))
+        script = b'mkdir repeat\nrmdir repeat\n' * 100 + b'pwd\n'
+        self.check(data=script, out=os.fsencode(self.cwd) + b'\n')
+        self.assertFalse((self.cwd / 'repeat').exists())
+        import pty
+        import select
+        import termios
+        import time
+        master, slave = pty.openpty()
+        settings = termios.tcgetattr(slave)
+        settings[3] &= ~termios.ECHO
+        termios.tcsetattr(slave, termios.TCSANOW, settings)
+        proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
+                                stderr=subprocess.PIPE, cwd=self.cwd,
+                                env=self.env)
+        os.close(slave)
+        try:
+            os.write(master, b'mkdir "pty empty"\nrmdir "pty empty"\npwd\nexit\n')
+            out = b''
+            deadline = time.monotonic() + 5
+            while time.monotonic() < deadline:
+                ready, _, _ = select.select([master], [], [], 0.05)
+                if ready:
+                    try:
+                        chunk = os.read(master, 4096)
+                    except OSError:
+                        break
+                    if not chunk:
+                        break
+                    out += chunk
+                elif proc.poll() is not None:
+                    break
+            _, err = proc.communicate(timeout=2)
+            self.assertEqual((proc.returncode, out, err),
+                             (0, os.fsencode(self.cwd) + b'\r\n', b'main> ' * 4))
+            self.assertFalse((self.cwd / 'pty empty').exists())
+            self.assertEqual((self.cwd / 'data').read_bytes(),
+                             b'first\nsecond\nthird\n')
+        finally:
+            os.close(master)
+            if proc.poll() is None:
+                proc.kill()
+                proc.communicate()
 
     def test_mv_registry_loop_and_pty(self):
         payload = (self.cwd / 'data').read_bytes()
@@ -96,7 +186,8 @@ class ShellTests(unittest.TestCase):
         settings[3] &= ~termios.ECHO
         termios.tcsetattr(slave, termios.TCSANOW, settings)
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
-                                stderr=subprocess.PIPE, cwd=self.cwd)
+                                stderr=subprocess.PIPE, cwd=self.cwd,
+                                env=self.env)
         os.close(slave)
         try:
             os.write(master, b'mv data "pty moved"\n'
@@ -184,8 +275,7 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
+                                env=self.env,
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -266,8 +356,7 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
+                                env=self.env,
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -345,8 +434,7 @@ class ShellTests(unittest.TestCase):
 
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
+                                env=self.env,
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -419,8 +507,7 @@ class ShellTests(unittest.TestCase):
             fcntl.ioctl(slave, termios.TIOCSCTTY, 0)
         proc = subprocess.Popen([PROGRAM], stdin=slave, stdout=slave,
                                 stderr=slave, cwd=self.cwd,
-                                env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'},
+                                env=self.env,
                                 preexec_fn=own_terminal)
         os.close(slave)
         try:
@@ -546,10 +633,8 @@ class ShellTests(unittest.TestCase):
                  'edit-insert-line': ['--json', 'data', '2', 'insertion'],
                  'edit-delete-line': ['--json', 'data', '2'],
                  'edit-replace': ['--json', 'data', 'first|third', 'replacement'],
-                 'mv': ['--json', 'move-source', 'move-target'], 'env': ['--json'],
-                 'echo': ['', 'two words', '--', '-n', '--help'],
-                 'date': ['--help'], 'printf': ['%s:%04d', 'value', '7'],
-                 'sleep': ['0']}
+                 'mv': ['--json', 'move-source', 'move-target'],
+                 'rmdir': ['--json', 'empty']}
         self.assertEqual(list(cases), STANDALONE_NAMES)
         for name, args in cases.items():
             with self.subTest(name=name):
@@ -558,7 +643,12 @@ class ShellTests(unittest.TestCase):
                     (self.cwd / 'data').write_bytes(b'first\nthird')
                 if name == 'mv':
                     (self.cwd / 'move-source').write_bytes(b'move')
+                if name == 'rmdir':
+                    (self.cwd / 'empty').mkdir()
                 expected = self.run_cli(args, binary=STANDALONE / name)
+                if name == 'rmdir':
+                    self.assertFalse((self.cwd / 'empty').exists())
+                    (self.cwd / 'empty').mkdir()
                 if name == 'mv':
                     self.assertEqual((self.cwd / 'move-target').read_bytes(), b'move')
                     (self.cwd / 'move-target').unlink()
@@ -567,6 +657,8 @@ class ShellTests(unittest.TestCase):
                     edited = (self.cwd / 'data').read_bytes()
                     (self.cwd / 'data').write_bytes(b'first\nthird')
                 self.assertEqual(self.run_cli([name, *args]), expected)
+                if name == 'rmdir':
+                    self.assertFalse((self.cwd / 'empty').exists())
                 if name == 'mv':
                     self.assertFalse((self.cwd / 'move-source').exists())
                     self.assertEqual((self.cwd / 'move-target').read_bytes(), b'move')
@@ -705,8 +797,8 @@ class ShellTests(unittest.TestCase):
         self.assertEqual((self.cwd / 'data').read_bytes(), before)
 
     def test_no_external_fallback_or_expansion(self):
-        self.check(['not-a-builtin', 'unexpected'], status=127,
-                   err=b'main: not-a-builtin: unknown command\n')
+        self.check(['echo', 'unexpected'], status=127,
+                   err=b'main: echo: unknown command\n')
         self.check(data=b'/usr/bin/printf external\n', status=127,
                    err=b'main: /usr/bin/printf: unknown command\n')
         self.check(data=b'# comment\n', status=127,
@@ -717,15 +809,14 @@ class ShellTests(unittest.TestCase):
     def test_output_and_input_failure(self):
         with open('/dev/full', 'wb') as out:
             proc = subprocess.run([PROGRAM, '--help'], stdout=out,
-                                  stderr=subprocess.PIPE, timeout=5)
+                                  stderr=subprocess.PIPE, env=self.env, timeout=5)
             self.assertEqual(proc.returncode, 1)
         # A directory descriptor is readable-open but read fails with EISDIR.
         fd = os.open(self.cwd, os.O_RDONLY | os.O_DIRECTORY)
         self.addCleanup(os.close, fd)
         proc = subprocess.run([PROGRAM], stdin=fd, stdout=subprocess.PIPE,
                               stderr=subprocess.PIPE,
-                              env={'PATH': '/usr/bin:/bin', 'LC_ALL': 'C',
-                                     'HOME': str(self.cwd), 'TERM': 'ansi'}, timeout=5)
+                              env=self.env, timeout=5)
         self.assertEqual((proc.returncode, proc.stdout, proc.stderr),
                          (1, b'', b'main: standard input: Is a directory\n'))
 
@@ -757,7 +848,8 @@ class ShellTests(unittest.TestCase):
         try:
             proc = subprocess.Popen([PROGRAM], stdin=slave,
                                     stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE, cwd=self.cwd)
+                                    stderr=subprocess.PIPE, cwd=self.cwd,
+                                    env=self.env)
             try:
                 os.write(master, b'pwd\nexit\n')
                 out, err = proc.communicate(timeout=5)

@@ -1,0 +1,96 @@
+[
+  {
+    "query": "GNU Bash Bourne Shell Builtins cd physical directory HOME CDPATH",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html",
+            "title": "Bourne Shell Builtins (Bash Reference Manual) - GNU.org",
+            "description": "### 4.1 Bourne Shell Builtins [\u00b6](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#Bourne-Shell-Builtins-1)\n```\n: [arguments]\n```\n\n```\n. [-p path] filename [arguments]\n```\n\n```\nbreak [n]\n```\n\n```\ncd [-L] [-@] [directory]\ncd -P [-e] [-@] [directory]\n```\n\n`CDPATH` exists, `cd` searches each directory name in `CDPATH` for directory, with alternative directory names in `CDPATH` A null directory name in `CDPATH` means the same thing as the\n\nIf `cd` uses a non-empty directory name from `CDPATH`, or if\n\n```\ncontinue [n]\n```\n\n```\nexit [n]\n```\n\n```\nfalse\n```\n\n```\npwd [-LP]\n```",
+            "position": 1
+          },
+          {
+            "url": "https://github.com/apple-oss-distributions/bash/blob/main/bash-3.2/builtins/cd.def",
+            "title": "bash/bash-3.2/builtins/cd.def at main \u00b7 apple-oss-distributions/bash \u00b7 GitHub",
+            "description": "This file is cd.def, It implements the builtins \"cd\" and \"pwd\" in Bash. This file is part of GNU Bash, the Bourne Again SHell. Find directory in $CDPATH. pwd ...",
+            "position": 2,
+            "category": "github"
+          },
+          {
+            "url": "https://www.reddit.com/r/bash/comments/oxi7ov/til_about_cdpath_a_path_for_the_cd_shell_builtin/",
+            "title": "TIL about CDPATH, a path for the cd shell builtin : r/bash - Reddit",
+            "description": "The CDPATH variable sets the directories which the cd shell builtin will use, instead of just using the PWD. Example: CDPATH=\".:$HOME:$HOME/code ...Why isn't cd in /bin ? : r/linuxHow do I use cd in a bash script : r/linuxquestionsMore results from www.reddit.com",
+            "position": 3
+          }
+        ],
+        "served_by": "firecrawl",
+        "rescued_from": "openai-native",
+        "backend_error": "Configured backend 'openai-native' failed this call (openai-native declares OpenAI's server-side web_search tool; it cannot run as a client-side search and requires the Codex Responses transport (provider openai-codex). For client-side search use firecrawl (default) or another backend.); result served by the keyless free tier. The next call will use 'openai-native' again."
+      }
+    }
+  },
+  {
+    "query": "POSIX chdir failure current working directory unchanged",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://man7.org/linux/man-pages/man3/chdir.3p.html",
+            "title": "chdir(3p) - Linux manual page",
+            "description": "```\n#include <unistd.h>\nint chdir(const char *path);\n```\n```\nThe chdir() function shall cause the directory named by the\npathname pointed to by the path argument to become the current\nworking directory; that is, the starting point for path searches\nfor pathnames not beginning with '/'.\n```\n```\nUpon successful completion, 0 shall be returned. Otherwise, -1\nshall be returned, the current working directory shall remain\nunchanged, and errno shall be set to indicate the error.\n```\n```\nThe chdir() function shall fail if:\nEACCES Search permission is denied for any component of the\npathname.\nELOOP  A loop exists in symbolic links encountered during\nresolution of the path argument.\nENAMETOOLONG\nThe length of a component of a pathname is longer than\n{NAME_MAX}.\nENOENT A component of path does not name an existing directory or\npath is an empty string.\nENOTDIR\nA component of the pathname names an existing file that is\nneither a directory nor a symbolic link to a directory.\nThe chdir() function may fail if:\nELOOP  More than {SYMLOOP_MAX} symbolic links were encountered\nduring resolution of the path argument.\nENAMETOOLONG\nThe length of a pathname exceeds {PATH_MAX}, or pathname\nresolution of a symbolic link produced an intermediate\nresult with a length that exceeds {PATH_MAX}.\nThe following sections are informative.\n```",
+            "position": 1
+          },
+          {
+            "url": "https://man.archlinux.org/man/core/man-pages/chdir.3p.en",
+            "title": "chdir(3p) \u2014 Arch manual pages",
+            "description": "The *chdir*() function shall cause the directory named by the pathname pointed to by the *path* argument to become the current working directory; that is, the starting point for path searches for pathnames not beginning with **'/'**.\n# RETURN VALUE\nUpon successful completion, 0 shall be returned. Otherwise, -1 shall be returned, the current working directory shall remain unchanged, and *errno* shall be set to indicate the error.\n# ERRORS\nThe *chdir*() function shall fail if:\n- ****EACCES**** Search permission is denied for any component of the pathname.\n- ****ELOOP**** A loop exists in symbolic links encountered during resolution of the *path* argument.\n- ****ENAMETOOLONG**** The length of a component of a pathname is longer than {NAME_MAX}.\n- ****ENOENT**** A component of *path* does not name an existing directory or *path* is an empty string.\n- ****ENOTDIR**** A component of the pathname names an existing file that is neither a directory nor a symbolic link to a directory.\nThe *chdir*() function may fail if:\n- ****ELOOP**** More than {SYMLOOP_MAX} symbolic links were encountered during resolution of the *path* argument.\n- ****ENAMETOOLONG**** The length of a pathname exceeds {PATH_MAX}, or pathname resolution of a symbolic link produced an intermediate result with a length that exceeds {PATH_MAX}.\n*The following sections are informative.*",
+            "position": 2
+          },
+          {
+            "url": "https://linux.die.net/man/3/chdir",
+            "title": "chdir(3): change working directory - Linux man page",
+            "description": "The *chdir*() function shall cause the directory named by the pathname pointed to by the *path* argument to become the current working directory; that is, the starting point for path searches for pathnames not beginning with **'/'** .\n## Return Value\nUpon successful completion, 0 shall be returned. Otherwise, -1 shall be returned, the current working directory shall remain unchanged, and *errno* shall be set to indicate the error.\n## Errors\nThe *chdir*() function shall fail if:\n- ****EACCES**** Search permission is denied for any component of the pathname.\n- ****ELOOP**** A loop exists in symbolic links encountered during resolution of the *path* argument.\n- ****ENAMETOOLONG**** The length of the *path* argument exceeds {PATH_MAX} or a pathname component is longer than {NAME_MAX}.\n- ****ENOENT**** A component of *path* does not name an existing directory or *path* is an empty string.\n- ****ENOTDIR**** A component of the pathname is not a directory.\nThe *chdir*() function may fail if:\n- ****ELOOP**** More than {SYMLOOP_MAX} symbolic links were encountered during resolution of the *path* argument.\n- ****ENAMETOOLONG**** As a result of encountering a symbolic link in resolution of the *path* argument, the length of the substituted pathname string exceeded {PATH_MAX}.\n*The following sections are informative.*",
+            "position": 3
+          }
+        ],
+        "served_by": "keenable",
+        "rescued_from": "openai-native",
+        "backend_error": "Configured backend 'openai-native' failed this call (openai-native declares OpenAI's server-side web_search tool; it cannot run as a client-side search and requires the Codex Responses transport (provider openai-codex). For client-side search use firecrawl (default) or another backend.); result served by the keyless free tier. The next call will use 'openai-native' again."
+      }
+    }
+  },
+  {
+    "query": "Argtable arg_nullcheck arg_freetable allocation panic",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.argtable.org/docs/arg_api_parsing.html",
+            "title": "Parsing - Argtable 3.3.0 documentation",
+            "description": "The parsing API supports ... wide range of argument types, including boolean flags, integers, doubles, strings, regular expressions, file paths, and dates. It also provides utility functions for managing argument tables, checking for ... , and freeing ... - Core Parsing Functions: Functions like `arg_parse` handle the parsing of command-line arguments, while `arg_nullcheck` ensures the validity of argument tables. - Argument Table Management: Use `arg_end` to define the end of an argument table and `arg_freetable` to release resources associated with it. - Support for Multiple Argument Types: ... int arg_nullcheck(void ** argtable)\u00b6 : Checks the argument table for null entries. The `arg_nullcheck` function scans the provided argument table array and returns 1 if any entry is NULL, or 0 if all entries are valid. This is useful for detecting memory allocation failures after constructing all argument table entries with `arg_ ` constructor functions, such as `arg_litn`. Instead of checking the return value of each constructor individually, you can call `arg_nullcheck` once after building the argument table to ensure that all arguments were allocated successfully. This helps make your code cleaner and more robust. ... if (arg_nullcheck(argtable) != 0) { printf(\"%s: insufficient memory\\n\", progname); exitcode = 1; goto exit; } ... void arg_freetable(void ** argtable, size_t n)\u00b6 : Deallocates or frees all non-null entries in the argument table. The `arg_freetable` function iterates over the specified argument table array and frees any non-null entries, releasing the memory allocated for each argument structure. This is useful for cleaning up all argument objects created by `arg_ ` constructor functions after you are done parsing and processing command-line arguments. You should call this function once for each argument table array before your program exits to prevent memory leaks. ... // ... use argtable ... arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0])); ```",
+            "position": 1
+          },
+          {
+            "url": "https://argtable.sourceforge.io/doc/argtable2-intro.html",
+            "title": "Introduction to argtable",
+            "description": "We will see how to use arg_end in error reporting soon but first we must ensure that all of the argument table entries were successfully allocated by their constructor functions. If they were'nt then there will be NULL entries in the argtable array which will cause trouble. We can use the arg_nullcheck function to check argtable for NULL entries in one step. It returns non-zero if any NULL entries were encountered up until the end of the table as marked by the arg_end structure. if (arg_nullcheck(argtable) != 0) printf(\"error: insufficient memory\\n\"); ... At the end of our program we need to deallocate the memory allocated to each of our arg_ xxx structs. We could do that by calling free on each of them individually, but the arg_freetable function can do it for us more conveniently. arg_freetable(argtable,sizeof(argtable)/sizeof(argtable[0])); It will step through an argument table and call free on each of its elements on our behalf. Note the second parameter, sizeof(argtable)/sizeof(argtable[0]), merely represents the number of elements in our argtable array. Upon completion of this function, all of the argtable array entries will have been set to NULL.",
+            "position": 2
+          },
+          {
+            "url": "https://argtable.sourceforge.io/example/callbacks.c",
+            "title": "N/A",
+            "description": "int main(int argc, char **argv) { struct arg_int *val = arg_intn(NULL,NULL,NULL,2,100,\"must be an even number of non-zero integer values that sum to 100\"); struct arg_end *end = arg_end(20); void* argtable[] = {val,end}; const char* progname = \"callbacks\"; int nerrors; int exitcode=0; int i; /* verify the argtable[] entries were allocated sucessfully */ if (arg_nullcheck(argtable) != 0) { /* NULL entries were detected, some allocations must have failed */ printf(\"%s: insufficient memory\\n\",progname); exitcode=1; goto exit; } /* replace the default arg_int parsing and error validation routines with our own custom routines */ val->hdr.scanfn = (arg_scanfn*)myscanfn; val->hdr.checkfn = (arg_checkfn*)mycheckfn; val->hdr.errorfn = (arg_errorfn*)myerrorfn; /* special case: no command line options induces brief help */ if (argc==1) { printf(\"Usage: %s \", progname); arg_print_syntax(stdout,argtable,\"\\n\"); arg_print_glossary(stdout,argtable,\"where: %s %s\\n\"); exitcode=0; goto exit; } /* Parse the command line as defined by argtable[] */ nerrors = arg_parse(argc,argv,argtable); /* If the parser returned any errors then display them and exit */ if (nerrors > 0) { /* Display the error details contained in the arg_end struct.*/ arg_print_errors(stdout,end,progname); exitcode=1; goto exit; } /* parsing was succesful, print the values obtained */ for (i=0; i count; i++) printf(\"val->ival[%d] = %d\\n\",i, val->ival[i]); exit: /* deallocate each non-null entry in argtable[] */ arg_freetable(argtable,sizeof(argtable)/sizeof(argtable[0])); return exitcode; }",
+            "position": 3
+          }
+        ],
+        "served_by": "exa",
+        "rescued_from": "openai-native",
+        "backend_error": "Configured backend 'openai-native' failed this call (openai-native declares OpenAI's server-side web_search tool; it cannot run as a client-side search and requires the Codex Responses transport (provider openai-codex). For client-side search use firecrawl (default) or another backend.); result served by the keyless free tier. The next call will use 'openai-native' again."
+      }
+    }
+  }
+]

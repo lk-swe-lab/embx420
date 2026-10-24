@@ -1,0 +1,29 @@
+test_dispatch_help (__main__.ShellTests.test_dispatch_help) ... ok
+test_dispatch_legacy (__main__.ShellTests.test_dispatch_legacy) ... ok
+test_dispatch_legacy_diagnostics (__main__.ShellTests.test_dispatch_legacy_diagnostics) ... ok
+test_dispatch_pwd (__main__.ShellTests.test_dispatch_pwd) ... ok
+test_dispatch_standalone_parity (__main__.ShellTests.test_dispatch_standalone_parity) ... ok
+test_dispatch_unknown_and_arity (__main__.ShellTests.test_dispatch_unknown_and_arity) ... ok
+test_generated_quoted_filenames (__main__.ShellTests.test_generated_quoted_filenames) ... ok
+test_interactive_prompt (__main__.ShellTests.test_interactive_prompt) ... ok
+test_long_lines_many_tokens (__main__.ShellTests.test_long_lines_many_tokens) ... ok
+test_loop_multiple_and_eof (__main__.ShellTests.test_loop_multiple_and_eof) ... ok
+test_loop_repeated_modules (__main__.ShellTests.test_loop_repeated_modules) ... ok
+test_loop_status_and_continuation (__main__.ShellTests.test_loop_status_and_continuation) ... ok
+test_loop_stdin_not_read_ahead (__main__.ShellTests.test_loop_stdin_not_read_ahead) ... ok
+test_loop_tail_zero_preserves_next_command (__main__.ShellTests.test_loop_tail_zero_preserves_next_command) ... ok
+test_no_external_fallback_or_expansion (__main__.ShellTests.test_no_external_fallback_or_expansion) ... ok
+test_output_and_input_failure (__main__.ShellTests.test_output_and_input_failure) ... ok
+test_quotes_fragments_and_escapes (__main__.ShellTests.test_quotes_fragments_and_escapes) ... ok
+test_syntax_errors_no_partial_execution (__main__.ShellTests.test_syntax_errors_no_partial_execution) ... ok
+test_touch_integration (__main__.ShellTests.test_touch_integration) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.097s
+
+OK
+main: syntax error: unterminated quote
+main: standard input: Cannot allocate memory
+main: cannot allocate arguments
+main: standard input: Cannot allocate memory
+main: missing: unknown command

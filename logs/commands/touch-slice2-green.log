@@ -1,0 +1,6 @@
+COMMAND: make build/touch && python3 tests/test_touch.py ./build/touch
+{
+  "output": "cc  -Ibuild/argtable3/include -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0  -o build/touch src/touch_main.c src/cmd_touch.c src/cmd_lines.c -Lbuild/argtable3/lib -largtable3 -lm \ntest_creation_multi_partial (__main__.TouchTests.test_creation_multi_partial) ... ok\ntest_existing (__main__.TouchTests.test_existing) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.004s\n\nOK",
+  "exit_code": 0,
+  "error": null
+}

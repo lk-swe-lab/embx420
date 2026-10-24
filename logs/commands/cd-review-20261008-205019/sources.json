@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.argtable.org/docs/arg_api_parsing.html",
+      "title": "Argtable parsing API",
+      "accessed": "2026-10-08"
+    },
+    {
+      "id": 2,
+      "url": "https://raw.githubusercontent.com/argtable/argtable3/master/src/argtable3.c",
+      "title": "Argtable upstream parser source (master; not installed archive provenance)",
+      "accessed": "2026-10-08"
+    }
+  ]
+}

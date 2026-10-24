@@ -1,0 +1,1262 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Output" href="arg_api_output.html" /><link rel="prev" title="Getting Started" href="arg_getting_started.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Parsing - Argtable 3.3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="static/custom.css?v=7895be3e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --font-stack: Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Argtable 3.3.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Argtable 3.3.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arg_installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arg_getting_started.html">Getting Started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arg_api_output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arg_api_dyna_string.html">Dynamic String</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arg_api_subcommand.html">Sub-Command Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arg_api_deprecated.html">Deprecated</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPER ZONE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="arg_dev_docs.html">Documentation Generation</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="sources/arg_api_parsing.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="parsing">
+<h1>Parsing<a class="headerlink" href="#parsing" title="Link to this heading">¶</a></h1>
+<p>The <em>Argtable3</em> library provides a comprehensive API for parsing command-line
+options in a structured and efficient manner. This API simplifies the process of
+defining, validating, and processing command-line arguments, making it easier to
+build robust and user-friendly command-line applications.</p>
+<p>The parsing API supports a wide range of argument types, including boolean
+flags, integers, doubles, strings, regular expressions, file paths, and dates.
+It also provides utility functions for managing argument tables, checking for
+null arguments, and freeing allocated resources.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Core Parsing Functions</strong>: Functions like <code class="docutils literal notranslate"><span class="pre">arg_parse</span></code> handle the parsing of
+command-line arguments, while <code class="docutils literal notranslate"><span class="pre">arg_nullcheck</span></code> ensures the validity of argument
+tables.</p></li>
+<li><p><strong>Argument Table Management</strong>: Use <code class="docutils literal notranslate"><span class="pre">arg_end</span></code> to define the end of an argument
+table and <code class="docutils literal notranslate"><span class="pre">arg_freetable</span></code> to release resources associated with it.</p></li>
+<li><p><strong>Support for Multiple Argument Types</strong>:</p>
+<ul>
+<li><p><strong>Boolean Options</strong>: Functions such as <code class="docutils literal notranslate"><span class="pre">arg_lit0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_lit1</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">arg_litn</span></code> handle boolean flags.</p></li>
+<li><p><strong>Integer Options</strong>: Functions like <code class="docutils literal notranslate"><span class="pre">arg_int0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_int1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_intn</span></code>
+parse integer arguments.</p></li>
+<li><p><strong>Double Options</strong>: Use <code class="docutils literal notranslate"><span class="pre">arg_dbl0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_dbl1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_dbln</span></code> for
+floating-point arguments.</p></li>
+<li><p><strong>String Options</strong>: Functions such as <code class="docutils literal notranslate"><span class="pre">arg_str0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_str1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_strn</span></code>
+manage string arguments.</p></li>
+<li><p><strong>Regex Options</strong>: Use <code class="docutils literal notranslate"><span class="pre">arg_rex0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_rex1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_rexn</span></code> to parse
+arguments matching regular expressions.</p></li>
+<li><p><strong>File Options</strong>: Functions like <code class="docutils literal notranslate"><span class="pre">arg_file0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_file1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_filen</span></code>
+handle file paths.</p></li>
+<li><p><strong>Date Options</strong>: Use <code class="docutils literal notranslate"><span class="pre">arg_date0</span></code>, <code class="docutils literal notranslate"><span class="pre">arg_date1</span></code>, and <code class="docutils literal notranslate"><span class="pre">arg_daten</span></code> to parse
+date arguments.</p></li>
+</ul>
+</li>
+<li><p><strong>Miscellaneous</strong>: The <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> function allows for defining custom argument
+types.</p></li>
+</ul>
+<p>This API is designed to provide flexibility and ease of use, enabling developers
+to focus on the functionality of their applications rather than the intricacies
+of argument parsing. Below is a detailed reference for each function in the
+command-line parsing API.</p>
+</section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">¶</a></h2>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_hdr_t">
+<span class="target" id="argtable3_8h_1a3662073dbda8ac8ac97fb9dff6a355de"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_hdr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_hdr_t</span></span></span><a class="headerlink" href="#c.arg_hdr_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Defines common properties shared by all <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> structs. </p>
+<p>In the Argtable3 library, every <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> struct must begin with an <code class="docutils literal notranslate"><span class="pre">arg_hdr</span></code> struct as its first member. This allows Argtable3 functions to access shared metadata about the command-line option, such as its option tags, data type string, glossary text, and other attributes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_hdr</span></code> struct also contains pointers to type-specific functions provided by each <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> implementation. These functions handle tasks such as parsing the option, performing post-parse validation, and reporting errors. Although these function pointers are initialized by the constructor of the respective <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> struct, they can be modified by the user after construction if necessary. However, they are intended to remain unchanged once initialized. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_rem_t">
+<span class="target" id="argtable3_8h_1a9be219f9eb6ed1b59f85845d5f513511"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.arg_rem" title="arg_rem"><span class="n"><span class="pre">arg_rem</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_rem_t</span></span></span><a class="headerlink" href="#c.arg_rem_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing remarks or custom lines in the syntax or glossary output. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> struct is used to add extra lines of text to the syntax or glossary output generated by Argtable3. Unlike other argument types, <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> does not correspond to a command-line argument and does not affect argument parsing. Instead, it is a dummy entry that allows you to insert remarks, explanations, or custom formatting into the help or usage messages.</p>
+<p>This is especially useful for providing additional context, grouping related options, or clarifying the usage of certain arguments in the generated documentation.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Add</span> <span class="n">extra</span> <span class="n">lines</span> <span class="n">to</span> <span class="n">the</span> <span class="n">glossary</span> <span class="k">for</span> <span class="n">the</span> <span class="o">--</span><span class="n">update</span> <span class="n">option</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">update</span>  <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;copy only when SOURCE files are&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update1</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  newer than destination files&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update2</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  or when destination files&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update3</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  are missing&quot;</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">update</span><span class="p">,</span> <span class="n">update1</span><span class="p">,</span> <span class="n">update2</span><span class="p">,</span> <span class="n">update3</span><span class="p">,</span> <span class="o">...</span> <span class="p">};</span>
+
+<span class="o">//</span> <span class="n">Add</span> <span class="n">a</span> <span class="n">data</span> <span class="nb">type</span> <span class="n">entry</span> <span class="k">for</span> <span class="n">a</span> <span class="n">positional</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">syntax</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="s2">&quot;DEST|DIRECTORY&quot;</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="o">...</span> <span class="p">};</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_rem() </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_lit_t">
+<span class="target" id="argtable3_8h_1aac339d04c2a3c084ac06c3172e5f738c"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_lit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_lit_t</span></span></span><a class="headerlink" href="#c.arg_lit_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing literal (boolean flag) argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_lit</span></code> struct is used to parse and store literal arguments (boolean flags) from the command line. It is suitable for options that do not take a value, such as <code class="docutils literal notranslate"><span class="pre">-h</span></code> for help or <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> for enabling verbose output. Each occurrence of the flag increases the <code class="docutils literal notranslate"><span class="pre">count</span></code> field, allowing you to detect how many times the flag was specified.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">a</span> <span class="n">help</span> <span class="n">flag</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">verbose</span> <span class="n">flag</span> <span class="p">(</span><span class="n">which</span> <span class="n">can</span> <span class="n">be</span> <span class="n">specified</span> <span class="n">multiple</span> <span class="n">times</span><span class="p">)</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span>    <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;Display help&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Increase verbosity&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span>     <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">help</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">help</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Help requested</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">verbose</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Verbosity level: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_lit0, arg_lit1, arg_litn </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_int_t">
+<span class="target" id="argtable3_8h_1a2e3c301a9a9edb1c138386ed61aae592"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_int_t</span></span></span><a class="headerlink" href="#c.arg_int_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing int-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_int</span></code> struct is used to parse and store integer arguments from the command line. It is suitable for options that accept numeric values without fractional parts, such as counts, indices, or other whole-number parameters.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched integer arguments, and the <code class="docutils literal notranslate"><span class="pre">ival</span></code> array holds the parsed integer values as provided by the user.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">integer</span> <span class="n">arguments</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">numbers</span> <span class="o">=</span> <span class="n">arg_intn</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;int&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Input numbers&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">numbers</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input number: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">ival</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_int0, arg_int1, arg_intn </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_dbl_t">
+<span class="target" id="argtable3_8h_1a3bb50da51ff960d70f7e042bc0eac364"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_dbl</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_dbl_t</span></span></span><a class="headerlink" href="#c.arg_dbl_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing double-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_dbl</span></code> struct is used to parse and store double-precision floating-point arguments from the command line. It is suitable for options that accept numeric values with fractional parts, such as thresholds, ratios, or measurements.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched double arguments, and the <code class="docutils literal notranslate"><span class="pre">dval</span></code> array holds the parsed double values as provided by the user.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">double</span> <span class="n">arguments</span>
+<span class="n">arg_dbl_t</span> <span class="o">*</span><span class="n">values</span> <span class="o">=</span> <span class="n">arg_dbln</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;double&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Input values&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">values</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input value: </span><span class="si">%f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">dval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_dbl0, arg_dbl1, arg_dbln </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_str_t">
+<span class="target" id="argtable3_8h_1ab1e92c94973b38df8ebbc0984bddf90a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_str</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_str_t</span></span></span><a class="headerlink" href="#c.arg_str_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing string-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_str</span></code> struct is used to parse and store string arguments from the command line. It is suitable for options that accept arbitrary text input, such as file names, user names, or other string values.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched string arguments, and the <code class="docutils literal notranslate"><span class="pre">sval</span></code> array holds the parsed string values as provided by the user.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">string</span> <span class="n">arguments</span>
+<span class="n">arg_str_t</span> <span class="o">*</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">arg_strn</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Input strings&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">inputs</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input string: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">sval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_str0, arg_str1, arg_strn </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_rex_t">
+<span class="target" id="argtable3_8h_1a761f7ea915e3eaaab2ad7e38aefe09fa"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_rex</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_rex_t</span></span></span><a class="headerlink" href="#c.arg_rex_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing regular expression-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_rex</span></code> struct is used to parse and store command-line arguments that must match a specified regular expression pattern. This allows applications to validate input against complex patterns, such as email addresses, identifiers, or custom formats.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pattern</span></code> is specified when constructing the argument and is used to check each input value. The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched arguments, and the <code class="docutils literal notranslate"><span class="pre">sval</span></code> array holds the matched strings.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">arguments</span> <span class="n">matching</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">email</span> <span class="n">pattern</span>
+<span class="n">arg_rex_t</span> <span class="o">*</span><span class="n">emails</span> <span class="o">=</span> <span class="n">arg_rexn</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;^[^@]+@[^@]+</span><span class="se">\\</span><span class="s2">.[^@]+$&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;email&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Email addresses&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">emails</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Matched email: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">sval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_rex0, arg_rex1, arg_rexn </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_file_t">
+<span class="target" id="argtable3_8h_1a2c6a295e0e5ddfee0bbcdbc10592ab3b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_file</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_file_t</span></span></span><a class="headerlink" href="#c.arg_file_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing file-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_file</span></code> struct is used to parse and store file path arguments from the command line. It provides convenient access to the full filename, the basename (file name without path), and the file extension for each matched argument. This allows applications to easily process and validate file-related options.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched file arguments. The <code class="docutils literal notranslate"><span class="pre">filename</span></code> array holds the full file paths as provided by the user, while the <code class="docutils literal notranslate"><span class="pre">basename</span></code> and <code class="docutils literal notranslate"><span class="pre">extension</span></code> arrays provide the corresponding file names and extensions, respectively.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">file</span> <span class="n">arguments</span>
+<span class="n">arg_file_t</span> <span class="o">*</span><span class="n">files</span> <span class="o">=</span> <span class="n">arg_filen</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;&lt;file&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Input files&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">files</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;File: </span><span class="si">%s</span><span class="s2">, Basename: </span><span class="si">%s</span><span class="s2">, Extension: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">files</span><span class="o">-&gt;</span><span class="n">filename</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">basename</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">extension</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_file0, arg_file1, arg_filen </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_date_t">
+<span class="target" id="argtable3_8h_1aa4a6c9ef0058d98c5e5b62758ac950cb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">arg_date</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_date_t</span></span></span><a class="headerlink" href="#c.arg_date_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing date-typed argument information. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_date</span></code> struct is used to parse and store date or time arguments from the command line. It supports flexible date/time formats, which are specified using a <code class="docutils literal notranslate"><span class="pre">strptime</span></code>-style format string. Each successfully parsed date argument is converted into a <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">tm</span></code> value and stored in the <code class="docutils literal notranslate"><span class="pre">tmval</span></code> array.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">format</span></code> field defines the expected input format for date arguments, allowing you to accept a wide range of date/time styles. The <code class="docutils literal notranslate"><span class="pre">count</span></code> field stores the number of successfully matched arguments, and the <code class="docutils literal notranslate"><span class="pre">tmval</span></code> array holds the parsed results.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="n">required</span> <span class="n">date</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="nb">format</span>
+<span class="n">arg_date_t</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="n">arg_date1</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;date&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Date in YYYY-MM-DD format&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">date</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Parsed date: </span><span class="si">%04d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">-</span><span class="si">%02d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_year</span> <span class="o">+</span> <span class="mi">1900</span><span class="p">,</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_mon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_mday</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_date0, arg_date1, arg_daten </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.arg_end_t">
+<span class="target" id="argtable3_8h_1a13f9e3852d17eddac3aaefc28dc3f40b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.arg_end" title="arg_end"><span class="n"><span class="pre">arg_end</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_end_t</span></span></span><a class="headerlink" href="#c.arg_end_t" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Structure for collecting parser errors and terminating an argument table. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_end</span></code> struct is used in Argtable3 to mark the end of an argument table and to collect information about any errors encountered during command-line parsing. It stores pointers to offending arguments in the input array, allowing the application to report detailed error messages to the user.</p>
+<p>Typically, an <code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code> instance is created using the <code class="docutils literal notranslate"><span class="pre">arg_end</span></code> function and placed as the last element in the argument table array. After parsing, the structure contains information about missing required arguments, invalid values, or other parsing errors.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;Display help&quot;</span><span class="p">);</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="n">arg_int0</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;n&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of times&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">help</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="o">//</span> <span class="n">handle</span> <span class="n">errors</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</dd></dl>
+
+</section>
+<section id="api">
+<h2>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h2>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_parse">
+<span class="target" id="argtable3_8h_1acc71e118e4cf18ec0d1ebde858774716"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_parse</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">argtable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_parse" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Parses the command-line arguments according to the specified argument table. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_parse</span></code> function processes the command-line arguments provided in <code class="docutils literal notranslate"><span class="pre">argv</span></code> and populates the fields of each argument structure in the <code class="docutils literal notranslate"><span class="pre">argtable</span></code> array. It checks for the presence, validity, and value of each option or positional argument as defined by the argument table. Any errors encountered during parsing, such as missing required arguments or invalid values, are recorded in the <code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code> structure (typically the last entry in the table).</p>
+<p>After calling <code class="docutils literal notranslate"><span class="pre">arg_parse</span></code>, you can inspect the fields of each argument struct (such as <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">ival</span></code>, <code class="docutils literal notranslate"><span class="pre">dval</span></code>, <code class="docutils literal notranslate"><span class="pre">sval</span></code>, etc.) to retrieve the parsed values. If errors are detected (i.e., the return value is greater than zero), you can use <code class="docutils literal notranslate"><span class="pre">arg_print_errors</span></code> to display detailed error messages to the user.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;Display help&quot;</span><span class="p">);</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="n">arg_int0</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;n&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of times&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">help</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="o">//</span> <span class="n">handle</span> <span class="n">errors</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – The number of command-line arguments passed to the program. The value is always greater than or equal to 1. </p></li>
+<li><p><strong>argv</strong> – An array of null-terminated strings representing the command-line arguments. By convention, <code class="docutils literal notranslate"><span class="pre">argv[0]</span></code> is the program name, and <code class="docutils literal notranslate"><span class="pre">argv[1]</span></code> to <code class="docutils literal notranslate"><span class="pre">argv[argc-1]</span></code> are the arguments. <code class="docutils literal notranslate"><span class="pre">argv[argc]</span></code> is always NULL. </p></li>
+<li><p><strong>argtable</strong> – An array of pointers to argument table structs, each created by an <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> constructor. The last entry should be an <code class="docutils literal notranslate"><span class="pre">arg_end</span></code> struct.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of errors found during parsing. Returns 0 if parsing was successful and no errors were detected. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_nullcheck">
+<span class="target" id="argtable3_8h_1a16b06e1766d5b79f77f402bb3d440bd6"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_nullcheck</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">argtable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_nullcheck" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Checks the argument table for null entries. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_nullcheck</span></code> function scans the provided argument table array and returns 1 if any entry is NULL, or 0 if all entries are valid. This is useful for detecting memory allocation failures after constructing all argument table entries with <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> constructor functions, such as <code class="docutils literal notranslate"><span class="pre">arg_litn</span></code>.</p>
+<p>Instead of checking the return value of each constructor individually, you can call <code class="docutils literal notranslate"><span class="pre">arg_nullcheck</span></code> once after building the argument table to ensure that all arguments were allocated successfully. This helps make your code cleaner and more robust.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="nb">list</span>    <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;lL&quot;</span><span class="p">,</span><span class="n">NULL</span><span class="p">,</span>           <span class="s2">&quot;list files&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="s2">&quot;verbose,debug&quot;</span><span class="p">,</span> <span class="s2">&quot;verbose messages&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span>    <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span><span class="s2">&quot;help&quot;</span><span class="p">,</span>         <span class="s2">&quot;print this help and exit&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">version</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span><span class="s2">&quot;version&quot;</span><span class="p">,</span>      <span class="s2">&quot;print version and exit&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span>     <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="nb">list</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">help</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+<span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">progname</span> <span class="o">=</span> <span class="s2">&quot;myprog&quot;</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">exitcode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">arg_nullcheck</span><span class="p">(</span><span class="n">argtable</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: insufficient memory</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">progname</span><span class="p">);</span>
+    <span class="n">exitcode</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">goto</span> <span class="n">exit</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p>
+Checks the argument table for null entries. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argtable</strong> – Array of pointers to argument table structs.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns 1 if any entry is NULL, 0 if all entries are valid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_end">
+<span class="target" id="argtable3_8h_1a77c22529bad7026e4b79b6ee1ef4d3bb"></span><a class="reference internal" href="#c.arg_end_t" title="arg_end_t"><span class="n"><span class="pre">arg_end_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_end</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_end" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates an end-of-table marker and error collector for the argument table. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_end</span></code> function is used to create an <code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code> struct, which should be placed as the last element in the argument table array. This structure serves two purposes: it marks the end of the argument table for the parser, and it collects information about any errors encountered during command-line parsing.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">maxcount</span></code> parameter specifies the maximum number of errors that can be recorded. After parsing, the <code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code> struct contains details about missing required arguments, invalid values, or other parsing errors, which can be reported to the user using functions like <code class="docutils literal notranslate"><span class="pre">arg_print_errors</span></code>.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;Display help&quot;</span><span class="p">);</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="n">arg_int0</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;n&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of times&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">help</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="o">//</span> <span class="n">handle</span> <span class="n">errors</span><span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_end_t, arg_parse, arg_print_errors </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maxcount</strong> – The maximum number of errors to record during parsing. Choose a value large enough to capture all possible errors. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_freetable">
+<span class="target" id="argtable3_8h_1a7b5e3f921fe7c9af5dd9d2e8aa789ee1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">arg_freetable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">argtable</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_freetable" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Deallocates or frees all non-null entries in the argument table. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_freetable</span></code> function iterates over the specified argument table array and frees any non-null entries, releasing the memory allocated for each argument structure. This is useful for cleaning up all argument objects created by <code class="docutils literal notranslate"><span class="pre">arg_&lt;type&gt;</span></code> constructor functions after you are done parsing and processing command-line arguments.</p>
+<p>You should call this function once for each argument table array before your program exits to prevent memory leaks.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span> <span class="o">=</span> <span class="n">arg_lit0</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;Display help&quot;</span><span class="p">);</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">count</span> <span class="o">=</span> <span class="n">arg_int0</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;n&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of times&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">help</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="o">//</span> <span class="o">...</span> <span class="n">use</span> <span class="n">argtable</span> <span class="o">...</span>
+
+<span class="n">arg_freetable</span><span class="p">(</span><span class="n">argtable</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">argtable</span><span class="p">)</span> <span class="o">/</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">argtable</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+</pre></div>
+</div>
+</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>arg_free </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argtable</strong> – An array of pointers to argument table structs. </p></li>
+<li><p><strong>n</strong> – The number of structs in the argument table.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="flag-option-api">
+<h3>Flag Option API<a class="headerlink" href="#flag-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_lit0">
+<span class="target" id="argtable3_8h_1aa69d6ebaf2c8f81d37efecccc067aae8"></span><a class="reference internal" href="#c.arg_lit_t" title="arg_lit_t"><span class="n"><span class="pre">arg_lit_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_lit0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_lit0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_lit1">
+<span class="target" id="argtable3_8h_1ada420cd315eea981eaff9bec22bec6e3"></span><a class="reference internal" href="#c.arg_lit_t" title="arg_lit_t"><span class="n"><span class="pre">arg_lit_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_lit1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_lit1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_litn">
+<span class="target" id="argtable3_8h_1a3812b85168f6928aedc64c230d0b8390"></span><a class="reference internal" href="#c.arg_lit_t" title="arg_lit_t"><span class="n"><span class="pre">arg_lit_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_litn</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_litn" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a literal (boolean flag) argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_litn</span></code> function defines an option that does not take a value, such as a boolean flag (e.g., <code class="docutils literal notranslate"><span class="pre">-h</span></code> for help or <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> for verbosity). You can specify the minimum and maximum number of times the flag can appear, making it suitable for optional, required, or repeatable flags. Each occurrence of the flag increases the <code class="docutils literal notranslate"><span class="pre">count</span></code> field in the resulting <code class="docutils literal notranslate"><span class="pre">arg_lit_t</span></code> struct.</p>
+<p>A classic example is the <code class="docutils literal notranslate"><span class="pre">tar</span></code> utility, which uses <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> or <code class="docutils literal notranslate"><span class="pre">-v</span></code> to show the files being worked on as <code class="docutils literal notranslate"><span class="pre">tar</span></code> is creating an archive: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tar -cvf afiles.tar apple angst aspic
+apple
+angst
+aspic
+</pre></div>
+</div>
+</p>
+<p>Each occurrence of <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> or <code class="docutils literal notranslate"><span class="pre">-v</span></code> on the command line increases the verbosity level by one. Therefore, if you need more details on the output, specify it twice: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tar -cvvf afiles.tar apple angst aspic
+-rw-r--r-- gray/staff    62373 2006-06-09 12:06 apple
+-rw-r--r-- gray/staff    11481 2006-06-09 12:06 angst
+-rw-r--r-- gray/staff    23152 2006-06-09 12:06 aspic
+</pre></div>
+</div>
+</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_litn</span></code> function allows you to specify both the minimum and maximum number of times a flag can appear. For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_lit0</span></code> is provided as a helper for optional flags (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_lit1</span></code> is a helper for required flags (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_lit0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_lit1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_litn</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="nb">list</span>    <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;lL&quot;</span><span class="p">,</span><span class="n">NULL</span><span class="p">,</span>           <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;list files&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="s2">&quot;verbose,debug&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;verbosity level&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">help</span>    <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;help&quot;</span><span class="p">,</span>          <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;print this help&quot;</span><span class="p">);</span>
+<span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">version</span> <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span><span class="s2">&quot;version&quot;</span><span class="p">,</span>      <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;print version info&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-v</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;verbose&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the flag must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the flag can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_lit_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="integer-option-api">
+<h3>Integer Option API<a class="headerlink" href="#integer-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_int0">
+<span class="target" id="argtable3_8h_1ab99e8f77f95de1e0374fe7e103ac4aff"></span><a class="reference internal" href="#c.arg_int_t" title="arg_int_t"><span class="n"><span class="pre">arg_int_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_int0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_int0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_int1">
+<span class="target" id="argtable3_8h_1a362fcca2b149a9c2e7b63e77e7184354"></span><a class="reference internal" href="#c.arg_int_t" title="arg_int_t"><span class="n"><span class="pre">arg_int_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_int1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_int1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_intn">
+<span class="target" id="argtable3_8h_1aca887d4273fc05285620ab5441b8536e"></span><a class="reference internal" href="#c.arg_int_t" title="arg_int_t"><span class="n"><span class="pre">arg_int_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_intn</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_intn" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates an integer argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_intn</span></code> function defines an option that accepts integer values from the command line. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable integer options. Each occurrence of the option is parsed and stored in the <code class="docutils literal notranslate"><span class="pre">ival</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_int_t</span></code> struct, allowing you to retrieve all provided integer values after parsing.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_int0</span></code> is provided as a helper for optional integer arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_int1</span></code> is a helper for required integer arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_int0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_int1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_intn</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">integer</span> <span class="n">arguments</span>
+<span class="n">arg_int_t</span> <span class="o">*</span><span class="n">numbers</span> <span class="o">=</span> <span class="n">arg_intn</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;int&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Input numbers&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">numbers</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input number: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="o">-&gt;</span><span class="n">ival</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-n</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;number&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--number</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;int&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_int_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="double-option-api">
+<h3>Double Option API<a class="headerlink" href="#double-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_dbl0">
+<span class="target" id="argtable3_8h_1a5a033867c75a7d5000d1e2e32a2f0093"></span><a class="reference internal" href="#c.arg_dbl_t" title="arg_dbl_t"><span class="n"><span class="pre">arg_dbl_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_dbl0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_dbl0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_dbl1">
+<span class="target" id="argtable3_8h_1a0448eb49de10cdd08bdc6e136a86eaca"></span><a class="reference internal" href="#c.arg_dbl_t" title="arg_dbl_t"><span class="n"><span class="pre">arg_dbl_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_dbl1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_dbl1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_dbln">
+<span class="target" id="argtable3_8h_1ae900aa08e57763027d29c78ff5643f8d"></span><a class="reference internal" href="#c.arg_dbl_t" title="arg_dbl_t"><span class="n"><span class="pre">arg_dbl_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_dbln</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_dbln" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a double-precision floating-point argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_dbln</span></code> function defines an option that accepts double-precision floating-point values from the command line. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable floating-point options. Each occurrence of the option is parsed and stored in the <code class="docutils literal notranslate"><span class="pre">dval</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_dbl_t</span></code> struct, allowing you to retrieve all provided double values after parsing.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_dbl0</span></code> is provided as a helper for optional double arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_dbl1</span></code> is a helper for required double arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_dbl0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_dbl1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_dbln</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">double</span> <span class="n">arguments</span>
+<span class="n">arg_dbl_t</span> <span class="o">*</span><span class="n">values</span> <span class="o">=</span> <span class="n">arg_dbln</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;double&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Input values&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="n">values</span><span class="p">,</span> <span class="n">end</span><span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input value: </span><span class="si">%f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">-&gt;</span><span class="n">dval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;v&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-v</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;value&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--value</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;double&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_dbl_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="string-option-api">
+<h3>String Option API<a class="headerlink" href="#string-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_str0">
+<span class="target" id="argtable3_8h_1aff0bc56eb4fa3d67da2eabba681bad82"></span><a class="reference internal" href="#c.arg_str_t" title="arg_str_t"><span class="n"><span class="pre">arg_str_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_str0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_str0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_str1">
+<span class="target" id="argtable3_8h_1aa56dde490f058067320e8b652c5871a7"></span><a class="reference internal" href="#c.arg_str_t" title="arg_str_t"><span class="n"><span class="pre">arg_str_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_str1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_str1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_strn">
+<span class="target" id="argtable3_8h_1a55ab2e534602631576671edf1b12114d"></span><a class="reference internal" href="#c.arg_str_t" title="arg_str_t"><span class="n"><span class="pre">arg_str_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_strn</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_strn" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a string argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_strn</span></code> function defines an option that accepts string values from the command line. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable string options. Each occurrence of the option is parsed and stored in the <code class="docutils literal notranslate"><span class="pre">sval</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_str_t</span></code> struct, allowing you to retrieve all provided string values after parsing.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_str0</span></code> is provided as a helper for optional string arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_str1</span></code> is a helper for required string arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_str0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_str1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_strn</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">string</span> <span class="n">arguments</span>
+<span class="n">arg_str_t</span> <span class="o">*</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">arg_strn</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Input strings&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Input string: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">-&gt;</span><span class="n">sval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;i&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-i</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;input&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--input</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;input&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_str_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="regular-expression-option-api">
+<h3>Regular Expression Option API<a class="headerlink" href="#regular-expression-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_rex0">
+<span class="target" id="argtable3_8h_1a2d29f321d6e30a1e639bf9bb09b750b6"></span><a class="reference internal" href="#c.arg_rex_t" title="arg_rex_t"><span class="n"><span class="pre">arg_rex_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_rex0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">pattern</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_rex0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_rex1">
+<span class="target" id="argtable3_8h_1a790e994dba82874756711facf572f5cd"></span><a class="reference internal" href="#c.arg_rex_t" title="arg_rex_t"><span class="n"><span class="pre">arg_rex_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_rex1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">pattern</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_rex1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_rexn">
+<span class="target" id="argtable3_8h_1a461347f0faeaa13730899f7bb4dbb363"></span><a class="reference internal" href="#c.arg_rex_t" title="arg_rex_t"><span class="n"><span class="pre">arg_rex_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_rexn</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">pattern</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_rexn" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a regular expression argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_rexn</span></code> function defines an option that accepts values matching a specified regular expression pattern. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable regex-matched options. Each occurrence of the option is parsed and stored in the <code class="docutils literal notranslate"><span class="pre">sval</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_rex_t</span></code> struct, allowing you to retrieve all provided values that match the regular expression after parsing.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_rex0</span></code> is provided as a helper for optional regex arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_rex1</span></code> is a helper for required regex arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_rex0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_rex1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_rexn</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">arguments</span> <span class="n">matching</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">email</span> <span class="n">pattern</span>
+<span class="n">arg_rex_t</span> <span class="o">*</span><span class="n">emails</span> <span class="o">=</span> <span class="n">arg_rexn</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;^[^@]+@[^@]+</span><span class="se">\\</span><span class="s2">.[^@]+$&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;email&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Email addresses&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">emails</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Matched email: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">emails</span><span class="o">-&gt;</span><span class="n">sval</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-e</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;email&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--email</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>pattern</strong> – The regular expression pattern to match input values. </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;email&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>flags</strong> – Flags to modify regex matching behavior (e.g., <code class="docutils literal notranslate"><span class="pre">ARG_REX_ICASE</span></code> for case-insensitive). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_rex_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="file-option-api">
+<h3>File Option API<a class="headerlink" href="#file-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_file0">
+<span class="target" id="argtable3_8h_1adac19713929b50cae5232665be4693c0"></span><a class="reference internal" href="#c.arg_file_t" title="arg_file_t"><span class="n"><span class="pre">arg_file_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_file0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_file0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_file1">
+<span class="target" id="argtable3_8h_1a604f9949d2c08bf8044cc20228f37865"></span><a class="reference internal" href="#c.arg_file_t" title="arg_file_t"><span class="n"><span class="pre">arg_file_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_file1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_file1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_filen">
+<span class="target" id="argtable3_8h_1af41eac10aebdaa968f8e84640541151c"></span><a class="reference internal" href="#c.arg_file_t" title="arg_file_t"><span class="n"><span class="pre">arg_file_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_filen</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_filen" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a file path argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_filen</span></code> function defines an option that accepts file path values from the command line. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable file arguments. Each occurrence of the option is parsed and stored in the <code class="docutils literal notranslate"><span class="pre">filename</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_file_t</span></code> struct. The struct also provides convenient access to the basename and extension for each file.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_file0</span></code> is provided as a helper for optional file arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_file1</span></code> is a helper for required file arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_file0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_file1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_filen</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">more</span> <span class="n">file</span> <span class="n">arguments</span>
+<span class="n">arg_file_t</span> <span class="o">*</span><span class="n">files</span> <span class="o">=</span> <span class="n">arg_filen</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;&lt;file&gt;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Input files&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">files</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">count</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;File: </span><span class="si">%s</span><span class="s2">, Basename: </span><span class="si">%s</span><span class="s2">, Extension: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">files</span><span class="o">-&gt;</span><span class="n">filename</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">basename</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">files</span><span class="o">-&gt;</span><span class="n">extension</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-f</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;file&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--file</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;file&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_file_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="date-option-api">
+<h3>Date Option API<a class="headerlink" href="#date-option-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_date0">
+<span class="target" id="argtable3_8h_1a756016787998691406e4a2ca388aa203"></span><a class="reference internal" href="#c.arg_date_t" title="arg_date_t"><span class="n"><span class="pre">arg_date_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_date0</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">format</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_date0" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_date1">
+<span class="target" id="argtable3_8h_1af0669ff68cb59228e6b50fe647b880a1"></span><a class="reference internal" href="#c.arg_date_t" title="arg_date_t"><span class="n"><span class="pre">arg_date_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_date1</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">format</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_date1" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_daten">
+<span class="target" id="argtable3_8h_1acb49da4ffc6f44dc4cf40f09c3a9a938"></span><a class="reference internal" href="#c.arg_date_t" title="arg_date_t"><span class="n"><span class="pre">arg_date_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_daten</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">shortopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">longopts</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">format</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">mincount</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">maxcount</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_daten" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Creates a date/time argument for the command-line parser. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_daten</span></code> function defines an option that accepts date or time values from the command line. You can specify the minimum and maximum number of times the argument can appear, making it suitable for optional, required, or repeatable date/time arguments. Each occurrence of the option is parsed using the specified <code class="docutils literal notranslate"><span class="pre">format</span></code> (a <code class="docutils literal notranslate"><span class="pre">strptime</span></code>-style format string) and stored as a <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">tm</span></code> value in the <code class="docutils literal notranslate"><span class="pre">tmval</span></code> array of the resulting <code class="docutils literal notranslate"><span class="pre">arg_date_t</span></code> struct, allowing you to retrieve all provided date/time values after parsing.</p>
+<p>For convenience and backward compatibility, <code class="docutils literal notranslate"><span class="pre">arg_date0</span></code> is provided as a helper for optional date arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">arg_date1</span></code> is a helper for required date arguments (where <code class="docutils literal notranslate"><span class="pre">mincount</span> <span class="pre">=</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">maxcount</span> <span class="pre">=</span> <span class="pre">1</span></code>). While <code class="docutils literal notranslate"><span class="pre">arg_date0</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_date1</span></code> are available, it is recommended to use <code class="docutils literal notranslate"><span class="pre">arg_daten</span></code> in new code as it is more explicit and flexible.</p>
+<p>Example usage: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Accepts</span> <span class="n">one</span> <span class="n">required</span> <span class="n">date</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span> <span class="nb">format</span>
+<span class="n">arg_date_t</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="n">arg_date1</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;date&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Date in YYYY-MM-DD format&quot;</span><span class="p">);</span>
+<span class="n">arg_end_t</span> <span class="o">*</span><span class="n">end</span> <span class="o">=</span> <span class="n">arg_end</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">void</span> <span class="o">*</span><span class="n">argtable</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">date</span><span class="p">,</span> <span class="n">end</span> <span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">nerrors</span> <span class="o">=</span> <span class="n">arg_parse</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="n">argtable</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">nerrors</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Parsed date: </span><span class="si">%04d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">-</span><span class="si">%02d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_year</span> <span class="o">+</span> <span class="mi">1900</span><span class="p">,</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_mon</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">date</span><span class="o">-&gt;</span><span class="n">tmval</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tm_mday</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">arg_print_errors</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shortopts</strong> – A string of single characters, each representing a short option name (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">-d</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no short option is desired. </p></li>
+<li><p><strong>longopts</strong> – A string of comma-separated long option names (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;date&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">--date</span></code>). Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if no long option is desired. </p></li>
+<li><p><strong>format</strong> – A <code class="docutils literal notranslate"><span class="pre">strptime</span></code>-style format string describing the expected date/time input (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;%Y-%m-%d&quot;</span></code>). </p></li>
+<li><p><strong>datatype</strong> – A string describing the expected data type (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;date&gt;&quot;</span></code>), shown in help messages. </p></li>
+<li><p><strong>mincount</strong> – The minimum number of times the argument must appear (set to 0 for optional). </p></li>
+<li><p><strong>maxcount</strong> – The maximum number of times the argument can appear (controls memory allocation). </p></li>
+<li><p><strong>glossary</strong> – A short description of the argument for the glossary/help output. Pass <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to omit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_date_t</span></code>. Returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="miscellaneous-api">
+<h3>Miscellaneous API<a class="headerlink" href="#miscellaneous-api" title="Link to this heading">¶</a></h3>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.arg_rem">
+<span class="target" id="argtable3_8h_1a249becda6e58b43f1c9a6096b18d7206"></span><a class="reference internal" href="#c.arg_rem_t" title="arg_rem_t"><span class="n"><span class="pre">arg_rem_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg_rem</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">datatype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">glossary</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.arg_rem" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Adds a remark or custom line to the syntax or glossary output. </p>
+<p>The <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> function allows you to insert extra lines of text into the syntax or glossary output generated by Argtable3. Instead of embedding newline characters directly in your argument table strings—which can make the code messy—you can add <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> structs to your argument table. These are dummy entries: they do not affect argument parsing, but their <code class="docutils literal notranslate"><span class="pre">datatype</span></code> and <code class="docutils literal notranslate"><span class="pre">glossary</span></code> strings are included in the output of <code class="docutils literal notranslate"><span class="pre">arg_print_syntax</span></code> and <code class="docutils literal notranslate"><span class="pre">arg_print_glossary</span></code>.</p>
+<p>The name <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> stands for <em>remark</em>, inspired by the <code class="docutils literal notranslate"><span class="pre">REM</span></code> statement in the BASIC programming language.</p>
+<p>For example, in the <code class="docutils literal notranslate"><span class="pre">mv</span></code> example program, we use <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> to add additional lines for the <code class="docutils literal notranslate"><span class="pre">-u|--update</span></code> option in the glossary: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_lit_t</span> <span class="o">*</span><span class="n">update</span>  <span class="o">=</span> <span class="n">arg_litn</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;copy only when SOURCE files are&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update1</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  newer than destination files&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update1</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  or when destination files&quot;</span><span class="p">);</span>
+<span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">update2</span> <span class="o">=</span> <span class="n">arg_rem</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span>                 <span class="s2">&quot;  are missing&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>which will make the glossay look like: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">u</span><span class="p">,</span> <span class="o">--</span><span class="n">update</span>                   <span class="n">copy</span> <span class="n">only</span> <span class="n">when</span> <span class="n">SOURCE</span> <span class="n">files</span> <span class="n">are</span>
+                                 <span class="n">newer</span> <span class="n">than</span> <span class="n">destination</span> <span class="n">files</span>
+                                 <span class="ow">or</span> <span class="n">when</span> <span class="n">the</span> <span class="n">destination</span> <span class="n">files</span>
+                                 <span class="n">are</span> <span class="n">missing</span>
+</pre></div>
+</div>
+</p>
+<p>We also use <code class="docutils literal notranslate"><span class="pre">arg_rem</span></code> to add a data type entry for the ordinary argument in the syntax: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg_rem_t</span> <span class="o">*</span><span class="n">dest</span> <span class="o">=</span> <span class="n">arg_rem</span> <span class="p">(</span><span class="s2">&quot;DEST|DIRECTORY&quot;</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p>which will make the syntax look like: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv --help
+Usage: mv [-bfiuv] [--backup=[CONTROL]] [--reply={yes,no,query}]
+[--strip-trailing-slashes] [-S SUFFIX] [--target-directory=DIRECTORY]
+[--help] [--version] SOURCE [SOURCE]... DEST|DIRECTORY
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datatype</strong> – The data type or positional argument string to display in the syntax output, or NULL if not needed. </p></li>
+<li><p><strong>glossary</strong> – The remark or extra line to display in the glossary output, or NULL if not needed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If successful, returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">arg_rem_t</span></code>. Otherwise, returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if there is insufficient memory available. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="arg_api_output.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Output</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="arg_getting_started.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Getting Started</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Argtable Project members and individual contributors
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Parsing</a><ul>
+<li><a class="reference internal" href="#key-features">Key Features</a></li>
+<li><a class="reference internal" href="#data-types">Data Types</a><ul>
+<li><a class="reference internal" href="#c.arg_hdr_t"><code class="docutils literal notranslate"><span class="pre">arg_hdr_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_rem_t"><code class="docutils literal notranslate"><span class="pre">arg_rem_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_lit_t"><code class="docutils literal notranslate"><span class="pre">arg_lit_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_int_t"><code class="docutils literal notranslate"><span class="pre">arg_int_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_dbl_t"><code class="docutils literal notranslate"><span class="pre">arg_dbl_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_str_t"><code class="docutils literal notranslate"><span class="pre">arg_str_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_rex_t"><code class="docutils literal notranslate"><span class="pre">arg_rex_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_file_t"><code class="docutils literal notranslate"><span class="pre">arg_file_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_date_t"><code class="docutils literal notranslate"><span class="pre">arg_date_t</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_end_t"><code class="docutils literal notranslate"><span class="pre">arg_end_t</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#c.arg_parse"><code class="docutils literal notranslate"><span class="pre">arg_parse()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_nullcheck"><code class="docutils literal notranslate"><span class="pre">arg_nullcheck()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_end"><code class="docutils literal notranslate"><span class="pre">arg_end()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_freetable"><code class="docutils literal notranslate"><span class="pre">arg_freetable()</span></code></a></li>
+<li><a class="reference internal" href="#flag-option-api">Flag Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_lit0"><code class="docutils literal notranslate"><span class="pre">arg_lit0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_lit1"><code class="docutils literal notranslate"><span class="pre">arg_lit1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_litn"><code class="docutils literal notranslate"><span class="pre">arg_litn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integer-option-api">Integer Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_int0"><code class="docutils literal notranslate"><span class="pre">arg_int0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_int1"><code class="docutils literal notranslate"><span class="pre">arg_int1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_intn"><code class="docutils literal notranslate"><span class="pre">arg_intn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#double-option-api">Double Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_dbl0"><code class="docutils literal notranslate"><span class="pre">arg_dbl0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_dbl1"><code class="docutils literal notranslate"><span class="pre">arg_dbl1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_dbln"><code class="docutils literal notranslate"><span class="pre">arg_dbln()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#string-option-api">String Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_str0"><code class="docutils literal notranslate"><span class="pre">arg_str0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_str1"><code class="docutils literal notranslate"><span class="pre">arg_str1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_strn"><code class="docutils literal notranslate"><span class="pre">arg_strn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#regular-expression-option-api">Regular Expression Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_rex0"><code class="docutils literal notranslate"><span class="pre">arg_rex0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_rex1"><code class="docutils literal notranslate"><span class="pre">arg_rex1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_rexn"><code class="docutils literal notranslate"><span class="pre">arg_rexn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-option-api">File Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_file0"><code class="docutils literal notranslate"><span class="pre">arg_file0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_file1"><code class="docutils literal notranslate"><span class="pre">arg_file1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_filen"><code class="docutils literal notranslate"><span class="pre">arg_filen()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#date-option-api">Date Option API</a><ul>
+<li><a class="reference internal" href="#c.arg_date0"><code class="docutils literal notranslate"><span class="pre">arg_date0()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_date1"><code class="docutils literal notranslate"><span class="pre">arg_date1()</span></code></a></li>
+<li><a class="reference internal" href="#c.arg_daten"><code class="docutils literal notranslate"><span class="pre">arg_daten()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous-api">Miscellaneous API</a><ul>
+<li><a class="reference internal" href="#c.arg_rem"><code class="docutils literal notranslate"><span class="pre">arg_rem()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="static/documentation_options.js?v=3eb8911e"></script>
+    <script src="static/doctools.js?v=9bcbadda"></script>
+    <script src="static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

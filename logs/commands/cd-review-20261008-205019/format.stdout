@@ -1,0 +1,1 @@
+clang-format --dry-run --Werror src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c

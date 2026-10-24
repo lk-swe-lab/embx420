@@ -1,0 +1,1387 @@
+{
+  "owned_source_sha256": {
+    "src/cmd_cd.c": "b6ec1f300b506d5c421fe6a290a04e094dd4f00c2cabbc13925a77da1cf63436",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "tests/test_cd.py": "bcf6a8ae21b9cfa108027a80decf846294d710c7a2c951eef1f3f3319efed32d",
+    "tests/test_cd_module.c": "95af7f9f2f8ef257a8833bdd2f907ef48850ef8cbb31b0d50b8099dc20a6eb15"
+  },
+  "frozen_source_sha256": {
+    "src/cmd_ls.c": "9667df4da45db8aa57921facb7aa014b6da63cf096a1950323200099271e04a6",
+    "src/traverse.h": "2b0e20d82ffe8cf509fc2ae2a7f99c0b93f8c2cd81ad0f59be772c0c989bdca0",
+    "src/cmd_stat.h": "74a191853ac383685600d624789fe9a2fb2f7ec6120ab6c8b405a0c394e40978",
+    "src/shell.h": "4113904f0eb4b624af0e61972de6962ebf34198aa59e10f5eb8174bf621b1afe",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "src/cmd_mkdir.c": "a0847d5184bbe9f4a6f0f692ecd61f8b7c22381e1dabe39890a527c3ecdd67c2",
+    "src/cmd_lines.h": "38a0916605acd65ca1e5650b35e4cad51ef1e19baac1a1eed35071b4b46fe0b0",
+    "src/traverse.c": "d75f22a7efdc5f534be8e40e8b4b840ea74c503c1240e65a36cfafa43faa2874",
+    "src/cmd_head.c": "7f4bb2dee32913a5606f6f428c27e53e6a3534f2e2af1945cb72c565bfa7e17d",
+    "src/registry.c": "5aaf3ed6f5b9bd55fb5b8cac341f95ef09e0a206f37b1f9ce88eda5c8355202b",
+    "src/cmd_touch.c": "66ad4be29b4703d326dc03d2ed7882f8b997a5cf496e93d1ab737b5b07d359f5",
+    "src/cmd_tail.c": "422e741a417d6a27a599c6cd36a43dbf18a672288c8713527c0b3f47bda80e3a",
+    "src/cmd_touch.h": "2d2c7751baf45fda8804fb262811987e359575486ee7c927d817c13912218ce9",
+    "src/cmd_stat.c": "eef1255bcaefef7e147e3adf6a6f210379113f87655cbc7e52db160a37e20c8d",
+    "src/cmd_mkdir.h": "b6d3aa68cd0647095b75756cb8c0993482b2bbad35cc164aa4a33f8ece70ae66",
+    "src/cmd_spec.h": "51f0655aefcf0fcf44fa5bbeda2714aa6166cd1f2a53002e0a01f0bb1adc980a",
+    "src/cmd_cat.c": "f281993adce163df495636dd42a7ed64b1821f4f3d6d1be50f824824eba2ae6e",
+    "src/cmd_cd.c": "b6ec1f300b506d5c421fe6a290a04e094dd4f00c2cabbc13925a77da1cf63436",
+    "src/cmd_cd.h": "61e8148455a331df99f00a81a4320331a5a5094655ad32585fcb2225d029a789",
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/cmd_pwd.c": "87ce2f062f5b5b1934f1348e85fcda996c762e28dde1cfd9392fd762f2370907",
+    "src/cmd_ls.h": "5d0441de65fd0e6115c01d32fec54d2d4756f24e9fc5cbcc4bbf520fdf1d4ed2",
+    "src/cmd_head.h": "751434b2b01a7e7a1328cc21d460dbe090e28062ad24a2214231efa1f5fed215",
+    "src/cmd_clear.h": "f9b17eb851c7b75012ea236275ca96e73653756240394e5b220ff54ed1e8230e",
+    "src/cmd_lines.c": "5734c045f8b028e9a28fb483994bb25729abb3e81202c2e66539d0edae499060",
+    "src/registry.h": "52f7f687d205909024dbb370c6c382ef0c376185fbcdacbfc2217f8a13b65d2d",
+    "src/cmd_pwd.h": "65dfbabec98be2cb7ae4d8e7715f0dbbc1748debc9c01d6ab02ac67335220fb0",
+    "src/cmd_cat.h": "ed1e9634f5aa89a9ac31349fe93e3271fd20d2c9b8527837f22444dba841d002",
+    "src/cmd_tail.h": "d2bc3d8118de97c075f14ccd902c5b8cbbf47a8d07e8c1110ceaaf10a662283d"
+  },
+  "integration_patch_sha256": "582c708e4ac703b6bc1a4c34a680bb74d6afd4414b98fc9a9c3871ec82a13f3b",
+  "invocations": {
+    "format-final": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice1-red-resumed": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-20261008-193837/main"
+      ],
+      "status": 1
+    },
+    "delivery-proof-san-main-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "final-80-format-check": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice5-red": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": -6
+    },
+    "slice4-integration-green": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "slice4-red-assertion": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": -6
+    },
+    "final-80-tests": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "argv-mutant-red": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/argv-mutant"
+      ],
+      "status": 0
+    },
+    "final-asan-integration": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+      ],
+      "status": 0
+    },
+    "slice3-green": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "borrowed-sensitive-red": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/argv-mutant-sensitive"
+      ],
+      "status": -6
+    },
+    "refactor-format": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "delivery-proof-san-module-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "final-80-lint": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice4-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-format-edit": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "make-scoped-lint": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "argtable-internal-oom": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "--internal-oom"
+      ],
+      "status": 1
+    },
+    "final-format": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice6-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "expanded-module-final": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": 0
+    },
+    "delivery-proof-patch": {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "status": 0
+    },
+    "slice5-green": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": 0
+    },
+    "final-refactor-format": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "physical-characterization": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "--test",
+        "test_physical_and_failure_preservation"
+      ],
+      "status": 0
+    },
+    "borrowed-sensitive-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/argv-mutant-sensitive",
+        "tests/test_cd_module.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-argv-mutant.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "borrowed-sensitive-real-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice6-build-green": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-lint": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "cwd-mutant-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-mutant",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-cwd-mutant.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "asan-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san"
+      ],
+      "status": 0
+    },
+    "delivery-format": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "borrowed-sensitive-green": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": 0
+    },
+    "make-test-cd": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "make-final-test-cd": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "slice4-build-repaired-evidence": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-format": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "delivery-internal-oom": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/build/test_cd_module",
+        "--internal-oom"
+      ],
+      "status": 1
+    },
+    "slice3-red": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "--test",
+        "test_syntax_help_no_effects"
+      ],
+      "status": 1
+    },
+    "final-make-test": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "slice1-green": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "final-80-san-main": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+      ],
+      "status": 0
+    },
+    "expanded-integration": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "final-lint": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "delivery-proof-tests": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "delivery-tests": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "test-cd"
+      ],
+      "status": 0
+    },
+    "make-scoped-format": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "format-check",
+        "C_FILES=src/cmd_cd.c src/cmd_cd.h tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice4-integration-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice2-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "asan-module-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice6-red": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "--test",
+        "test_home_literal_dash"
+      ],
+      "status": 1
+    },
+    "slice4-build-green": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "asan-integration": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+      ],
+      "status": 0
+    },
+    "slice2-red": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "--test",
+        "test_home_default"
+      ],
+      "status": 1
+    },
+    "argv-mutant-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/argv-mutant",
+        "tests/test_cd_module.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cd-argv-mutant.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "asan-main-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-san-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san"
+      ],
+      "status": 0
+    },
+    "slice2-green": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "slice6-green": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main"
+      ],
+      "status": 0
+    },
+    "final-80-format": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "expanded-build-final": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-san-main": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+      ],
+      "status": 0
+    },
+    "final-asan-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san"
+      ],
+      "status": 0
+    },
+    "final-80-san-module-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-internal-oom": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/build/test_cd_module",
+        "--internal-oom"
+      ],
+      "status": 1
+    },
+    "python-syntax": {
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "tests/test_cd.py"
+      ],
+      "status": 0
+    },
+    "delivery-san-module-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "installed-reference": {
+      "command": [
+        "bash",
+        "-c",
+        "printf \"Bash: %s\\n\" \"$BASH_VERSION\"; help cd"
+      ],
+      "status": 0
+    },
+    "final-80-san-main-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "cwd-mutant-red": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-mutant",
+        "--test",
+        "test_absolute_relative_persistence"
+      ],
+      "status": 1
+    },
+    "delivery-san-main": {
+      "command": [
+        "python3",
+        "tests/test_cd.py",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san"
+      ],
+      "status": 0
+    },
+    "delivery-san-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san"
+      ],
+      "status": 0
+    },
+    "slice5-build-green": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice3-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "expanded-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice4-green": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": 0
+    },
+    "delivery-san-main-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main-san",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree/src/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "slice4-red": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": -6
+    },
+    "format-last": {
+      "command": [
+        "clang-format",
+        "-i",
+        "src/cmd_cd.c",
+        "src/cmd_cd.h",
+        "tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "slice1-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_ls.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/shell.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_mkdir.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/traverse.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_head.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/registry.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_touch.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_tail.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_stat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_cat.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/main.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_pwd.c",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/cmd_lines.c",
+        "/home/name/Documents/420-EMBDX/A/src/cmd_cd.c",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "final-asan-module-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir,--wrap=arg_parse",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "delivery-proof-lint": {
+      "command": [
+        "make",
+        "-C",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/tree",
+        "lint",
+        "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c"
+      ],
+      "status": 0
+    },
+    "final-80-san-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/module-san"
+      ],
+      "status": 0
+    },
+    "expanded-module": {
+      "command": [
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module"
+      ],
+      "status": 0
+    },
+    "slice5-build": {
+      "command": [
+        "cc",
+        "-std=c17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wformat=2",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wstrict-prototypes",
+        "-g3",
+        "-O0",
+        "-I/home/name/Documents/420-EMBDX/A/build/argtable3/include",
+        "-I/home/name/Documents/420-EMBDX/A/src",
+        "-o",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/test_cd_module",
+        "tests/test_cd_module.c",
+        "src/cmd_cd.c",
+        "-Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=malloc,--wrap=free,--wrap=chdir",
+        "-L/home/name/Documents/420-EMBDX/A/build/argtable3/lib",
+        "-largtable3",
+        "-lm"
+      ],
+      "status": 0
+    },
+    "integration-patch-check": {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "/home/name/.hermes/cache/scratch/cd-resume-20261008-203032/integration.patch"
+      ],
+      "status": 0
+    }
+  },
+  "sanitizer_env": {
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "shared_before": {
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+    "README.md": "d2ba0ea01e6c05d6714027bfa2c902070928685e9e4f0ea9e1fd98d2da824490",
+    "FILES.md": "b8b1000002dd46de2128ace303c650a54feb935577c9adb041bdce405a200a45"
+  },
+  "shared_after": {
+    "src/main.c": "d0b84084eb05051c37dde4ec9af6d2d809c2b2a7f68907d1c21ffd9a14cf17fd",
+    "src/registry.c": "4de0954067eb6bf00f6d1eddd9f24546a008a6db259998d65dfc69754be694c6",
+    "src/shell.c": "8e22ef515b737b0487b6f8d845d32fc2ad5deeef7688a3b09e0875e2463b77b5",
+    "Makefile": "762d632c7b63506ef5b33720b49d4e5fb0d4b145e90175215a6a16594a3c878a",
+    "README.md": "d2ba0ea01e6c05d6714027bfa2c902070928685e9e4f0ea9e1fd98d2da824490",
+    "FILES.md": "0ffa11f709431b192bb67a480bcc47373c34ce019ab6db96bf5618735e6ee67f"
+  },
+  "owned_document_sha256": {
+    "docs/commands/cd.md": "7046ca7b951c4e2c006c3ef4feb7fec9ea361111065ceaa7f735192eed0db458",
+    "docs/reports/cd.md": "39a3ef2cf18fe2076f072f72d4f5a5b4db4c13bea7da4a6d6e44d28fb2f681a2"
+  }
+}

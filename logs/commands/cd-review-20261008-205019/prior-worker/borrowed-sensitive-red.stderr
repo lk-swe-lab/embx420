@@ -1,0 +1,1 @@
+argv-mutant-sensitive: tests/test_cd_module.c:211: invoke: Assertion `argv[i] == original[i]' failed.

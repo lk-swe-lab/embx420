@@ -1,0 +1,4 @@
+cd: ../blocked: Permission denied
+cd: ../file: Not a directory
+cd: ../loop: Too many levels of symbolic links
+cd: ../missing: No such file or directory

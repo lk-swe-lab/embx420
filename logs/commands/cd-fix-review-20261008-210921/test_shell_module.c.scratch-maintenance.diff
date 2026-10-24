@@ -1,0 +1,20 @@
+--- repository/tests/test_shell_module.c
++++ scratch/tests/test_shell_module.c
+@@ -128,7 +128,7 @@
+     assert(find_command("CAT") == NULL);
+     int count = 0;
+     for_each_command(count_command, &count);
+-    assert(count == 8);
++    assert(count == 9);
+     for_each_command(NULL, NULL);
+     cmd_spec_t duplicate = cmd_cat_spec;
+     assert(register_command(&duplicate) == -1);
+@@ -164,7 +164,7 @@
+         assert(snprintf(names[i], sizeof(names[i]), "extra%d", i) > 0);
+         extras[i] = probe;
+         extras[i].name = names[i];
+-        assert(register_command(&extras[i]) == (i < 23 ? 0 : -1));
++        assert(register_command(&extras[i]) == (i < 22 ? 0 : -1));
+     }
+     count = 0;
+     for_each_command(count_command, &count);

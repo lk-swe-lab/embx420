@@ -1,0 +1,11 @@
+{
+  "args": [
+    "make",
+    "lint",
+    "C_SOURCES=src/cmd_cd.c tests/test_cd_module.c",
+    "CFLAGS=-std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -Werror -g3 -O0"
+  ],
+  "cwd": "/home/name/.hermes/cache/scratch/cd-fix-review-20261008-210921/tree",
+  "status": 0,
+  "env": {}
+}

@@ -1,0 +1,13 @@
+test_closed_stdout (__main__.ClearTests.test_closed_stdout) ... ok
+test_help (__main__.ClearTests.test_help) ... ok
+test_help_output_failure (__main__.ClearTests.test_help_output_failure) ... ok
+test_invalid_before_effects (__main__.ClearTests.test_invalid_before_effects) ... ok
+test_main_parity (__main__.ClearTests.test_main_parity) ... ok
+test_nonterminal (__main__.ClearTests.test_nonterminal) ... ok
+test_term_guard (__main__.ClearTests.test_term_guard) ... ok
+test_terminal_bytes (__main__.ClearTests.test_terminal_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.131s
+
+OK

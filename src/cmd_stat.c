@@ -184,5 +184,9 @@ static void stat_usage(FILE *out)
 }
 
 cmd_spec_t cmd_stat_spec = {
-    "stat", "Inspect file metadata.",
-    "Inspect one file; inspect symlink targets with -L.", stat_run, stat_usage};
+    "stat",
+    "Inspect file metadata.",
+    "Inspect one file; inspect symlink targets with -L.",
+    stat_run,
+    stat_usage,
+    NULL};

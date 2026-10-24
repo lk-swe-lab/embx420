@@ -1,5 +1,10 @@
 # File registry
 
+Runtime/build code is committed at `6f579356abd67ceb1f7123db53f55896c247b967`.
+The documentation/demo/bootstrap follow-up is not yet committed here.
+Historical entries are retained. Paths for retired commands can be absent or
+stale; they do not assert current usage, integration or delivery.
+
 ## Existing
 - sidequests/manual-shell/ — separate Week 03 fork/exec/wait learning shell, selectable tokenizers, tests, and short explanations.
 - sidequests/manual-shell/demo/manual-shell.mp4 — real terminal recording; demo/README.md and captured evidence document verification.
@@ -7,11 +12,11 @@
 - ai_log/2026-10-09-AI_LOG.md — preserved curated command-development decisions; relocated links only.
 - ai_log/2026-10-01-AI_LOG.md — byte-preserved historical prompt-selection report.
 - ai_log/2026-10-16-AI_LOG-week03.md — Week 03 side-project decisions and verification; no prompt transcript.
-- docs/STATUS.md — committed commands, paused/skipped work and current limits.
+- docs/STATUS.md — current working-tree evidence, open delivery gates and historical checkpoints.
 - docs/COMMAND_ANATOMY.md — current module/integration anatomy, not course transcription.
 - docs/COMMAND_API.md — actual command specification and registry signatures/ownership.
-- docs/ai_log.py, docs/test_ai_log.py — existing optional log utility and tests.
-- README.md — builtin-shell/traversal usage, twenty-two-builtin/21-wrapper index, build/run and tests.
+- docs/ai_log.py, docs/test_ai_log.py — historical utility paths; current helpers are under scripts/.
+- README.md — shell/traversal usage, current 19-builtin/17-wrapper index, package/release links and tests.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.
@@ -30,7 +35,7 @@
 - docs/AI_LOGGING.md — registry, logging, and publication rules.
 - .gitignore — excludes local environment, caches, and generated database.
 - Makefile — builds CLI/tests; test, lint, format-check, format, and clean.
-- demo.sh — executable five-command runbook with real five-second holds.
+- demo.sh — historical five-command runbook; includes retired commands, not current lifecycle usage.
 - .clang-format — C formatting with an 80-column limit.
 - src/main.c — builtin-shell entry point and legacy traversal routing.
 - tests/test_help.c — CUnit CLI test for -h usage and exit status.
@@ -58,6 +63,62 @@
 - demo/verification/clean-before.log, demo/verification/test.log, demo/verification/clean-after.log, demo/verification/build.log, demo/verification/lint.log — preserved complete verification streams.
 - demo/verification/encode.log, demo/verification/mpg-decode.log — encoder and full-decoder diagnostics.
 - demo/verification/mpg-ffprobe.json, demo/verification/media-results.json — actual media metadata and validation.
+
+## Packaging coordination and guides
+- docs/reports/packaging-plan.md — accepted milestone and extra release checklist, with explicit verification limits.
+- docs/reports/packaging-verification.md — parent exact-tree checks, independent review, demo and delivery limits.
+- docs/reports/packaging-contract.md — package format, safety rules and acceptance matrix; not passing-test evidence.
+- ai_log/2026-10-22-packaging.md — task decisions, review findings/fixes and attributed evidence; no transcript import.
+- docs/commands/pkg.md — brief local package usage, design, limits and separate shell update instructions.
+- docs/reports/hello-packaging.md — package-only hello contract, review and local verification.
+- docs/reports/package-build.md — shared metadata, generated docs, immutable builder and review-fix evidence.
+- docs/reports/pkg-implementation.md — runtime backend, safety/fault evidence, overlap and Make closure fixes.
+- docs/reports/package-shell.md — real discovery/help/catalog/exec and isolated-HOME test correction.
+- docs/reports/shell-release.md — separate full-shell artifact, operator guide, provenance repair and relocation evidence.
+- Private wiki DB `_drafts/aishell-packaging.md` — parent-delivered DRAFT revision 1; human review pending; excluded from Git/push.
+
+## Packaging definitions and build helpers
+- packages/hello/pkg.json — authoritative hello command-package identity, version and payload inventory.
+- packages/aishell/release.json — authoritative full-shell release identity/version; not a pkg payload.
+- scripts/build_package.py — bounded package generation, validation and immutable publication.
+- scripts/build_shell_release.py — exact-byte shell snapshot, help/catalog generation and immutable release publication.
+- scripts/bootstrap_dependencies.py — verified pinned, SHA-256-checked static Argtable/CUnit bootstrap into new local prefixes.
+- build/packages/hello-0.1.0/, build/releases/aishell-0.1.0/ — generated outputs, not source or Git deliverables.
+
+## Packaging C modules
+- src/cmd_hello.c, src/cmd_hello.h — package-only hello specification and shared argument builder/metadata visitor.
+- src/hello_main.c — separate hello executable; not a builtin wrapper.
+- src/export_hello.c — build-time exporter for hello structured metadata.
+- src/cmd_metadata.c, src/cmd_metadata.h — shared command JSON writer; borrowed stream/spec, staged failure output.
+- src/cmd_pkg.c, src/cmd_pkg.h — builtin package CLI specification and exact grammar.
+- src/pkg_store.c, src/pkg_store.h — owned snapshots and local install/remove lifecycle.
+- src/pkg_fs.c, src/pkg_fs.h — no-follow filesystem access, persistent exclusive lock and bounded copying.
+- src/pkg_json.c, src/pkg_json.h — bounded strict JSON reader.
+- src/pkg_schema.c, src/pkg_schema.h — manifest and command-metadata validation.
+
+## Packaging tests and test helpers
+- tests/test_hello.py, tests/test_hello_module.c — CLI, visitor ownership and repeated-call checks.
+- tests/test_metadata.c — shared exporter, logical grammar and failure tests.
+- tests/test_package_build.py — package bytes/inventory, validation, publication and independent test sensitivity.
+- tests/test_package_shell.py, tests/test_package_shell_module.c — actual main/loop discovery, help/catalog/exec and child fault checks.
+- tests/test_pkg.py, tests/test_pkg_module.c — backend lifecycle, malformed state, ownership and failure checks.
+- tests/pkg_build.py — private normal/sanitizer test builds with explicit dependencies.
+- tests/pkg_driver.c, tests/pkg_json_driver.c — isolated CLI and JSON reader drivers.
+- tests/pkg_faults.c — narrow syscall/allocation fault seams, including variadic openat forwarding.
+- tests/pkg_openat_driver.c — real no-mode, O_CREAT and O_TMPFILE forwarding regression.
+- tests/pkg_negative.py — safety mutants and intended-assertion sensitivity checks.
+- tests/test_shell_release.py — exact release inventory, provenance, publication, relocation and lifecycle checks.
+
+## Packaging lifecycle demo
+- demo/PACKAGING.md — current run instructions, isolation, exact checks and limits.
+- demo/packaging-demo.py — actual-command runner; isolated HOME/TMPDIR, no PATH fallback.
+- demo/packaging-demo.json, demo/packaging-demo.log — captured execution of 17 commands and 21 checks, including relocated release.
+
+## Adopted rmdir baseline (not new packaging work)
+- src/cmd_rmdir.c, src/cmd_rmdir.h, src/rmdir_main.c — existing baseline command module and standalone wrapper.
+- tests/test_rmdir.py, tests/test_rmdir_module.c — existing baseline CLI and module checks.
+- docs/commands/rmdir.md, docs/reports/rmdir-implementation.md — adopted baseline guide and historical implementation evidence.
+- logs/commands/rmdir-evidence.json, logs/commands/rmdir-execution.log — existing baseline execution evidence.
 
 ## Optional future outputs (not this delivery)
 - docs/AI_LOG.md — generated prompt archive only if separately requested.
@@ -205,7 +266,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/mv-review.md — independent source review, executed gates and limits.
 - logs/commands/mv-review-execution.log, logs/commands/mv-review-evidence.json — complete review streams and command/status ledger.
 
-## env command
+## Historical env command (retired baseline paths)
 - src/cmd_env.c, src/cmd_env.h — read-only sorted environment/JSON module.
 - src/env_main.c — thin standalone wrapper.
 - tests/test_env.py — synthetic byte fixtures, GNU content subset, JSON, main reuse/PTY.
@@ -214,7 +275,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/env-implementation.md — manual selection, contract, TDD and verification results.
 - logs/commands/env-execution.log, logs/commands/env-evidence.json — compact complete raw execution evidence and command/status/hash ledger.
 
-## echo command
+## Historical echo command (retired baseline paths)
 - src/cmd_echo.c, src/cmd_echo.h — invocation-local literal output and shared parser/help.
 - src/echo_main.c — thin standalone wrapper.
 - tests/test_echo.py, tests/test_echo_module.c — independent bytes, GNU subset, main/PTY, reuse, state and faults.
@@ -225,7 +286,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/echo-review.md — independent verdict, executed gates and inherited limits.
 - logs/commands/echo-review-execution.log, logs/commands/echo-review-evidence.json — compact complete reviewer execution streams and command/status/hash ledger.
 
-## date command
+## Historical date command (retired baseline paths)
 - src/cmd_date.c, src/cmd_date.h — numeric read-only local/UTC clock module and shared parser/help.
 - src/date_main.c — thin standalone wrapper.
 - tests/test_date.py, tests/test_date_module.c — bounded real clock/GNU fixtures, main/PTY, synthetic calendars, state/reuse and faults.
@@ -236,7 +297,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/date-review.md — independent verdict, execution gates and diagnosed limits.
 - logs/commands/date-review-execution.log, logs/commands/date-review-evidence.json — complete review streams and command/status/hash ledger.
 
-## printf command
+## Historical printf command (retired baseline paths)
 - src/cmd_printf.c, src/cmd_printf.h — bounded typed byte formatter and invocation-local parser/help.
 - src/printf_main.c — thin standalone printf wrapper.
 - tests/test_printf.py, tests/test_printf_module.c — independent GNU subset, strict boundaries, main/PTY, borrowed state and fault/reuse checks.
@@ -247,7 +308,7 @@ is authorized by this update; existing history and evidence remain unchanged.
 - docs/reports/printf-review.md — independent review verdict, execution gates and explicit exceptions.
 - logs/commands/printf-review-execution.log, logs/commands/printf-review-evidence.json — complete review streams and command/status/hash ledger.
 
-## sleep command
+## Historical sleep command (retired baseline paths)
 - src/cmd_sleep.c, src/cmd_sleep.h — exact decimal delay and shared parser/help.
 - src/sleep_main.c — optional thin standalone wrapper.
 - tests/test_sleep.py, tests/test_sleep_module.c — reference/main/PTY, exact requests, interruption, resource/state and fault tests.

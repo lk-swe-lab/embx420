@@ -1,0 +1,211 @@
+# Build the CLI with diagnostics and debug symbols.
+CC = cc
+CFLAGS ?= -std=c17 -Wall -Wextra -Wpedantic -Wformat=2 -Wshadow -Wconversion -Wstrict-prototypes -g3 -O0
+CUNIT_CPPFLAGS ?= -Ibuild/cunit/include
+CUNIT_LDLIBS ?= -Lbuild/cunit/lib -lcunit
+ARGTABLE3_CPPFLAGS ?= -Ibuild/argtable3/include
+ARGTABLE3_LDLIBS ?= -Lbuild/argtable3/lib -largtable3 -lm
+CAT_UNDER_TEST ?= /usr/bin/cat
+CAT_TEST_ARGS ?=
+CLANG_TIDY ?= clang-tidy
+CLANG_FORMAT ?= clang-format
+C_SOURCES = $(wildcard src/*.c tests/*.c)
+C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
+# Exclude blanket Annex K replacement advice; keep other analyzer checks.
+CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
+
+.PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
+all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch
+
+build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/mkdir: src/mkdir_main.c src/cmd_mkdir.c src/cmd_mkdir.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/mkdir_main.c src/cmd_mkdir.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/head: src/head_main.c src/cmd_head.c src/cmd_head.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/head_main.c src/cmd_head.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/tail: src/tail_main.c src/cmd_tail.c src/cmd_tail.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/tail_main.c src/cmd_tail.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/pwd: src/pwd_main.c src/cmd_pwd.c src/cmd_pwd.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/pwd_main.c src/cmd_pwd.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/ls: src/ls_main.c src/cmd_ls.c src/cmd_ls.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/ls_main.c src/cmd_ls.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+.PHONY: test-touch test-touch-impl
+test-touch:
+	python3 tests/test_touch.py /usr/bin/touch --reference
+
+build/test_touch_module: tests/test_touch_module.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_touch_module.c src/cmd_touch.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=free,--wrap=utimensat,--wrap=open,--wrap=futimens,--wrap=close,--wrap=write,--wrap=strerror $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-touch-impl: build/touch build/test_touch_module
+	python3 tests/test_touch.py ./build/touch
+	./build/test_touch_module
+
+.PHONY: test-mkdir test-mkdir-impl
+test-mkdir:
+	python3 tests/test_mkdir.py /usr/bin/mkdir --reference
+
+build/test_mkdir_module: tests/test_mkdir_module.c src/cmd_mkdir.c src/cmd_mkdir.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_mkdir_module.c src/cmd_mkdir.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=arg_filen,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=calloc,--wrap=strdup,--wrap=free,--wrap=mkdir,--wrap=stat,--wrap=chmod,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-mkdir-impl: build/mkdir build/test_mkdir_module
+	python3 tests/test_mkdir.py ./build/mkdir
+	./build/test_mkdir_module
+
+.PHONY: test-ls test-ls-impl
+test-ls:
+	python3 tests/test_ls.py /usr/bin/ls --reference
+
+build/test_ls_module: tests/test_ls_module.c src/cmd_ls.c src/cmd_ls.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_ls_module.c src/cmd_ls.c src/cmd_lines.c -Wl,--wrap=arg_lit0,--wrap=realloc,--wrap=strdup,--wrap=opendir,--wrap=readdir,--wrap=fstatat,--wrap=closedir,--wrap=write $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-ls-impl: build/ls build/test_ls_module
+	python3 tests/test_ls.py ./build/ls
+	./build/test_ls_module
+
+build/stat: src/stat_main.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/stat_main.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+SHELL_SOURCES = src/cmd_cd.c src/shell.c src/registry.c src/cmd_cat.c src/cmd_head.c src/cmd_tail.c src/cmd_pwd.c src/cmd_stat.c src/cmd_ls.c src/cmd_mkdir.c src/cmd_touch.c src/cmd_lines.c
+SHELL_HEADERS = src/cmd_cd.h src/shell.h src/registry.h src/cmd_spec.h src/cmd_cat.h src/cmd_head.h src/cmd_tail.h src/cmd_pwd.h src/cmd_stat.h src/cmd_ls.h src/cmd_mkdir.h src/cmd_touch.h src/cmd_lines.h
+
+build/main: src/main.c src/traverse.c src/traverse.h $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/main.c src/traverse.c $(SHELL_SOURCES) $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_shell_module: tests/test_shell_module.c $(SHELL_SOURCES) $(SHELL_HEADERS) Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(SHELL_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+.PHONY: test-shell
+test-shell: build/main build/test_shell_module build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch
+	python3 tests/test_shell.py --program ./build/main --standalone-dir ./build
+	./build/test_shell_module
+
+test: test-shell
+
+build/cat: src/cat_main.c src/cmd_cat.c src/cmd_cat.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/cat_main.c src/cmd_cat.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+build/test_help: tests/test_help.c tests/test_output.h Makefile | build
+	$(CC) $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $< $(CUNIT_LDLIBS) $(LDLIBS)
+
+build/test_recursive: tests/test_recursive.c tests/test_output.h Makefile | build
+	$(CC) $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $< $(CUNIT_LDLIBS) $(LDLIBS)
+
+build/test_cat: tests/test_cat.c tests/test_output.h Makefile | build
+	$(CC) $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $< $(CUNIT_LDLIBS) $(LDLIBS)
+
+build/test_cat_module: tests/test_cat_module.c tests/test_output.h src/cmd_cat.c src/cmd_cat.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_cat_module.c src/cmd_cat.c -Wl,--wrap=read,--wrap=write $(CUNIT_LDLIBS) $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+# Reference-first suite; deliberately separate from project regression tests.
+test-cat: build/test_cat
+	./build/test_cat "$(CAT_UNDER_TEST)" $(CAT_TEST_ARGS)
+
+# Build and test only our cat implementation, including direct module tests.
+test-cat-impl: build/cat build/test_cat build/test_cat_module
+	./build/test_cat ./build/cat --project
+	./build/test_cat_module
+
+test-head:
+	python3 tests/test_head.py --program /usr/bin/head --reference
+
+build/test_head_module: tests/test_head_module.c src/cmd_head.c src/cmd_head.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_head_module.c src/cmd_head.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-head-impl: build/head build/test_head_module
+	python3 tests/test_head.py --program ./build/head
+	./build/test_head_module
+
+test-tail:
+	python3 tests/test_tail.py --program /usr/bin/tail --reference
+
+build/test_tail_module: tests/test_tail_module.c src/cmd_tail.c src/cmd_tail.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_tail_module.c src/cmd_tail.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-tail-impl: build/tail build/test_tail_module
+	python3 tests/test_tail.py --program ./build/tail
+	./build/test_tail_module
+
+.PHONY: test-lines-random
+test-lines-random: build/head build/tail
+	python3 tests/test_lines_random.py
+
+.PHONY: test-pwd test-pwd-impl
+test-pwd:
+	python3 tests/test_pwd.py /usr/bin/pwd --reference
+
+build/test_pwd_module: tests/test_pwd_module.c src/cmd_pwd.c src/cmd_pwd.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_pwd_module.c src/cmd_pwd.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-pwd-impl: build/pwd build/test_pwd_module
+	python3 tests/test_pwd.py ./build/pwd
+	./build/test_pwd_module
+
+.PHONY: test-stat test-stat-impl
+test-stat:
+	python3 tests/test_stat.py /usr/bin/stat --reference
+
+build/test_stat_module: tests/test_stat_module.c src/cmd_stat.c src/cmd_stat.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_stat_module.c src/cmd_stat.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test-stat-impl: build/stat build/test_stat_module
+	python3 tests/test_stat.py ./build/stat
+	./build/test_stat_module
+
+test: build/touch build/test_touch_module build/mkdir build/test_mkdir_module build/ls build/test_ls_module build/stat build/test_stat_module build/main build/cat build/head build/tail build/pwd build/test_help build/test_recursive build/test_cat build/test_cat_module build/test_head_module build/test_tail_module build/test_pwd_module
+	./build/test_help
+	./build/test_recursive
+	./build/test_cat ./build/cat --project
+	./build/test_cat_module
+	python3 tests/test_head.py --program ./build/head
+	./build/test_head_module
+	python3 tests/test_tail.py --program ./build/tail
+	./build/test_tail_module
+	python3 tests/test_lines_random.py
+	python3 tests/test_pwd.py ./build/pwd
+	./build/test_pwd_module
+	python3 tests/test_stat.py ./build/stat
+	./build/test_stat_module
+	python3 tests/test_ls.py ./build/ls
+	./build/test_ls_module
+	python3 tests/test_mkdir.py ./build/mkdir
+	./build/test_mkdir_module
+	python3 tests/test_touch.py ./build/touch
+	./build/test_touch_module
+
+lint:
+	$(CLANG_TIDY) --checks='$(CLANG_TIDY_CHECKS)' --warnings-as-errors='*' $(C_SOURCES) -- $(CPPFLAGS) $(CUNIT_CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS)
+
+format-check:
+	$(CLANG_FORMAT) --dry-run --Werror $(C_FILES)
+
+format:
+	$(CLANG_FORMAT) -i $(C_FILES)
+
+build:
+	mkdir -p $@
+
+clean:
+	$(RM) build/test_cd_module
+	$(RM) build/test_shell_module
+	$(RM) build/touch build/test_touch_module
+	$(RM) build/mkdir build/test_mkdir_module
+	$(RM) build/ls build/test_ls_module
+	$(RM) build/stat build/test_stat_module
+	$(RM) build/pwd build/test_pwd_module
+	$(RM) build/main build/cat build/head build/tail build/test_head_module build/test_tail_module build/test_help build/test_recursive build/test_cat build/test_cat_module build/help.stdout build/help.stderr
+
+.PHONY: test-cd
+test-cd: build/main build/test_cd_module
+	python3 tests/test_cd.py ./build/main
+	./build/test_cd_module
+
+build/test_cd_module: tests/test_cd_module.c src/cmd_cd.c src/cmd_cd.h src/cmd_spec.h Makefile | build
+	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ tests/test_cd_module.c src/cmd_cd.c -Wl,--wrap=arg_lit0,--wrap=arg_file0,--wrap=arg_end,--wrap=arg_parse,--wrap=malloc,--wrap=free,--wrap=chdir $(ARGTABLE3_LDLIBS) $(LDLIBS)
+
+test: test-cd

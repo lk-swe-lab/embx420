@@ -1,0 +1,7 @@
+{
+  "src/cmd_clear.c": true,
+  "src/cmd_clear.h": true,
+  "src/clear_main.c": true,
+  "tests/test_clear.py": true,
+  "tests/test_clear_module.c": true
+}

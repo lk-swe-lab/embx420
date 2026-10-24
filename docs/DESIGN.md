@@ -1,5 +1,5 @@
 # Discuss and design
-- Read the eek's assignment and clarify goals and constraints.
+- Read the week's assignment and clarify goals and constraints.
 - Identify missing information and how to gather it.
 - Compare solutions and explain their trade-offs.
 - Agree on interfaces, error handling, and testable requirements.
