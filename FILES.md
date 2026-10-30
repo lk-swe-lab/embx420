@@ -6,6 +6,9 @@ Historical entries are retained. Paths for retired commands can be absent or
 stale; they do not assert current usage, integration or delivery.
 
 ## Existing
+- sidequests/lean-ai-shell/ — separate recursive pipe shell; source, tests, and build rules.
+- sidequests/lean-ai-shell/README.md, DESIGN.md — brief usage and final AiShell integration rules.
+- Private wiki DB `_drafts/pipes.md` — recursive pipe draft; human review pending; not published.
 - sidequests/manual-shell/ — separate Week 03 fork/exec/wait learning shell, selectable tokenizers, tests, and short explanations.
 - sidequests/manual-shell/demo/manual-shell.mp4 — real terminal recording; sidequests/manual-shell/demo/README.md and captured evidence document verification.
 - ai_log/README.md — index of date-prefixed AI logs.

@@ -9,6 +9,8 @@ See [shell usage and limits](docs/commands/shell.md),
 
 Separate Week 03 learning project: [manual shell](sidequests/manual-shell/README.md)
 and its [MP4 demo](sidequests/manual-shell/demo/manual-shell.mp4).
+Separate pipe experiment: [Lean AI Shell](sidequests/lean-ai-shell/README.md).
+It adds recursive foreground pipes; the main shell is unchanged.
 
 ```sh
 make

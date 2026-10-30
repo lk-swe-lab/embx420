@@ -1,5 +1,11 @@
 # Current status
 
+## Separate pipe experiment
+
+[Lean AI Shell](../sidequests/lean-ai-shell/README.md) adds recursive foreground
+pipes in child processes. It reuses the module runtime. The main shell below
+is unchanged. See [integration rules](../sidequests/lean-ai-shell/DESIGN.md).
+
 ## Shared-module working tree
 
 The current host is `build/aishell` (`build/main` alias), with 22 standard `.so`
