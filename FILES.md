@@ -6,6 +6,7 @@ Historical entries are retained. Paths for retired commands can be absent or
 stale; they do not assert current usage, integration or delivery.
 
 ## Existing
+- demo/README.md — brief build and run steps for the package and pipe demos.
 - sidequests/lean-ai-shell/demo.sh — checked foreground pipe walkthrough and real process trace; five-second pauses.
 - sidequests/lean-ai-shell/tests/test_demo.py — complete demo, cleanup, and unchanged-binary checks from another directory.
 - ai_log/2026-10-30-AI_LOG-shell-pipes.md — module-shell and pipe-sidequest decisions, tests, demos, and publication boundary.
