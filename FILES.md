@@ -6,6 +6,9 @@ Historical entries are retained. Paths for retired commands can be absent or
 stale; they do not assert current usage, integration or delivery.
 
 ## Existing
+- sidequests/lean-ai-shell/demo.sh — checked foreground pipe walkthrough and real process trace; five-second pauses.
+- sidequests/lean-ai-shell/tests/test_demo.py — complete demo, cleanup, and unchanged-binary checks from another directory.
+- ai_log/2026-10-30-AI_LOG-shell-pipes.md — module-shell and pipe-sidequest decisions, tests, demos, and publication boundary.
 - sidequests/lean-ai-shell/ — separate recursive pipe shell; source, tests, and build rules.
 - sidequests/lean-ai-shell/README.md, DESIGN.md — brief usage and final AiShell integration rules.
 - Private wiki DB `_drafts/pipes.md` — recursive pipe draft; human review pending; not published.
@@ -19,7 +22,7 @@ stale; they do not assert current usage, integration or delivery.
 - docs/COMMAND_ANATOMY.md — current module/integration anatomy, not course transcription.
 - docs/COMMAND_API.md — actual command specification and registry signatures/ownership.
 - docs/ai_log.py, docs/test_ai_log.py — historical utility paths; current helpers are under scripts/.
-- README.md — shell/traversal usage, current 22-module/17-standard-wrapper index, package/release links and tests.
+- README.md — brief build/run commands, both demos, and guide links.
 - AGENTS.md — collaboration, development, and logging rules.
 - Introduction.odt — assignment requirements.
 - FILES.md — this registry; update when files change.

@@ -5,7 +5,7 @@ CPPFLAGS += -D_POSIX_C_SOURCE=200809L -I$(ROOT)/src
 SOURCES := main.c parse.c execute.c $(ROOT)/src/module_runtime.c
 HEADERS := lean.h $(wildcard $(ROOT)/src/*.h)
 
-.PHONY: all modules test sanitize clean
+.PHONY: all modules test test-demo sanitize clean
 all: build/lean-shell modules
 
 build/lean-shell: $(SOURCES) $(HEADERS) Makefile
@@ -29,6 +29,10 @@ build/lean-shell-fault: $(SOURCES) tests/faults.c $(HEADERS) Makefile
 test: all build/probe.so build/lean-shell-fault
 	$(MAKE) -C $(ROOT) package-hello
 	python3 tests/test_shell.py
+
+test-demo: all
+	bash -n demo.sh
+	python3 tests/test_demo.py
 
 build/lean-shell-sanitize: $(SOURCES) $(HEADERS) Makefile
 	mkdir -p build

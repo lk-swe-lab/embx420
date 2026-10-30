@@ -1,5 +1,7 @@
 # AI logs
 
+- [2026-10-30 — Module shell and pipes](2026-10-30-AI_LOG-shell-pipes.md): design, signal fix, tests, demos, and publication boundary.
+- [2026-10-22 — Packaging](2026-10-22-packaging.md): earlier package decisions and verification.
 - [2026-10-16 — Week 03 learning shell](2026-10-16-AI_LOG-week03.md): decisions, corrections, verification, and relevant session IDs only.
 - [2026-10-09 — Command development](2026-10-09-AI_LOG.md): existing curated decisions; only relative links adjusted after relocation.
 - [2026-10-01 — Historical prompt-selection report](2026-10-01-AI_LOG.md): existing previously committed report, preserved byte-for-byte. Its original draft/status wording is historical.
