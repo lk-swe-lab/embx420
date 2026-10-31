@@ -23,7 +23,8 @@ class NativeTransactions(unittest.TestCase):
         shutil.copy2(shared.PROGRAM, cls.program)
         shutil.copytree(shared.PROGRAM.parent / 'modules', cls.release / 'modules')
         sources = ['src/module_entry.c', 'src/cmd_pkg.c', 'src/module_pkg.c',
-                   'src/cmd_metadata.c', 'src/pkg_store.c', 'src/pkg_fs.c',
+                   'src/cmd_metadata.c', 'src/module_usage.c',
+                   'src/pkg_store.c', 'src/pkg_fs.c',
                    'src/pkg_json.c', 'src/pkg_schema.c', 'tests/native_pkg_faults.c']
         wraps = ['module_pkg_run',
                  'write', 'fsync', 'close', 'renameat', 'renameat2', 'unlinkat']

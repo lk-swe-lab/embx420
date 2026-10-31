@@ -278,7 +278,7 @@ class ShellTests(unittest.TestCase):
                 self.assertIn(b"lean: dup2:", result.stderr)
 
     def test_package_live_install_remove_and_select(self):
-        package = ROOT.parents[1] / "build/native-candidates/hello-0.2.0"
+        package = ROOT.parents[1] / "build/compat-packages-abi-v1/hello-0.2.0"
         text = (f"pkg install '{package}'\nhello --name learner | cat\n"
                 "pkg remove hello\nhello\npkg use hello 0.2.0\n"
                 "hello --name restored | cat\n").encode()

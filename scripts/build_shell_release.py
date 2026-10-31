@@ -1,4 +1,4 @@
-"""Build an immutable local ELF shell release, not a pkg payload."""
+"""Build a legacy eager-module release for compatibility tests."""
 
 import argparse
 import ctypes
@@ -337,7 +337,7 @@ def main():
     parser.add_argument(
         "--manifest", type=Path, default=ROOT / "packages/aishell/release.json"
     )
-    parser.add_argument("--binary", type=Path, default=ROOT / "build/aishell")
+    parser.add_argument("--binary", type=Path, default=ROOT / "build/main")
     demo_identity = json_read(
         regular_read(ROOT / "packages/hello-so/pkg.json", 65536), 65536
     )
@@ -345,7 +345,7 @@ def main():
         "--demo-package",
         type=Path,
         default=ROOT
-        / "build/native-candidates"
+        / "build/compat-packages-abi-v1"
         / (demo_identity["name"] + "-" + demo_identity["version"]),
     )
     parser.add_argument("--output-root", type=Path, default=ROOT / "build/so-reviewed-releases")

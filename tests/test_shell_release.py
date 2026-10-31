@@ -29,8 +29,8 @@ class ReleaseTests(unittest.TestCase):
         return SimpleNamespace(
             output_root=self.output,
             manifest=ROOT / "packages/aishell/release.json",
-            demo_package=ROOT / "build/native-candidates/hello-0.2.0",
-            binary=ROOT / "build/aishell",
+            demo_package=ROOT / "build/compat-packages-abi-v1/hello-0.2.0",
+            binary=ROOT / "build/main",
         )
 
     def build(self, *args, status=0):

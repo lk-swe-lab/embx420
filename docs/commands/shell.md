@@ -1,12 +1,15 @@
-# Shared-module shell (`aishell`, alias `main`)
+# Legacy shared-module shell (`main`)
+
+The new `aishell` starts empty. See [host controls](../HOST.md).
+The commands below describe the retained eager host; use `build/main`.
 
 ```sh
-./build/aishell                  # interactive when stdin is a terminal
-./build/aishell pwd              # one-shot; calling shell supplies argv
-./build/aishell head -n 2 FILE
-./build/aishell --help           # current runtime command inventory
-./build/aishell --commands-json  # sorted catalog; no extra operands
-./build/aishell help touch
+./build/main                  # interactive when stdin is a terminal
+./build/main pwd              # one-shot; calling shell supplies argv
+./build/main head -n 2 FILE
+./build/main --help           # current runtime command inventory
+./build/main --commands-json  # sorted catalog; no extra operands
+./build/main help touch
 ```
 
 All 22 standard commands are `.so` modules, including help, exit, cd, pkg and

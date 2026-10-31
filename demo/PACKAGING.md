@@ -1,5 +1,9 @@
 # Native package demo
 
+Historical eager-host walkthrough and capture. For the new empty host, use
+`python3 demo/catalog-demo.py` and [current host controls](../docs/HOST.md).
+The commands below do not describe default empty-host startup.
+
 ## Prepare outside the demo
 
 Build trusted outputs separately: `make all package-hello release-shell`.

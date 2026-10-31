@@ -1,4 +1,5 @@
 #include "shell.h"          /* Dispatch API. */
+#include "host_catalog.h"   /* Optional empty-host controls. */
 #include "registry.h"       /* find_command. */
 #include "module_runtime.h" /* Sequential lifecycle state. */
 #include <stdio.h>          /* fprintf, fflush, ferror, stdout, stderr. */
@@ -16,7 +17,13 @@ int shell_dispatch(int argc, char **argv, int *stop, int previous_status)
     for (int i = 0; i < argc; ++i)
         if (argv[i] == NULL)
             return 2;
-    module_runtime_refresh();
+    if (host_catalog_ready()) {
+        int status = host_catalog_control(argc, argv, stop, previous_status);
+        if (status >= 0)
+            return status;
+    }
+    if (!module_runtime_is_explicit())
+        module_runtime_refresh();
     const cmd_spec_t *spec = find_command(argv[0]);
     if (spec == NULL) {
         fprintf(stderr, "main: %s: unknown command\n", argv[0]);

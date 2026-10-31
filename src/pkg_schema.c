@@ -152,7 +152,8 @@ int pkg_manifest_valid(const pj_value *m)
         "schema_version", "name",  "version", "description",
         "commands",       "files", "docs",    "dependencies"};
     const pj_value *sv = pj_get(m, "schema_version");
-    int shared = sv && sv->type == PJ_NUMBER && !strcmp(sv->text, "2");
+    int shared = sv && sv->type == PJ_NUMBER &&
+                 (!strcmp(sv->text, "2") || !strcmp(sv->text, "3"));
     if (!pj_fields(m, keys, 8) || (!schema(sv) && !shared) ||
         !pkg_name_valid(pkg_text(m, "name")) ||
         !version(pkg_text(m, "version")) ||
@@ -298,8 +299,15 @@ int pkg_metadata_valid(const pj_value *metadata, const pj_value *manifest)
                                        "commands"};
     static const char *const command_keys[] = {
         "name", "summary", "long_help", "usage", "arguments", "options"};
+    const pj_value *manifest_schema = pj_get(manifest, "schema_version");
+    int usage_only = manifest_schema && manifest_schema->type == PJ_NUMBER &&
+                     !strcmp(manifest_schema->text, "3");
+    const pj_value *metadata_schema = pj_get(metadata, "schema_version");
     if (!pj_fields(metadata, keys, 4) ||
-        !schema(pj_get(metadata, "schema_version")))
+        (usage_only
+             ? metadata_schema == NULL || metadata_schema->type != PJ_NUMBER ||
+                   strcmp(metadata_schema->text, "2") != 0
+             : !schema(metadata_schema)))
         return 0;
     const char *name = pkg_text(metadata, "package");
     const char *ver = pkg_text(metadata, "version");
@@ -313,7 +321,7 @@ int pkg_metadata_valid(const pj_value *metadata, const pj_value *manifest)
         return 0;
     const pj_value *n = names->child;
     for (const pj_value *p = array->child; p; p = p->next, n = n->next) {
-        if (!pj_fields(p, command_keys, 6) ||
+        if (!pj_fields(p, command_keys, usage_only ? 4 : 6) ||
             !command_name(pkg_text(p, "name")) ||
             strcmp(pkg_text(p, "name"), n->text) != 0 ||
             !text(pkg_text(p, "summary"), 256, 0, 1) ||
@@ -321,7 +329,8 @@ int pkg_metadata_valid(const pj_value *metadata, const pj_value *manifest)
             !text(pkg_text(p, "usage"), 16384, 1, 1))
             return 0;
         const char *usage = pkg_text(p, "usage");
-        if (usage[strlen(usage) - 1] == '\n' || !entries_valid(p))
+        if (usage[strlen(usage) - 1] == '\n' ||
+            (!usage_only && !entries_valid(p)))
             return 0;
     }
     return 1;

@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 #include "cmd_pkg.h"      /* cmd_pkg_spec. */
 #include "cmd_metadata.h" /* cmd_metadata_write. */
+#include "module_usage.h" /* Schema-3 usage-only exporter. */
 #include "module_abi.h"   /* Public host callbacks only. */
 #include "pkg_record.h"   /* Shared bounded record validation/copy. */
 #include "pkg_schema.h"   /* pkg_text, pkg_array_has. */
@@ -20,6 +21,7 @@ typedef struct {
     char version[24];
     int seen;
     int warned;
+    int allowed;
 } observed_package;
 static observed_package observed[64];
 static size_t observed_count;
@@ -29,6 +31,14 @@ static size_t observed_count;
  * Rets: void.
  */
 void pkg_bind(const aishell_host_v1 *api) { host = api; }
+
+/* Purpose: Read optional policy tail safely. Args: none. Rets: flag. */
+static int explicit_only(void)
+{
+    return host->size >= offsetof(aishell_host_v1, explicit_only) +
+                             sizeof(host->explicit_only) &&
+           host->explicit_only != NULL && host->explicit_only(host->context);
+}
 
 /* Purpose: Adapt retained legacy validation's collision oracle to the API.
  * Args: name borrows a command name.
@@ -74,7 +84,7 @@ static int failure(const char *message)
     return -1;
 }
 
-/* Purpose: Read only schema-2 native module packages using shared validators.
+/* Purpose: Read schema-2/3 native packages using shared validators.
  * Args: fd borrows package directory; record receives ownership; managed
  *       selects installed directory ownership checks.
  * Rets: 0 valid; -1 invalid or executable-only legacy package.
@@ -84,7 +94,8 @@ static int shared_record(int fd, pkg_record *record, int managed)
     if (record_read(fd, record, 0, managed) != 0)
         return -1;
     const pj_value *schema = pj_get(record->manifest, "schema_version");
-    if (schema == NULL || strcmp(schema->text, "2"))
+    if (schema == NULL ||
+        (strcmp(schema->text, "2") && strcmp(schema->text, "3")))
         return failure("executable-only schema-1 packages are unsupported; "
                        "rebuild as schema-2 shared modules");
     return 0;
@@ -192,14 +203,16 @@ static int json_equal(const pj_value *a, const pj_value *b)
  * Args: spec and expected are borrowed; neither is changed or retained.
  * Rets: Nonzero for an exact decoded match, zero on drift or any failure.
  */
-static int metadata_matches(const cmd_spec_t *spec, const pj_value *expected)
+static int metadata_matches(const cmd_spec_t *spec, const pj_value *expected,
+                            int usage_only)
 {
     char *data = NULL;
     size_t length = 0;
     FILE *stream = open_memstream(&data, &length);
     if (stream == NULL)
         return 0;
-    int status = cmd_metadata_write(stream, spec);
+    int status = usage_only ? module_usage_write(stream, spec)
+                            : cmd_metadata_write(stream, spec);
     if (fclose(stream))
         status = -1;
     pj_value *actual = status ? NULL : pj_parse(data, length);
@@ -234,7 +247,9 @@ static int activate_record(const char *directory, const pkg_record *record,
         const pj_value *metadata = pj_get(record->metadata, "commands")->child;
         while (metadata && strcmp(pkg_text(metadata, "name"), p->text))
             metadata = metadata->next;
-        if (spec == NULL || !metadata_matches(spec, metadata))
+        int usage_only =
+            !strcmp(pj_get(record->manifest, "schema_version")->text, "3");
+        if (spec == NULL || !metadata_matches(spec, metadata, usage_only))
             return failure("module metadata differs from authoritative spec");
         names[count++] = p->text;
     }
@@ -293,6 +308,13 @@ static observed_package *observe(const char *name)
  */
 void pkg_refresh(void)
 {
+    if (explicit_only()) {
+        size_t allowed = 0;
+        for (size_t i = 0; i < observed_count; ++i)
+            allowed += observed[i].allowed != 0;
+        if (!allowed)
+            return;
+    }
     const char *home = getenv("HOME");
     /* Optional discovery is disabled for nonabsolute HOME. Commands such as
      * cd retain their own HOME semantics; explicit pkg operations still fail.
@@ -340,6 +362,14 @@ void pkg_refresh(void)
             failure("invalid selection entry; ignored");
             continue;
         }
+        if (explicit_only()) {
+            size_t i = 0;
+            while (i < observed_count &&
+                   strcmp(observed[i].name, entry->d_name))
+                ++i;
+            if (i == observed_count || !observed[i].allowed)
+                continue;
+        }
         observed_package *item = observe(entry->d_name);
         char *version = NULL;
         if (item == NULL || selection_read(active, entry->d_name, &version)) {
@@ -386,7 +416,7 @@ void pkg_refresh(void)
     }
 hidden:
     for (size_t i = 0; i < observed_count; ++i)
-        if (!observed[i].seen) {
+        if (!observed[i].seen && (!explicit_only() || observed[i].allowed)) {
             host->hide_package(host->context, observed[i].name);
             observed[i].version[0] = '\0';
             observed[i].warned = 0;
@@ -406,8 +436,11 @@ static int install(const char *source)
     int staged = 0, committed = 0, selected = 0;
     char stage[80] = "", final[90], path[4096];
     src = pkg_dir_open(source);
-    if (src < 0 || pkg_install_disjoint(src) ||
-        shared_record(src, &record, 0) || pkg_root_open(&root, 1))
+    if (src < 0 || pkg_install_disjoint(src) || shared_record(src, &record, 0))
+        goto done;
+    /* Reserve bounded tracking before any persistent selection change. */
+    observed_package *item = explicit_only() ? observe(record.name) : NULL;
+    if ((explicit_only() && item == NULL) || pkg_root_open(&root, 1))
         goto done;
     active = pkg_child_dir(root.root, ".active", 1, 1);
     if (active < 0)
@@ -441,6 +474,8 @@ static int install(const char *source)
     if (selection_write(active, record.name, record.version))
         goto done;
     selected = 1;
+    if (item != NULL)
+        item->allowed = 1;
     result = 0;
 done:
     if (staged && !committed) {
@@ -482,6 +517,9 @@ done:
  */
 static int select_version(const char *name, const char *version)
 {
+    observed_package *item = explicit_only() ? observe(name) : NULL;
+    if (explicit_only() && item == NULL)
+        return failure("session package limit reached");
     pkg_root root;
     if (pkg_root_open(&root, 0))
         return failure("package store unavailable");
@@ -495,6 +533,13 @@ static int select_version(const char *name, const char *version)
              !activate_record(path, &record, 0)))
             result = selection_write(active, name, version);
         committed = result == 0;
+        if (committed && item != NULL) {
+            item->allowed = version != NULL;
+            if (version == NULL) {
+                item->version[0] = '\0';
+                item->warned = 0;
+            }
+        }
         if (close(active))
             result = -1;
     }
@@ -602,7 +647,7 @@ void module_pkg_usage(FILE *out)
     fputs("Usage: pkg list\n       pkg info NAME\n"
           "       pkg install [--] DIRECTORY\n"
           "       pkg use NAME VERSION\n       pkg remove [--] NAME\n"
-          "Local trusted schema-2 .so packages only; no downloads.\n"
+          "Local trusted schema-2/3 .so packages only; no downloads.\n"
           "Install selects a new immutable version and retains old versions.\n"
           "Use selects a retained version for rollback. Loaded replacements\n"
           "require shell restart. Remove hides commands, retains versions.\n"
@@ -650,7 +695,10 @@ int module_pkg_run(int argc, char **argv)
     } else {
         goto syntax;
     }
-    if (!status)
+    if (!status &&
+        (!explicit_only() || (argc >= 3 && (!strcmp(argv[1], "install") ||
+                                            !strcmp(argv[1], "use") ||
+                                            !strcmp(argv[1], "remove")))))
         pkg_refresh();
     if (fflush(stdout) || ferror(stdout)) {
         clearerr(stdout);

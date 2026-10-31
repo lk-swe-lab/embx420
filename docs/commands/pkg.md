@@ -1,6 +1,7 @@
 # pkg — trusted local shared-module packages
 
-Use `./build/aishell pkg ...`, or enter these in its loop:
+First enter `:load pkg` in the empty host. For one command, use
+`./build/aishell --load pkg pkg ...`. Then use this grammar:
 
 ```text
 pkg -h | --help
@@ -13,20 +14,23 @@ pkg remove [--] NAME
 
 ## Example and lifecycle
 
-Prepare `make package-hello` before the demo, then start `./build/aishell`.
+Prepare `make catalog`, set `AISHELL_CATALOG` as shown in [host use](../HOST.md),
+then start `./build/aishell`.
 Within that **same running shell**, enter:
 
 ```text
+:load pkg
 hello
-pkg install build/native-candidates/hello-0.2.0
+pkg install build/catalog-0.3.1/hello-0.3.1
 hello --name learner
+:load help
 help hello
 help --json
 pkg remove hello
 hello
-pkg use hello 0.2.0
+pkg use hello 0.3.1
 hello --name restored
-exit
+:quit
 ```
 
 The first and post-removal hello are unknown (127). Install publishes the new
@@ -56,16 +60,12 @@ actual captured output, use the [demo](../../demo/PACKAGING.md).
 
 ## Full-shell release
 
-`make release-shell` creates `build/so-reviewed-releases/aishell-0.2.0/`, defined by
-`packages/aishell/release.json`. Copy the **complete** release, including
-`bin/modules/`, to a user-owned versioned directory and launch `bin/aishell`.
-It includes generated docs/catalog and `examples/hello-0.2.0`. Keep the old
-release and explicitly switch launchers for rollback. It is not a `pkg install`
-payload; there is no self-update or automatic sudo installation. Standard modules
-load eagerly at startup, not lazily. The builder requires exactly the standard
-module set derived from source specs; module builds refuse stale/unknown/unsafe
-outputs before compiling, never delete them. Historical native-packages and
-so-releases directories remain immutable, not current release inputs.
+`make release-shell` creates `build/host-releases/aishell-0.3.0/` with no
+command packages. `make catalog` builds a separate local collection. Pass its
+catalog path to a copied host. See [host controls](../HOST.md).
+Schema 3 packages store authoritative usage without a structured option grammar;
+schema 2 retains its full metadata checks. Neither format makes native code safe.
+The earlier module-bundled releases remain immutable historical artifacts.
 
 ## Trust and limits
 

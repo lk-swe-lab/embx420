@@ -16,7 +16,7 @@ void MODULE_REFRESH(void);
 AISHELL_EXPORT const aishell_module_v1 *
 aishell_module_entry_v1(const aishell_host_v1 *host)
 {
-    if (host == NULL || host->size < sizeof(*host) ||
+    if (host == NULL || host->size < offsetof(aishell_host_v1, explicit_only) ||
         host->version != AISHELL_ABI_V1)
         return NULL;
 #ifdef MODULE_BIND

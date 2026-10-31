@@ -1,5 +1,6 @@
 # AI logs
 
+- [2026-10-30 — Empty host](2026-10-30-AI_LOG-empty-host.md): explicit package selection, separate artifacts, and checks.
 - [2026-10-30 — Module shell and pipes](2026-10-30-AI_LOG-shell-pipes.md): design, signal fix, tests, demos, and publication boundary.
 - [2026-10-22 — Packaging](2026-10-22-packaging.md): earlier package decisions and verification.
 - [2026-10-16 — Week 03 learning shell](2026-10-16-AI_LOG-week03.md): decisions, corrections, verification, and relevant session IDs only.

@@ -21,6 +21,8 @@ typedef struct aishell_host_v1 {
     void (*hide_package)(void *, const char *);
     void (*identity)(void *, const char *, const char **, const char **);
     const cmd_spec_t *(*inspect_command)(void *, const char *);
+    /* Optional tail: check size before use; nonzero forbids auto-import. */
+    int (*explicit_only)(void *);
 } aishell_host_v1;
 
 typedef struct aishell_module_v1 {

@@ -1,12 +1,13 @@
-#include "shell.h"  /* shell_dispatch and shell_loop. */
-#include <ctype.h>  /* isspace. */
-#include <errno.h>  /* errno, EINTR, EOVERFLOW. */
-#include <limits.h> /* INT_MAX. */
-#include <stdint.h> /* SIZE_MAX. */
-#include <stdlib.h> /* malloc, realloc, free. */
-#include <unistd.h> /* read, isatty, STDIN_FILENO. */
-#include <stdio.h>  /* fputs, fprintf, fflush, ferror, stderr, stdout. */
-#include <string.h> /* strerror. */
+#include "shell.h"        /* shell_dispatch and shell_loop. */
+#include "host_catalog.h" /* Optional interactive inventory. */
+#include <ctype.h>        /* isspace. */
+#include <errno.h>        /* errno, EINTR, EOVERFLOW. */
+#include <limits.h>       /* INT_MAX. */
+#include <stdint.h>       /* SIZE_MAX. */
+#include <stdlib.h>       /* malloc, realloc, free. */
+#include <unistd.h>       /* read, isatty, STDIN_FILENO. */
+#include <stdio.h>        /* fputs, fprintf, fflush, ferror, stderr, stdout. */
+#include <string.h>       /* strerror. */
 
 /* Purpose: Read one command line without consuming builtin data bytes.
  * Args: line receives owned bytes; length receives size excluding NUL.
@@ -133,6 +134,8 @@ int shell_loop(void)
 {
     int status = 0;
     int interactive = isatty(STDIN_FILENO);
+    if (interactive && host_catalog_ready() && host_catalog_list(0, 0))
+        return 1;
     for (;;) {
         if (interactive &&
             (fputs("main> ", stderr) == EOF || fflush(stderr) != 0))

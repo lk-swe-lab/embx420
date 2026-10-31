@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PROGRAM = Path(os.environ.get('AISHELL_TEST_PROGRAM', ROOT / 'build/aishell'))
+PROGRAM = Path(os.environ.get('AISHELL_TEST_PROGRAM', ROOT / 'build/main'))
 
 
 class Modules(unittest.TestCase):

@@ -13,8 +13,8 @@ SPEC = importlib.util.spec_from_file_location('builder', ROOT / 'scripts/build_p
 assert SPEC is not None and SPEC.loader is not None
 builder = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
-PROGRAM = Path(os.environ.get('AISHELL_TEST_PROGRAM', ROOT / 'build/aishell'))
-PACKAGE = ROOT / 'build/native-candidates/hello-0.2.0'
+PROGRAM = Path(os.environ.get('AISHELL_TEST_PROGRAM', ROOT / 'build/main'))
+PACKAGE = ROOT / 'build/compat-packages-abi-v1/hello-0.2.0'
 
 
 def compile_fixture(target, *defines):

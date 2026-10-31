@@ -51,7 +51,7 @@ def main():
         if name in ('help', 'exit', 'pkg'):
             defines += ['-DMODULE_BIND=' + name + '_bind']
         if name == 'pkg':
-            inputs = [source, ROOT / 'src/module_pkg.c', ROOT / 'src/cmd_metadata.c', *[ROOT / ('src/' + p + '.c')
+            inputs = [source, ROOT / 'src/module_pkg.c', ROOT / 'src/cmd_metadata.c', ROOT / 'src/module_usage.c', *[ROOT / ('src/' + p + '.c')
                       for p in ('pkg_store', 'pkg_fs', 'pkg_json', 'pkg_schema')]]
             defines += ['-DMODULE_REFRESH=pkg_refresh', '-DAISHELL_NATIVE_PACKAGE']
         if name == 'traverse':

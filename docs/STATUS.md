@@ -1,14 +1,25 @@
 # Current status
 
+## Empty host refactor
+
+`build/aishell` now has a separate local catalog and explicit package selection.
+No command package is loaded at startup. `make` builds only the host;
+`make catalog` builds package bundles separately. `build/main` is the retained
+legacy eager host, not an alias. See [usage](HOST.md).
+`make test` passed, including empty-host, ABI, catalog, and host-only release
+checks. Host ASan/UBSan, the pipe suites/demo, and strict scoped analysis passed.
+Catalog 0.3.1 uses a new directory; the preliminary collection is preserved.
+Earlier evidence below is historical.
+
 ## Separate pipe experiment
 
 [Lean AI Shell](../sidequests/lean-ai-shell/README.md) adds recursive foreground
-pipes in child processes. It reuses the module runtime. The main shell below
-is unchanged. See [integration rules](../sidequests/lean-ai-shell/DESIGN.md).
+pipes in child processes. It retains its earlier module startup. See
+[integration rules](../sidequests/lean-ai-shell/DESIGN.md).
 
-## Shared-module working tree
+## Earlier eager-module implementation
 
-The current host is `build/aishell` (`build/main` alias), with 22 standard `.so`
+The earlier host used `build/aishell` (`build/main` alias), with 22 standard `.so`
 commands and no statically linked command fallback. Seventeen retain standalone
 wrappers. Help, exit, cd, pkg and traverse are modules too; hello is package-only.
 Standard modules load eagerly at startup, intentionally not lazily. All callbacks

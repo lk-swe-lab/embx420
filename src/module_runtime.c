@@ -24,6 +24,23 @@ static size_t refresh_count;
 static int previous_status;
 static int stopped;
 static int initialized;
+static int explicit_selection;
+
+/* Purpose: Set session discovery policy. Args: enabled. Rets: void. */
+void module_runtime_set_explicit(int enabled)
+{
+    explicit_selection = enabled != 0;
+}
+
+/* Purpose: Query session policy. Args: none. Rets: explicit-only flag. */
+int module_runtime_is_explicit(void) { return explicit_selection; }
+
+/* Purpose: Adapt policy query. Args: reserved context. Rets: policy flag. */
+static int api_explicit(void *context)
+{
+    (void)context;
+    return explicit_selection;
+}
 
 /* Purpose: Look up a visible command without transferring ownership.
  * Args: name is borrowed or NULL.
@@ -278,7 +295,8 @@ static const aishell_host_v1 api = {sizeof(aishell_host_v1),
                                     api_activate,
                                     api_hide,
                                     api_identity,
-                                    api_inspect_command};
+                                    api_inspect_command,
+                                    api_explicit};
 
 /* Purpose: Expose the immutable host table without exporting ELF globals.
  * Args: none.
@@ -292,6 +310,8 @@ const aishell_host_v1 *module_runtime_api(void) { return &api; }
  */
 void module_runtime_refresh(void)
 {
+    if (explicit_selection)
+        return;
     for (size_t i = 0; i < refresh_count; ++i)
         refreshers[i]();
 }

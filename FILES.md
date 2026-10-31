@@ -6,6 +6,16 @@ Historical entries are retained. Paths for retired commands can be absent or
 stale; they do not assert current usage, integration or delivery.
 
 ## Existing
+- src/host_catalog.c, src/host_catalog.h — data-only catalog and explicit host controls.
+- src/module_usage.c, src/module_usage.h — authoritative usage-only metadata without Argtable.
+- scripts/build_catalog.py, tests/test_catalog_build.py — separate immutable package collection and schema-3 checks.
+- tests/test_empty_host.py — empty startup, selection, native rejection, and explicit installed-package checks.
+- tests/test_host_abi.py — actual module entry checks for previous/current ABI-v1 hosts and truncated prefixes.
+- ai_log/2026-10-30-AI_LOG-empty-host.md — refactor decisions, integration evidence, and publication limits.
+- docs/HOST.md — empty-host controls, local catalog selection, agent use, and host-only distribution.
+- src/main_legacy.c — retained eager-host entry for compatibility tests; not the default host.
+- scripts/build_host_release.py, tests/test_host_release.py — immutable host-only artifact and preservation tests.
+- demo/catalog-demo.py, tests/test_catalog_demo.py — actual-output empty-host demonstration and its acceptance test.
 - demo/README.md — brief build and run steps for the package and pipe demos.
 - sidequests/lean-ai-shell/demo.sh — checked foreground pipe walkthrough and real process trace; five-second pauses.
 - sidequests/lean-ai-shell/tests/test_demo.py — complete demo, cleanup, and unchanged-binary checks from another directory.

@@ -2,6 +2,9 @@
 #define MODULE_RUNTIME_H
 #include "module_abi.h" /* aishell_host_v1. */
 int module_runtime_start(void);
+/* Explicit mode forbids automatic module/store discovery. */
+void module_runtime_set_explicit(int enabled);
+int module_runtime_is_explicit(void);
 void module_runtime_refresh(void);
 void module_runtime_status(int previous);
 int module_runtime_stopped(void);

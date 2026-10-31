@@ -1,5 +1,12 @@
 # Build and test the shared-module shell
 
+## Empty host
+
+`make` builds the host without command packages or Argtable.
+After the dependency setup below, use `make catalog test-host` for the separate
+package collection and selection tests. Use `make release-shell` for the
+host-only artifact. `build/main` remains the legacy eager host for old tests.
+
 ## Prerequisites
 
 Native Linux with compatible ELF/libc, C17 compiler, GNU make/binutils, Python
@@ -14,10 +21,11 @@ From a fresh checkout with the named dependency prefixes absent:
 python3 scripts/bootstrap_dependencies.py --build-root build/module-deps --only argtable3
 python3 scripts/bootstrap_dependencies.py --build-root build --only cunit
 make all
+make catalog test-host
 make test
 make lint
 make release-shell
-python3 demo/packaging-demo.py
+python3 demo/catalog-demo.py
 ```
 
 Make defaults are `build/module-deps/argtable3/{include,lib}` (PIC static

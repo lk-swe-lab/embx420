@@ -15,7 +15,10 @@ C_FILES = $(C_SOURCES) $(wildcard src/*.h tests/*.h)
 CLANG_TIDY_CHECKS = -*,clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
 
 .PHONY: all test test-cat test-cat-impl test-head test-head-impl test-tail test-tail-impl lint format-check format clean
-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/rmdir
+all: build/aishell
+
+.PHONY: legacy-all
+legacy-all: build/main build/cat build/head build/tail build/pwd build/stat build/ls build/mkdir build/touch build/clear build/cp build/rg build/edit-replace-line build/edit-insert-line build/edit-delete-line build/edit-replace build/mv build/rmdir
 
 build/touch: src/touch_main.c src/cmd_touch.c src/cmd_touch.h src/cmd_lines.c src/cmd_lines.h src/cmd_spec.h Makefile | build
 	$(CC) $(CPPFLAGS) $(ARGTABLE3_CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ src/touch_main.c src/cmd_touch.c src/cmd_lines.c $(ARGTABLE3_LDLIBS) $(LDLIBS)
@@ -76,18 +79,22 @@ PKG_SOURCES = src/cmd_pkg.c src/pkg_store.c src/pkg_fs.c src/pkg_json.c src/pkg_
 PKG_HEADERS = src/cmd_pkg.h src/pkg_store.h src/pkg_fs.h src/pkg_json.h src/pkg_schema.h
 
 
-HOST_SOURCES = src/shell.c src/shell_input.c src/module_runtime.c
-HOST_HEADERS = src/shell.h src/registry.h src/module_abi.h src/module_runtime.h src/cmd_spec.h
+HOST_SOURCES = src/shell.c src/shell_input.c src/module_runtime.c src/host_catalog.c src/module_usage.c src/pkg_store.c src/pkg_fs.c src/pkg_json.c src/pkg_schema.c
+HOST_HEADERS = src/shell.h src/registry.h src/module_abi.h src/module_runtime.h src/cmd_spec.h src/host_catalog.h src/module_usage.h src/pkg_record.h src/pkg_store.h src/pkg_fs.h src/pkg_json.h src/pkg_schema.h
+HOST_FLAGS = -ffunction-sections -fdata-sections -Wl,--gc-sections
+CATALOG_VERSION ?= 0.3.1
+CATALOG_OUTPUT ?= build/catalog-$(CATALOG_VERSION)
 
 build/modules/.stamp: $(wildcard src/*.c src/*.h) scripts/build_modules.py scripts/build_package.py Makefile | build
 	CC='$(CC)' CPPFLAGS='$(CPPFLAGS)' CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' ARGTABLE3_CPPFLAGS='$(ARGTABLE3_CPPFLAGS)' ARGTABLE3_LDLIBS='$(ARGTABLE3_LDLIBS)' python3 scripts/build_modules.py
 	touch $@
 
-build/aishell: src/main.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
-	$(CC) $(CPPFLAGS) $(CFLAGS) -fvisibility=hidden $(LDFLAGS) -o $@ src/main.c $(HOST_SOURCES) -ldl $(LDLIBS)
+build/aishell: src/main.c $(HOST_SOURCES) $(HOST_HEADERS) Makefile | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(HOST_FLAGS) -fvisibility=hidden $(LDFLAGS) -o $@ src/main.c $(HOST_SOURCES) -ldl $(LDLIBS)
 
-build/main: build/aishell
-	ln -sf aishell $@
+build/main: src/main_legacy.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
+	@if test -L $@; then $(RM) $@; fi
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(HOST_FLAGS) -fvisibility=hidden $(LDFLAGS) -o $@ src/main_legacy.c $(HOST_SOURCES) -ldl $(LDLIBS)
 
 build/test_shell_module: tests/test_shell_module.c $(HOST_SOURCES) $(HOST_HEADERS) build/modules/.stamp Makefile | build
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -Isrc -o $@ tests/test_shell_module.c $(HOST_SOURCES) -Wl,--wrap=malloc,--wrap=realloc,--wrap=read -ldl $(LDLIBS)
@@ -237,8 +244,8 @@ build/pkg-tests/json-sanitize: tests/pkg_json_driver.c src/pkg_json.c src/pkg_js
 test-pkg: package-hello-legacy build/pkg-tests/pkg build/pkg-tests/openat build/pkg-tests/module build/pkg-tests/json build/pkg-tests/json-sanitize
 	python3 tests/test_pkg.py ./build/pkg-tests/pkg
 
-# Package-only hello; it is not linked into the shell builtin registry.
-all: build/hello
+# The standalone hello wrapper belongs to the legacy test setup.
+legacy-all: build/hello
 test: test-hello test-package test-shell-release
 .PHONY: package-hello test-package test-hello
 build/hello: src/hello_main.c src/cmd_hello.c src/cmd_hello.h src/cmd_spec.h Makefile | build
@@ -257,7 +264,7 @@ build/example-modules/hello.so: src/module_entry.c src/module_abi.h src/cmd_spec
 	CC='$(CC)' CPPFLAGS='$(CPPFLAGS)' CFLAGS='$(CFLAGS)' LDFLAGS='$(LDFLAGS)' ARGTABLE3_CPPFLAGS='$(ARGTABLE3_CPPFLAGS)' ARGTABLE3_LDLIBS='$(ARGTABLE3_LDLIBS)' python3 scripts/build_modules.py --hello --output build/example-modules
 
 package-hello: build/example-modules/hello.so build/export-hello
-	python3 scripts/build_package.py
+	python3 scripts/build_package.py --output-root build/compat-packages-abi-v1
 
 # Explicit executable-only fixture, never loaded by the live module shell.
 .PHONY: package-hello-legacy
@@ -272,10 +279,22 @@ test-package: package-hello package-hello-legacy build/test_metadata
 	./build/test_metadata
 	python3 tests/test_package_build.py
 
-# Full-shell directory release; not an installable pkg payload.
-.PHONY: release-shell test-shell-release
-release-shell: build/main package-hello
-	python3 scripts/build_shell_release.py
+# Host and package catalog are separate artifacts.
+.PHONY: catalog release-shell test-host test-shell-release
+catalog: build/modules/.stamp build/example-modules/hello.so
+	python3 scripts/build_catalog.py --version $(CATALOG_VERSION) --output $(CATALOG_OUTPUT)
+
+release-shell: build/aishell
+	python3 scripts/build_host_release.py
+
+test-host: build/aishell catalog
+	python3 tests/test_empty_host.py
+	python3 tests/test_host_abi.py
+	python3 tests/test_catalog_build.py
+	python3 tests/test_host_release.py
+	AISHELL_TEST_CATALOG='$(abspath $(CATALOG_OUTPUT)/catalog.json)' python3 tests/test_catalog_demo.py
+
+test: test-host
 
 test-shell-release: build/main package-hello
 	python3 tests/test_shell_release.py

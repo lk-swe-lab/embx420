@@ -53,7 +53,7 @@ class ModuleBuild(unittest.TestCase):
     def test_release_rejects_unknown_module(self):
         host = self.base / 'host'
         host.mkdir()
-        shutil.copy2(ROOT / 'build/aishell', host / 'aishell')
+        shutil.copy2(ROOT / 'build/main', host / 'aishell')
         shutil.copytree(ROOT / 'build/modules', host / 'modules')
         shutil.copy2(ROOT / 'build/example-modules/hello.so',
                      host / 'modules/hello.so')
@@ -69,7 +69,7 @@ class ModuleBuild(unittest.TestCase):
             with self.subTest(name=name):
                 host = self.base / name
                 host.mkdir()
-                shutil.copy2(ROOT / 'build/aishell', host / 'aishell')
+                shutil.copy2(ROOT / 'build/main', host / 'aishell')
                 shutil.copytree(ROOT / 'build/modules', host / 'modules')
                 (host / 'modules' / (name + '.so')).unlink()
                 result = subprocess.run([

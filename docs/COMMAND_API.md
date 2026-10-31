@@ -1,5 +1,13 @@
 # Current command API
 
+The default host uses explicit catalog selection; see [host controls](HOST.md).
+Automatic startup discovery below refers to the legacy compatibility host.
+Schema 3 bundles store usage-only command metadata. The host compares it with
+the real usage callback through `module_usage_write`; it makes no structured
+option-grammar claim. Schema 2 retains the visitor-based checks below.
+The appended `explicit_only` host callback lets pkg avoid unrequested HOME
+selections in the new host. It is zero in the retained eager host.
+
 Authority: [`cmd_spec.h`](../src/cmd_spec.h),
 [`module_abi.h`](../src/module_abi.h), [`module_runtime.c`](../src/module_runtime.c).
 See [anatomy](COMMAND_ANATOMY.md) and the [workflow](ADDING_COMMANDS.md).
@@ -41,7 +49,8 @@ The host table has size/version/context plus `find`, `each`, `request_exit`,
 `const cmd_spec_t *(*inspect_command)(void *, const char *)` (header line 23).
 This size-gated ABI-v1 extension loads a single-command module without publishing
 it and returns its process-lifetime borrowed spec, or NULL on rejection. Current
-wrappers require `host->size >= sizeof(*host)` and ABI v1 before binding.
+wrappers require ABI v1 and the prefix through `inspect_command` before binding.
+The later `explicit_only` callback is optional and checked by size before use.
 Consult the header for exact signatures; context is currently reserved NULL.
 Lookup and identity return process-lifetime borrowed values. `each` borrows visitor/data,
 retains neither, and must not mutate the registry. `refresh` runs between
