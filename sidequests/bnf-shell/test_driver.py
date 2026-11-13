@@ -7,7 +7,8 @@ import tempfile
 import unittest
 
 
-DRIVER = Path(__file__).resolve().parent / "build" / "shell"
+DRIVER = Path(os.environ.get("BNF_SHELL",
+              Path(__file__).resolve().parent / "build" / "shell"))
 
 
 class DriverTests(unittest.TestCase):

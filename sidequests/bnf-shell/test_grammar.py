@@ -28,6 +28,34 @@ class GrammarTests(unittest.TestCase):
             'NoRedir))', result.stdout
         )
 
+    def test_wide_words_and_assignment_sequence(self):
+        result = self.parse('x=5 ; cat ./input-file_1.txt | wc -l\n')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('(ThenAssign "x" "5"', result.stdout)
+        self.assertIn('(Literal "./input-file_1.txt")', result.stdout)
+        self.assertIn('(Literal "-l")', result.stdout)
+
+    def test_conditional_ast(self):
+        result = self.parse('if true ; then echo yes ; fi\n')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('(If (Single (Cmd "true" [] NoRedir))', result.stdout)
+        self.assertIn('(Single (Cmd "echo" [(Literal "yes")] NoRedir))',
+                      result.stdout)
+
+    def test_rejects_incomplete_conditional(self):
+        for text in ('if true ; then echo yes\n',
+                     'if ; then echo yes ; fi\n',
+                     'if true ; then ; fi\n',
+                     'if true then echo yes fi\n'):
+            with self.subTest(text=text):
+                self.assertNotEqual(self.parse(text).returncode, 0)
+
+    def test_rejects_unsupported_quotes_and_operators(self):
+        for text in ('echo "hello world"\n', "echo 'hello'\n",
+                     'true && echo yes\n', 'echo *.txt\n'):
+            with self.subTest(text=text):
+                self.assertNotEqual(self.parse(text).returncode, 0)
+
     def test_command_without_arguments(self):
         result = self.parse("echo\n")
         self.assertEqual(result.returncode, 0, result.stderr)

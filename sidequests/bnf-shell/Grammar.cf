@@ -1,7 +1,7 @@
 -- Use -- to start a line comment. End each definition with a semicolon.
 -- token defines a token type. Word is the name of this type.
--- letter is the built-in letter class. + means one or more characters.
-token Word (letter+) ;
+-- Accept simple unquoted words, file paths, numbers, and flags.
+token Word ((letter | digit | ["_./-:"])+) ;
 
 -- separator defines list rules. "" means no separator token is required.
 -- This list can contain zero or more Arg nodes. Its category is [Arg].
@@ -60,8 +60,12 @@ Pipe. Pipeline ::= Command "|" Pipeline ;
 -- Input describes jobs in their original order.
 -- An assignment is a separate input form, not an external command.
 -- The first Word is the name. The second Word is the literal value.
--- Initially, an assignment must occupy a complete input line.
+-- An assignment can end a line or precede another input after a semicolon.
 Assign. Input ::= Word "=" Word ;
+ThenAssign. Input ::= Word "=" Word ";" Input ;
+
+-- Keep a conditional on one line. Its condition and body are pipelines.
+If. Input ::= "if" Pipeline ";" "then" Pipeline ";" "fi" ;
 
 -- These two rules end the sequence with a foreground or background job.
 LastFG. Input ::= Pipeline ;
