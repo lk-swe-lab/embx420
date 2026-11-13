@@ -38,3 +38,20 @@ unchanged. Parent verification reran the full suite, sanitizers, and demo.
 
 Guided checkpoint: feat/bnf-shell-checkpoint, commit a79b657 (32 tests).
 Completed-result branch: feat/bnf-shell-complete.
+
+## Optional `@` prototype
+
+- [x] Separate nl_input.c/.h helper capture and confirmation module.
+- [x] Fixed-response mysh_llm_stub.py; no model or catalog integration.
+- [x] Minimal pre-parser hook; unchanged Grammar.cf and GRAMMAR.md.
+- [x] Exact-argv, fail-closed, byte/line/timeout, and lifecycle tests.
+- [x] README and NL_INPUT.md protocol, trust boundary, and limits.
+
+Observed final verification for this increment:
+
+- `make clean && make test`: 95 tests, OK; no compiler warnings.
+- `make sanitize`: 62 tests, OK under ASan/LeakSanitizer/UBSan.
+- `make demo`: passed; temporary fixtures removed.
+- `git diff --check -- .`: exit status 0.
+
+No commit, push, branch switch, or write outside this sidequest was made.

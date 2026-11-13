@@ -97,3 +97,54 @@ No main-shell registry integration, full job control, timeout/cancellation,
 allocator failure injection, ThreadSanitizer, or interactive terminal suite was
 added. Mermaid source consistency is checked; visual browser rendering was not
 performed. Full supported syntax and numerical limits are in README.md.
+
+## Optional `@` helper increment
+
+The direct user authorized a separate module, minimal driver integration,
+fixed-response stub, tests, documentation, and real test/sanitizer execution.
+The scope was this sidequest only, with no commit, push, branch switch, other
+project edits, or secret access. This section records decisions and actual
+results, not reconstructed prompts.
+
+The first end-to-end test was written and run before production changes. It
+timed out because the old driver had no helper mode and subsequently ran the
+scripted `yes` as an external command. A clean driver rebuild reproduced it.
+The separate module and pre-parser hook made that test pass. A stub-use test
+also first timed out while the stub did not exist, then passed with the
+executable fixed-response helper.
+
+A fail-closed regression first failed because a helper error left a pending
+reply to be parsed as a command. Helper/protocol errors now terminate input;
+normal refusal still consumes exactly one reply and resumes. Later regression
+tests first failed for a direct helper that changed its process group (3.027
+seconds instead of under 2.5) and for an `@` line above the driver's line limit
+(the following line ran). Cleanup now kills the direct child as well as its
+original group; driver input failure on an `@` line now also stops input.
+The broader protocol and lifecycle cases were added as regression coverage
+after the first implementation; not every safety case had an individual RED.
+
+Design: absolute opt-in BNF_NL_HELPER path, posix_spawn with query as argv[1],
+null helper stdin/stderr, bounded nonblocking stdout capture and one-second
+monotonic deadline. Only printable ASCII proposals are displayed. Exact `yes`
+on the same byte-wise driver input stream approves. The module returns text;
+the existing sole BNFC entry and evaluator execute it. No grammar or generated
+source changes, model connection, JSON catalog, or main-shell ABI integration.
+
+Final observed commands, run from this directory:
+
+- `make clean && make test`: 95 tests, OK; no compiler warnings.
+- `make sanitize`: 62 tests, OK with ASan, LeakSanitizer, and UBSan enabled.
+- `make demo`: passed; temporary fixtures removed.
+- `git diff --check -- .`: exit status 0.
+
+The new suite has 22 tests, including real argv checks, no side effect before
+approval, refusal/EOF, bad bytes/multiple lines, exact/over limits, helper
+errors/signals/hangs, invalid syntax, recursion, persistent shell state, and
+40 repeated helper calls with stable descriptors and no remaining direct
+children at a Linux /proc checkpoint. Temporary helpers use TMPDIR.
+
+Limits: the helper executable is trusted and is not sandboxed. Escaped
+descendants are not contained. Kernel-uninterruptible waits or stalled exec
+lookup are not hard real-time bounded. Confirmation has no input timeout, and
+approved commands retain the existing runtime limits. No fault injection or
+interactive terminal suite was added. See NL_INPUT.md for the complete protocol.

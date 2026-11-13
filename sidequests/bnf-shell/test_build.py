@@ -42,6 +42,7 @@ class BuildContractTests(unittest.TestCase):
         self.assertEqual(diagram.count('```mermaid'), 3)
 
     def test_handwritten_c_line_width(self):
-        for number, line in enumerate((ROOT / 'shell.c').read_text().splitlines(),
-                                      1):
-            self.assertLessEqual(len(line), 80, f'shell.c:{number}')
+        for name in ('shell.c', 'nl_input.c', 'nl_input.h'):
+            for number, line in enumerate((ROOT / name).read_text().splitlines(),
+                                          1):
+                self.assertLessEqual(len(line), 80, f'{name}:{number}')

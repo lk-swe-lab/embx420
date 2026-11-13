@@ -25,6 +25,24 @@ make clean && make test      # Rebuild all generated files and run all tests.
 The demo uses `tempfile`, which honors `TMPDIR`. It does not write fixtures in
 the source tree. See [GRAMMAR.md](GRAMMAR.md) for diagrams and a concrete AST.
 
+## Optional `@` input
+
+`nl_input.c` is a separate helper/confirmation module. Enable the supplied
+**fixed-response stub (not AI)** from this directory:
+
+```sh
+BNF_NL_HELPER="$PWD/mysh_llm_stub.py" ./build/shell
+```
+
+Enter `@please greet me`. The stub proposes `echo hello`. Only an exact `yes`
+reply runs the proposal through the existing BNFC parser and evaluator.
+Confirmation comes from the same stdin stream, not a separate terminal.
+The helper path must be absolute; there is no default helper or PATH search.
+Query and proposal limits are 4,096 bytes; helper completion has a one-second
+deadline. Helper/protocol errors end input rather than interpreting a pending
+reply as a command. See [NL_INPUT.md](NL_INPUT.md) for the full protocol, flow,
+trust boundary, and cleanup limits. The grammar itself does not change.
+
 ## Supported input
 
 ```text
@@ -150,7 +168,8 @@ accepted background launch returns zero, even if that job later fails to spawn.
 
 No general quoting, escaping, comments, globbing, append/stderr redirection,
 `&&`, `||`, arithmetic, `${...}`, `$?`, `$()`, nested backquotes, loops,
-functions, full job control, natural-language `@` mode, or JSON command catalog.
+functions, full job control, real natural-language interpretation, or JSON
+command catalog. Optional `@` mode is only a helper/confirmation prototype.
 The main assignment registry is sequential and has a different interface; this
 sidequest does not change or link it.
 

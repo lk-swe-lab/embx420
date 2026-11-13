@@ -2,6 +2,7 @@
 
 #include "Absyn.h"     /* AST nodes, free_Input */
 #include "Parser.h"    /* psInput */
+#include "nl_input.h"  /* nl_input */
 #include <ctype.h>     /* isspace, isalpha, isalnum */
 #include <errno.h>     /* errno, EINTR, ENOENT */
 #include <fcntl.h>     /* open, fcntl, O_*, F_* */
@@ -793,12 +794,13 @@ static int execute_input(Input input)
 
 /*
  * Purpose: Read one line without stealing bytes from an external command.
- * Args: line has MAX_LINE plus one bytes.
+ * Args: line has size bytes, including space for the string terminator.
  * Rets: One for a line, zero for EOF, or -1 for a read/limit error.
  * Notes: Discard the rest of a line that exceeds the limit.
  */
-static int read_line(char *line)
+static int read_line(char *line, size_t size)
 {
+    line[0] = '\0';
     size_t count = 0;
     int overflow = 0;
     for (;;) {
@@ -814,7 +816,7 @@ static int read_line(char *line)
             line[count] = '\0';
             return overflow ? -1 : n != 0 || count != 0;
         }
-        if (count == MAX_LINE || ch == '\0') {
+        if (count == size - 1 || ch == '\0') {
             overflow = 1;
         } else if (!overflow) {
             line[count++] = ch;
@@ -836,17 +838,27 @@ int main(void)
     while (!exit_requested) {
         reap_jobs(0);
         errno = 0;
-        int result = read_line(line);
+        int result = read_line(line, sizeof(line));
         if (result == 0) {
             break;
         }
         if (result < 0) {
             fprintf(stderr, "Input error or line limit exceeded\n");
             input_error = 1;
-            if (errno != 0) {
+            if (errno != 0 || line[0] == '@') {
                 break;
             }
             continue;
+        }
+        if (line[0] == '@') {
+            result = nl_input(line, sizeof(line), read_line);
+            if (result < 0) {
+                input_error = 1;
+                break;
+            }
+            if (result == 0) {
+                continue;
+            }
         }
         const char *text = line;
         while (isspace((unsigned char)*text)) {

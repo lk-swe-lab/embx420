@@ -24,11 +24,12 @@ parser: build/Makefile
 	$(MAKE) -C build CC="$(CC)" CCFLAGS="$(GENERATED_FLAGS)"
 
 # Link the driver after the generated objects are ready.
-build/shell: shell.c parser
-	$(CC) $(CFLAGS) -pthread -Ibuild shell.c $(OBJECTS) -o $@
+build/shell: shell.c nl_input.c nl_input.h parser
+	$(CC) $(CFLAGS) -pthread -Ibuild shell.c nl_input.c $(OBJECTS) -o $@
 
 test: build/shell
-	$(PYTHON) -m unittest -v test_grammar test_driver test_runtime test_build
+	$(PYTHON) -m unittest -v test_grammar test_driver test_runtime \
+	  test_build test_nl_input
 
 demo: build/shell
 	$(PYTHON) demo.py
@@ -36,12 +37,12 @@ demo: build/shell
 # Instrument generated code as well as the hand-written runtime.
 sanitize: parser
 	$(CC) $(GENERATED_FLAGS) -g -fno-omit-frame-pointer -no-pie \
-	  -fsanitize=address,undefined -pthread -Ibuild shell.c \
+	  -fsanitize=address,undefined -pthread -Ibuild shell.c nl_input.c \
 	  build/Absyn.c build/Buffer.c build/Lexer.c build/Parser.c \
 	  -o build/shell-sanitize
 	ASAN_OPTIONS=detect_leaks=1:exitcode=99 UBSAN_OPTIONS=halt_on_error=1 \
 	  BNF_SHELL=$(CURDIR)/build/shell-sanitize \
-	  $(PYTHON) -m unittest -v test_driver test_runtime
+	  $(PYTHON) -m unittest -v test_driver test_runtime test_nl_input
 
 # Remove only the generated build directory.
 clean:
