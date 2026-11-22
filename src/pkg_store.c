@@ -29,7 +29,7 @@ int pkg_name_valid(const char *name)
  * Args: r owns all allocations except borrowed tree strings.
  * Rets: void.
  */
-static void record_free(pkg_record *r)
+void record_free(pkg_record *r)
 {
     pj_free(r->manifest);
     pj_free(r->metadata);
@@ -161,7 +161,7 @@ static int inventory_walk(int fd, const char *prefix, const pj_value *files,
  *       relaxed permits only missing payload; managed checks installed dirs.
  * Rets: 0 success, -1 invalid data or I/O failure.
  */
-static int record_read(int fd, pkg_record *r, int relaxed, int managed)
+int record_read(int fd, pkg_record *r, int relaxed, int managed)
 {
     r->file_info = calloc(65, sizeof(*r->file_info));
     if (r->file_info == NULL)
@@ -395,7 +395,7 @@ int pkg_snapshot_load(pkg_snapshot *out, FILE *errors)
  * Args: fd borrows package directory; path is validated; directory selects
  * type. Rets: 0 removed or absent, -1 unsafe type or I/O failure.
  */
-static int unlink_recorded(int fd, const char *path, int directory)
+int unlink_recorded(int fd, const char *path, int directory)
 {
     char *leaf;
     int parent = pkg_parent_open(fd, path, 0, &leaf);
@@ -421,7 +421,7 @@ static int unlink_recorded(int fd, const char *path, int directory)
  * Args: fd is borrowed; r owns the authoritative manifest.
  * Rets: 0 success, -1 at the first incomplete deletion.
  */
-static int payload_delete(int fd, const pkg_record *r)
+int payload_delete(int fd, const pkg_record *r)
 {
     const pj_value *files = pj_get(r->manifest, "files");
     for (const pj_value *p = files->child; p; p = p->next)
@@ -451,7 +451,7 @@ static int payload_delete(int fd, const pkg_record *r)
  * Args: source/stage are borrowed descriptors; r holds source observations.
  * Rets: 0 success, -1 copy, close or observed mutation failure.
  */
-static int stage_copy(int source, int stage, const pkg_record *r)
+int stage_copy(int source, int stage, const pkg_record *r)
 {
     const pj_value *files = pj_get(r->manifest, "files");
     size_t index = 1;

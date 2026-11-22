@@ -134,24 +134,42 @@ int main(void)
     assert(register_command(NULL) == -1);
     assert(register_all_builtin_commands() == 0);
     assert(register_all_builtin_commands() == 0);
-    assert(find_command("cat") == &cmd_cat_spec);
-    assert(find_command("clear") == &cmd_clear_spec);
-    assert(find_command("cd") == &cmd_cd_spec);
-    assert(find_command("rg") == &cmd_rg_spec);
-    assert(find_command("edit-replace-line") == &cmd_edit_replace_line_spec);
-    assert(find_command("edit-insert-line") == &cmd_edit_insert_line_spec);
-    assert(find_command("edit-delete-line") == &cmd_edit_delete_line_spec);
-    assert(find_command("edit-replace") == &cmd_edit_replace_spec);
-    assert(find_command("mv") == &cmd_mv_spec);
-    assert(find_command("rmdir") == &cmd_rmdir_spec);
-    assert(find_command("pkg") == &cmd_pkg_spec);
+    const char *names_to_find[] = {"cat",
+                                   "clear",
+                                   "cd",
+                                   "rg",
+                                   "edit-replace-line",
+                                   "edit-insert-line",
+                                   "edit-delete-line",
+                                   "edit-replace",
+                                   "mv",
+                                   "rmdir",
+                                   "pkg",
+                                   "help",
+                                   "exit",
+                                   "traverse"};
+    for (size_t i = 0; i < sizeof(names_to_find) / sizeof(names_to_find[0]);
+         ++i) {
+        const cmd_spec_t *found = find_command(names_to_find[i]);
+        assert(found != NULL && !strcmp(found->name, names_to_find[i]));
+    }
     assert(find_command("CAT") == NULL);
+    char marker[] = "traversal getopt sentinel";
+    optarg = marker;
+    optind = 17;
+    opterr = 19;
+    optopt = 23;
+    char operand[] = "operand", utc[] = "--utc";
+    char *traversal[] = {"traverse", operand, utc, NULL};
+    assert(find_command("traverse")->run(3, traversal) == 0);
+    assert(traversal[1] == operand && traversal[2] == utc);
+    assert(optarg == marker && optind == 17 && opterr == 19 && optopt == 23);
     int count = 0;
     for_each_command(count_command, &count);
-    enum { builtin_count = 19, registry_capacity = 32 };
+    enum { builtin_count = 22, registry_capacity = 512 };
     assert(count == builtin_count);
     for_each_command(NULL, NULL);
-    cmd_spec_t duplicate = cmd_cat_spec;
+    cmd_spec_t duplicate = *find_command("cat");
     assert(register_command(&duplicate) == -1);
     cmd_spec_t invalid = {0};
     assert(register_command(&invalid) == -1);
@@ -179,9 +197,9 @@ int main(void)
     assert(calls == 2 && fail_malloc == 0);
     run_script("\n\n", 0);
     run_script("missing\nexit\n", 127);
-    static cmd_spec_t extras[24];
-    static char names[24][16];
-    for (int i = 0; i < 24; ++i) {
+    static cmd_spec_t extras[512];
+    static char names[512][16];
+    for (int i = 0; i < 512; ++i) {
         assert(snprintf(names[i], sizeof(names[i]), "extra%d", i) > 0);
         extras[i] = probe;
         extras[i].name = names[i];

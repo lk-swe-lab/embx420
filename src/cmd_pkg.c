@@ -5,6 +5,11 @@
 #include <argtable3.h> /* Argument constructors, arg_parse, arg_freetable. */
 #include <unistd.h>    /* optarg, optind, opterr, optopt. */
 
+#ifdef AISHELL_NATIVE_PACKAGE
+#include "module_pkg.h" /* module_pkg_run, module_pkg_usage. */
+#define pkg_run module_pkg_run
+#define pkg_usage module_pkg_usage
+#else
 static const char help[] =
     "Manage local directory packages.\n"
     "Usage: pkg -h | --help\n"
@@ -149,6 +154,7 @@ syntax:
  * Rets: void.
  */
 static void pkg_usage(FILE *out) { fputs(help, out); }
+#endif
 
 cmd_spec_t cmd_pkg_spec = {
     "pkg", "Manage local packages.", NULL, pkg_run, pkg_usage, NULL};

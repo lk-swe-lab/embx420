@@ -47,9 +47,11 @@ HELP = (
     '       main --commands-json\n'
     '       main -r DIR [--mtime] [--local|--utc] [--histogram]\n'
     '\nCommands:\n'
-    + ''.join(f'  {n:<8} {s}\n' for n, s in zip(BUILTIN_NAMES, SUMMARIES))
-    + '  help [COMMAND]  List commands or show command usage.\n'
-    '  exit            Leave the loop with the last command status.\n'
+    + ''.join(f'  {n:<8} {s}\n' for n, s in sorted([
+        *zip(BUILTIN_NAMES, SUMMARIES),
+        ('help', 'List commands or show command usage.'),
+        ('exit', 'Leave the loop with the last command status.'),
+        ('traverse', 'Print directory trees and modification histograms.')]))
 ).encode()
 
 

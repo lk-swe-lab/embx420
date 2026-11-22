@@ -1,121 +1,148 @@
-Package lifecycle demo (real execution; no rebuild)
-Namespace: /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk
-Child environment (allowlist only): {"HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home", "LC_ALL": "C", "PATH": "/nonexistent", "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp"}
+Native .so lifecycle demo (real execution; no rebuild)
+Runner cwd: /home/name/.hermes/cache/scratch/so-demo-cwd-bspw_o3h
+Input SHA-256 entries: 80
+Host SHA-256: ae1b8dcb050ed78e2e13825ff90d7518a2ce23d79b014502249b6b087536c864
+Hello module SHA-256: 7e749f3ef2b6de7470ec5d71b678d0642951ddab17526c24a42d864c77dcba38
+Namespace: /home/name/.hermes/cache/scratch/packaging-demo-q2671ing
+Child environment: {"HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home", "LC_ALL": "C", "PATH": "/nonexistent", "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp"}
 
-$ /home/name/Documents/420-EMBDX/A/build/main pkg list
-[status=0; expected=0]
+$ /home/name/Documents/420-EMBDX/A/build/aishell pkg list
+[process status=0; expected=0]
 CHECK: initial package state empty
 
-$ /home/name/Documents/420-EMBDX/A/build/main --commands-json
+$ /home/name/Documents/420-EMBDX/A/build/aishell --commands-json
 stdout:
-{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null}]}
-[status=0; expected=0]
-CHECK: catalog hello presence matches installed=False
+{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null},{"name":"traverse","summary":"Print directory trees and modification histograms.","origin":"builtin","package":null,"version":null}]}
+[process status=0; expected=0]
+CHECK: catalog hello presence=False
+CHECK: catalog count matches module inventory
 
-$ /home/name/Documents/420-EMBDX/A/build/main pkg install /home/name/Documents/420-EMBDX/A/build/packages/hello-0.1.0
+$ /home/name/Documents/420-EMBDX/A/build/aishell
+stdin (one running shell):
+hello
+pkg install /home/name/Documents/420-EMBDX/A/build/native-candidates/hello-0.2.0
+pkg list
+pkg info hello
+help hello
+hello --name "Week 4"
+help --json
+pkg remove hello
+pkg list
+help --json
+hello
+pkg use hello 0.2.0
+hello --name restored
+pkg remove hello
+hello
+exit
 stdout:
-Installed hello 0.1.0
-[status=0; expected=0]
-CHECK: install published package in temporary HOME
-CHECK: installed manifest and payload bytes match generated bundle
-
-$ /home/name/Documents/420-EMBDX/A/build/main pkg list
-stdout:
-hello 0.1.0
-[status=0; expected=0]
-CHECK: list reports installed version
-
-$ /home/name/Documents/420-EMBDX/A/build/main pkg info hello
-stdout:
-Name: hello
-Version: 0.1.0
+Installed hello 0.2.0
+hello 0.2.0 active
+hello 0.2.0 active
 Description: Print a greeting.
 Commands: hello
-[status=0; expected=0]
-CHECK: info text matches source manifest
-
-$ /home/name/Documents/420-EMBDX/A/build/main help hello
-stdout:
 Usage: hello [-h] [--name=NAME]
 Print a greeting. Default name: world.
   --name=NAME          Set the greeting name.
   -h, --help           Show help and exit.
-[status=0; expected=0]
-CHECK: installed help exposes name option
-
-$ /home/name/Documents/420-EMBDX/A/build/main hello --name 'Week 4'
-stdout:
 Hello, Week 4!
-[status=0; expected=0]
-CHECK: package execution preserves multiword argument
-
-$ /home/name/Documents/420-EMBDX/A/build/main --commands-json
-stdout:
-{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"hello","summary":"Print a greeting.","origin":"package","package":"hello","version":"0.1.0"},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null}]}
-[status=0; expected=0]
-CHECK: catalog hello presence matches installed=True
-
-$ /home/name/Documents/420-EMBDX/A/build/main pkg remove hello
-stdout:
-Removed hello 0.1.0
-[status=0; expected=0]
-CHECK: remove erased installed package directory
-
-$ /home/name/Documents/420-EMBDX/A/build/main pkg list
-[status=0; expected=0]
-CHECK: list is empty after removal
-
-$ /home/name/Documents/420-EMBDX/A/build/main --commands-json
-stdout:
-{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null}]}
-[status=0; expected=0]
-CHECK: catalog hello presence matches installed=False
-CHECK: catalog returns exactly to baseline after removal
-
-$ /home/name/Documents/420-EMBDX/A/build/main hello
+{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"hello","summary":"Print a greeting.","origin":"package","package":"hello","version":"0.2.0"},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null},{"name":"traverse","summary":"Print directory trees and modification histograms.","origin":"builtin","package":null,"version":null}]}
+Removed hello (deactivated; immutable versions retained)
+hello 0.2.0 retained
+{"schema_version":1,"commands":[{"name":"cat","summary":"Concatenate files to standard output.","origin":"builtin","package":null,"version":null},{"name":"cd","summary":"Change working directory.","origin":"builtin","package":null,"version":null},{"name":"clear","summary":"Clear an ANSI-compatible terminal screen.","origin":"builtin","package":null,"version":null},{"name":"cp","summary":"Copy files and directories.","origin":"builtin","package":null,"version":null},{"name":"edit-delete-line","summary":"Delete one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-insert-line","summary":"Insert one line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace","summary":"Replace all matches using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"edit-replace-line","summary":"Replace one existing line using staged file editing.","origin":"builtin","package":null,"version":null},{"name":"exit","summary":"Leave the loop with the last command status.","origin":"control","package":null,"version":null},{"name":"head","summary":"Show the first lines of a file or stream.","origin":"builtin","package":null,"version":null},{"name":"help","summary":"List commands or show command usage.","origin":"control","package":null,"version":null},{"name":"ls","summary":"List directory contents.","origin":"builtin","package":null,"version":null},{"name":"mkdir","summary":"Create directories.","origin":"builtin","package":null,"version":null},{"name":"mv","summary":"Move files and directories.","origin":"builtin","package":null,"version":null},{"name":"pkg","summary":"Manage local packages.","origin":"builtin","package":null,"version":null},{"name":"pwd","summary":"Print physical working directory.","origin":"builtin","package":null,"version":null},{"name":"rg","summary":"Search explicit files and directories.","origin":"builtin","package":null,"version":null},{"name":"rmdir","summary":"Remove empty directories.","origin":"builtin","package":null,"version":null},{"name":"stat","summary":"Inspect file metadata.","origin":"builtin","package":null,"version":null},{"name":"tail","summary":"Display the last N lines (default 10); never create input files.","origin":"builtin","package":null,"version":null},{"name":"touch","summary":"Create empty files or update timestamps without changing contents.","origin":"builtin","package":null,"version":null},{"name":"traverse","summary":"Print directory trees and modification histograms.","origin":"builtin","package":null,"version":null}]}
+Selected hello 0.2.0
+Hello, restored!
+Removed hello (deactivated; immutable versions retained)
 stderr:
 main: hello: unknown command
-[status=127; expected=127]
-CHECK: removed command is unknown (127), without PATH fallback
-CHECK: real full-shell release copied outside repository
+main: hello: unknown command
+main: hello: unknown command
+[process status=127; expected=127]
+CHECK: same running shell installs and lists native hello
+CHECK: info includes manifest description and commands
+CHECK: same running shell discovers help and executes multiword greeting
+CHECK: catalog hello presence=True
+CHECK: catalog count matches module inventory
+CHECK: catalog hello presence=False
+CHECK: catalog count matches module inventory
+CHECK: remove restores baseline catalog in same shell
+CHECK: remove hides commands while retaining installed version
+CHECK: use reactivates the retained same-version module without restart
+CHECK: exit preserves final unknown-command status in same shell
+CHECK: deactivated payload retained; active selection absent
+CHECK: installed manifest and payload bytes match bundle
 
-$ /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell pwd
+$ /home/name/Documents/420-EMBDX/A/build/aishell pkg list
 stdout:
-/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk
-[status=0; expected=0]
-CHECK: relocated shell executes from unrelated directory
+hello 0.2.0 retained
+[process status=0; expected=0]
+CHECK: fresh process sees retained inactive version
 
-$ /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell help pkg
+$ /home/name/Documents/420-EMBDX/A/build/aishell hello
+stderr:
+main: hello: unknown command
+[process status=127; expected=127]
+CHECK: fresh process cannot execute removed command; no PATH fallback
+
+$ /home/name/Documents/420-EMBDX/A/build/aishell pkg use hello 0.2.0
 stdout:
-Manage local directory packages.
-Usage: pkg -h | --help
-       pkg list
+Selected hello 0.2.0
+[process status=0; expected=0]
+CHECK: use persists exact active version
+
+$ /home/name/Documents/420-EMBDX/A/build/aishell hello --name fresh
+stdout:
+Hello, fresh!
+[process status=0; expected=0]
+CHECK: fresh process loads selected retained version
+
+$ /home/name/Documents/420-EMBDX/A/build/aishell pkg remove hello
+stdout:
+Removed hello (deactivated; immutable versions retained)
+[process status=0; expected=0]
+CHECK: final source-shell selection deactivated
+CHECK: complete release copied byte-for-byte outside repository
+
+$ /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell pwd
+stdout:
+/home/name/.hermes/cache/scratch/packaging-demo-q2671ing
+[process status=0; expected=0]
+CHECK: relocated shell resolves its modules from unrelated cwd
+
+$ /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell help pkg
+stdout:
+Usage: pkg list
        pkg info NAME
        pkg install [--] DIRECTORY
+       pkg use NAME VERSION
        pkg remove [--] NAME
-Install does not build or run packages. No downloads or dependencies.
-Use remove then install to update. Partial removal can leave a record.
-Status: 0 success; 1 state, validation or I/O failure; 2 syntax error.
-[status=0; expected=0]
-CHECK: relocated full shell provides package help
+Local trusted schema-2 .so packages only; no downloads.
+Install selects a new immutable version and retains old versions.
+Use selects a retained version for rollback. Loaded replacements
+require shell restart. Remove hides commands, retains versions.
+Native modules run in this process, not in a sandbox.
+Executable-only schema-1 packages are explicitly unsupported.
+[process status=0; expected=0]
+CHECK: relocated pkg help exposes version selection
 
-$ /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell pkg install /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/examples/hello-0.1.0
+$ /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell
+stdin (one running shell):
+hello
+pkg install /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/examples/hello-0.2.0
+hello --name relocated
+pkg remove hello
+hello
+exit
 stdout:
-Installed hello 0.1.0
-[status=0; expected=0]
-CHECK: relocated release example installed in temporary HOME
-
-$ /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell hello --name relocated
-stdout:
+Installed hello 0.2.0
 Hello, relocated!
-[status=0; expected=0]
-CHECK: relocated release executes included package
-
-$ /home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell pkg remove hello
-stdout:
-Removed hello 0.1.0
-[status=0; expected=0]
-CHECK: relocated example removed
-CHECK: source and package binaries unchanged
+Removed hello (deactivated; immutable versions retained)
+stderr:
+main: hello: unknown command
+main: hello: unknown command
+[process status=127; expected=127]
+CHECK: relocated release installs/runs/hides included example in one shell
+CHECK: relocated example retained intact with no active selection
+CHECK: host, standard modules, package and release hashes unchanged
 Fixture removed: True
 RESULT: PASS

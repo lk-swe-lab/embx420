@@ -1,20 +1,22 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "PASS",
   "events": [
     {
       "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "pkg",
         "list"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
@@ -23,207 +25,95 @@
     },
     {
       "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "--commands-json"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
-      "stdout": "{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\n",
+      "stdout": "{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"traverse\",\"summary\":\"Print directory trees and modification histograms.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\n",
       "stderr": ""
     },
     {
       "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "pkg",
-        "install",
-        "/home/name/Documents/420-EMBDX/A/build/packages/hello-0.1.0"
+        "/home/name/Documents/420-EMBDX/A/build/aishell"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Installed hello 0.1.0\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "pkg",
-        "list"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "hello 0.1.0\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "pkg",
-        "info",
-        "hello"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Name: hello\nVersion: 0.1.0\nDescription: Print a greeting.\nCommands: hello\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "help",
-        "hello"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Usage: hello [-h] [--name=NAME]\nPrint a greeting. Default name: world.\n  --name=NAME          Set the greeting name.\n  -h, --help           Show help and exit.\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
+      "stdin": "hello\npkg install /home/name/Documents/420-EMBDX/A/build/native-candidates/hello-0.2.0\npkg list\npkg info hello\nhelp hello\nhello --name \"Week 4\"\nhelp --json\npkg remove hello\npkg list\nhelp --json\nhello\npkg use hello 0.2.0\nhello --name restored\npkg remove hello\nhello\nexit\n",
+      "commands": [
         "hello",
-        "--name",
-        "Week 4"
+        "pkg install /home/name/Documents/420-EMBDX/A/build/native-candidates/hello-0.2.0",
+        "pkg list",
+        "pkg info hello",
+        "help hello",
+        "hello --name \"Week 4\"",
+        "help --json",
+        "pkg remove hello",
+        "pkg list",
+        "help --json",
+        "hello",
+        "pkg use hello 0.2.0",
+        "hello --name restored",
+        "pkg remove hello",
+        "hello",
+        "exit"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
       "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Hello, Week 4!\n",
-      "stderr": ""
+      "expected_status": 127,
+      "status": 127,
+      "stdout": "Installed hello 0.2.0\nhello 0.2.0 active\nhello 0.2.0 active\nDescription: Print a greeting.\nCommands: hello\nUsage: hello [-h] [--name=NAME]\nPrint a greeting. Default name: world.\n  --name=NAME          Set the greeting name.\n  -h, --help           Show help and exit.\nHello, Week 4!\n{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"hello\",\"summary\":\"Print a greeting.\",\"origin\":\"package\",\"package\":\"hello\",\"version\":\"0.2.0\"},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"traverse\",\"summary\":\"Print directory trees and modification histograms.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\nRemoved hello (deactivated; immutable versions retained)\nhello 0.2.0 retained\n{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"traverse\",\"summary\":\"Print directory trees and modification histograms.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\nSelected hello 0.2.0\nHello, restored!\nRemoved hello (deactivated; immutable versions retained)\n",
+      "stderr": "main: hello: unknown command\nmain: hello: unknown command\nmain: hello: unknown command\n"
     },
     {
       "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "--commands-json"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"hello\",\"summary\":\"Print a greeting.\",\"origin\":\"package\",\"package\":\"hello\",\"version\":\"0.1.0\"},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "pkg",
-        "remove",
-        "hello"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Removed hello 0.1.0\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "pkg",
         "list"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
-      "stdout": "",
+      "stdout": "hello 0.2.0 retained\n",
       "stderr": ""
     },
     {
       "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
-        "--commands-json"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "{\"schema_version\":1,\"commands\":[{\"name\":\"cat\",\"summary\":\"Concatenate files to standard output.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cd\",\"summary\":\"Change working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"clear\",\"summary\":\"Clear an ANSI-compatible terminal screen.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"cp\",\"summary\":\"Copy files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-delete-line\",\"summary\":\"Delete one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-insert-line\",\"summary\":\"Insert one line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace\",\"summary\":\"Replace all matches using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"edit-replace-line\",\"summary\":\"Replace one existing line using staged file editing.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"exit\",\"summary\":\"Leave the loop with the last command status.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"head\",\"summary\":\"Show the first lines of a file or stream.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"help\",\"summary\":\"List commands or show command usage.\",\"origin\":\"control\",\"package\":null,\"version\":null},{\"name\":\"ls\",\"summary\":\"List directory contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mkdir\",\"summary\":\"Create directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"mv\",\"summary\":\"Move files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pkg\",\"summary\":\"Manage local packages.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"pwd\",\"summary\":\"Print physical working directory.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rg\",\"summary\":\"Search explicit files and directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"rmdir\",\"summary\":\"Remove empty directories.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"stat\",\"summary\":\"Inspect file metadata.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"tail\",\"summary\":\"Display the last N lines (default 10); never create input files.\",\"origin\":\"builtin\",\"package\":null,\"version\":null},{\"name\":\"touch\",\"summary\":\"Create empty files or update timestamps without changing contents.\",\"origin\":\"builtin\",\"package\":null,\"version\":null}]}\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/Documents/420-EMBDX/A/build/main",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "hello"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 127,
       "status": 127,
@@ -232,143 +122,276 @@
     },
     {
       "argv": [
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell",
-        "pwd"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell",
-        "help",
-        "pkg"
-      ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
-      "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
-        "LC_ALL": "C",
-        "PATH": "/nonexistent"
-      },
-      "timeout_seconds": 10,
-      "expected_status": 0,
-      "status": 0,
-      "stdout": "Manage local directory packages.\nUsage: pkg -h | --help\n       pkg list\n       pkg info NAME\n       pkg install [--] DIRECTORY\n       pkg remove [--] NAME\nInstall does not build or run packages. No downloads or dependencies.\nUse remove then install to update. Partial removal can leave a record.\nStatus: 0 success; 1 state, validation or I/O failure; 2 syntax error.\n",
-      "stderr": ""
-    },
-    {
-      "argv": [
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "pkg",
-        "install",
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/examples/hello-0.1.0"
+        "use",
+        "hello",
+        "0.2.0"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
-      "stdout": "Installed hello 0.1.0\n",
+      "stdout": "Selected hello 0.2.0\n",
       "stderr": ""
     },
     {
       "argv": [
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "hello",
         "--name",
-        "relocated"
+        "fresh"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
-      "stdout": "Hello, relocated!\n",
+      "stdout": "Hello, fresh!\n",
       "stderr": ""
     },
     {
       "argv": [
-        "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/relocated-release/bin/aishell",
+        "/home/name/Documents/420-EMBDX/A/build/aishell",
         "pkg",
         "remove",
         "hello"
       ],
-      "cwd": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
       "env": {
-        "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-        "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
         "LC_ALL": "C",
         "PATH": "/nonexistent"
       },
+      "stdin": "",
+      "commands": [],
       "timeout_seconds": 10,
       "expected_status": 0,
       "status": 0,
-      "stdout": "Removed hello 0.1.0\n",
+      "stdout": "Removed hello (deactivated; immutable versions retained)\n",
       "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell",
+        "pwd"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
+      "env": {
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/release-home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
+        "LC_ALL": "C",
+        "PATH": "/nonexistent"
+      },
+      "stdin": "",
+      "commands": [],
+      "timeout_seconds": 10,
+      "expected_status": 0,
+      "status": 0,
+      "stdout": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell",
+        "help",
+        "pkg"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
+      "env": {
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/release-home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
+        "LC_ALL": "C",
+        "PATH": "/nonexistent"
+      },
+      "stdin": "",
+      "commands": [],
+      "timeout_seconds": 10,
+      "expected_status": 0,
+      "status": 0,
+      "stdout": "Usage: pkg list\n       pkg info NAME\n       pkg install [--] DIRECTORY\n       pkg use NAME VERSION\n       pkg remove [--] NAME\nLocal trusted schema-2 .so packages only; no downloads.\nInstall selects a new immutable version and retains old versions.\nUse selects a retained version for rollback. Loaded replacements\nrequire shell restart. Remove hides commands, retains versions.\nNative modules run in this process, not in a sandbox.\nExecutable-only schema-1 packages are explicitly unsupported.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell"
+      ],
+      "cwd": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
+      "env": {
+        "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/release-home",
+        "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
+        "LC_ALL": "C",
+        "PATH": "/nonexistent"
+      },
+      "stdin": "hello\npkg install /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/examples/hello-0.2.0\nhello --name relocated\npkg remove hello\nhello\nexit\n",
+      "commands": [
+        "hello",
+        "pkg install /home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/examples/hello-0.2.0",
+        "hello --name relocated",
+        "pkg remove hello",
+        "hello",
+        "exit"
+      ],
+      "timeout_seconds": 10,
+      "expected_status": 127,
+      "status": 127,
+      "stdout": "Installed hello 0.2.0\nHello, relocated!\nRemoved hello (deactivated; immutable versions retained)\n",
+      "stderr": "main: hello: unknown command\nmain: hello: unknown command\n"
     }
   ],
   "checks": [
     "initial package state empty",
-    "catalog hello presence matches installed=False",
-    "install published package in temporary HOME",
-    "installed manifest and payload bytes match generated bundle",
-    "list reports installed version",
-    "info text matches source manifest",
-    "installed help exposes name option",
-    "package execution preserves multiword argument",
-    "catalog hello presence matches installed=True",
-    "remove erased installed package directory",
-    "list is empty after removal",
-    "catalog hello presence matches installed=False",
-    "catalog returns exactly to baseline after removal",
-    "removed command is unknown (127), without PATH fallback",
-    "real full-shell release copied outside repository",
-    "relocated shell executes from unrelated directory",
-    "relocated full shell provides package help",
-    "relocated release example installed in temporary HOME",
-    "relocated release executes included package",
-    "relocated example removed",
-    "source and package binaries unchanged"
+    "catalog hello presence=False",
+    "catalog count matches module inventory",
+    "same running shell installs and lists native hello",
+    "info includes manifest description and commands",
+    "same running shell discovers help and executes multiword greeting",
+    "catalog hello presence=True",
+    "catalog count matches module inventory",
+    "catalog hello presence=False",
+    "catalog count matches module inventory",
+    "remove restores baseline catalog in same shell",
+    "remove hides commands while retaining installed version",
+    "use reactivates the retained same-version module without restart",
+    "exit preserves final unknown-command status in same shell",
+    "deactivated payload retained; active selection absent",
+    "installed manifest and payload bytes match bundle",
+    "fresh process sees retained inactive version",
+    "fresh process cannot execute removed command; no PATH fallback",
+    "use persists exact active version",
+    "fresh process loads selected retained version",
+    "final source-shell selection deactivated",
+    "complete release copied byte-for-byte outside repository",
+    "relocated shell resolves its modules from unrelated cwd",
+    "relocated pkg help exposes version selection",
+    "relocated release installs/runs/hides included example in one shell",
+    "relocated example retained intact with no active selection",
+    "host, standard modules, package and release hashes unchanged"
   ],
   "inputs": {
-    "source_binary": "/home/name/Documents/420-EMBDX/A/build/main",
-    "source_sha256": "86e391b1554247b5f445a7cfe9dda53f11a5bda9c40e61ece67d8efe2a361f11",
-    "package": "/home/name/Documents/420-EMBDX/A/build/packages/hello-0.1.0",
-    "package_binary_sha256": "e63075b7312309235636cef713affcf4b70165c9985cf86d7f555b6b7f5d64d1"
+    "sha256": {
+      "/home/name/Documents/420-EMBDX/A/build/aishell": "ae1b8dcb050ed78e2e13825ff90d7518a2ce23d79b014502249b6b087536c864",
+      "/home/name/Documents/420-EMBDX/A/build/modules/cat.so": "fab5b8d2f072b2219c0e11f7ae858b794b55959f21dbeec75e504d6c1e73a45b",
+      "/home/name/Documents/420-EMBDX/A/build/modules/cd.so": "dcc6b9b7c5981e0a5558a93affe9640be1e3464e0d3360e6654dfbe8473e2a7c",
+      "/home/name/Documents/420-EMBDX/A/build/modules/clear.so": "7b148162c45f20f3a401488c46a38be7f65f203da961eb6347fa9068e5fa3960",
+      "/home/name/Documents/420-EMBDX/A/build/modules/cp.so": "139ed01e674793a7c75a83ff9911e91d8f0b35a8c16c850d59d91512ff632fbc",
+      "/home/name/Documents/420-EMBDX/A/build/modules/edit-delete-line.so": "65be614e92184dbb2087ef7c94c64c6b47a86e56ce9cbfeb5f7ad6deaec0b93b",
+      "/home/name/Documents/420-EMBDX/A/build/modules/edit-insert-line.so": "86a181ca67202d4808f2120f2c190df7ff8d96abb68275237e3aacc981e08c6f",
+      "/home/name/Documents/420-EMBDX/A/build/modules/edit-replace-line.so": "b7985099d58276252593991939b176ffbc955474bc45db863d2631dd51105bbb",
+      "/home/name/Documents/420-EMBDX/A/build/modules/edit-replace.so": "7ad870d421bdf0d447bbf3665d936807580c749fff2e9deb5ed4ae4b121bd9d3",
+      "/home/name/Documents/420-EMBDX/A/build/modules/exit.so": "313d2535009dd3630bd6e6322cb89645348067d257e537bfce20b2d623de991f",
+      "/home/name/Documents/420-EMBDX/A/build/modules/head.so": "2d723e4cfe1e8eddafd983a0a531e491c12c2a4f22a45ddc9cfd70cf1f1f988a",
+      "/home/name/Documents/420-EMBDX/A/build/modules/help.so": "f01fb3f85804463a6b6f28566ca53be1c2edfffdde2ab2f2a38d07896d915eab",
+      "/home/name/Documents/420-EMBDX/A/build/modules/ls.so": "b483357daf1a9d8da9f78707a2a64f94e0380a115f2ef3e7bc7f8b25804298c8",
+      "/home/name/Documents/420-EMBDX/A/build/modules/mkdir.so": "d15a75330ed01c9b84712552cd56652ea041a7418c8bde03804bbf3bb82cd00c",
+      "/home/name/Documents/420-EMBDX/A/build/modules/mv.so": "177543a5201fcb65b32ba685f3ec02c92f8b9759ae90599eef32a4f63126b608",
+      "/home/name/Documents/420-EMBDX/A/build/modules/pkg.so": "ac678a7c775149a26b3f52067037cc09e1dea21bfa94712462131dbfa55891d1",
+      "/home/name/Documents/420-EMBDX/A/build/modules/pwd.so": "b4fd8ddf282aec07b86c0854bc945c59a371908a97e6e2f1aaae84d291182157",
+      "/home/name/Documents/420-EMBDX/A/build/modules/rg.so": "7564c2927bb3461a1c25a876c7004dc8d658968f089be122181db4ad00bde6d9",
+      "/home/name/Documents/420-EMBDX/A/build/modules/rmdir.so": "19fd3ead1c4129f27122a54dd2033840c87d63e3b9a687027b299e1fd8d60b5a",
+      "/home/name/Documents/420-EMBDX/A/build/modules/stat.so": "ee7d58156d033377f16ee8608604f0a5d96b8d61992fd140325006daa39ee9f1",
+      "/home/name/Documents/420-EMBDX/A/build/modules/tail.so": "4e51bdaf131f4e6b541dde541b716c4e8e93b92fb480da4e6cda5e1cd0bdccb7",
+      "/home/name/Documents/420-EMBDX/A/build/modules/touch.so": "52ba39bab7589a325c7f1861358da08c26ecc6657f93cc5869716410730a1f82",
+      "/home/name/Documents/420-EMBDX/A/build/modules/traverse.so": "dc48dbf6e708f7cb91738409d4615f5f8dbe7fcbcbc58b762342cacc06798498"
+    },
+    "package": "/home/name/Documents/420-EMBDX/A/build/native-candidates/hello-0.2.0",
+    "package_sha256": {
+      "docs/hello.md": "1f2955a0391c92976ef0c39862bcc30c79483c57f1f2e7eb6ccc689ba0663976",
+      "lib/hello.so": "7e749f3ef2b6de7470ec5d71b678d0642951ddab17526c24a42d864c77dcba38",
+      "metadata/commands.json": "a514b4b09aef53981b3cf5c7dde68eebc64e8de68cdd132423be091e94b81fb6",
+      "pkg.json": "b67b87319095f57d91f69c16a7a0f6843c6704540091a5345b84135b068a7682"
+    },
+    "release": "/home/name/Documents/420-EMBDX/A/build/so-reviewed-releases/aishell-0.2.0",
+    "release_sha256": {
+      "README.md": "083a6ccd10381577f521a00ad24b5ac662e717f015edc2148c98e0a3b47561a5",
+      "SYSTEM.md": "61edadecf35bac5854fc01152e42aa98e5f1c99a7f594ef984944c879548fd20",
+      "bin/aishell": "ae1b8dcb050ed78e2e13825ff90d7518a2ce23d79b014502249b6b087536c864",
+      "bin/modules/cat.so": "fab5b8d2f072b2219c0e11f7ae858b794b55959f21dbeec75e504d6c1e73a45b",
+      "bin/modules/cd.so": "dcc6b9b7c5981e0a5558a93affe9640be1e3464e0d3360e6654dfbe8473e2a7c",
+      "bin/modules/clear.so": "7b148162c45f20f3a401488c46a38be7f65f203da961eb6347fa9068e5fa3960",
+      "bin/modules/cp.so": "139ed01e674793a7c75a83ff9911e91d8f0b35a8c16c850d59d91512ff632fbc",
+      "bin/modules/edit-delete-line.so": "65be614e92184dbb2087ef7c94c64c6b47a86e56ce9cbfeb5f7ad6deaec0b93b",
+      "bin/modules/edit-insert-line.so": "86a181ca67202d4808f2120f2c190df7ff8d96abb68275237e3aacc981e08c6f",
+      "bin/modules/edit-replace-line.so": "b7985099d58276252593991939b176ffbc955474bc45db863d2631dd51105bbb",
+      "bin/modules/edit-replace.so": "7ad870d421bdf0d447bbf3665d936807580c749fff2e9deb5ed4ae4b121bd9d3",
+      "bin/modules/exit.so": "313d2535009dd3630bd6e6322cb89645348067d257e537bfce20b2d623de991f",
+      "bin/modules/head.so": "2d723e4cfe1e8eddafd983a0a531e491c12c2a4f22a45ddc9cfd70cf1f1f988a",
+      "bin/modules/help.so": "f01fb3f85804463a6b6f28566ca53be1c2edfffdde2ab2f2a38d07896d915eab",
+      "bin/modules/ls.so": "b483357daf1a9d8da9f78707a2a64f94e0380a115f2ef3e7bc7f8b25804298c8",
+      "bin/modules/mkdir.so": "d15a75330ed01c9b84712552cd56652ea041a7418c8bde03804bbf3bb82cd00c",
+      "bin/modules/mv.so": "177543a5201fcb65b32ba685f3ec02c92f8b9759ae90599eef32a4f63126b608",
+      "bin/modules/pkg.so": "ac678a7c775149a26b3f52067037cc09e1dea21bfa94712462131dbfa55891d1",
+      "bin/modules/pwd.so": "b4fd8ddf282aec07b86c0854bc945c59a371908a97e6e2f1aaae84d291182157",
+      "bin/modules/rg.so": "7564c2927bb3461a1c25a876c7004dc8d658968f089be122181db4ad00bde6d9",
+      "bin/modules/rmdir.so": "19fd3ead1c4129f27122a54dd2033840c87d63e3b9a687027b299e1fd8d60b5a",
+      "bin/modules/stat.so": "ee7d58156d033377f16ee8608604f0a5d96b8d61992fd140325006daa39ee9f1",
+      "bin/modules/tail.so": "4e51bdaf131f4e6b541dde541b716c4e8e93b92fb480da4e6cda5e1cd0bdccb7",
+      "bin/modules/touch.so": "52ba39bab7589a325c7f1861358da08c26ecc6657f93cc5869716410730a1f82",
+      "bin/modules/traverse.so": "dc48dbf6e708f7cb91738409d4615f5f8dbe7fcbcbc58b762342cacc06798498",
+      "docs/cat.md": "560dcd5ba8d4f7ab037ef51292b18d14ce452ab23688cdeb5b5bfbcaa5235921",
+      "docs/cd.md": "ee8e6aa73aa5d5e69a3f62386dca36f2608284fccce772a8e28eef778770c377",
+      "docs/clear.md": "8f39ed6bc13706ee660f8277ec161babb312659e64785eec0baf7d15163c2dbf",
+      "docs/cp.md": "93ffbb660914f04ae2232335988bff9eff1d7f1552d502ae034daa8253ad0ef8",
+      "docs/edit-delete-line.md": "2cfd93ce4c76707de703c6c34df17a802253621ec6a0dadbf9d1fa6b2709777b",
+      "docs/edit-insert-line.md": "f15e0557d1272da997b54c6585549510385d6421c844f84d7537682d384384ff",
+      "docs/edit-replace-line.md": "c4a8aaee070ec6a8001a50c91960ea09ae75cd1f1c6d4a4a133f252ac6733f07",
+      "docs/edit-replace.md": "795fc038f5f55dca5d4aa95b83be7f3095fc2d96e2fcdc7e61b48ea70690b254",
+      "docs/exit.md": "92273ddef09d2866a698c5f10f9ecdf89bca461c204cda69c8410f095696117a",
+      "docs/head.md": "aa97d40d106ad47a432a139353fafb65f867ff13a9e345ec4f2e3f05ec48f473",
+      "docs/help.md": "d8fa1771c86dc5c4e63c7c8d0a8ceba3988af5dd36404719ab0bd5eb353adad5",
+      "docs/ls.md": "5a7abdb1a335958b3d2c94515eb2653cc31938994a9ccf56fbee674f870e7c4d",
+      "docs/mkdir.md": "729f46171a5e8945f616246a0bb5985056d1c5e40ebf273a7e48c8b3d9ee9dc3",
+      "docs/mv.md": "c2959ea1696a7bfdd57a75fb62c3da0dea5cea399431456480e477f990ad809d",
+      "docs/pkg.md": "10e3c06d859549ed01c679236dc0ca03201f244cba82fb3c08c6c7e782a7d6e1",
+      "docs/pwd.md": "ec5164cad33480cde671ee3003a6bb902b1d87c89bf09f4021d4805706886613",
+      "docs/rg.md": "14793c446b5195c919bb02732a41a5f79ed0475e8795e5bdbd9a2eac20efedb9",
+      "docs/rmdir.md": "36fcdd7477571fc44c98c5dd825d33ca54352d9cc1682a1b68d6ee5c583ae8fd",
+      "docs/stat.md": "cf184500d70f78cf0eda2c96dfabec7644d1407275d8eab252e8e418c1562d1c",
+      "docs/tail.md": "c450b2f5e43cfcda9c4d4a778d68302c21c2830093f23dee0013f44065a577fb",
+      "docs/touch.md": "04b765c99f1beef050a3c0c081f74233d0c806eb878d5765516a521571e355b8",
+      "docs/traverse.md": "6e75333487bccf1eec69b178fceb5813c59d2a232bc9f90d47222596b9168e3e",
+      "examples/hello-0.2.0/docs/hello.md": "1f2955a0391c92976ef0c39862bcc30c79483c57f1f2e7eb6ccc689ba0663976",
+      "examples/hello-0.2.0/lib/hello.so": "7e749f3ef2b6de7470ec5d71b678d0642951ddab17526c24a42d864c77dcba38",
+      "examples/hello-0.2.0/metadata/commands.json": "a514b4b09aef53981b3cf5c7dde68eebc64e8de68cdd132423be091e94b81fb6",
+      "examples/hello-0.2.0/pkg.json": "b67b87319095f57d91f69c16a7a0f6843c6704540091a5345b84135b068a7682",
+      "metadata/commands.json": "63258825cebe4f6f1684e567a253feacf6a4fe496ccd70ddb70f3a4b24d83d43",
+      "release.json": "afc2f24972bdee74ed0a86b4667924fb2d0603ca424bea826ea927e58414a542"
+    }
   },
+  "runner_cwd": "/home/name/.hermes/cache/scratch/so-demo-cwd-bspw_o3h",
+  "input_file_count": 80,
   "namespace": {
-    "root": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk",
+    "root": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing",
     "env": {
-      "HOME": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/home",
-      "TMPDIR": "/home/name/.hermes/profiles/embx420/cache/scratch/packaging-demo-vullq_tk/tmp",
+      "HOME": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/home",
+      "TMPDIR": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/tmp",
       "LC_ALL": "C",
       "PATH": "/nonexistent"
     }
   },
   "relocated_release": {
-    "source": "/home/name/Documents/420-EMBDX/A/build/releases/aishell-0.1.0",
-    "sha256": "86e391b1554247b5f445a7cfe9dda53f11a5bda9c40e61ece67d8efe2a361f11"
+    "source": "/home/name/Documents/420-EMBDX/A/build/so-reviewed-releases/aishell-0.2.0",
+    "binary": "/home/name/.hermes/cache/scratch/packaging-demo-q2671ing/relocated-release/bin/aishell",
+    "sha256": "ae1b8dcb050ed78e2e13825ff90d7518a2ce23d79b014502249b6b087536c864"
   },
-  "cleanup_verified": true
+  "cleanup_verified": true,
+  "process_count": 11,
+  "loop_input_count": 22,
+  "check_count": 27
 }

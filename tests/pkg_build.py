@@ -16,12 +16,12 @@ def main():
     output = args.output.resolve()
     flags = ['-std=c17', '-Wall', '-Wextra', '-Wpedantic', '-Werror',
              '-Wshadow', '-Wconversion', '-Wformat=2', '-Wstrict-prototypes',
-             '-g', '-O1', '-Isrc', '-Ibuild/argtable3/include']
+             '-g', '-O1', '-Isrc', '-Ibuild/module-deps/argtable3/include']
     sanitize = (['-fsanitize=address,undefined', '-fno-omit-frame-pointer',
                  '-no-pie'] if args.sanitize else [])
     sources = ['src/cmd_pkg.c', 'src/pkg_store.c', 'src/pkg_fs.c',
                'src/pkg_json.c', 'src/pkg_schema.c']
-    libraries = ['-Lbuild/argtable3/lib', '-largtable3', '-lm']
+    libraries = ['-Lbuild/module-deps/argtable3/lib', '-largtable3', '-lm']
     wrappers = ('openat,close,read,__read_chk,write,renameat2,unlinkat,malloc,calloc,strdup,'
                 'arg_lit0,arg_parse')
     wrap = ['-Wl,' + ','.join('--wrap=' + name for name in wrappers.split(','))]

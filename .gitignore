@@ -4,5 +4,9 @@ __pycache__/
 data.sqlite
 data.sqlite-*
 build/
-scripts/
+scripts/*
+!scripts/build_modules.py
+!scripts/build_catalog.py
+!scripts/build_host_release.py
+!scripts/bootstrap_dependencies.py
 .tmp/

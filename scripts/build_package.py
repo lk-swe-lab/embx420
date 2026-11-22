@@ -1,5 +1,6 @@
 """Build a local directory package. Never write installed package state."""
 import argparse
+import ctypes
 import json
 from pathlib import Path
 import re
@@ -106,7 +107,7 @@ def manifest_check(manifest):
         'schema_version', 'name', 'version', 'description', 'commands',
         'files', 'docs', 'dependencies'}, 'manifest fields mismatch')
     require(type(manifest['schema_version']) is int and
-            manifest['schema_version'] == 1, 'unsupported schema version')
+            manifest['schema_version'] in (1, 2), 'unsupported schema version')
     require(name_valid(manifest['name']), 'invalid package name')
     version = manifest['version']
     require(isinstance(version, str) and re.fullmatch(
@@ -121,8 +122,9 @@ def manifest_check(manifest):
     files = set(manifest['files'])
     docs = sorted('docs/' + name + '.md' for name in manifest['commands'])
     require(manifest['docs'] == docs, 'required generated docs mismatch')
-    require({'metadata/commands.json', *docs,
-             *('bin/' + name for name in manifest['commands'])} <= files,
+    binaries = (('lib/' + name + '.so' if manifest['schema_version'] == 2
+                 else 'bin/' + name) for name in manifest['commands'])
+    require({'metadata/commands.json', *docs, *binaries} <= files,
             'required generated inventory missing')
     require('pkg.json' not in files, 'manifest cannot list itself')
     require(not any('/'.join(path.split('/')[:i]) in files
@@ -249,6 +251,17 @@ def source_inventory(source, support):
             'missing source support file')
 
 
+def publish_directory(stage, destination):
+    """Publish once; never replace even a concurrently created empty target."""
+    libc = ctypes.CDLL(None, use_errno=True)
+    rename = libc.renameat2
+    rename.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int,
+                       ctypes.c_char_p, ctypes.c_uint]
+    rename.restype = ctypes.c_int
+    if rename(-100, bytes(stage), -100, bytes(destination), 1) != 0:
+        raise OSError(ctypes.get_errno(), 'package publication failed')
+
+
 def build(args):
     """Render all content privately, then publish the complete directory."""
     # Reject overlap before running the exporter or creating any output.
@@ -274,7 +287,10 @@ def build(args):
             'exported commands do not match manifest')
     metadata = {'schema_version': 1, 'package': manifest['name'],
                 'version': manifest['version'], 'commands': [command]}
-    generated = {'bin/' + command['name'], 'metadata/commands.json',
+    binary_path = ('lib/' + command['name'] + '.so'
+                   if manifest['schema_version'] == 2
+                   else 'bin/' + command['name'])
+    generated = {binary_path, 'metadata/commands.json',
                  'docs/' + command['name'] + '.md'}
     source_inventory(args.manifest.parent, set(manifest['files']) - generated)
     no_links(args.output_root)
@@ -293,8 +309,9 @@ def build(args):
         for name in manifest['files']:
             target = stage / name
             target.parent.mkdir(parents=True, exist_ok=True)
-            if name == 'bin/' + command['name']:
-                data = regular_read(args.binary, 16777216, executable=True)
+            if name == binary_path:
+                data = regular_read(args.binary, 16777216,
+                                    executable=manifest['schema_version'] == 1)
             elif name == 'metadata/commands.json':
                 data = (json.dumps(metadata, ensure_ascii=False,
                                    indent=2) + '\n').encode('utf-8')
@@ -307,7 +324,8 @@ def build(args):
             require(len(data) <= 16777216 and total <= 67108864,
                     'payload byte limit exceeded')
             target.write_bytes(data)
-            target.chmod(0o755 if name == 'bin/' + command['name'] else 0o644)
+            target.chmod(0o755 if name == binary_path and
+                         manifest['schema_version'] == 1 else 0o644)
         for directory in [stage, *[p for p in stage.rglob('*') if p.is_dir()]]:
             directory.chmod(0o755)
         if destination.exists():
@@ -323,7 +341,7 @@ def build(args):
                     require(regular_read(path, 16777216) == expected.read_bytes(),
                             'existing output differs (bytes): ' + str(path))
         else:
-            stage.rename(destination)
+            publish_directory(stage, destination)
     return destination
 
 
@@ -331,10 +349,10 @@ def main():
     """Parse build inputs; report one diagnostic on build failure."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path,
-                        default=ROOT / 'packages/hello/pkg.json')
-    parser.add_argument('--binary', type=Path, default=ROOT / 'build/hello')
+                        default=ROOT / 'packages/hello-so/pkg.json')
+    parser.add_argument('--binary', type=Path, default=ROOT / 'build/example-modules/hello.so')
     parser.add_argument('--exporter', type=Path, default=ROOT / 'build/export-hello')
-    parser.add_argument('--output-root', type=Path, default=ROOT / 'build/packages')
+    parser.add_argument('--output-root', type=Path, default=ROOT / 'build/native-candidates')
     args = parser.parse_args()
     try:
         print(build(args))
