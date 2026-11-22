@@ -1,0 +1,83 @@
+-- Use -- to start a line comment. End each definition with a semicolon.
+-- token defines a token type. Word is the name of this type.
+-- Accept simple unquoted words, file paths, numbers, and flags.
+token Word ((letter | digit | ["_./-:"])+) ;
+
+-- separator defines list rules. "" means no separator token is required.
+-- This list can contain zero or more Arg nodes. Its category is [Arg].
+-- The lexer skips spaces between tokens.
+separator Arg "" ;
+
+-- A literal stores text. A variable reference stores a name for later lookup.
+-- The quoted dollar sign is a terminal. Word supplies the variable name.
+Literal. Arg ::= Word ;
+Variable. Arg ::= "$" Word ;
+
+-- A subcommand stores an inner pipeline as an argument node.
+-- Each backquote is a terminal. The second backquote ends the subcommand.
+Subcommand. Arg ::= "`" InnerPipeline "`" ;
+
+-- Inner arguments cannot contain subcommands. This prevents nested backquotes.
+-- Separate categories keep a closing backquote from starting an argument.
+InnerLiteral. InnerArg ::= Word ;
+InnerVariable. InnerArg ::= "$" Word ;
+separator InnerArg "" ;
+
+-- An inner command has its own arguments and optional redirection.
+InnerCmd. InnerCommand ::= Word [InnerArg] OptRedir ;
+
+-- Use the same right-recursive structure as the outer pipeline.
+InnerSingle. InnerPipeline ::= InnerCommand ;
+InnerPipe. InnerPipeline ::= InnerCommand "|" InnerPipeline ;
+
+-- Cmd is the AST constructor. The period separates it from the category.
+-- Command is the category. ::= introduces the parts of the rule.
+-- The first Word is the command name. [Arg] is the argument list.
+-- OptRedir belongs to this command, not to the complete pipeline.
+-- Put redirection after the arguments. Each file name is a Word token.
+Cmd. Command ::= Word [Arg] OptRedir ;
+
+-- The empty rule permits a command with no redirection.
+NoRedir. OptRedir ::= ;
+
+-- Read standard input from a file, or write standard output to a file.
+-- These rules describe syntax only. They do not open files.
+InRedir. OptRedir ::= "<" Word ;
+OutRedir. OptRedir ::= ">" Word ;
+
+-- Permit one input file and one output file in either order.
+-- Repeated input or output redirection is not supported.
+InOutRedir. OptRedir ::= "<" Word ">" Word ;
+OutInRedir. OptRedir ::= ">" Word "<" Word ;
+
+-- Single ends the recursion with one command.
+Single. Pipeline ::= Command ;
+
+-- Pipe contains a command and the remaining pipeline.
+-- Pipeline on the right makes this rule recursive.
+Pipe. Pipeline ::= Command "|" Pipeline ;
+
+-- Input describes jobs in their original order.
+-- An assignment is a separate input form, not an external command.
+-- The first Word is the name. The second Word is the literal value.
+-- An assignment can end a line or precede another input after a semicolon.
+Assign. Input ::= Word "=" Word ;
+ThenAssign. Input ::= Word "=" Word ";" Input ;
+
+-- Keep a conditional on one line. Its condition and body are pipelines.
+If. Input ::= "if" Pipeline ";" "then" Pipeline ";" "fi" ;
+
+-- These two rules end the sequence with a foreground or background job.
+LastFG. Input ::= Pipeline ;
+LastBG. Input ::= Pipeline "&" ;
+
+-- A semicolon separates a foreground job from the remaining input.
+-- An ampersand marks a background job and separates it from the next job.
+-- Input on the right makes the job sequence recursive.
+ThenFG. Input ::= Pipeline ";" Input ;
+ThenBG. Input ::= Pipeline "&" Input ;
+
+-- Start all parsing with Input. Keep only one parser entry point.
+-- BNFC generates psInput for strings and pInput for file streams.
+entrypoints Input ;
+
